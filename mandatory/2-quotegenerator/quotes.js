@@ -22,127 +22,57 @@ function pickFromArray(choices) {
 }
 
 // A list of quotes you can use in your app.
-// Feel free to edit them, and to add your own favourites.
+// Feel free to edit them, and to add your own favorites.
 const quotes = [
-  {
-    quote: "Life isn’t about getting and having, it’s about giving and being.",
-    author: "Kevin Kruse",
-  },
-  {
-    quote: "Whatever the mind of man can conceive and believe, it can achieve.",
-    author: "Napoleon Hill",
-  },
   {
     quote: "Strive not to be a success, but rather to be of value.",
     author: "Albert Einstein",
   },
-  {
-    quote:
-      "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",
-    author: "Robert Frost",
-  },
+  ,
   {
     quote: "I attribute my success to this: I never gave or took any excuse.",
     author: "Florence Nightingale",
   },
-  {
-    quote: "You miss 100% of the shots you don’t take.",
-    author: "Wayne Gretzky",
-  },
+  
   {
     quote:
       "I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed.",
     author: "Michael Jordan",
   },
-  {
-    quote:
-      "The most difficult thing is the decision to act, the rest is merely tenacity.",
-    author: "Amelia Earhart",
-  },
-  {
-    quote: "Every strike brings me closer to the next home run.",
-    author: "Babe Ruth",
-  },
-  {
-    quote: "Definiteness of purpose is the starting point of all achievement.",
-    author: "W. Clement Stone",
-  },
+  
   {
     quote: "We must balance conspicuous consumption with conscious capitalism.",
     author: "Kevin Kruse",
   },
-  {
-    quote: "Life is what happens to you while you’re busy making other plans.",
-    author: "John Lennon",
-  },
-  {
-    quote: "We become what we think about.",
-    author: "Earl Nightingale",
-  },
+  
   {
     quote:
       "Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover.",
     author: "Mark Twain",
   },
-  {
-    quote: "Life is 10% what happens to me and 90% of how I react to it.",
-    author: "Charles Swindoll",
-  },
-  {
-    quote:
-      "The most common way people give up their power is by thinking they don’t have any.",
-    author: "Alice Walker",
-  },
+  
   {
     quote: "The mind is everything. What you think you become.",
     author: "Buddha",
   },
-  {
-    quote:
-      "The best time to plant a tree was 20 years ago. The second best time is now.",
-    author: "Chinese Proverb",
-  },
+  
   {
     quote: "An unexamined life is not worth living.",
     author: "Socrates",
   },
-  {
-    quote: "Eighty percent of success is showing up.",
-    author: "Woody Allen",
-  },
+  
   {
     quote:
       "Your time is limited, so don’t waste it living someone else’s life.",
     author: "Steve Jobs",
   },
-  {
-    quote: "Winning isn’t everything, but wanting to win is.",
-    author: "Vince Lombardi",
-  },
-  {
-    quote:
-      "I am not a product of my circumstances. I am a product of my decisions.",
-    author: "Stephen Covey",
-  },
+  
   {
     quote:
       "Every child is an artist.  The problem is how to remain an artist once he grows up.",
     author: "Pablo Picasso",
   },
-  {
-    quote:
-      "You can never cross the ocean until you have the courage to lose sight of the shore.",
-    author: "Christopher Columbus",
-  },
-  {
-    quote:
-      "I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
-    author: "Maya Angelou",
-  },
-  {
-    quote: "Either you run the day, or the day runs you.",
-    author: "Jim Rohn",
-  },
+  
   {
     quote: "Whether you think you can or you think you can’t, you’re right.",
     author: "Henry Ford",
@@ -152,86 +82,24 @@ const quotes = [
       "The two most important days in your life are the day you are born and the day you find out why.",
     author: "Mark Twain",
   },
-  {
-    quote:
-      "Whatever you can do, or dream you can, begin it.  Boldness has genius, power and magic in it.",
-    author: "Johann Wolfgang von Goethe",
-  },
+  
   {
     quote: "The best revenge is massive success.",
     author: "Frank Sinatra",
   },
-  {
-    quote:
-      "People often say that motivation doesn’t last. Well, neither does bathing.  That’s why we recommend it daily.",
-    author: "Zig Ziglar",
-  },
-  {
-    quote: "Life shrinks or expands in proportion to one’s courage.",
-    author: "Anais Nin",
-  },
-  {
-    quote:
-      "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced.",
-    author: "Vincent Van Gogh",
-  },
+  
   {
     quote:
       "There is only one way to avoid criticism: do nothing, say nothing, and be nothing.",
     author: "Aristotle",
   },
-  {
-    quote:
-      "Ask and it will be given to you; search, and you will find; knock and the door will be opened for you.",
-    author: "Jesus",
-  },
-  {
-    quote:
-      "The only person you are destined to become is the person you decide to be.",
-    author: "Ralph Waldo Emerson",
-  },
-  {
-    quote:
-      "Go confidently in the direction of your dreams.  Live the life you have imagined.",
-    author: "Henry David Thoreau",
-  },
-  {
-    quote:
-      "When I stand before God at the end of my life, I would hope that I would not have a single bit of talent left and could say, I used everything you gave me.",
-    author: "Erma Bombeck",
-  },
+  
   {
     quote:
       "Few things can help an individual more than to place responsibility on him, and to let him know that you trust him.",
     author: "Booker T. Washington",
   },
-  {
-    quote:
-      "Certain things catch your eye, but pursue only those that capture the heart.",
-    author: " Ancient Indian Proverb",
-  },
-  {
-    quote: "Believe you can and you’re halfway there.",
-    author: "Theodore Roosevelt",
-  },
-  {
-    quote: "Everything you’ve ever wanted is on the other side of fear.",
-    author: "George Addair",
-  },
-  {
-    quote:
-      "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light.",
-    author: "Plato",
-  },
-  {
-    quote:
-      "Teach thy tongue to say, “I do not know,” and thous shalt progress.",
-    author: "Maimonides",
-  },
-  {
-    quote: "Start where you are. Use what you have.  Do what you can.",
-    author: "Arthur Ashe",
-  },
+  
   {
     quote:
       "When I was 5 years old, my mother always told me that happiness was the key to life.  When I went to school, they asked me what I wanted to be when I grew up.  I wrote down ‘happy’.  They told me I didn’t understand the assignment, and I told them they didn’t understand life.",
@@ -264,25 +132,7 @@ const quotes = [
       "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
     author: "Maya Angelou",
   },
-  {
-    quote:
-      "Happiness is not something readymade.  It comes from your own actions.",
-    author: "Dalai Lama",
-  },
-  {
-    quote:
-      "If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on.",
-    author: "Sheryl Sandberg",
-  },
-  {
-    quote:
-      "First, have a definite, clear practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends; wisdom, money, materials, and methods. Third, adjust all your means to that end.",
-    author: "Aristotle",
-  },
-  {
-    quote: "If the wind will not serve, take to the oars.",
-    author: "Latin Proverb",
-  },
+ 
   {
     quote:
       "You can’t fall if you don’t climb.  But there’s no joy in living your whole life on the ground.",
@@ -312,16 +162,7 @@ const quotes = [
       "I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do.",
     author: "Leonardo da Vinci",
   },
-  {
-    quote:
-      "Limitations live only in our minds.  But if we use our imaginations, our possibilities become limitless.",
-    author: "Jamie Paolinetti",
-  },
-  {
-    quote:
-      "You take your life in your own hands, and what happens? A terrible thing, no one to blame.",
-    author: "Erica Jong",
-  },
+  
   {
     quote:
       "What’s money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do.",
@@ -340,72 +181,8 @@ const quotes = [
     quote: "A person who never made a mistake never tried anything new.",
     author: " Albert Einstein",
   },
-  {
-    quote:
-      "The person who says it cannot be done should not interrupt the person who is doing it.",
-    author: "Chinese Proverb",
-  },
-  {
-    quote: "There are no traffic jams along the extra mile.",
-    author: "Roger Staubach",
-  },
-  {
-    quote: "It is never too late to be what you might have been.",
-    author: "George Eliot",
-  },
-  {
-    quote: "You become what you believe.",
-    author: "Oprah Winfrey",
-  },
-  {
-    quote: "I would rather die of passion than of boredom.",
-    author: "Vincent van Gogh",
-  },
-  {
-    quote:
-      "A truly rich man is one whose children run into his arms when his hands are empty.",
-    author: "Unknown",
-  },
-  {
-    quote:
-      "It is not what you do for your children, but what you have taught them to do for themselves, that will make them successful human beings.",
-    author: "Ann Landers",
-  },
-  {
-    quote:
-      "If you want your children to turn out well, spend twice as much time with them, and half as much money.",
-    author: "Abigail Van Buren",
-  },
-  {
-    quote:
-      "Build your own dreams, or someone else will hire you to build theirs.",
-    author: "Farrah Gray",
-  },
-  {
-    quote:
-      "The battles that count aren’t the ones for gold medals. The struggles within yourself–the invisible battles inside all of us–that’s where it’s at.",
-    author: "Jesse Owens",
-  },
-  {
-    quote: "Education costs money.  But then so does ignorance.",
-    author: "Sir Claus Moser",
-  },
-  {
-    quote:
-      "I have learned over the years that when one’s mind is made up, this diminishes fear.",
-    author: "Rosa Parks",
-  },
-  {
-    quote: "It does not matter how slowly you go as long as you do not stop.",
-    author: "Confucius",
-  },
-  {
-    quote:
-      "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
-    author: "Oprah Winfrey",
-  },
-  {
-    quote:
+  
+  {    quote:
       "Remember that not getting what you want is sometimes a wonderful stroke of luck.",
     author: "Dalai Lama",
   },
@@ -413,56 +190,7 @@ const quotes = [
     quote: "You can’t use up creativity.  The more you use, the more you have.",
     author: "Maya Angelou",
   },
-  {
-    quote: "Dream big and dare to fail.",
-    author: "Norman Vaughan",
-  },
-  {
-    quote:
-      "Our lives begin to end the day we become silent about things that matter.",
-    author: "Martin Luther King Jr.",
-  },
-  {
-    quote: "Do what you can, where you are, with what you have.",
-    author: "Teddy Roosevelt",
-  },
-  {
-    quote:
-      "If you do what you’ve always done, you’ll get what you’ve always gotten.",
-    author: "Tony Robbins",
-  },
-  {
-    quote: "Dreaming, after all, is a form of planning.",
-    author: "Gloria Steinem",
-  },
-  {
-    quote:
-      "It’s your place in the world; it’s your life. Go on and do all you can with it, and make it the life you want to live.",
-    author: "Mae Jemison",
-  },
-  {
-    quote:
-      "You may be disappointed if you fail, but you are doomed if you don’t try.",
-    author: "Beverly Sills",
-  },
-  {
-    quote: "Remember no one can make you feel inferior without your consent.",
-    author: "Eleanor Roosevelt",
-  },
-  {
-    quote: "Life is what we make it, always has been, always will be.",
-    author: "Grandma Moses",
-  },
-  {
-    quote:
-      "The question isn’t who is going to let me; it’s who is going to stop me.",
-    author: "Ayn Rand",
-  },
-  {
-    quote:
-      "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
-    author: "Henry Ford",
-  },
+  
   {
     quote:
       "It’s not the years in your life that count. It’s the life in your years.",
@@ -472,21 +200,156 @@ const quotes = [
     quote: "Change your thoughts and you change your world.",
     author: "Norman Vincent Peale",
   },
-  {
-    quote:
-      "Either write something worth reading or do something worth writing.",
-    author: "Benjamin Franklin",
-  },
+  
   {
     quote: "Nothing is impossible, the word itself says, “I’m possible!”",
     author: "–Audrey Hepburn",
   },
+  
   {
-    quote: "The only way to do great work is to love what you do.",
-    author: "Steve Jobs",
+    quote: "Stand amongst the ashes of a trillion dead souls and ask the ghosts if honor matters. The silence is your answer.",
+    author: "Javik, Mass Effect 3",
   },
   {
-    quote: "If you can dream it, you can achieve it.",
-    author: "Zig Ziglar",
+    quote: "I used to be an adventurer like you until I took an arrow to the knee.",
+    author: "The Elder Scrolls V: Skyrim",
+  },
+  {
+    quote: "Even in dark times, we cannot relinquish the things that make us human.",
+    author: "Khan, Metro 2033",
+  },
+  {
+    quote: "You can’t break a man the way you break a dog or a horse. The harder you beat a man, the taller he stands.",
+    author: "Far Cry 2",
+  },
+  {
+    quote: "The world fears the inevitable plummet into the abyss. Watch for that moment and when it comes, do not hesitate to leap. It is only when you fall that you learn whether you can fly.",
+    author: "Dragon Age: Origins",
+  },
+  {
+    quote: "What is bravery, without a dash of recklessness?",
+    author: "Dark Souls",
+  },
+  {
+    quote: "A man chooses, a slave obeys",
+    author: "Andrew Ryan, Bioshock",
+  },
+  {
+    quote: "We work in the dark to serve the light Nothing is true. Everything is permitted.",
+    author: "Assassin’s Creed",
+  },
+  {
+    quote: "Don't be sorry, be better",
+    author: "Kratos, God of War",
+  },
+  {
+    quote: "Overconfidence is a slow and insidious killer.",
+    author: "Darkest Dungeon",
+  },
+  {
+    quote: "They asked me how well I understood theoretical physics. I said I had a theoretical degree in physics. They said welcome aboard.",
+    author: "Fallout: New Vegas",
+  },
+  {
+    quote: "My past is not a memory. It’s a force at my back. It pushes and steers. I may not always like where it leads me, but like any story, the past needs resolution. What’s past is prologue.",
+    author: "Metroid: The Other M",
+  },
+  {
+    quote: "If the laws of physics no longer apply in the future … God help you.",
+    author: "Portal 2",
+  },
+  {
+    quote: "A famous explorer once said that the extraordinary is in what we do, not who we are.",
+    author: "Tomb Raider",
+  },
+  {
+    quote: "The right man in the wrong place can make all the difference in the world",
+    author: "G-Man, Half-Life 2",
+  },
+  {
+    quote: "Everyone thinks they’re the hero of their own story.",
+    author: "Handsome Jack, Tales from the Borderlands, Episode 5",
+  },
+  {
+    quote: "Science isn’t about why – it’s about why not.",
+    author: "Cave Johnson, Portal 2",
+  },
+  {
+    quote: "What good is an intellect if you can't use it?",
+    author: "Raiden, Metal Gear Rising: Revengeance",
+  },
+  {
+    quote: "Technologies are invented to make our lives easier -- not our choices.",
+    author: "Adam Jensen, Deus Ex: Human Revolution",
+  },
+  {
+    quote: "Dream, not of what you are, but of what you want to be.",
+    author: "Margulis, Warframe",
+  },
+  {
+    quote: "Hatred and prejudice will never be eradicated. And the witch hunts will never be about witches. To have a scapegoat, that's the key.",
+    author: "Geralt of Rivia, The Witcher 3: Wild Hunt",
+  },
+  {
+    quote: "War is where the young and stupid are tricked by the old and bitter into killing each other.",
+    author: "Niko Bellic, Grand Theft Auto IV",
+  },
+  {
+    quote: "It’s a funny thing, ambition. It can take one to sublime heights or harrowing depths. And sometimes they are one and the same.",
+    author: "Emily Kaldwin, Dishonored 2",
+  },
+  {
+    quote: "The healthy human mind doesn't wake up in the morning thinking this is its last day on Earth. But I think that's a luxury, not a curse. To know you're close to the end is a kind of freedom.",
+    author: "Captain Price, Call of Duty: Modern Warfare",
+  },
+  {
+    quote: "After all we've been through. Everything that I've done. It can't be for nothing.",
+    author: "Ellie, Last of Us",
+  },
+  {
+    quote: "Closing your eyes forces you to look at the darkness inside.",
+    author: "Max Payne, Max Payne 2: The Fall of Max Payne",
+  },
+  {
+    quote: "We all make choices, but in the end our choices make us.",
+    author: "Andrew Ryan, Bioshock",
+  },
+  {
+    quote: "Right and wrong are not what separate us and our enemies. It's our different standpoints, our perspectives that separate us. Both sides blame one another. There's no good or bad side. Just two sides holding different views.",
+    author: "Squall Leonhart, Final Fantasy VIII",
+  },
+  {
+    quote: "Don’t ever stop. Always keep going, no matter what happens and is taken from you. Even when life is so unfair, don’t give up.",
+    author: "Ezio, Assassin's Creed II"
+  },
+  {
+    quote: "All men dream - but not equally. Those who dream by night, in the dusty recesses of their minds, wake in the day to find that it was vanity... But the dreamers of the day are dangerous men, for they may act their dream with open eyes, to make it possible. This I did.",
+    author: "Nathan Drake, Uncharted 3"
+  },
+  {
+    quote: "We don't get to choose how we start in this life. Real 'greatness' is what you do with the hand you're dealt.",
+    author: "Victor Sullivan, Uncharted 3: Drake's Deception"
+  },
+  {
+    quote: "Corporations have more power than the government.",
+    author: "Adam Jensen, Deus Ex: Human Revolution"
+  },
+  {
+    quote: "Only a mind free of impediments is capable of grasping the chaotic beauty of the world",
+    author: "Altair, Assassin's Creed"
   },
 ];
+
+function btn1(){
+  let chooseQuote = pickFromArray(quotes);
+
+  let quoteEl = document.querySelector(".quote");
+  let authorEl = document.querySelector(".author");
+  let nextBtn = document.querySelector(".btn");
+
+  quoteEl.innerHTML = chooseQuote.quote;
+  authorEl.innerHTML = chooseQuote.author;
+  nextBtn.addEventListener('click', btn1);
+}
+
+btn1();

@@ -61,8 +61,42 @@ const movies = [
   },
 ];
 
-// create showMovies function
+// Task 1: create showMovies function
+function showMovies() {
+  let movieList = document.getElementById("all-movies")
+  movies.forEach(function(movie) {
+    let movieItem = document.createElement("li");
+    movieItem.innerText = movie.title;
+    movieList.appendChild(movieItem)
+  })
+}
 
+//<<<<<<< main
+
+// Task 2: create a new movie object for\ your favorite movie
+const myFavMovie = {
+  title: "Spirited Away",
+  director: "Hayao Miyazaki",
+  type: "Animation, Fantasy",
+  haveWatched: true,
+}
+
+// Task 2-3: create addMovies function
+function addMovie(movie, callback) {
+  console.log(movies)
+  setTimeout(callback, 2000);
+}
+
+function addMovieToList(movies, movie) {
+  movies.push(movie);
+  console.log(movies)
+}
+
+addMovie(movies, () => addMovieToList(movies, myFavMovie));
+
+// Task 4 - **Extra**
+//=======//
 // create a new movie object for your favorite movie
 
 // create addMovies function
+//>>>>>>> main

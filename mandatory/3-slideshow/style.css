@@ -1,1 +1,13 @@
-/** Write your CSS in here **/
+body {
+    background-color: black;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: white
+  }
+
+.btn-primary {
+    width: 200px;
+    height: 50px;
+    background-color: antiquewhite;
+    color: black;
+}

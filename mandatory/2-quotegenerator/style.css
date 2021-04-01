@@ -1,1 +1,47 @@
-/** Write your CSS in here **/
+body {
+    background-color: turquoise;
+    font-family: "Courier New", monospace;
+  }
+  main {
+    background-color: black;
+    margin-top: 250px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  #quote-div {
+    display: flex;
+    flex-direction: row;
+    max-height: fit-content;
+    align-items: baseline;
+  }
+  
+  .quote {
+    font-size: 26px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: gold;
+  }
+  #author-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .author {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 40px;
+    color: gold;
+    font-size: 17px;
+  }
+  #next-button {
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 40px;
+    background-color: gold;
+    color: black;
+  }
