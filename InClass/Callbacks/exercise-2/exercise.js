@@ -61,8 +61,63 @@ const movies = [
   },
 ];
 
+
 // create showMovies function
+const showMovies=function (movies){
+  
+  let gettingTheSpanElement=document.getElementById('movies-number');
+  let mainContainer=document.getElementById('all-movies');
+  movies.forEach((movie,index) => {
+    delete movies[index];
+    let creatingParagraphElement=document.createElement('p');
+    setTimeout(() =>{
+      creatingParagraphElement.innerHTML=`<strong>Movie Title</strong> ${movie.title} <strong>Director</strong> ${movie.director}`
+    mainContainer.appendChild(creatingParagraphElement);
+    
+    },1000)
+    gettingTheSpanElement.textContent=movies.length;
+  
+  });
+ 
+}
+showMovies(movies)
 
 // create a new movie object for your favorite movie
+const myFavMovie =[
+ {
+  title: "The Passenger",
+  director: "Cane Norman",
+  type: "Romance",
+  haveWatched: true,
+}
+]
 
 // create addMovies function
+const addMovies= (movie) => {
+  setTimeout(() =>{
+    movies.push(movie);
+    showMovies(movies)
+  },2000)
+}
+addMovies(myFavMovie);
+
+
+var submittingButton=document.getElementById('movie-submit');
+
+
+submittingButton.addEventListener('click', (e) =>{
+  // 
+    
+  let accessInputField={
+    title:document.getElementById('title').value,
+    director:document.getElementById('director').value,
+    type:document.getElementById('type'),
+    haveWatched:document.getElementById('haveWatched').value
+
+  }
+  
+  addMovies(accessInputField,movies)
+ 
+  let restingTheForm=document.getElementById('add-movies');
+  restingTheForm.reset();
+})

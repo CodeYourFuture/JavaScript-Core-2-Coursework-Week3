@@ -22,6 +22,52 @@
       <div id="all-movies">
         <p class="alert alert-info">Number of movies: <span id="movies-number"></span></p>
       </div>
+      <form id="add-movies">
+        <fieldset>
+          <legend>New movie info:</legend>
+          <label class="form-group" for="title">
+            Title
+            <input
+              placeholder="Movie title"
+              class="form-control"
+              id="title"
+              name="title"
+              required
+            />
+          </label>
+          <label class="form-group" for="director">
+            Director
+            <input
+              placeholder="Movie director"
+              class="form-control"
+              id="director"
+              name="director"
+              required
+            />
+          </label>
+          <label class="form-group" for="type">
+            Type
+            <input
+              placeholder="Movie type"
+              class="form-control"
+              id="type"
+              name="type"
+              required
+            />
+          </label>
+          <label class="form-group" for="haveWatched">
+            Watched
+            <input
+              class="form-control"
+              id="haveWatched"
+              name="haveWatched"
+              type="checkbox"
+          /></label>
+        </fieldset>
+        <button type="submit" id="movie-submit" class="btn btn-primary">
+          Add movie
+        </button>
+      </form>
     </div>
     <script src="exercise.js"></script>
 </body>

@@ -1,1 +1,38 @@
 /** Write your CSS in here **/
+body{
+    background-color: orange;
+    font-size: 1.5rem;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+}
+.Container{
+    width: 57%;
+    margin: 10rem auto 10rem auto;
+    padding: 5rem;
+    background: white;
+    color: orange;
+    transition: .8s all ease;
+}
+.Container:hover{
+    box-shadow: 2px 2px 19px 8px orangered;
+    transition: .8s all ease;
+}
+
+.quotes{
+    text-align: center;
+}
+
+.authorName , .QuotesButton{
+    font-size: 1.3rem;
+    text-align: end;
+    position: relative;
+    top: 28px;
+}
+#newQuote{
+    border: none;
+    background: orange;
+    color: white;
+    padding: 0.5rem;
+    margin-top: 3rem;
+}
