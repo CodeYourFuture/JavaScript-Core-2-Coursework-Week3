@@ -1,3 +1,32 @@
+let quotez;
+let authors;
+
+const getRandomQuote = () => {
+  let randomiser = pickFromArray(quotes);
+  quotez.innerText = randomiser.quote;
+  authors.innerText = randomiser.author;
+};
+
+const set = () => {
+  const bod = document.querySelector("body");
+  bod.style.backgroundColor = "yellow";
+
+  const quotebtn = document.createElement("button");
+  quotebtn.innerText = "New Quote";
+  quotebtn.addEventListener("click", () => {
+    getRandomQuote();
+  });
+
+  const cont = document.createElement("div");
+  quotez = document.createElement("h2");
+  authors = document.createElement("p");
+
+  cont.append(quotez, authors);
+  bod.append(cont, quotebtn);
+};
+
+set();
+
 // DO NOT EDIT BELOW HERE
 
 // A function which will return one item, at
