@@ -1,1 +1,32 @@
 /** Write your CSS in here **/
+body {
+  background-color: #f100e1;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.buttons {
+  background-color: rgb(64, 2, 66);
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin-left: 1rem;
+}
+
+#uiButton {
+  max-width: 300px;
+}

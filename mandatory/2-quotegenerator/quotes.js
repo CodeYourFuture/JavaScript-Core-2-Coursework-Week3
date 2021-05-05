@@ -1,3 +1,38 @@
+document.addEventListener('DOMContentLoaded', function () {
+  let auto = false;
+  let timer;
+
+  // choose function and display quote
+  function chooseQuote() {
+    let chosenQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.querySelector("h2").innerHTML =    chosenQuote.quote;
+    document.querySelector("p").innerHTML = chosenQuote.author
+  }
+
+
+  // new quote button added 
+  let Btn = document.querySelector("button")
+	Btn.addEventListener("click", () => {
+		chooseQuote();
+	});
+
+  // auto-play button
+	let toggle = document.querySelector("input");
+	toggle.addEventListener("click", () => {
+		auto = !auto;
+		if (auto) {
+			document.querySelector("#autoPlay").innerHTML = "auto-play:ON";
+			timer = setInterval(() => {
+				chooseQuote();
+			}, 3000);
+		} else {
+			document.querySelector("#autoPlay").innerHTML = "";
+			clearInterval(timer);
+		}
+	});
+});
+
+
 // DO NOT EDIT BELOW HERE
 
 // A function which will return one item, at

@@ -1,1 +1,30 @@
 /** Write your CSS in here **/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  margin: 10rem;
+  padding: 1.5rem;
+  background-color: white;
+  width: 70%;
+}
+
+p {
+  display: flex;
+  align-self: flex-end;
+  height: 1.5rem;
+}
+
+button {
+  width: 100px;
+}
+
+h1 {
+  height: 15rem;
+}
