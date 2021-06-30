@@ -1,3 +1,26 @@
+const setUp = () => {
+  const bodyTag = document.querySelector("body");
+  bodyTag.style.backgroundColor = "yellow";
+
+  const newQuoteBtn = quotesContainer.appenChild(document.createElement("button"));
+  newQuoteBtn.innerText = "New Quote";
+  const quotesContainer = bodyTag.append(document.createElement("div"));
+  const quoteEl = quotesContainer.appenChild(document.createElement("h2"));
+  const authorEl = quotesContainer.appenChild(document.createElement("p"));
+
+  newQuoteBtn.addEventListener("click", () => {
+    setTimeout(getRandomQuote, 500);
+  });
+  const getRandomQuote = () => {
+    let randomQuote = pickFromArray(quotes);
+    quoteEl.innerText = randomQuote.quote;
+    authorEl.innerText = randomQuote.author;
+  };
+};
+
+
+
+
 // DO NOT EDIT BELOW HERE
 
 // A function which will return one item, at
@@ -20,6 +43,7 @@
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
+
 
 // A list of quotes you can use in your app.
 // Feel free to edit them, and to add your own favourites.
