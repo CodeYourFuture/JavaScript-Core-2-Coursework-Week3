@@ -1,0 +1,23 @@
+body {
+  background-image: url(assets/leaves.jpeg);
+}
+
+.container {
+  background-color: white;
+  display: block;
+  border-style: solid;
+  border-color: green;
+  margin-top: 150px;
+  width: 50%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.btn {
+  margin-bottom: 20px;
+}

@@ -1,20 +1,20 @@
 {
-  "name": "CYF-Coursework-Template",
+  "name": "javascript-core-2-coursework-week3",
   "version": "1.0.0",
   "license": "CC-BY-SA-4.0",
-  "description": "You must update this package",
+  "description": "",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeYourFuture/CYF-Coursework-Template.git"
+    "url": "git+https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week3-London8.git"
   },
   "bugs": {
-    "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
+    "url": "https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week3-London8/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "homepage": "https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week3-London8#readme",
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^27.4.7"
   }
 }

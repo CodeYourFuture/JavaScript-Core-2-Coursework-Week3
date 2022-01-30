@@ -15,11 +15,11 @@ Add `-Solution` to the end of a repo url to find the solution.
 
 For this repo:
 
-https://github.com/CodeYourFuture/JavaScript-Core-1-Coursework-Week1
+https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week3-London8
 
 Find the solution here:
 
-https://github.com/CodeYourFuture/JavaScript-Core-1-Coursework-Week1-Solution
+https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week3-London8-Solution
 
 **If you do not have access to these repositories** Contact your City Coordinator to get access to our Github Team.
 
