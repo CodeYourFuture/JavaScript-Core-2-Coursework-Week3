@@ -15,6 +15,10 @@
   },
   "homepage": "https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week3-London8#readme",
   "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "jest": "^27.4.7"
-  }
+  },
+  "dependencies": {}
 }

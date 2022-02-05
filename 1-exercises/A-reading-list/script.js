@@ -1,5 +1,14 @@
 function readingList(books) {
-  // Write your code here...
+  const container = document.getElementById('content');
+  let booksHTML = '';
+  books.forEach((book) => {
+    const bgColor = book.alreadyRead ? 'green' : 'red';
+    booksHTML = booksHTML.concat(`<li class="list-group-item d-flex flex-column align-items-center mb-1" style="background-color:${bgColor}">
+    <p class="text-md-center font-weight-bold text-light">${book.title} by ${book.author}</p>
+    <img style="max-width: 300px" src="${book.bookCoverImage}" />    
+    </li>`);
+  });
+  container.insertAdjacentHTML('beforeend', `<ul class="list-group" style="margin:4rem 4rem">${booksHTML}</ul>`);
 }
 
 const books = [
