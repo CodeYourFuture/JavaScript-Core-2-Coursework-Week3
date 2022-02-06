@@ -1,5 +1,15 @@
+const content = document.querySelector('#content')
 function todoList(todos) {
-  // Write your code here...
+  let ul = document.createElement('ul')
+  for (let toDoItem of todos) {
+    let li = document.createElement('li');
+    li.innerText = toDoItem.todo;
+    li.addEventListener('click', () => {
+      li.classList.toggle('cross')
+    })
+    ul.appendChild(li)
+  }
+  content.appendChild(ul)
 }
 
 const todos = [

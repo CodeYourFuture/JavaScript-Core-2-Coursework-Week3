@@ -123,6 +123,14 @@ body {
 .red {
   background-color: red;
 }
+/* style from js */
+.cross {
+  text-decoration: line-through;
+}
+li {
+  font-size: 5rem;
+  text-align: c;
+}
 
 .addArticle {
   margin-bottom: 10px;
