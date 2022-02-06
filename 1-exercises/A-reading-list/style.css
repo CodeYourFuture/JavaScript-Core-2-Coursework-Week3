@@ -123,6 +123,9 @@ body {
 .red {
   background-color: red;
 }
+.green {
+  background-color: green;
+}
 
 .addArticle {
   margin-bottom: 10px;
@@ -150,6 +153,12 @@ body {
 
 #greenBtn {
   background: #87ca8a;
+}
+.book-size {
+  min-height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 992px) {

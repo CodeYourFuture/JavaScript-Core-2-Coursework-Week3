@@ -1,5 +1,23 @@
+const mainDiv = document.querySelector('#content')
 function readingList(books) {
-  // Write your code here...
+  for (let book of books) {
+    const individualBookDiv = document.createElement('div');
+    individualBookDiv.classList.add('book-size')
+    const heading = document.createElement('h1');
+    const image = document.createElement('img');
+    heading.innerText = `${book.title} by ${book.author}`
+    individualBookDiv.appendChild(heading);
+    image.src = book.bookCoverImage;
+    individualBookDiv.appendChild(image)
+    if (book.alreadyRead) {
+      individualBookDiv.classList.add('green');
+
+    } else (
+      individualBookDiv.classList.add('red')
+    )
+    mainDiv.appendChild(individualBookDiv);
+
+  }
 }
 
 const books = [
