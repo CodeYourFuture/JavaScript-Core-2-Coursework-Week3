@@ -14,8 +14,14 @@ function readingList(books) {
     newList.appendChild(newLi[i]);
     newLi[i].appendChild(newParagraph[i]);
     newLi[i].appendChild(newImage[i]);
-    if (books[i].alreadyRead) newLi[i].style.backgroundColor = "green";
-    else newLi[i].style.backgroundColor = "red";
+    if (books[i].alreadyRead) {
+      newLi[i].style.backgroundColor = "pink";
+      newLi[i].style.fontWeight = 300;
+    } else {
+      newLi[i].style.backgroundColor = "grey";
+      newLi[i].style.fontWeight = 500;
+      newLi[i].style.color = "yellow";
+    }
     newParagraph[i].innerText = `${books[i].title} by ${books[i].author}`;
     newImage[i].src = books[i].bookCoverImage;
   }
