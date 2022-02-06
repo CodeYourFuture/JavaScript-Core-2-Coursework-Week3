@@ -34,12 +34,20 @@
               <div class="card-header">Add new Todos</div>
               <div class="card-body">
                 <form class="row g-3">
-                  <div class="col-auto">
+                  <div class="form-group">
                     <input
                       class="form-control"
                       id="todoInput"
                       placeholder="New todo..."
                     />
+                    <div class="col-auto">
+                    <label for="due-date" class="formGroupExampleInput">Due Date
+                    <input type="date" class="form-control" id="due-date" name="due-date"
+                    value="2018-07-22"
+                    min="2018-01-01">
+                    </label>
+                    </div>
+                    
                   </div>
                   <div class="col-auto">
                     <button
@@ -47,6 +55,12 @@
                       class="btn btn-primary mb-3"
                     >
                       Add Todo
+                    </button>
+                    <button
+                      onclick="deleteAllCompletedTodos(event)"
+                      class="btn btn-primary mb-3"
+                    >
+                      Clear Completed
                     </button>
                   </div>
                 </form>
