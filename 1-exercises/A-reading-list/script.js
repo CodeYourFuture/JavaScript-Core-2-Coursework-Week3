@@ -3,6 +3,7 @@ function readingList(books) {
   let newDiv = document.getElementById("content");
   let newList = document.createElement("ul");
   newDiv.appendChild(newList);
+
   let newLi = [];
   let newParagraph = [];
   let newImage = [];
@@ -14,6 +15,8 @@ function readingList(books) {
     newList.appendChild(newLi[i]);
     newLi[i].appendChild(newParagraph[i]);
     newLi[i].appendChild(newImage[i]);
+    newLi[i].style.padding = "1em 3em 3em 1em";
+    // newLi[i].style.marginTop = "5em";
     if (books[i].alreadyRead) {
       newLi[i].style.backgroundColor = "pink";
       newLi[i].style.fontWeight = 300;
