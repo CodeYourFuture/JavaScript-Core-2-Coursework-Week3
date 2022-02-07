@@ -13,7 +13,7 @@ function todoList(todos) {
 
     // Event listener for adding a line-through style for todo (li) when clicked
     todoEl.addEventListener('click', () => {
-      // An if check to conditionally style todd (li)
+      // An if check to conditionally style tod (li)
       if (todoEl.style.textDecoration === '') {
         todoEl.style.textDecoration = 'line-through';
       } else {

@@ -55,20 +55,21 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
-  let todoInputEl = document.querySelector('#todoInput').value;
-  let todoObj = { task: todoInputEl, completed: false }; // Adds the
-  todos.push(todoObj);
-  let newTodo = [todoObj];
-  populateTodoList(newTodo);
-  document.querySelector('#todoInput').value = '';
+  let todoInputEl = document.querySelector('#todoInput').value; // Reads the value of the #todoInput element
+  let todoObj = { task: todoInputEl, completed: false }; // Assigns a new task to an object
+  todos.push(todoObj); // Pushes the todoObj to global todos array
+  let newTodo = [todoObj]; // Adds todoObj to an array
+  populateTodoList(newTodo); // This function is called now with the newTodo as the parameter
+  document.querySelector('#todoInput').value = ''; // Resets the form input field to an empty field
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+// Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos(event) {
   event.preventDefault();
   let list = document.getElementById('todo-list');
   let todoEL = document.querySelectorAll('li');
   todoEL.forEach((todoLi) => {
+    // Deletes the todo text which only have a line through style
     if (todoLi.style.textDecoration === 'line-through') {
       list.removeChild(todoLi);
     }
