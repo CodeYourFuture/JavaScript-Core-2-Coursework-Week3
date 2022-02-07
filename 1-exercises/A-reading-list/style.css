@@ -152,6 +152,14 @@ body {
   background: #87ca8a;
 }
 
+.book-item-read {
+  background-color: red;
+}
+
+.book-item-not-read {
+  background-color: green;
+}
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
