@@ -9,12 +9,7 @@ function readingList(books) {
     bookListContainer.appendChild(bookList);
 
     // Conditionally sets the background colour of the book element depending if the book is read
-    let readColor;
-    if (book.alreadyRead) {
-      readColor = '#0f0';
-    } else {
-      readColor = '#f00';
-    }
+    let readColor = book.alreadyRead ? '#0f0' : '#f00';
 
     // A li tag is created for individual book
     bookList.innerHTML = `${book.title} by ${book.author}`;
