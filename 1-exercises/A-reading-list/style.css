@@ -152,6 +152,18 @@ body {
   background: #87ca8a;
 }
 
+.item {
+  width: 500px;
+  background-color: green;
+}
+ul li:first-child {
+  background-color: red;
+}
+
+.image {
+  height: 15em;
+}
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
