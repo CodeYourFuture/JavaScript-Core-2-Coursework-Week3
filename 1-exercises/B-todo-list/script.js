@@ -12,8 +12,13 @@ function todoList(todos) {
     newParagraph[i].innerText = Object.values(todos[i]);
     newList.appendChild(newLi[i]);
     newLi[i].appendChild(newParagraph[i]);
+  }
+  for (let i in newParagraph) {
+    newLi[i].querySelectorAll;
     newLi[i].addEventListener("click", () => {
-      newLi[i].style.textDecoration = "line-through";
+      if (newLi[i].classList.contains("line-throughJs")) {
+        newLi[i].classList.remove("line-throughJs");
+      } else newLi[i].classList.add("line-throughJs");
     });
   }
 }
