@@ -1,5 +1,34 @@
 function readingList(books) {
-  // Write your code here...
+
+let content = document.getElementById("content");
+
+// Create UL
+
+let bookList = document.createElement("ul");
+content.appendChild(bookList);
+
+// loop through books array
+
+books.map(book => {
+  let bookListItem = document.createElement("li");
+  bookList.appendChild(bookListItem);
+
+// add p tag with Book Title and Book Author
+
+  let bookTitleAuthor = document.createElement("p");
+  bookTitleAuthor.innerText = `${book.title} by ${book.author}`;
+  bookListItem.appendChild(bookTitleAuthor);
+
+// add image links
+
+  let bookCover = document.createElement("img");
+  bookCover.src = book.bookCoverImage;
+  bookListItem.appendChild(bookCover)
+
+// read book? background color 
+  book.alreadyRead ? bookListItem.style.backgroundColor = "green": bookListItem.style.backgroundColor = "red";
+
+})
 }
 
 const books = [
