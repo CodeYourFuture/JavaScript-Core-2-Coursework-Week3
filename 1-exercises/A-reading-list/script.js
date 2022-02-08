@@ -1,26 +1,41 @@
 function readingList(books) {
-  // Write your code here...
+  let content = document.querySelector("#content");
+  let ulTag = document.createElement("ul");
+
+  content.appendChild(ulTag);
+  books.forEach((v) => {
+    let liTag = document.createElement("li");
+    ulTag.appendChild(liTag);
+
+    liTag.classList.add(v.alreadyRead ? "green" : "red");
+    let pTitle = document.createElement("p");
+    pTitle.innerText = `${v.title} by ${v.author}`;
+
+    let imgTag = document.createElement("img");
+    imgTag.src = v.bookCoverImage;
+    liTag.append(pTitle, imgTag);
+  });
 }
 
 const books = [
   {
-    title: 'The Design of Everyday Things',
-    author: 'Don Norman',
+    title: "The Design of Everyday Things",
+    author: "Don Norman",
     alreadyRead: false,
-    bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780465050659.jpg',
+    bookCoverImage: "https://blackwells.co.uk/jacket/l/9780465050659.jpg",
   },
   {
-    title: 'The Most Human Human',
-    author: 'Brian Christian',
+    title: "The Most Human Human",
+    author: "Brian Christian",
     alreadyRead: true,
     bookCoverImage:
-      'https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg',
+      "https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg",
   },
   {
-    title: 'The Pragmatic Programmer',
-    author: 'Andrew Hunt',
+    title: "The Pragmatic Programmer",
+    author: "Andrew Hunt",
     alreadyRead: true,
-    bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780135957059.jpg',
+    bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
 

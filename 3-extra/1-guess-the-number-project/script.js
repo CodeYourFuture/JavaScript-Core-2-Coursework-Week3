@@ -1,30 +1,40 @@
-let randomNumber = Math.floor(Math.random() * 100 + 1);
-
+let functRandomNumber = () => Math.floor(Math.random() * 100 + 1);
+let randomNumber = functRandomNumber();
+let triesCount = 7;
+let triesOutput = document.querySelector(".Tries-output");
+let finalOutput = document.querySelector(".final-output");
+let btnNewGame = document.querySelector(".btnNewGame");
 function guessNumber() {
-  //Collect input from the user
-  let guess = document.querySelector(".inputs-Values").value;
+let guess = Number(document.querySelector(".inputs-Values").value);
 
-  //If the user inputs a bad input ie 0, empty string, number greater that 100, number less than zero Print "Please enter a number between 1 and 100"
+  if (triesCount === 0) {
+    triesOutput.innerText = "You lose the number was " + randomNumber;
+  } else {
+    triesOutput.innerText = "Number of Tries:" + triesCount;
+  }
 
-  //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
-
-  //If the users guess is lower than the random number print Number is too low, try again  (hint use .final-out class to print)
-
-  //If the user has guessed the random number correctly print out the randomNumber with a message "Guess is correct. You win!"
+  if (guess === randomNumber) {
+    finalOutput.innerText = "Guess is correct. You win!";
+  } else if (guess > 100 && guess < 0) {
+    finalOutput.innerText = "Please enter a number between 1 and 100";
+  } else if (guess > randomNumber) {
+    triesCount -= 1;
+    finalOutput.innerText = "Number is too high, try again";
+  } else if (guess < randomNumber) {
+    triesCount -= 1;
+    finalOutput.innerText = "Number is too low, try again";
+  }
 }
-
-// For this task we will be making a "New Game" button function which will reset our game,
-// Once the user clicks on this button the user will have new random number to guess
-// 1. Reset the values inside the body of the function
-// 2. Attach our new game button using an event listener to the .btnNewGame button
+btnNewGame.addEventListener("click", () => {
+  newGame();
+});
 function newGame() {
-  //Your code here
-  //Reset randomNumber
-  //Reset users input field
-  //Reset tries, and triesTaken by the user
+  randomNumber = functRandomNumber();
+  triesCount = 7;
+  triesOutput.innerText = "Number of Tries:" + triesCount;
+  finalOutput.innerText = "Start new game";
 }
 
-//keyboard exception
 function keyBoardEvents(e) {
   if (e.keyCode === 13) {
     guessNumber();
