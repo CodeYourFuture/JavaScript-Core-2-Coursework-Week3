@@ -15,7 +15,7 @@ const readingList = (books) => {
     </a>
     </li>
     `;
-  });
+  }).join("");
 
   bookList.innerHTML = bookContent;
   mainDiv.append(bookList);
