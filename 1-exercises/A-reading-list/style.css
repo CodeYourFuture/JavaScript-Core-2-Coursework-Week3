@@ -12,6 +12,12 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+.book-img{
+  width: 160px;
+  height: auto;
+}
+
+
 .site-footer {
   margin-top: 4em;
 }
@@ -122,6 +128,10 @@ body {
 
 .red {
   background-color: red;
+}
+
+.green {
+  background-color: green;
 }
 
 .addArticle {
