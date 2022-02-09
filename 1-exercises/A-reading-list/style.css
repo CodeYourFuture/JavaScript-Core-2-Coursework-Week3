@@ -156,4 +156,27 @@ body {
   .navbar-brand > img {
     max-height: 80px;
   }
+
+  #content {
+    margin: auto;
+  }
+
+  .product {
+    display: flex;
+  }
+  .card-book {
+    list-style: none;
+
+    margin-left: 1rem;
+    width: 350px;
+    padding: 2rem 3rem;
+    background-color: #87ca8a;
+  }
+  .card-book p {
+    font-size: 1.5rem;
+  }
+  .card-book img {
+    width: 100%;
+    object-fit: cover;
+  }
 }

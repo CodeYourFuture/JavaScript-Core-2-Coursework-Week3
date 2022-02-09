@@ -156,4 +156,40 @@ body {
   .navbar-brand > img {
     max-height: 80px;
   }
+  #content {
+    text-align: center;
+    height: 100%;
+  }
+
+  .toDoCards {
+    margin: 100px auto;
+    list-style: none;
+    background-color: #87ca8a;
+    padding: 2rem;
+    width: 30%;
+  }
+
+  .todo-item {
+    font-size: 1.5rem;
+    color: #141111;
+  }
+
+  .todoParent {
+    display: flex;
+    align-items: center;
+  }
+
+  .clickButton {
+    padding: 5px 8px;
+    margin-left: 50px;
+    align-self: flex-end;
+    border: none;
+    background-color: aqua;
+  }
+
+  .todoParent .done {
+    font-size: 1.5rem;
+    color: gray;
+    text-decoration: line-through;
+  }
 }
