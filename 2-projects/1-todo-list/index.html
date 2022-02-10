@@ -25,7 +25,7 @@
         <div class="row gx-5">
           <div class="col-sm">
             <ul id="todo-list" class="list-group">
-              <!-- This is how the todos look in html - try to make the functionality to create them using Javascript - don't worry about the class names for now just copy and paste them -->
+              <!-- This is how the toDos look in html - try to make the functionality to create them using Javascript - don't worry about the class names for now just copy and paste them -->
               <li
                 class="list-group-item d-flex justify-content-between align-items-center"
               >
@@ -38,7 +38,7 @@
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center"
-                style="text-decoration: line-through"
+                style="text-decoration: line-through;"
               >
                 Do the shopping
                 <span class="badge bg-primary rounded-pill">
@@ -50,7 +50,7 @@
           </div>
           <div class="col-sm">
             <div class="card">
-              <div class="card-header">Add new Todos</div>
+              <div class="card-header">Add new ToDos</div>
               <div class="card-body">
                 <form class="row g-3">
                   <div class="col-auto">
@@ -66,6 +66,12 @@
                       class="btn btn-primary mb-3"
                     >
                       Add Todo
+                    </button>
+                    <button
+                      onclick="deleteAllCompletedToDos(event)"
+                      class="btn btn-danger mb-3"
+                    >
+                      Delete All
                     </button>
                   </div>
                 </form>

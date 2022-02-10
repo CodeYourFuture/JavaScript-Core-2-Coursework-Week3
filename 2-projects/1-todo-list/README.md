@@ -29,7 +29,7 @@ This covers only the basic tasks, not the advanced tasks.
 
 ## Instructions
 
-The `populateTodoList()` function should iterate over the list of todos that we are given at the start, it should create a `<li>` for the todo along with some other stuff that you can find in index.html and below.
+The `populateTodoList()` function should iterate over the list of toDos that we are given at the start, it should create a `<li>` for the todo along with some other stuff that you can find in index.html and below.
 
 The items in the todo list are currently hard-coded into the HTML, refactor the code so that this function creates them and adds the following functionality to them:
 
@@ -60,7 +60,7 @@ Add a button that users can click that will iterate through the list of ToDos an
 
 We want users to be able to set, and see, deadlines for their ToDos.
 
-When creating ToDos we want the user to be able to use a datepicker input so they can see when they need to complete the ToDo. The date can be added to the ToDo in the list. If there is no date set when the ToDo is created then this can be skipped.
+When creating ToDos we want the user to be able to use a datePicker input so they can see when they need to complete the ToDo. The date can be added to the ToDo in the list. If there is no date set when the ToDo is created then this can be skipped.
 
 EXTRA CHALLENGE: instead of displaying the date on the ToDo, implement a countdown of days left until the deadline. You can use the Javascript Date reference to accomplish this:
 https://www.w3schools.com/jsref/jsref_obj_date.asp
