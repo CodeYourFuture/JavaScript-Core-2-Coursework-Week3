@@ -1,5 +1,47 @@
-function highlightWords(paragraph, colours) {
-  // Write your code here...
+const whereToAttach = document.querySelector("#content");
+console.log(whereToAttach);
+
+function highlightWords(paragraph, options) {
+  // creating our elements
+  const ourParagraph = document.createElement("p");
+  const ourSelect = document.createElement("select");
+
+  // this is where we amend those elements
+  options.forEach((colour) => {
+    // create the element
+    const ourOption = document.createElement("option");
+
+    // amend the element as you see fit
+    ourOption.value = colour;
+    ourOption.innerText = colour;
+
+    // add the element to the select menu
+    ourSelect.appendChild(ourOption);
+  });
+
+  paragraph.split(" ").forEach((word) => {
+    // create the element
+    const ourSpan = document.createElement("span");
+
+    // amend the element as you see fit
+    ourSpan.innerText = word + " ";
+    ourSpan.addEventListener("click", () => {
+      const currentSelectedColour = ourSelect.value;
+
+      if (currentSelectedColour === "none") {
+        ourSpan.style.backgroundColor = "";
+      } else {
+        ourSpan.style.backgroundColor = currentSelectedColour;
+      }
+    });
+
+    // add the element to the paragraph tag
+    ourParagraph.appendChild(ourSpan);
+  });
+
+  // add those elements to the page
+  whereToAttach.appendChild(ourSelect);
+  whereToAttach.appendChild(ourParagraph);
 }
 
 const paragraph =
@@ -8,3 +50,5 @@ const paragraph =
 const colours = ["yellow", "green", "blue", "none"];
 
 highlightWords(paragraph, colours);
+
+
