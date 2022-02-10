@@ -1,33 +1,46 @@
-function highlightWords(paragraph, colours) {
-  let content = document.querySelector("#content");
-  let newParagraph = document.createElement("p");
-  let select = document.createElement("select");
-  let colorSelected = "";
-  // select and option
-  for (let color of colours) {
-    // console.log(color);
-    let option = document.createElement("option");
-    option.value = color;
-    option.text = color;
-    select.appendChild(option);
-    // console.log(option.value);
-  }
-  content.appendChild(select);
+const whereToAttach = document.querySelector("#content");
 
-  let words = paragraph.split(" ");
-  // console.log(words);
-  for (let i = 0; i < words.length; i++) {
-    // console.log(words[i]);
-    let eachWord = words[i];
-    let span = document.createElement("span");
-    span.innerHTML = `${eachWord}`;
-    console.log(span);
-    select.addEventListener("click", function (e) {
-      span.style.backgroundColor = e.target.value;
+function highlightWords(paragraph, options) {
+  const paragraphEl = document.createElement("p");
+  const selectEl = document.createElement("select");
+
+  options.forEach((colour) => {
+    // create the element
+    const optionEl = document.createElement("option");
+
+    // amend the element as you see fit
+    optionEl.value = colour;
+    optionEl.innerHTML = colour;
+
+    // add the element to the select menu
+    selectEl.appendChild(optionEl);
+  });
+
+  // add the element to the paragraph(page)
+  whereToAttach.appendChild(selectEl);
+
+  paragraph.split(" ").forEach((word) => {
+    // create the element
+    const spanEl = document.createElement("span");
+
+    // amend the element as you see fit
+    spanEl.innerText = word + " ";
+    spanEl.addEventListener("click", () => {
+      const currentSelectedColour = selectEl.value;
+
+      if (currentSelectedColour === "none") {
+        spanEl.style.backgroundColor = "";
+      } else {
+        spanEl.style.backgroundColor = currentSelectedColour;
+      }
     });
-    newParagraph.appendChild(span);
-  }
-  content.appendChild(newParagraph);
+
+    // add the element to the paragraph
+    paragraphEl.appendChild(spanEl);
+  });
+
+  // just get something on the page
+  whereToAttach.appendChild(paragraphEl);
 }
 
 const paragraph =

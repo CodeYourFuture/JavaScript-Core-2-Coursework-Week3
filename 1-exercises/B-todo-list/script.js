@@ -1,27 +1,27 @@
 function todoList(todos) {
-  let ul = document.createElement("ul");
-  ul.setAttribute("id", "list");
-  let heading = document.createElement("h1");
-  heading.innerHTML = "Todo list";
+  let ulEl = document.createElement("ulEl");
+  ulEl.setAttribute("id", "list");
+  let headingEl = document.createElement("h1");
+  headingEl.innerHTML = "Todo list";
   let content = document.querySelector("#content");
-  content.appendChild(heading);
-  for (todo of todos) {
+  content.appendChild(headingEl);
+  for (task of todos) {
     // console.log(todo);
-    let li = document.createElement("li");
-    li.setAttribute("class", "listItem");
-    ul.appendChild(li);
-    li.innerHTML = todo.todo; // show the list of items in objects
+    let liEl = document.createElement("liEl");
+    liEl.setAttribute("class", "listItem");
+    ulEl.appendChild(liEl);
+    liEl.innerHTML = task.todo; // show the list of items in objects
 
     // function created to put line through each item
-    function setListDone(li) {
-      li.addEventListener("click", function () {
+    function setListDone(liEl) {
+      liEl.addEventListener("click", function () {
         this.classList.toggle("done");
       });
     }
 
-    setListDone(li); // Calling the function
+    setListDone(liEl); // Calling the function
   }
-  content.appendChild(ul);
+  content.appendChild(ulEl);
 }
 
 const todos = [

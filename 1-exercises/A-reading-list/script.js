@@ -1,17 +1,17 @@
 function readingList(books) {
-  let ul = document.createElement("ul");
-  ul.setAttribute("id", "proList");
+  let ulEl = document.createElement("ulEl");
+  ulEl.setAttribute("id", "proList");
   let content = document.querySelector("#content");
 
   for (book of books) {
-    let li = document.createElement("li");
-    li.setAttribute("class", "item");
-    ul.appendChild(li);
-    li.innerHTML = `
+    let liEl = document.createElement("liEl");
+    liEl.setAttribute("class", "item");
+    ulEl.appendChild(liEl);
+    liEl.innerHTML = `
       <p>${book.title} by ${book.author}</p>
       <img class=image src= "${book.bookCoverImage}" >`;
   }
-  content.appendChild(ul);
+  content.appendChild(ulEl);
 }
 
 const books = [
