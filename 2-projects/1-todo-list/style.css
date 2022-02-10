@@ -10,3 +10,7 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+  .fa-check{
+    padding-right: 10px;
+  }
