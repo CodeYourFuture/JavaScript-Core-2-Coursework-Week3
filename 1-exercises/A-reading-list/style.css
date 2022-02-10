@@ -124,6 +124,14 @@ body {
   background-color: red;
 }
 
+.green {
+  background-color: green;
+}
+
+.image-size {
+  width: 25%;
+}
+
 .addArticle {
   margin-bottom: 10px;
 }
