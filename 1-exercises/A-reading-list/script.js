@@ -29,12 +29,12 @@ function readingList(books) {
       li.className = "not-read";
     }
 
-    // - All of your HTML should go inside the `<div>` with the id **"content"**.
-
     li.appendChild(p);
     li.appendChild(img);
     ul.appendChild(li);
   });
+
+  // - All of your HTML should go inside the `<div>` with the id **"content"**.
   content.appendChild(ul);
 }
 

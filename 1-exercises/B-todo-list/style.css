@@ -33,6 +33,14 @@ body {
   text-transform: uppercase;
 }
 
+.remove-line {
+  text-decoration: none;
+}
+
+.add-line {
+  text-decoration: line-through;
+}
+
 /* Buttons */
 .btn {
   border-radius: 0.15em;
