@@ -6,7 +6,7 @@ function todoList(todos) {
   content.appendChild(ulElement);
   ulElement.className = "toDoCards";
 
-  todos.map((item, index) => {
+  todos.map((item) => {
     let liElement = document.createElement("li");
     let button = document.createElement("button");
     let div = document.createElement("div");

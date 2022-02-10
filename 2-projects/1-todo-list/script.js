@@ -1,6 +1,21 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  todos.map((item) => {
+    let todoItem = document.createElement("li");
+    todoItem.innerHTML = `${item.task}
+        <span class="badge bg-primary rounded-pill">
+          <!-- each of these <i> tags will need an event listener when we create them in Javascript -->
+          <i class="fa fa-check check icon" aria-hidden="true"></i>
+          <i class="fa fa-trash delete icon" aria-hidden="true"></i>
+        </span>
+      `;
+    todoItem.classList =
+      "list-group-item d-flex justify-content-between align-items-center  todo-item";
+    list.appendChild(todoItem);
+  });
+  addNewTodo;
+  deleteAllCompletedTodos();
+  completedTodos();
 }
 
 // These are the same todos that currently display in the HTML
@@ -16,10 +31,34 @@ populateTodoList(todos);
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  let todoInput = document.getElementById("todoInput");
+  let newItem = { task: todoInput.value, completed: false };
+  let newTodos = [newItem];
+  populateTodoList(newTodos);
+  document.querySelector("#todoInput").value = "";
+}
+
+function completedTodos() {
+  let checkButton = document.querySelectorAll(".check");
+  checkButton.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      console.log(e.target.parentNode.parentNode);
+      e.target.parentNode.parentNode.className = "done";
+    });
+  });
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  // Write your code here...
+  let removeButton = document.querySelectorAll(".delete");
+  removeButton.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      let itemCompleted = e.target.parentNode.parentNode;
+      if (itemCompleted.className === "done") {
+        itemCompleted.remove();
+      } else {
+        alert("You are not completed it yet!");
+      }
+    });
+  });
 }
