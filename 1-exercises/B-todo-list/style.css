@@ -124,6 +124,10 @@ body {
   background-color: red;
 }
 
+.done {
+  text-decoration: line-through;
+}
+
 .addArticle {
   margin-bottom: 10px;
 }
