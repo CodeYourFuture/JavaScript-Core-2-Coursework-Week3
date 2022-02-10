@@ -14,3 +14,7 @@ body {
   .fa-check{
     padding-right: 10px;
   }
+
+  .line-through {
+  text-decoration: line-through;
+}
