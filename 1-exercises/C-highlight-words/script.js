@@ -1,5 +1,38 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  let parentElement = document.querySelector("#content");
+  let newParagraph = document.createElement("p");
+  
+
+
+  // create element select
+  
+  let newSelect = document.createElement("select");
+  let newOptions = "";
+  for (let color of colours) {
+    newOptions = newOptions + `<option>${color}</option>`;
+  }
+  newSelect.innerHTML = newOptions;
+  parentElement.appendChild(newSelect);
+  
+  //
+  
+  let newText = paragraph.split(" ").map(e => `<span>${e}</span>`).join(" ");    
+
+  newParagraph.innerHTML = newText; 
+  parentElement.appendChild(newParagraph);
+
+  let spans = newParagraph.querySelectorAll("span");
+  
+  for (let wordInSpan of spans) {
+    wordInSpan.addEventListener("click", () => {
+      let colorName = newSelect.value; 
+      if (colorName !== "none") {
+        wordInSpan.style.backgroundColor = colorName;
+      }
+    })
+    
+  }
+  
 }
 
 const paragraph =
@@ -8,3 +41,8 @@ const paragraph =
 const colours = ["yellow", "green", "blue", "none"];
 
 highlightWords(paragraph, colours);
+
+
+
+
+
