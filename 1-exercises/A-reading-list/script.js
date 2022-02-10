@@ -2,22 +2,40 @@
 
 // ## Exercise
 
-// X Iterate through the list of books.
-// - For each book, create a `<p>` element with the book title and author.
-// - Add an `<img>` to each book that links to a URL of the book cover.
-// - Use a `<ul>` and `<li>` to display the books and append it to the page.
-// - Change the style of the book depending on whether you have read it (green) or not (red). Hint: try adding some CSS classes to styles.css for these styles.
-// - All of your HTML should go inside the `<div>` with the id **"content"**.
-
-// The end result should look something like this
-
-// ![reading-list](reading-list.png)
-
 function readingList(books) {
-  // Write your code here...
+  let ul = document.createElement("ul");
+
+  let content = document.querySelector("#content");
+
+  //Iterate through the list of books.
   books.forEach((book) => {
     console.log(book);
+
+    //For each book, create a `<p>` element with the book title and author.
+    let p = document.createElement("p");
+    p.innerText = `${book.title} by ${book.author}`;
+
+    //Add an `<img>` to each book that links to a URL of the book cover.
+    let img = document.createElement("img");
+    img.src = `${book.bookCoverImage}`;
+
+    //Use a `<ul>` and `<li>` to display the books and append it to the page.
+    let li = document.createElement("li");
+
+    // - Change the style of the book depending on whether you have read it (green) or not (red). Hint: try adding some CSS classes to styles.css for these styles.
+    if (book.alreadyRead) {
+      li.className = "read";
+    } else {
+      li.className = "not-read";
+    }
+
+    // - All of your HTML should go inside the `<div>` with the id **"content"**.
+
+    li.appendChild(p);
+    li.appendChild(img);
+    ul.appendChild(li);
   });
+  content.appendChild(ul);
 }
 
 const books = [

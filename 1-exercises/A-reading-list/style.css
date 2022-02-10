@@ -33,6 +33,14 @@ body {
   text-transform: uppercase;
 }
 
+.read {
+  background-color: green;
+}
+
+.not-read {
+  background-color: red;
+}
+
 /* Buttons */
 .btn {
   border-radius: 0.15em;
