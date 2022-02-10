@@ -14,7 +14,8 @@ function readingList(books) {
     let liElement = document.createElement("li");
     ulElement.appendChild(liElement);
     liElement.appendChild(bookTitleEl);
-
+    liElement.appendChild(imageElement)
+    content.appendChild(ulElement);
     if(book.alreadyRead === true) {
       liElement.style.backgroundColor = "green"
     }else{
