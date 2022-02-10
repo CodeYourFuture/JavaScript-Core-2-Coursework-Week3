@@ -57,7 +57,7 @@ function deleteAllCompletedTodos() {
       if (itemCompleted.className === "done") {
         itemCompleted.remove();
       } else {
-        alert("You are not completed it yet!");
+        alert("You are not completed it yet are you sure to delete it!");
       }
     });
   });

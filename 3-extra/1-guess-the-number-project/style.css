@@ -16,8 +16,15 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .btn {
   margin-bottom: 20px;
+}
+
+.Tries-output {
+  color: crimson;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
 }
