@@ -4,12 +4,14 @@ function populateTodoList(todos) {
   todos.forEach((todo) => {
     let todoItem = document.createElement("li");
     todoItem.innerHTML = todo.task; 
-    todoItem.classList.add("list-group-item",
+    todoItem.classList.add(
+    "list-group-item",
     "d-flex",
     "justify-content-between",
     "align-items-center");
     let span = document.createElement("span");
-    span.classList.add("badge", 
+    span.classList.add(
+    "badge", 
     "bg-primary",
     "rounded-pill");
     let check = document.createElement("i");
