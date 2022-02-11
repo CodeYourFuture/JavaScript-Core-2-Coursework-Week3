@@ -1,35 +1,4 @@
-// function highlightWords(paragraph, colours) {
-//   // Write your code here...
-//   let divContent = document.querySelector("#content");
-//   let paragraphEl = document.createElement("p");
-//   let selectEl = document.createElement("select");
- 
 
-//   for(let colour of colours){
-//     let selectColour = document.createTextNode(colour);
-//     let optionEl = document.createElement("option");
-//     optionEl.appendChild(selectColour);
-//     selectEl.appendChild(optionEl);
-//   }
-//  divContent.appendChild(selectEl);
-
-//   let arrParagraph = paragraph.split(" ");
-//   for(let word of arrParagraph){
-//     let spanEl = document.createElement("span");
-//     spanEl.innerText = word + " ";
-//     spanEl.addEventListener("click", () => {
-//       let optionValue = selectEl.value;
-//       if (optionValue === 'none') {
-//         spanEl.style.backgroundColor = '';
-//       } else {
-//         spanEl.style.backgroundColor = optionValue;
-//       }
-//      });
-//     paragraphEl.appendChild(spanEl);
-//   }
-  
-//   divContent.appendChild(paragraphEl);
-// }
 
 const whereToAttach = document.querySelector("#content");
 console.log(whereToAttach);
