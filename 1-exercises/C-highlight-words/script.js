@@ -1,5 +1,26 @@
+let pTag = document.createElement("p");
+let select = document.createElement("select");
+const content = document.querySelector("#content")
+content.appendChild(pTag);
+content.appendChild(select);
+
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  colours.forEach(item => {
+    let newOpt = document.createElement("option");
+    newOpt.value = item;
+    newOpt.innerText = item;
+    select.appendChild(newOpt)
+  });
+  paragraph.split(" ").forEach(item => {
+    let span = document.createElement("span");
+    span.innerHTML = item + " ";
+    span.addEventListener("click", () => {
+
+      span.style.background = select.value;
+
+    })
+    pTag.appendChild(span)
+  })
 }
 
 const paragraph =

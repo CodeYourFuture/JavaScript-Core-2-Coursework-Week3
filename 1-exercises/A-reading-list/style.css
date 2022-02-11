@@ -16,13 +16,35 @@ body {
   margin-top: 4em;
 }
 
+.img_tag {
+  transition: all 2s;
+  transform: translateX(-400%);
+}
+
+.move {
+
+  transform: translateX(0);
+}
+
+.list_item {
+  padding: 2em;
+  font-size: 2rem;
+  text-align: center;
+  list-style: none;
+}
+
+.list_item img {
+  height: 60%;
+  max-height: 80%;
+}
+
 .site-footer p {
   border-top: 1px solid #dccdc6;
   padding-top: 2em;
   padding-bottom: 2em;
 }
 
-.navbar-brand > img {
+.navbar-brand>img {
   max-height: 40px;
   width: auto;
 }
@@ -153,7 +175,7 @@ body {
 }
 
 @media screen and (min-width: 992px) {
-  .navbar-brand > img {
+  .navbar-brand>img {
     max-height: 80px;
   }
 }

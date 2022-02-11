@@ -5,11 +5,103 @@
  * Lesson: 1,2
  * Class: Scotland 2017
  */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+@keyframes li_border {
+  0% {
+    border-color: orangered;
+  }
+
+  20% {
+    border-color: greenyellow;
+  }
+
+  40% {
+    border-color: aqua;
+  }
+
+  60% {
+    border-color: pink;
+  }
+
+  80% {
+    border-color: yellow;
+  }
+}
+
+.ul {
+  padding: 10px;
+  color: wheat;
+}
+
+
+
+#content input,
+button {
+  padding: 5px;
+  font-size: 1.2rem;
+  background: transparent;
+  color: wheat;
+  border-bottom: 2px solid wheat;
+  margin: 10px;
+}
+
+button {
+  background: rgb(255, 0, 106);
+}
 
 html,
 body {
   font-family: "Source Sans Pro", -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: rgb(27, 25, 25);
+}
+
+@keyframes header {
+  0% {
+    text-shadow: 0px 0px 0px white;
+  }
+
+  50% {
+    text-shadow: 0px 0px 9px white;
+
+  }
+
+  100% {
+    text-shadow: 0px 0px 0px white;
+
+  }
+}
+
+.ul li {
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 5px;
+  border-bottom: 1px solid;
+  animation: li_border 3s infinite;
+  cursor: pointer;
+  margin: 1em auto;
+
+}
+
+.body_header {
+  color: rgb(255, 0, 106);
+  text-align: center;
+  margin: 1em auto;
+  font-size: 4rem;
+  animation: header infinite 2s;
+
+}
+
+.checked {
+  text-decoration: line-through;
 }
 
 .site-footer {
@@ -22,7 +114,7 @@ body {
   padding-bottom: 2em;
 }
 
-.navbar-brand > img {
+.navbar-brand>img {
   max-height: 40px;
   width: auto;
 }
@@ -152,8 +244,14 @@ body {
   background: #87ca8a;
 }
 
+#content {
+  width: 40%;
+  border: 2px solid wheat;
+  margin: 1em auto;
+}
+
 @media screen and (min-width: 992px) {
-  .navbar-brand > img {
+  .navbar-brand>img {
     max-height: 80px;
   }
 }
