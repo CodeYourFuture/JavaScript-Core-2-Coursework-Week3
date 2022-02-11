@@ -1,6 +1,9 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  let myButton = document.querySelector("button");
+  // Write your code to create todo list elements with completed and delete buttons here,
+  // all todos should display inside the "todo-list" element.
+  myButton.addEventListener("click", event);
 }
 
 // These are the same todos that currently display in the HTML
@@ -15,6 +18,7 @@ populateTodoList(todos);
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
+  todos.push(text(input.value));
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 }
