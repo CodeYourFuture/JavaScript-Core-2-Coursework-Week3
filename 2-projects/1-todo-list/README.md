@@ -20,6 +20,7 @@ More details for the implementation of this challenge can be found in `script.js
 To view the website, open index.html in a browser.
 
 ## Example Solution
+D
 
 A basic example of this can website can be found here
 
@@ -52,7 +53,7 @@ The second `<i>` tag needs an event listener that deletes the parent `<li>` elem
 
 Develop the ToDo list further and allow users to delete all completed ToDos.
 
-Add a button that users can click that will iterate through the list of ToDos and then delete them only if they have been completed.
+Add a button that users can click that will iterate through the list of ToDos and then delete them only if they have been completed.w
 
 ## Extra Advanced Challenge
 

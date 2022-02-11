@@ -27,3 +27,4 @@ We want to render the paragraph on the page, along with a dropdown with the diff
 - When clicked, we need to check the value of the `<select>` element using the `.value` property.
 - We can then update the `background-color` property of the `<span>` with the value of the select - remember that the value "none" is a special case and we need to be handled differently.
 - All of your HTML should go inside the `<div>` with the id **"content"**.
+s
