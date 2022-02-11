@@ -1,22 +1,38 @@
+
+// let todos = [
+//   { task: "Wash the dishes", completed: true },
+//   { task: "Do the shopping", completed: false },
+// ];
+
+let list = document.getElementById("todo-list");
+let formEl = document.querySelector("form");
+let divForButton = document.createElement("div");
+divForButton.className = "col-auto";
+let deleteBth = document.createElement("button");
+deleteBth.className = "btn btn-primary mb-3";
+deleteBth.textContent = "Delete all completed";
+deleteBth.setAttribute("onclick", "deleteAllCompletedTodos(event)");
+divForButton.appendChild(deleteBth);
+formEl.appendChild(divForButton);
+
 function populateTodoList() {
   let input = document.getElementById("todoInput").value;
-  let list = document.getElementById("todo-list");
   let listItem = document.createElement("li");
   let spanItem = document.createElement("span");
   let tickBtn = document.createElement("i");
   let trashBtn = document.createElement("i");
   trashBtn.className = "fa fa-trash";
   trashBtn.ariaHidden = "true";
-  trashBtn.addEventListener("click", function() {
+  trashBtn.addEventListener("click", function () {
     listItem.remove();
-  })
+  });
   tickBtn.className = "fa fa-check";
   tickBtn.ariaHidden = "true";
   tickBtn.addEventListener("click", function () {
     if (listItem.style.textDecoration !== "line-through") {
       listItem.style.textDecoration = "line-through";
     } else {
-      listItem.style.removeProperty("text-decoration")
+      listItem.style.removeProperty("text-decoration");
     }
   });
   spanItem.className = "badge bg-primary rounded-pill";
@@ -36,10 +52,24 @@ function addNewTodo(event) {
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
   populateTodoList();
+  document.getElementById("todoInput").value = '';
 }
 
+
+function deleteTodoList() {
+  let listItems = document.getElementsByClassName(
+    "list-group-item d-flex justify-content-between align-items-center"
+  );
+  console.log(listItems);
+  for (let i = 0; i < listItems.length; i++) {
+    if (listItems[i].style.textDecoration === "line-through") {
+      listItems[i].remove();
+    }
+
+  }
+}
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos(event) {
   event.preventDefault();
-  // Write your code here...
+  deleteTodoList();
 }
