@@ -12,7 +12,6 @@ const todoList = (todos) => {
   todos.forEach((work) => {
     let list = document.createElement("li");
     list.textContent = work.todo;
-
     ulElement.appendChild(list);
     list.addEventListener("click", () => {
       list.style.textDecoration === "line-through"
