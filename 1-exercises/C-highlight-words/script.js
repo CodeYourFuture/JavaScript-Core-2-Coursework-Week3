@@ -1,5 +1,56 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  let contentDiv = document.getElementById("content");
+  let pr = document.createElement("p");
+  pr.style.backgroundColor = "white";
+
+  let labelList = document.createElement("label");
+  labelList.for = "colorsList";
+  labelList.innerText = "Choose color: ";
+  labelList.style.padding = "10px";
+  let colorsList = document.createElement("select");
+  colorsList.id = "colorsList";
+  colorsList.name = "colorsList";
+  colorsList.style.width = "80px";
+  colorsList.style.textAlign = "center";
+  colorsList.style.backgroundColor = "yellow";
+
+  let cl = [];
+  let sp = [];
+
+  function getColor(color) {
+    return color == "none" ? pr.style.backgroundColor : color;
+  }
+
+  for (i in colours) {
+    cl[i] = document.createElement("option");
+    colorsList.appendChild(cl[i]);
+
+    cl[i].value = colours[i];
+    cl[i].style.backgroundColor = getColor(colours[i]);
+    cl[i].innerText = colours[i];
+  }
+
+  colorsList.addEventListener("change", () => {
+    colorsList.style.backgroundColor = getColor(colorsList.value);
+  });
+
+  contentDiv.appendChild(labelList);
+  contentDiv.appendChild(colorsList);
+  contentDiv.appendChild(pr);
+
+  const parag = paragraph.split(" ").map((word) => word);
+  for (i in parag) {
+    sp[i] = document.createElement("span");
+    sp[i].innerText = parag[i];
+    pr.appendChild(sp[i]);
+    pr.append(" ");
+  }
+
+  document.querySelectorAll("span").forEach((element) => {
+    element.addEventListener("click", () => {
+      element.style.backgroundColor = getColor(colorsList.value);
+    });
+  });
 }
 
 const paragraph =

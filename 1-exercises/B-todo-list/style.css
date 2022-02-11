@@ -128,6 +128,10 @@ body {
   margin-bottom: 10px;
 }
 
+.line-through {
+  text-decoration: line-through;
+}
+
 #addArticleBtn {
   margin-left: 20px;
   height: 37px;
