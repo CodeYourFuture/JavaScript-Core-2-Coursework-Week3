@@ -33,6 +33,13 @@ body {
   text-transform: uppercase;
 }
 
+/*new style added*/
+/* ul>li{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px;
+} */
+
 /* Buttons */
 .btn {
   border-radius: 0.15em;

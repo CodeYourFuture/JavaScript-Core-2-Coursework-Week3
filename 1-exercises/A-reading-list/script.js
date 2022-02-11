@@ -1,5 +1,26 @@
 function readingList(books) {
   // Write your code here...
+  let divContent = document.getElementById('content')
+  let ul = document.createElement('ul')
+  divContent.appendChild(ul)
+  for(let x of books){
+    let list = document.createElement('li')
+    ul.appendChild(list)
+    let paragraph = document.createElement('p')
+    paragraph.style.color = 'white'
+    paragraph.innerText = `Title: ${x.title}. Aurthor: ${x.author}`
+    let imgEl = document.createElement('img')
+    imgEl.src = x.bookCoverImage
+    imgEl.style.width = '300px'
+    imgEl.style.height = 'auto'
+    list.appendChild(paragraph)
+    list.appendChild(imgEl)
+    if(x.alreadyRead){
+      list.style.backgroundColor = 'green'
+    } else {
+      list.style.backgroundColor = 'red'
+    }
+  }
 }
 
 const books = [
@@ -22,6 +43,8 @@ const books = [
     alreadyRead: true,
     bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780135957059.jpg',
   },
+  
 ];
+
 
 readingList(books);
