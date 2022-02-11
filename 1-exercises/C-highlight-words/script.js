@@ -18,7 +18,7 @@ function highlightWords(paragraph, colours) {
     let span = document.createElement("span");
     span.innerText = newArray[i] + " ";
 
-    span.addEventListener("click", function(event){
+    span.addEventListener("click", function(){
       select.value === "none" ? span.style.backgroundColor = ""
       : span.style.backgroundColor = select.value;
       });
