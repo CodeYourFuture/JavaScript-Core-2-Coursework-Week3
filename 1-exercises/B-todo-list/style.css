@@ -157,3 +157,7 @@ body {
     max-height: 80px;
   }
 }
+
+.list {
+  text-decoration: line-through;
+}

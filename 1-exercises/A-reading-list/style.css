@@ -120,10 +120,6 @@ body {
   margin-bottom: 0;
 }
 
-.red {
-  background-color: red;
-}
-
 .addArticle {
   margin-bottom: 10px;
 }
@@ -156,4 +152,20 @@ body {
   .navbar-brand > img {
     max-height: 80px;
   }
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.listWidth {
+  width: 500px;
+}
+.bookImg {
+  height: 200px;
+  width: 150px;
 }
