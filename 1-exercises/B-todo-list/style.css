@@ -91,6 +91,13 @@ body {
 }
 
 /* Article */
+.todoLi {
+  text-decoration: line-through;
+}
+.todoLi-no-style {
+  text-decoration: none;
+}
+
 .article {
   margin-bottom: 2em;
 }

@@ -1,5 +1,33 @@
+let newPEl = document.createElement('p');
+let newSelectEl = document.createElement('SELECT');
+let content = document.getElementById('content')
+content.appendChild(newSelectEl)
+content.appendChild(newPEl)
+
+
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  for (let i=0; i<colours.length; i++){
+    let optionEl = document.createElement('OPTION');
+    optionEl.innerHTML=colours[i]
+    newSelectEl.appendChild(optionEl)
+  }
+
+  paragraph=paragraph.split(' ')
+  for (let j=0; j<paragraph.length; j++){
+    let spanEL= document.createElement('SPAN');
+    spanEL.innerHTML = `${paragraph[j]} `
+    newPEl.appendChild(spanEL)
+
+    spanEL.addEventListener('click', ()=> {
+      if(newSelectEl.value === 'none'){
+        //spanEL.className= 'highlight-none';
+        spanEL.style.backgroundColor='white';
+      }
+      else{
+      spanEL.style.backgroundColor=newSelectEl.value
+      }
+    })
+  }
 }
 
 const paragraph =

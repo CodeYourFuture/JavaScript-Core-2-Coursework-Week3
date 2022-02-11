@@ -1,5 +1,29 @@
+let content = document.querySelector('#content')
+let listOfBooksUlEl= document.createElement('UL')
+
 function readingList(books) {
-  // Write your code here...
+  for(let i=0; i<books.length; i++){
+
+    let newParEl = document.createElement('p');
+    newParEl.innerHTML=books[i].title + ' by '+ books[i].author;
+
+    let bookCoverEl = document.createElement('img')
+    bookCoverEl.src=books[i].bookCoverImage;
+    bookCoverEl.width='200'
+
+    let listOfBooksEl= document.createElement('LI')
+    if (books[i].alreadyRead){
+      listOfBooksEl.className= 'green'
+    }
+    else{
+      listOfBooksEl.className = 'red'
+    }
+
+    listOfBooksEl.appendChild(newParEl)
+    listOfBooksEl.appendChild(bookCoverEl)
+    listOfBooksUlEl.appendChild(listOfBooksEl)
+    content.appendChild(listOfBooksUlEl)
+  }
 }
 
 const books = [
@@ -24,4 +48,4 @@ const books = [
   },
 ];
 
-readingList(books);
+console.log(readingList(books));

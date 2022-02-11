@@ -122,6 +122,10 @@
  .red {
      background-color: red;
  }
+
+ .highlight-none {
+    background-color: white;
+ }
  
  .addArticle {
      margin-bottom: 10px;
