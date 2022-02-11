@@ -1,6 +1,53 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+
+  todos.forEach((todoItem) => {
+    //create li element and add classes
+    const listElement = document.createElement("li");
+    listElement.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
+
+    //added task items
+    listElement.innerHTML = todoItem.task;
+
+    //created span element and added classes
+    const spanElement = document.createElement("span");
+    spanElement.classList.add("badge", "bg-primary", "rounded-pill");
+
+    //created i element and added classes
+    const infoElement = document.createElement("i");
+    infoElement.classList.add("fa", "fa-check");
+    infoElement.ariaHidden = "true";
+
+    //add event
+    infoElement.addEventListener("click", () => {
+      if (listElement.style.textDecoration === "") {
+        listElement.style.textDecoration = "line-through";
+      } else {
+        listElement.style.textDecoration = "";
+      }
+    });
+
+    //created second i element and added classes
+    const infoElementTrash = document.createElement("i");
+    infoElementTrash.classList.add("fa", "fa-trash");
+    infoElementTrash.ariaHidden = "true";
+
+    //delete event
+    infoElementTrash.addEventListener("click", () => {
+      listElement.remove();
+    });
+
+    spanElement.appendChild(infoElement);
+    spanElement.appendChild(infoElementTrash);
+    listElement.appendChild(spanElement);
+    list.appendChild(listElement);
+  });
 }
 
 // These are the same todos that currently display in the HTML
