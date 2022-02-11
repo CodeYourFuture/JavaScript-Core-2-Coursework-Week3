@@ -123,6 +123,9 @@ body {
 .red {
   background-color: red;
 }
+.green {
+  background-color: rgb(166, 255, 0);
+}
 
 .addArticle {
   margin-bottom: 10px;
