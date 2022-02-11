@@ -156,4 +156,22 @@ body {
   .navbar-brand > img {
     max-height: 80px;
   }
+  
+  
 }
+
+/* I added the following */
+
+p {
+  font-size: 32px;
+}
+
+.redBkg {
+  background-color: red;
+}
+
+
+.greenBkg {
+  background-color: green;
+}
+

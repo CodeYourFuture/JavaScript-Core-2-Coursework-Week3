@@ -157,3 +157,13 @@ body {
     max-height: 80px;
   }
 }
+
+/* I added the following */
+
+.normalText { 
+  text-decoration: none;
+}
+
+.strikeThrough {
+  text-decoration: line-through;
+}

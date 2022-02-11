@@ -1,12 +1,10 @@
 /*
 This is a super handy, super simple to do list.
-Each item in the list should have 2 buttons:
 
-- One to click when the ToDo has been completed - it will apply a line-through style to the text of the ToDo.
-- A second to delete the ToDo. This could be used to delete completed ToDos from the list, 
-  or remove ToDos that we are no longer interested in doing.
-  Add a button that users can click that will iterate through the list of ToDos and then delete them only 
-  if they have been completed.
+## Extra Advanced Challenge ##
+### Set deadlines for ToDos ###
+
+EXTRA CHALLENGE: instead of displaying the date on the ToDo, implement a countdown of days left until the deadline.
 */
 
 // This function is executed when the text is clicked
@@ -40,6 +38,31 @@ function trashFunction() {
   // Now remove the element
   getParent = getParent.parentElement; // this is the LI  
   getParent.remove(); // remove entire element
+}
+
+// Taken from https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/53092438#53092438 
+const DateDiff = function(type, start, end) {
+
+    let years = end.getFullYear() - start.getFullYear(),
+        monthsStart = start.getMonth(),
+        monthsEnd = end.getMonth();
+
+    let returns = -1;
+
+    switch(type){
+        case 'm': case 'mm': case 'month': case 'months':
+            returns = ( ( ( years * 12 ) - ( 12 - monthsEnd ) ) + ( 12 - monthsStart ) );
+            break;
+        case 'y': case 'yy': case 'year': case 'years':
+            returns = years;
+            break;
+        case 'd': case 'dd': case 'day': case 'days':
+            returns = ( ( end - start ) / ( 1000 * 60 * 60 * 24 ) );
+            break;
+    }
+
+    return Math.round(returns); // 'round()' needed to ensure correct whole number
+
 }
 
 function populateTodoList(todos) {
@@ -103,10 +126,23 @@ ADD THE FOLLOWING
         // Append to the list
         list.appendChild(listViewItem);
   }
+
 }
+
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. 
 // These new todos will need the completed and delete buttons adding like normal.
+
+
+/*
+the parsed value of a input date is always formatted yyyy-mm-dd.
+dateControl.value = '2017-06-01';
+
+console.log(dateControl.value); // prints "2017-06-01"
+console.log(dateControl.valueAsNumber); // prints 1496275200000, a JavaScript timestamp (ms)
+*/
+
+
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
@@ -114,13 +150,35 @@ function addNewTodo(event) {
   let newToDoInput = document.getElementById("todoInput")
   let inputText = newToDoInput.value.trim();
   newToDoInput.value = "" // reset the input field to blank 
-  if (inputText) // definitely non-null
+  let theDateInfo = document.getElementById("taskdate");
+  if (inputText) // definitely non-null - the default due date is tomorrow
   {
-      populateTodoList([{task: inputText, completed: false}])
+     // Attach the date to the 'todo'
+    let newTodoObj = {task: inputText, completed: false};
+    newTodoObj.duedate = theDateInfo.valueAsNumber;
+    
+    // In how many days is it due?
+    // To determine this work out the difference in days
+
+    let enteredDate = new Date(theDateInfo.value); // fetch the date YYYY-MM-DD
+    enteredDate.setHours(0,0,0,0) // for the purpose of the subtraction, set it to midnight
+    let daysDiff = DateDiff('dd', todaysMidnight, enteredDate); // SUBTRACT from today's date
+    if (daysDiff > 1)
+        newTodoObj.task += " - Due in " + daysDiff + " days"
+    else
+        newTodoObj.task += " - Due tomorrow";
+        
+    populateTodoList([newTodoObj]) // Add new Todo Object
+    theDateInfo.value = tomorrowsYYYYMMDD; // Reset to tomorrow's date      
+    return
   }
 
-  
+  // null todo input
+  alert("Please enter a todo to associate with the date")
+  theDateInfo.value = tomorrowsYYYYMMDD; // Reset to tomorrow's date      
 }
+
+
 
 // Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones 
 // (we can check which ones are completed by seeing if they have the line-through styling applied or not).
@@ -156,10 +214,12 @@ function deleteAllCompletedTodos(event) {
  // Decrement i to prevent this
 
             --i
+
                                                                   }            
                                                 }
 
 }
+
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
@@ -170,3 +230,29 @@ let todos = [
 
 
 populateTodoList(todos);
+const todaysDate = new Date(); // Current Date and Time
+// A Number, representing the number of milliseconds between the date object and midnight January 1, 1970 UTC
+
+// For this program, the earliest date that the user can enter is 'TOMORROW's' date
+// const todaysDateAsNumber = todaysDate.valueOf(); 
+
+const todaysMidnight = todaysDate;
+todaysMidnight .setHours(0,0,0,0) // for subtraction purposes, use midnight  00:00:00 
+
+const tomorrowsDate = new Date(todaysDate)
+tomorrowsDate.setDate(tomorrowsDate.getDate() + 1) // advance one day to determine TOMORROW
+tomorrowsDate.setHours(0,0,0,0) 
+
+// Tomorrow's date is the default due date
+const tomorrowsMonth = (tomorrowsDate.getMonth()+1).toString().padStart(2, '0')
+const tomorrowsDay = tomorrowsDate.getDate().toString().padStart(2, '0')
+
+const tomorrowsYYYYMMDD = `${tomorrowsDate.getFullYear()}-${tomorrowsMonth}-${tomorrowsDay}`
+const tomorrowAsNumber = tomorrowsDate.valueOf(); 
+
+let theDateInfo = document.getElementById("taskdate");
+theDateInfo.setAttribute("value", tomorrowsYYYYMMDD); // Tomorrow's Date
+theDateInfo.setAttribute("min", tomorrowsYYYYMMDD);   // Used as the minimum value
+
+
+

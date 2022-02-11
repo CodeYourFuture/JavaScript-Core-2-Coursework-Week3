@@ -1,12 +1,13 @@
 /*
 This is a super handy, super simple to do list.
-Each item in the list should have 2 buttons:
 
-- One to click when the ToDo has been completed - it will apply a line-through style to the text of the ToDo.
-- A second to delete the ToDo. This could be used to delete completed ToDos from the list, 
-  or remove ToDos that we are no longer interested in doing.
-  Add a button that users can click that will iterate through the list of ToDos and then delete them only 
-  if they have been completed.
+## Extra Advanced Challenge ##
+### Set deadlines for ToDos ###
+
+We want users to be able to set, and see, deadlines for their ToDos.
+When creating ToDos we want the user to be able to use a datepicker input so they can see when they need 
+to complete the ToDo. The date can be added to the ToDo in the list. 
+If there is no date set when the ToDo is created then this can be skipped.
 */
 
 // This function is executed when the text is clicked
@@ -103,10 +104,23 @@ ADD THE FOLLOWING
         // Append to the list
         list.appendChild(listViewItem);
   }
+
 }
+
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. 
 // These new todos will need the completed and delete buttons adding like normal.
+
+
+/*
+the parsed value of a input date is always formatted yyyy-mm-dd.
+dateControl.value = '2017-06-01';
+
+console.log(dateControl.value); // prints "2017-06-01"
+console.log(dateControl.valueAsNumber); // prints 1496275200000, a JavaScript timestamp (ms)
+*/
+
+
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
@@ -114,12 +128,29 @@ function addNewTodo(event) {
   let newToDoInput = document.getElementById("todoInput")
   let inputText = newToDoInput.value.trim();
   newToDoInput.value = "" // reset the input field to blank 
+  let theDateInfo = document.getElementById("taskdate");
   if (inputText) // definitely non-null
   {
-      populateTodoList([{task: inputText, completed: false}])
+    // Check whether a date has been entered
+    // If so attach it to the 'todo' otherwise ignore
+    let newTodoObj = {task: inputText, completed: false};
+    if (theDateInfo.valueAsNumber >= tomorrowAsNumber) 
+    {
+    //  a date has been entered
+        newTodoObj.duedate = theDateInfo.valueAsNumber;
+        newTodoObj.task += " - Due by " + new Date(theDateInfo.value).toDateString();
+    }  
+        
+    populateTodoList([newTodoObj]) // Add new Todo Object
   }
-
   
+  else
+  if (theDateInfo.valueAsNumber >= tomorrowAsNumber)
+  { // null todo input with a given date
+        alert("Please enter a todo to associate with the date")
+  }
+ 
+  theDateInfo.value = todaysYYYYMMDD; // Reset to today's date 
 }
 
 // Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones 
@@ -156,10 +187,12 @@ function deleteAllCompletedTodos(event) {
  // Decrement i to prevent this
 
             --i
+
                                                                   }            
                                                 }
 
 }
+
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
@@ -170,3 +203,21 @@ let todos = [
 
 
 populateTodoList(todos);
+const todaysDate = new Date(); // Current Date and Time
+// A Number, representing the number of milliseconds between the date object and midnight January 1, 1970 UTC
+const todaysDateAsNumber = todaysDate.valueOf(); 
+const todaysMonth = (todaysDate.getMonth()+1).toString().padStart(2, '0')
+const todaysDay = todaysDate.getDate().toString().padStart(2, '0')
+// let todaysYYYYMMDD = todaysDate.getFullYear() + todaysMonth + todaysDay
+const todaysYYYYMMDD = `${todaysDate.getFullYear()}-${todaysMonth}-${todaysDay}`
+const tomorrow = new Date(todaysDate)
+tomorrow.setDate(tomorrow.getDate() + 1) // advance one day to determine TOMORROW
+tomorrow.setHours(0,0,0,0) // tomorrow at 00:00:00 EG Fri Feb 11 2022 00:00:00 GMT+0000 (Greenwich Mean Time)
+const tomorrowAsNumber = tomorrow.valueOf(); 
+
+let theDateInfo = document.getElementById("taskdate");
+theDateInfo.setAttribute("value", todaysYYYYMMDD); // Current Date
+theDateInfo.setAttribute("min", todaysYYYYMMDD);   // Used as the minimum value
+
+
+

@@ -38,6 +38,11 @@
                       placeholder="New todo..."
                     />
                   </div>
+                  <div>
+                    <!-- Based on https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
+                    <label for="start">Task date:</label>
+                    <input type="date" id="taskdate" name="taskdate" />
+                  </div>
                   <div class="col-auto buttonFlex">
                     <button
                       onclick="addNewTodo(event)"
@@ -47,7 +52,7 @@
                     </button>
                     <button
                       onclick="deleteAllCompletedTodos(event)"
-                      class="btn btn-primary mb-3"                      
+                      class="btn btn-primary mb-3"
                     >
                       Remove All Completed Tasks
                     </button>

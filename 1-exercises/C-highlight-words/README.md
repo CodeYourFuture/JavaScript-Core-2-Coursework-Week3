@@ -7,7 +7,7 @@ const paragraph =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ut sem finibus ultrices. Phasellus hendrerit placerat libero...";
 ```
 
-It also takes an array of colour strings as it's second argument:
+It also takes an array of colour strings as its second argument:
 
 ```js
 const colours = ["blue", "purple", "orange"];

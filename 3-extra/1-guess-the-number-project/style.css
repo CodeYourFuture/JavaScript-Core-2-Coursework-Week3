@@ -1,5 +1,10 @@
 body {
+/*
+  I really do not like this background
   background-image: url(assets/leaves.jpeg);
+*/
+
+  background-image: url(https://image.shutterstock.com/z/stock-photo-abstract-numbers-random-motion-graphite-color-1054823219.jpg)
 }
 
 .container {
