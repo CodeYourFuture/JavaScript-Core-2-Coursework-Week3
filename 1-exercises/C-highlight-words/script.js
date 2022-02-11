@@ -1,5 +1,5 @@
 const whereToAttach = document.querySelector("#content");
-console.log(whereToAttach);
+//console.log(whereToAttach);
 
 function highlightWords(paragraph, options) {
   // creating our elements

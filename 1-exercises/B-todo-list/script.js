@@ -1,22 +1,22 @@
+divElement = document.querySelector('#content');
 function todoList(todos) {
   // Write your code here...
-  div = document.querySelector('#content');
   unorderedList = document.createElement('ul');
-  console.log(unorderedList);
-  result = todos.forEach((value => {
-    let listTag = document.createElement("li")
-    listTag.inner
-    //return(`<li>${value.todo}</li>`)
-  }))
-  div.append(unorderedList);
-  unorderedList.innerHTML = (result);
+  result = todos.forEach(todo => {
+  let list = document.createElement("li")
+  list.innerHTML = todo.todo;
 
-  let allList = document.querySelectorAll('li');
-  allList.forEach(strikeList => {
-    strikeList.addEventListener("click", ()=>{
-      //strikeList.classList.toggle('strike');
-    });
-  });
+  //line through
+  list.addEventListener("click", () =>{
+  if (list.style.textDecoration === 'line-through'){
+    list.style.textDecoration = '';
+  } else {
+    list.style.textDecoration = 'line-through';
+  }
+  })
+  divElement.append(unorderedList); // ul inside div
+  unorderedList.append(list); // list inside ul
+  })
 }
 
 const todos = [

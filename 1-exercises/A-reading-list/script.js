@@ -1,22 +1,30 @@
+let content = document.querySelector('#content');
 function readingList(books) {
   // Write your code here...
-  let content = document.querySelector('#content');
-  //console.log(content);
-  let unorderedList = document.createElement("ul");
-  //console.log(unorderedList);
-  let bookList = books.map(book => {
-    //book.alreadyRead = true ? book.style.backgroundColor = "green" : book.style.backgroundColor = "red";
-    return(`<li><p>${book.title} by ${book.author}</p><img src= ${book.bookCoverImage}></li>`);
-  }).join("");
-  //content.style.backgroundColor = "red"; it worked
- //console.log(bookList);
- content.append(unorderedList);
- unorderedList.innerHTML = bookList;
-//  let cssClass = bookList.filter(value =>{
-//     if (!(value.alreadyRead) ? value.setAttribute('class', 'not read') : value.setAttribute('class', 'read'));
-//   });
+  let unorderedList = document.createElement("ul"); // created unordered list tag
+  content.append(unorderedList);
+    
+  //iterate through the list of books
+   bookList = books.forEach(book => {
+    paraElement = document.createElement("p"); //p element
+    paraElement.innerHTML = (`${book.title} by ${book.author}`); // paragraph content
+    imageTag = document.createElement("img");
+    imageTag.src = book.bookCoverImage;
+    
+    let listElement = document.createElement("li"); // list
+    unorderedList.append(listElement);
+    listElement.append(paraElement);
+    listElement.append(imageTag);
 
-}
+    //background colours
+      if (book.alreadyRead === true){
+       listElement.style.backgroundColor = "green";
+    } else {
+       listElement.style.backgroundColor = "red";
+    }
+  });
+
+ }
 
 const books = [
   {
