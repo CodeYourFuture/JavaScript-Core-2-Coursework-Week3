@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<div class="container">
+  <div class="to-do">
+    <h2>To-Do List <span id="count"></span></h2>
+    <div class="input">
+      <input type="text" id="title" autocomplete="off">
+      <button id="add-task">
+        Add Task
+      </button>
+    </div>
+    <div class="task">
+      <ul id="task-list"> 
+      </ul>  
+    </div>
+    
+  </div> 
+</div>
+<script>
+$ = function(val){
+      result = document.querySelector(val); 
+      return result;
+   };
+all =function( val ){
+      result = document.querySelectorAll(val); 
+      return result;
+};
+function  createListItem (value){
+    var listItem,
+        closeBtn,
+        textContent,
+        node,
+        
+    listItem = document.createElement("li");
+    closeBtn = document.createElement("button");
+    textContent = document.createElement("p");
+    node = document.createTextNode(value);
+    closeBtn.textContent = "X";
+    closeBtn.className = "close-btn"
+    listItem.className = "list-item"
+
+    textContent.appendChild(node);
+    listItem.appendChild (textContent);
+    listItem.appendChild (closeBtn);
+    
+    return listItem;
+}
+
+$("ul").addEventListener("click", function(e){
+    var el = e.target;
+    if(el.className =="close-btn")
+    {
+        el.parentNode.remove();
+        if(countList()>=1){
+            $("#count").innerHTML = "("+ countList() +")"; 
+        }
+        else {
+          $("#count").innerHTML = ""; 
+        }
+    } 
+    console.log(el.tagName);
+    if(el.tagName == "LI" || el.tagName == "P"){
+                var li = el.closest("li")
+                if(li.classList.contains("active")) {
+                    li.classList.remove("active")
+                } else {
+                    li.classList.add("active")
+                } 
+    }
+})
+function checkValueExist(values){
+   lists  =  all("#task-list li");
+    result = false;      
+    for(var i =0 ; i< lists.length; i++){
+         if(lists[i].querySelector('p').textContent === values){
+           result= true;
+           break;
+         }
+    }
+    return result;
+}
+function countList(){
+   var count = 0;
+   count   =  all("#task-list li").length;
+  return count;
+}
+$("#add-task").onclick = function(e){
+  var fistItem,
+      listItem;  
+    if($("#title").value==="") {
+      alert("Empty value are not allowed");
+    } else if(!checkValueExist($("#title").value) ) {
+     listItem = createListItem ($("#title").value);
+     fistItem = $("#task-list li")
+
+       if(fistItem) {
+         $("#task-list").insertBefore(listItem , fistItem);
+       }
+       else {
+         $("#task-list").appendChild(listItem ); 
+       }
+      
+       $("#count").innerHTML = "("+ countList() +")";
+       $("#title").value= "";     
+   }
+   else {
+     alert("Task Already Exists");
+   }
+} 
+</script>
+</body>
+</html>

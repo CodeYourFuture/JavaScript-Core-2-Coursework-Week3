@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <div id="container">
+    <h1>To do list</h1>
+      <p>Enter text into the input field to add task to your list.<br> Click once to mark it as complete, twice to remove it from the list</p>
+        <input type="text" id="task" placeholder="add a new task"> <button id="task-button">+</button>
+        <div id="list-container"></div>
+    </div>
+    <script>
+        const addNewTaskBtn = document.getElementById("task-button");
+const taskContainer = document.getElementById("list-container");
+const inputField = document.getElementById("task");
+
+addNewTaskBtn.addEventListener("click", function() {
+  const newTask = document.createElement("li");
+  newTask.innerText = inputField.value;
+  taskContainer.appendChild(newTask);
+  inputField.value = "";
+  newTask.addEventListener("click", function() {
+    newTask.style.textDecoration = "line-through";
+  })
+  newTask.addEventListener("dblclick", function() {
+    taskContainer.removeChild(newTask);
+})
+})
+</script>
+</body>
+</html>

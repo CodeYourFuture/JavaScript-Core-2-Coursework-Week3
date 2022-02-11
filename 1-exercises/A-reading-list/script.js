@@ -1,5 +1,35 @@
 function readingList(books) {
-  // Write your code here...
+  // Write your code here...const whereToAttach = document.querySelector("#content");
+
+  // creating our elements
+  const divContent = document.querySelector("#content");
+  const ulElement= document.createElement("ul");
+  divContent.appendChild(ulElement);
+
+  for(let book of books){
+    let liElement=document.createElement("li");
+    let divInner=document.createElement("div");
+    divInner.style.width="95%";
+    let pElement=document.createElement("p");
+    let pText=document.createTextNode(book.title +"by"+ book.author);
+    pElement.appendChild(pText);
+    pElement.style.fontSize="15px";
+    pElement.style.fontWeight="300";
+
+    let imgElement=document.createElement("img");
+    imgElement.classList.add("book-img");
+    imgElement.src=book.bookCoverImage;
+
+    let colorClass=book.alreadyRead ? "green" :"red";
+    divInner.classList.add(colorClass);
+
+    ulElement.appendChild(liElement);
+    liElement.appendChild(divInner);
+    divInner.appendChild(pElement);
+    divInner.appendChild(imgElement)
+
+  }
+
 }
 
 const books = [
@@ -25,3 +55,5 @@ const books = [
 ];
 
 readingList(books);
+
+
