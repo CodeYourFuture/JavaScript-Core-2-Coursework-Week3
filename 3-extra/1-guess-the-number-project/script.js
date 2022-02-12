@@ -4,33 +4,41 @@ function generateRandomNumber() {
   randomNumber = Math.floor(Math.random() * 100 + 1);
 }
 generateRandomNumber();
-
+let tries = 0;
+let triesLeft = 7;
 function guessNumber() {
   
   //Collect input from the user
   let guess = parseInt(document.querySelector(".inputs-Values").value);
-  
-  
-console.log(guess);
-console.log(randomNumber);
+  if (triesLeft === 0 && guess != randomNumber) {
+    result.textContent = `You Lose, the number was ${randomNumber}`;
+    return;
+  }
   //If the user inputs a bad input ie 0, empty string, number greater that 100, number less than zero Print "Please enter a number between 1 and 100"
-  if (guess < 0 || guess > 100 || guess === "") {
+  if (guess < 1 || guess > 100 || guess === "") {
     result.textContent = "Please enter a number between 1 and 100";
   }
 
   //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
   else if (randomNumber < guess) {
-    result.textContent = guess + " is too high, try again";
+    tries++;
+    triesLeft--;
+    result.textContent = `Remaining Tries: ${triesLeft} \n${guess} is too high, try again`;
   }
 
   //If the users guess is lower than the random number print Number is too low, try again  (hint use .final-out class to print)
   else if (guess < randomNumber) {
-    result.textContent = guess + " is too low, try again";
+    tries++;
+    triesLeft--;
+    result.textContent = `Remaining Tries: ${triesLeft} \n${guess} is too low, try again`;
   }
   //If the user has guessed the random number correctly print out the randomNumber with a message "Guess is correct. You win!"
   else if (guess == randomNumber) {
-    result.textContent = randomNumber + " is correct. You win!!!";
+    tries++;
+    result.textContent = `It took you ${tries} tries ${randomNumber} is correct. You win!!!`;
   }
+  
+  
 }
 
 // For this task we will be making a "New Game" button function which will reset our game,
@@ -47,6 +55,8 @@ function newGame() {
   inputField.value = "";
   result.textContent = "Please enter a number between 1 and 100 to start";
   //Reset tries, and triesTaken by the user
+  tries = 0;
+  triesLeft = 7;
 }
 
 //keyboard exception
