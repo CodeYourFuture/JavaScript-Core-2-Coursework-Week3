@@ -75,7 +75,8 @@ function addNewTodo(event) {
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
+function deleteAllCompletedTodos(e) {
+  e.preventDefault();
   let toDoItems = document.querySelectorAll("li");
   toDoItems.forEach(item => {
     if (item.classList.contains("line-through")) {
