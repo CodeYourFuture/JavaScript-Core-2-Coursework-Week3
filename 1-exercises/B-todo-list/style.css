@@ -157,3 +157,11 @@ body {
     max-height: 80px;
   }
 }
+
+.done {
+  text-decoration: line-through;
+}
+
+li {
+  cursor: pointer;
+}
