@@ -83,4 +83,17 @@ function deleteAllCompletedTodos() {
     } 
   })
 }
-setInterval(deleteAllCompletedTodos, 1000);
+
+let cardForm = document.querySelector("form");
+let cardDiv = document.createElement("div");
+cardDiv.classList.add("card-auto");
+
+//Create and set up button to clear on click
+let deleteAllBtn = document.createElement("button");
+deleteAllBtn.innerHTML = "Delete All";
+deleteAllBtn.classList.add("btn", "btn-primary", "mb-3");
+deleteAllBtn.addEventListener("click", deleteAllCompletedTodos);
+cardDiv.appendChild(deleteAllBtn);
+cardForm.append(cardDiv);
+
+//setInterval(deleteAllCompletedTodos, 1000);
