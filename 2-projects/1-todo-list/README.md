@@ -64,3 +64,25 @@ When creating ToDos we want the user to be able to use a datepicker input so the
 
 EXTRA CHALLENGE: instead of displaying the date on the ToDo, implement a countdown of days left until the deadline. You can use the Javascript Date reference to accomplish this:
 https://www.w3schools.com/jsref/jsref_obj_date.asp
+
+
+<li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Wash the dishes
+                <span class="badge bg-primary rounded-pill">
+                  <!-- each of these <i> tags will need an event listener when we create them in Javascript -->
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="text-decoration: line-through"
+              >
+                Do the shopping
+                <span class="badge bg-primary rounded-pill">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+              </li>

@@ -10,3 +10,7 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+  .cross {
+    text-decoration: line-through;
+  }

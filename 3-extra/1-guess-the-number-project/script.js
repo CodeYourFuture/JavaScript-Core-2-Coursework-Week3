@@ -63,3 +63,4 @@ function keyBoardEvents(e) {
 document.querySelector(".btnGuess").addEventListener("click", guessNumber);
 document.addEventListener("keypress", keyBoardEvents);
 newGame()
+
