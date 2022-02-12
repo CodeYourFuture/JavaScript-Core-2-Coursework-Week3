@@ -1,9 +1,11 @@
 const list = document.getElementById('todo-list')
 const input = document.getElementById('todoInput');
 
+
 function populateTodoList(todos) {
   
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  list.innerHTML = '';
   for (let currentList = 0; currentList < todos.length; currentList++) {
     let newToDoList = document.createElement('li');
     newToDoList.innerHTML = `<li
@@ -17,12 +19,24 @@ function populateTodoList(todos) {
     </span>
   </li>`
     list.appendChild(newToDoList);
+    let checkMarkBtn = document.querySelectorAll('.fa-check');
+    let delBtn = document.querySelectorAll('.fa-trash')
+    checkMarkBtn[currentList].addEventListener('click', () => {
+      newToDoList.classList.toggle('cross')
+    });
+    delBtn[currentList].addEventListener('click', () => {
+      newToDoList.classList.add('hidden')
+    })
   
+
+
 
     
    
   }
   input.value = ' ';
+
+
   
   
   
@@ -45,30 +59,24 @@ function addNewTodo(event) {
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
   let newToDoItem = input.value;
-  const newToDoArr = []
+  
  
   const newListObj = {task: newToDoItem, completed: false};
-  newToDoArr.push(newListObj)
+  todos.push(newListObj)
 
   
-  populateTodoList(newToDoArr);
-  let checkMarkBtn = document.querySelector('.fa-check')
-  let newItem = document.querySelector(".list-group-item");
-  crossCompletedItem(checkMarkBtn, newItem )
+  populateTodoList(todos);
+  
   newToDoItem = ' '
 
 
 
 
 }
-function crossCompletedItem(btn, li) {
 
-  btn.addEventListener('click', () => {
-    li.classList.toggle('cross')
-  })
-}
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  // Write your code here...
+
+
 }
