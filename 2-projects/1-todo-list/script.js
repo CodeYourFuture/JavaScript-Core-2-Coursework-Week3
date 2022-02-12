@@ -12,31 +12,17 @@ function populateTodoList(obj) {
     li.innerText = item.task;
     let span = document.createElement("span");
     span.classList.add("badge", "bg-primary", "rounded-pill");
-
-    let iconCheck = document.createElement("i");
-    // iconCheck.classList.add("fa", "fa-check");
-    // iconCheck.setAttribute("aria-hidden", "true");
-    let iconTrash = document.createElement("i");
-    // iconTrash.classList.add("fa", "fa-trash");
-    // iconTrash.setAttribute("aria-hidden", "true");
-
-    span.appendChild(iconCheck);
-    span.appendChild(iconTrash);
+    for (let i = 0; i < 2; i++) {
+      let iTag = document.createElement("i");
+      iTag.classList.add("fa");
+      iTag.setAttribute("aria-hidden", "true");
+      i === 0 ? iTag.classList.add("fa-check") : iTag.classList.add("fa-trash");
+      span.appendChild(iTag);
+    }
     li.appendChild(span);
     list.appendChild(li);
   });
-  let icons = document.getElementsByTagName("i");
 
-  for (let i = 0; i < icons.length; i++) {
-    icons[i].classList.add("fa");
-    icons[i].setAttribute("aria-hidden", "true");
-    if (i % 2 === 0) {
-      icons[i].classList.add("fa-check");
-    } else {
-      icons[i].classList.add("fa-trash");
-    }
-  }
-  
   list.addEventListener("click", (e) => {
     if (e.target.classList.contains("fa-check")) {
       e.target.parentElement.parentElement.classList.toggle("line-through");
@@ -71,18 +57,17 @@ function addNewTodo(event) {
   ];
   populateTodoList(inputValue);
   input.value = "";
-  
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos(e) {
   e.preventDefault();
   let toDoItems = document.querySelectorAll("li");
-  toDoItems.forEach(item => {
+  toDoItems.forEach((item) => {
     if (item.classList.contains("line-through")) {
-      item.remove()
-    } 
-  })
+      item.remove();
+    }
+  });
 }
 
 let cardForm = document.querySelector("form");
