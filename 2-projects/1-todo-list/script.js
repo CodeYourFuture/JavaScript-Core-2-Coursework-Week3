@@ -1,7 +1,8 @@
 function populateTodoList(todos) {
   let ul = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
-  for (let item of todos) {
+  for (let [index, item] of todos.entries()) {
+    // wtf is this?
     let li = document.createElement("li");
     li.innerText = item.task;
     li.classList.add(
@@ -10,18 +11,34 @@ function populateTodoList(todos) {
       "justify-content-between",
       "align-items-center"
     );
-    let span = document.createElement("span");
+    let span = document.createElement("span"),
+      icon1 = document.createElement("i"),
+      icon2 = document.createElement("i");
     span.classList.add("badge", "bg-primary", "rounded-pill");
-    span.style.width = "";
-    let icon1 = document.createElement("i");
     icon1.classList.add("fa", "fa-check");
-    icon1.ariaHidden = "true";
-    let icon2 = document.createElement("i");
+    icon1.style.marginRight = "0.25rem";
     icon2.classList.add("fa", "fa-trash");
+    icon1.ariaHidden = "true";
     icon2.ariaHidden = "true";
     span.append(icon1, icon2);
     li.append(span);
     ul.append(li);
+    icon1.addEventListener("click", () => {
+      if (
+        icon1.parentElement.parentElement.style.textDecoration ===
+        "line-through"
+      ) {
+        icon1.parentElement.parentElement.style.textDecoration = "none";
+      } else {
+        icon1.parentElement.parentElement.style.textDecoration = "line-through";
+      }
+    });
+    icon2.addEventListener("click", () => {
+      li.remove();
+      todos.splice(index, 1);
+      console.log(todos);
+    });
+    // console.log("logs:", icon1.parentElement.parentElement.style.textDecoration = "line-through");
   }
 }
 
@@ -39,6 +56,40 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  let li = document.createElement("li"),
+    input = document.getElementById("todoInput");
+  li.innerText = input.value;
+  input.value = "";
+  li.classList.add(
+    "list-group-item",
+    "d-flex",
+    "justify-content-between",
+    "align-items-center"
+  );
+  let span = document.createElement("span"),
+    icon1 = document.createElement("i"),
+    icon2 = document.createElement("i");
+  span.classList.add("badge", "bg-primary", "rounded-pill");
+  icon1.classList.add("fa", "fa-check");
+  icon1.style.marginRight = "0.25rem";
+  icon2.classList.add("fa", "fa-trash");
+  icon1.ariaHidden = "true";
+  icon2.ariaHidden = "true";
+  span.append(icon1, icon2);
+  li.append(span);
+  document.getElementById("todo-list").append(li);
+  icon1.addEventListener("click", () => {
+    if (
+      icon1.parentElement.parentElement.style.textDecoration === "line-through"
+    ) {
+      icon1.parentElement.parentElement.style.textDecoration = "none";
+    } else {
+      icon1.parentElement.parentElement.style.textDecoration = "line-through";
+    }
+  });
+  icon2.addEventListener("click", () => {
+    li.remove();
+  });
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
