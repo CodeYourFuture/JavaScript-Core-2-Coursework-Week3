@@ -1,5 +1,35 @@
+
+const contentDiv = document.querySelector("#content");
+
+
+let newParagraph = document.createElement("p");
+contentDiv.appendChild(newParagraph)
+
+
+let select = document.createElement("select");
+contentDiv.appendChild(select);
+
+
+
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+
+  colours.forEach(color => {
+    let option = document.createElement("option");
+    select.appendChild(option);
+    option.value = color;
+    option.innerText = color;
+
+  });
+  paragraph.split(" ").forEach((word) => {
+    let span = document.createElement("span");
+    span.innerHTML = word + " ";
+    span.addEventListener("click", () => {
+    let currentColour = select.value;
+    currentColour === "none" ? 
+    span.style.backgroundColor = "" : span.style.backgroundColor = currentColour;
+    })
+    newParagraph.appendChild(span);
+  })
 }
 
 const paragraph =
