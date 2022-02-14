@@ -8,9 +8,7 @@ function populateTodoList(todos) {
   let btnParent = document.querySelector("button").parentNode;
   let delCompletedBtn = document.createElement("button");
   delCompletedBtn.type = "button";
-  delCompletedBtn.classList.add("btn");
-  delCompletedBtn.classList.add("btn-danger");
-  delCompletedBtn.classList.add("mb-3");
+  delCompletedBtn.classList.add("btn", "btn-danger", "mb-3");
   delCompletedBtn.innerText = "Delete Completed";
   delCompletedBtn.id = "btnDelete";
 
@@ -38,29 +36,22 @@ function addNewTodo(event) {
   //todos.push({ task: todoInput.value, completed: false });
 
   let liTodo = document.createElement("li");
-  liTodo.classList.add("list-group-item");
-  liTodo.classList.add("d-flex");
-  liTodo.classList.add("justify-content-between");
-  liTodo.classList.add("align-items-center");
+  liTodo.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
 
   liTodo.innerText = todoInput.value;
   todoList.appendChild(liTodo);
 
   let spanTodo = document.createElement("span");
-  spanTodo.classList.add("badge");
-  spanTodo.classList.add("bg-primary");
-  spanTodo.classList.add("rounded-pill");
+  spanTodo.classList.add("badge", "bg-primary", "rounded-pill");
   liTodo.appendChild(spanTodo);
 
   let icTodo = document.createElement("i");
-  icTodo.classList.add("fa");
-  icTodo.classList.add("fa-check");
+  icTodo.classList.add("fa", "fa-check");
   icTodo.ariaHidden = true;
   spanTodo.appendChild(icTodo);
 
   let itTodo = document.createElement("i");
-  itTodo.classList.add("fa");
-  itTodo.classList.add("fa-trash");
+  itTodo.classList.add("fa", "fa-trash");
   itTodo.ariaHidden = true;
   spanTodo.appendChild(itTodo);
 
