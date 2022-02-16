@@ -1,17 +1,17 @@
 let randomNumber = Math.floor(Math.random() * 100 + 1);
 console.log(randomNumber);
-let final = document.querySelector('.final-output');
-let triesEl = document.querySelector('.Tries-output');
+let final = document.querySelector(".final-output");
+let triesEl = document.querySelector(".Tries-output");
 let tries = 0;
 
 function guessNumber() {
   //Collect input from the user
-  let guess = document.querySelector('.inputs-Values').value;
+  let guess = document.querySelector(".inputs-Values").value;
 
   triesEl.innerHTML = tries;
 
   //If the user inputs a bad input ie 0, empty string, number greater that 100, number less than zero Print "Please enter a number between 1 and 100"
-  if (guess < 0 || guess > 100 || guess === '') {
+  if (guess <= 0 || guess > 100 || guess === "") {
     final.innerHTML = `Please enter a number between 1 and 100`;
   }
 
@@ -43,9 +43,9 @@ function newGame() {
   //Reset users input field
   //Reset tries, and triesTaken by the user
   final.innerHTML = final.defaultValue;
-  document.querySelector('.inputs-Values').value = '';
+  document.querySelector(".inputs-Values").value = "";
   tries = 0;
-  triesEl.innerHTML = '';
+  triesEl.innerHTML = "";
 }
 
 //keyboard exception
@@ -55,6 +55,6 @@ function keyBoardEvents(e) {
   }
 }
 
-document.querySelector('.btnGuess').addEventListener('click', guessNumber);
-document.addEventListener('keypress', keyBoardEvents);
-document.querySelector('.btnNewGame').addEventListener('click', newGame);
+document.querySelector(".btnGuess").addEventListener("click", guessNumber);
+document.addEventListener("keypress", keyBoardEvents);
+document.querySelector(".btnNewGame").addEventListener("click", newGame);
