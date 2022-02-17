@@ -122,6 +122,17 @@ body {
 
 .red {
   background-color: red;
+  font-size: 28px;
+}
+
+.green {
+  background-color: green;
+  font-size: 28px;
+}
+
+img {
+  margin-right: 90%;
+  margin-top: 4%;
 }
 
 .addArticle {
