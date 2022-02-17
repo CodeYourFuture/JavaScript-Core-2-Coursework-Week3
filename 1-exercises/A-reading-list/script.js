@@ -1,5 +1,22 @@
 function readingList(books) {
-  // Write your code here...
+  books.forEach((book) => {
+    let divEl = document.body.querySelector("#content");
+    let newPar = document.createElement("p");
+    newPar.innerText = `${book.title} by ${book.author}`;
+    let imgEl = document.createElement("img");
+    imgEl.src = book.bookCoverImage;
+    let ul = document.createElement("ul");
+    let li = document.createElement("li");
+    newPar.appendChild(imgEl);
+    li.appendChild(newPar);
+    ul.appendChild(li);
+    divEl.appendChild(ul);
+    if (book.alreadyRead === false) {
+      newPar.classList.add("red");
+    } else {
+      newPar.classList.add("green");
+    }
+  });
 }
 
 const books = [
