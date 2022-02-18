@@ -1,3 +1,5 @@
+const content = document.querySelector("#content");
+
 function highlightWords(paragraph, colours) {
   // Write your code here...
   let paragraphEl = document.createElement(`p`);
