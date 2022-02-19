@@ -1,9 +1,9 @@
 function todoList(todos) {
   // Write your code here...
-  let contain = document.querySelectorAll("#content");
+  let contain = document.querySelector("#content");
   let myList = document.createElement("ul");
 
-  contain[0].appendChild(myList);
+  contain.appendChild(myList);
   todos.forEach((element) => {
     let myUList = document.createElement("li");
     myList.appendChild(myUList);
