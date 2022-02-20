@@ -1,5 +1,5 @@
 function todoList(todos) {
-  let ulEl = document.createElement("ulEl");
+  let ulEl = document.createElement("ul");
   ulEl.setAttribute("id", "list");
   let headingEl = document.createElement("h1");
   headingEl.innerHTML = "Todo list";
@@ -7,7 +7,7 @@ function todoList(todos) {
   content.appendChild(headingEl);
   for (task of todos) {
     // console.log(todo);
-    let liEl = document.createElement("liEl");
+    let liEl = document.createElement("li");
     liEl.setAttribute("class", "listItem");
     ulEl.appendChild(liEl);
     liEl.innerHTML = task.todo; // show the list of items in objects

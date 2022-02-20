@@ -52,6 +52,12 @@ function populateTodoList(todos) {
   }
 }
 
+function deleteAllListItem() {
+  document.querySelectorAll("liEl").forEach((todo) => {
+    todo.remove();
+  });
+}
+
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 
@@ -75,7 +81,7 @@ function addNewTodo(event) {
   liEl.appendChild(textValueFromInput);
 
   if (inputValue === "") {
-    alert("It is empty, write something.");
+    return alert("It is empty, write something.");
   } else {
     ulEl.appendChild(liEl);
   }

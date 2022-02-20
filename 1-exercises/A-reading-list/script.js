@@ -1,10 +1,10 @@
 function readingList(books) {
-  let ulEl = document.createElement("ulEl");
+  let ulEl = document.createElement("ul");
   ulEl.setAttribute("id", "proList");
   let content = document.querySelector("#content");
 
   for (book of books) {
-    let liEl = document.createElement("liEl");
+    let liEl = document.createElement("li");
     liEl.setAttribute("class", "item");
     ulEl.appendChild(liEl);
     liEl.innerHTML = `
