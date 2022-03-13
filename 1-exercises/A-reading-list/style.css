@@ -157,3 +157,17 @@ body {
     max-height: 80px;
   }
 }
+
+.book-image-cover {
+  width: 30%;
+}
+
+.book-list-item__not-read {
+  background-color: red;
+  width: 25%;
+}
+
+.book-list-item__is-read {
+  background-color: green;
+  width: 25%;
+}

@@ -157,3 +157,7 @@ body {
     max-height: 80px;
   }
 }
+
+.is-complete {
+  text-decoration: line-through;
+}
