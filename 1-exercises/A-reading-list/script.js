@@ -9,7 +9,7 @@ function readingList(books) {
   // Write your code here...
 
   // fetch the book data
-  let theContent = document.querySelector("#content"); // FETCH THE ELEMENT THAT NEEDS MODIFYING
+  let theContent = document.querySelector("#content");
   //set ip the page
   let ViewList = document.createElement("ul");
 
