@@ -1,33 +1,26 @@
+const content = document.getElementById("content");
+
 function readingList(books) {
-  // - For each book, create a `<p>` element with the book title and author.
-  const content = document.querySelector("#content");
-  const ulList = document.createElement("ul");
-  
+  const readingList = document.createElement("ul");
   books.forEach((book) => {
+    const bookItem = document.createElement("li");
+    if (book.alreadyRead) bookItem.classList.add("book-list-item__is-read");
+    else bookItem.classList.add("book-list-item__not-read");
 
-    const listItem = document.createElement("li");
-    
     const paragraph = document.createElement("p");
-    paragraph.innerText = `${book.title} : ${book.author}`;
-    listItem.appendChild(paragraph);
+    const bookImage = document.createElement("img");
+    const bookInfoText = `${book.title} by ${book.author}`;
 
-    const image = document.createElement("img");
-    image.src = book.bookCoverImage;
-    listItem.appendChild(image)
+    paragraph.innerText = bookInfoText;
+    bookImage.src = book.bookCoverImage;
+    bookImage.classList.add("book-image-cover");
 
-    if(book.alreadyRead){
-       listItem.className = "green";
-      // listItem.style.backgroundColor = "green";
-    } else {
-      listItem.className = "red";
-      //listItem.style.backgroundColor = "red";
-    }
-    ulList.appendChild(listItem);
+    bookItem.append(paragraph, bookImage);
+    readingList.appendChild(bookItem);
   });
 
-  content.appendChild(ulList);
+  content.appendChild(readingList);
 }
-
 const books = [
   {
     title: "The Design of Everyday Things",
