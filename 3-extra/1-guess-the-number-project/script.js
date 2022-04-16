@@ -48,6 +48,7 @@ function newGame() {
   input.value = "";
   triesLeft = 7;
   hasWon = false;
+  tries.innerText = `Number of tries: ${triesLeft}`;
 }
 
 //keyboard exception
