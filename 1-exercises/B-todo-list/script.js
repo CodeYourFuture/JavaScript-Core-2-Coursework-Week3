@@ -15,6 +15,12 @@ function todoList(todos) {
     ul.appendChild(li);
   });
   content.appendChild(ul);
+  
+  document.querySelectorAll("li").forEach(li => {
+    li.addEventListener("click", () => {
+      li.classList.toggle("line-through")
+    })
+  });
 }
 
 const todos = [
@@ -25,9 +31,3 @@ const todos = [
 ];
 
 todoList(todos);
-
-document.querySelectorAll("li").forEach(li => {
-  li.addEventListener("click", () => {
-    li.classList.toggle("line-through")
-  })
-});
