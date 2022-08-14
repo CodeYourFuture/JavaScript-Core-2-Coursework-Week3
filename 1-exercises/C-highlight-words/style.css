@@ -8,6 +8,8 @@
 
  html,
  body {
+    background: #222;
+    color: #fff;
      font-family: "Source Sans Pro",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
  }
  
@@ -156,4 +158,19 @@
      .navbar-brand > img {
         max-height: 80px;
      }
+ }
+
+ /* Highlight words styles */
+ #content {
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+ }
+
+ select {
+   padding: .5em .8em;
+   background-color: aliceblue;
+   width: 100px;
+   font-size: .9em;
+   font-weight: bold;
  }
