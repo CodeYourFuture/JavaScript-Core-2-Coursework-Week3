@@ -1,14 +1,14 @@
 const content = document.querySelector("#content");
 
-const inputTag = document.createElement("input");
-inputTag.type = "text";
-const submitBtn = document.createElement("button");
-submitBtn.innerText = "Submit"
+const input_tag = document.createElement("input");
+input_tag.type = "text";
+const submit_btn = document.createElement("button");
+submit_btn.innerText = "Submit"
 
-submitBtn.type = "submit"
-submitBtn.addEventListener("click", todoList)
-content.appendChild(inputTag);
-content.appendChild(submitBtn)
+submit_btn.type = "submit"
+submit_btn.addEventListener("click", todoList)
+content.appendChild(input_tag);
+content.appendChild(submit_btn)
 const ulTag = document.createElement("ul");
 content.appendChild(ulTag);
 ulTag.className = "ul"
@@ -20,8 +20,8 @@ function todoList(todos) {
 
 
   let newLi = document.createElement("li");
-  newLi.innerText = inputTag.value;
-  inputTag.value.replace("  ", "");
+  newLi.innerText = input_tag.value;
+  input_tag.value.replace("  ", "");
   newLi.addEventListener("click", () => {
     newLi.classList.toggle("checked")
   })
