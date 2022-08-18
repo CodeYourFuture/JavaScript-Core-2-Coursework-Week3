@@ -13,17 +13,19 @@ function readingList(books) {
     let itemEl = document.createElement("li");
     let titleEl = document.createElement("p");
     titleEl.textContent = `${book.title} by ${book.author}`;
+    titleEl.className = "styleTitle";
     itemEl.appendChild(titleEl);
     let imgEl = document.createElement("img");
     imgEl.src = book.bookCoverImage;
-    titleEl.appendChild(imgEl);
+    imgEl.className = "styleImage";
+    titleEl.parentNode.appendChild(imgEl);
     listEl.appendChild(itemEl);
     // book.alreadyRead
     //   ? (titleEl.style.backgroundColor = "#007144")
     //   : (titleEl.style.backgroundColor = "#a20417");
     book.alreadyRead
-      ? (titleEl.className = "green")
-      : (titleEl.className.backgroundColor = "red");
+      ? (itemEl.className += " green")
+      : (itemEl.className += " red");
   });
 }
 

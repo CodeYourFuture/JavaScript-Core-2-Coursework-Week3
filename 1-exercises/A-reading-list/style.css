@@ -128,6 +128,17 @@ body {
   background-color: #007144;
 }
 
+.styleTitle {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.styleImage {
+  width: 250px;
+  height: auto;
+  padding: 10px;
+}
+
 .addArticle {
   margin-bottom: 10px;
 }
