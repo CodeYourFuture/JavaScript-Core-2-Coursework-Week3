@@ -121,7 +121,11 @@ body {
 }
 
 .red {
-  background-color: red;
+  background-color:#F4442E;
+}
+
+.green {
+  background-color: #16C172;
 }
 
 .addArticle {
