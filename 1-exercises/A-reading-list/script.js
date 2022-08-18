@@ -3,27 +3,30 @@ function readingList(books) {
   let contentEl = document.getElementById("content");
   let unorderedListEl = document.createElement("ul");
   contentEl.appendChild(unorderedListEl);
-  // let redColour = document.querySelector(".red");
-  // redColour.className = "red";
-  // let greenColour = document.querySelector(".green");
-  // greenColour.className = "green";
 
   for (let i = 0; i < books.length; i++) {
+    let listEl = document.createElement("li");
     let pEl = document.createElement("p");
-    // contentEl.appendChild(pEl);
     pEl.innerText = `${books[i].title} by ${books[i].author}`;
     let bookCoverEl = document.createElement("img");
     bookCoverEl.src = books[i].bookCoverImage;
-    pEl.appendChild(bookCoverEl);
-
-    let listEl = document.createElement("li");
-    listEl.appendChild(pEl, bookCoverEl);
+    listEl.appendChild(pEl);
+    pEl.parentNode.appendChild(bookCoverEl);
     unorderedListEl.appendChild(listEl);
     if (books[i].alreadyRead) {
-      listEl.style.backgroundColor = "green";
+      listEl.className += " green";
     } else {
-      listEl.style.backgroundColor = "red";
+      listEl.className += " red";
     }
+
+    listEl.className += " myStyling";
+    bookCoverEl.className += " imageStyling";
+    // if (books[i].alreadyRead) {
+    //   listEl.style.backgroundColor = "green";
+    // } else {
+    //   listEl.style.backgroundColor = "red";
+    // } // this changes styles directly but according to syllabus its better
+    //to assign classnames *Separation of concerns.
   }
 }
 

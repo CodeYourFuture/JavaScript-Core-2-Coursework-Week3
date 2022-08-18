@@ -120,12 +120,21 @@ body {
   margin-bottom: 0;
 }
 
-.red {
-  background-color:#F4442E;
+.myStyling {
+  font-size: 25px;
 }
 
+.imageStyling {
+  width: 20rem;
+}
+
+.red {
+  background-color: #f4442e;
+}
+
+
 .green {
-  background-color: #16C172;
+  background-color: #16c172;
 }
 
 .addArticle {
