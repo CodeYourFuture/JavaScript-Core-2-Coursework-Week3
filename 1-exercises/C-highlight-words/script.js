@@ -1,5 +1,33 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
+
+  let displayEl = document.getElementById("content");
+  let pEl = document.createElement("p");
+  displayEl.appendChild(pEl);
+  let selectEl = document.createElement("select");
+  displayEl.appendChild(selectEl);
+
+  colours.forEach((colour) => {
+    let optEl = document.createElement("option");
+    optEl.textContent = colour;
+    optEl.value = colour;
+    selectEl.appendChild(optEl);
+  });
+
+  let wordsArr = paragraph.split(" ");
+  wordsArr.forEach((word) => {
+    let spanEl = document.createElement("span");
+    spanEl.innerText = `${word} `;
+    spanEl.addEventListener("click", highlight);
+    pEl.appendChild(spanEl);
+  });
+
+  function highlight() {
+    // - When clicked, we need to check the value of the `<select>` element using the `.value` property.
+    //We can then update the `background-color` property of the `<span>` with the value of the select - remember that the value "none" is a special case and we need to be handled differently.
+    let option = selectEl.value;
+        spanEl.addEventListener
+  }
 }
 
 const paragraph =
