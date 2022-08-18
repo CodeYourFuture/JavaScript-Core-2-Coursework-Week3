@@ -152,6 +152,17 @@ body {
   background: #87ca8a;
 }
 
+#content {
+  margin: 20px;
+  padding: 20px;
+  width: 500px;
+  background-color: #dccdc6;
+}
+
+.lineThru {
+  text-decoration: line-through;
+}
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
