@@ -1,7 +1,27 @@
 function readingList(books) {
-  // Write your code here...
-}
+  let div = document.querySelector('#content');
+  let ul = document.createElement('ul');
+  content.appendChild(ul);
+  for (item of books) {
+    let ul = document.querySelector('ul');
+    let li = document.createElement('li');
+    ul.appendChild(li);
+    let text = document.createElement('p');
+    text.innerHTML = `${item.title} by ${item.author}`;
+    li.appendChild(text);
+    let img = document.createElement('img');
+    img.src = item.bookCoverImage;
+    li.appendChild(img);
+    if (item.alreadyRead === false) {
+      li.style.backgroundColor = 'red';
+    } else {
+      li.style.backgroundColor = 'green';
+    }
 
+  }
+  return item;
+
+}
 const books = [
   {
     title: 'The Design of Everyday Things',
