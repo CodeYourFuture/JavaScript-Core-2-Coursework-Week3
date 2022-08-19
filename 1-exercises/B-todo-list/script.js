@@ -12,15 +12,16 @@ function todoList(todos) {
     // listEl.appendChild(paraEl);
     unorderedListEl.appendChild(listEl);
     listEl.innerText = item.todo;
+    listEl.addEventListener("click", doUndoList);
   });
 }
 
-function markingList() {
-  console.log((listEl.style.textDecoration = "line-through"));
-}
-
-function markAsDone() {
-  console.log(markAsDone.addEventlistener("click", markingList));
+function doUndoList() {
+  if (this.classList.contains("markDone")) {
+    this.classList.remove("markDone");
+  } else {
+    this.className += " markDone";
+  }
 }
 
 const todos = [

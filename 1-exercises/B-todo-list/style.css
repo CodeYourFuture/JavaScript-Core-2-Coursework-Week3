@@ -124,6 +124,11 @@ body {
   background-color: red;
 }
 
+.markDone {
+  text-decoration: line-through;
+  color: red;
+}
+
 .addArticle {
   margin-bottom: 10px;
 }
