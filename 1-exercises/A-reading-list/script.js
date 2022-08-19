@@ -1,4 +1,28 @@
 function readingList(books) {
+  let output = "";
+  let container = document.querySelector('#content');
+  const bookBackground = document.createElement('li');
+
+  if (books.alreadyRead === true) {
+    bookBackground.style.backgroundColor = "green";
+  } else {
+    bookBackground.style.backgroundColor = "red";
+  }
+  console.log(bookBackground)
+
+  for(let value of books){
+    console.log(value);
+
+    output += `
+    <div id = content>
+    <ul><li id = 'content--color'> 
+    <p id = 'content--title' >${value.title} by ${value.author}</p>
+    <img id = 'content--avatar' width = 200rem height = 280rem src = ${value.bookCoverImage}  >
+    </li></ul>
+    </div>
+    `
+   }
+  container.innerHTML = output;
   // Write your code here...
 }
 

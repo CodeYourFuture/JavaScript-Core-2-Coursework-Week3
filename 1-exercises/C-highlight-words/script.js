@@ -1,4 +1,39 @@
 function highlightWords(paragraph, colours) {
+  const container = document.querySelector("#content");
+  let para = document.createElement("p");
+  container.appendChild(para);
+
+  colours.forEach(element => {
+    const sel =  document.createElement("select");
+    sel.innerHTML = element.colours;
+    const opt = document.createElement("option");
+    opt.appendChild(sel);
+  }); 
+  
+function paras() {
+  para = para.from(paragraph);
+  document.getElementsByName('para').innerHTML = 
+  para.split('[0][1][2][3][4][5][6][7][8][9]');
+
+  para.forEach(word => {
+    word = document.createElement('span');
+    para.appendChild(word);  
+    word.innerHTML = word + " ";
+
+    word.addEventListener("click", () => {
+      if (word === word.value){
+        word.style.backgroundColor = "red";
+      }
+    })
+  });
+}
+  
+  //  paragraph(para){
+  //   if (typeof paragraph === ""){
+  //     return paragraph.split("")
+  //   }
+  // }
+
   // Write your code here...
 }
 

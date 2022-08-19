@@ -1,5 +1,17 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
+  const list = document.getElementById("todo-list");
+  const addBtn = document.getElementsByClassName('btn btn-primary mb-3');
+  
+  addBtn.addEventListener('click', () => {
+    if (document.getElementById('todoInput') = 'text'){
+      const listItem = document.createElement("li");
+      listItem.innerHTML.push() = list.appendChild(listItem);
+      
+    }
+  })
+
+
+
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
 }
 
