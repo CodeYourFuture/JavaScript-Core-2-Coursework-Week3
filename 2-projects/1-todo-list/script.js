@@ -14,16 +14,18 @@ function populateTodoList(todos) {
     let spanEl = document.createElement("span");
     spanEl.className = "badge bg-primary rounded-pill";
     listEl.appendChild(spanEl);
+
     let checkEl = document.createElement("i");
     checkEl.className = "fa fa-check";
     checkEl.ariaHidden = true;
     spanEl.appendChild(checkEl);
+    checkEl.addEventListener("click", deleteAllCompletedTodos);
     let trashEl = document.createElement("i");
     trashEl.className = "fa fa-trash";
     trashEl.ariaHidden = true;
     spanEl.appendChild(trashEl);
+    trashEl.addEventListener("click", deleteAllCompletedTodos);
     list.appendChild(listEl);
-    console.log(listEl);
   });
 }
 
@@ -50,30 +52,41 @@ function addNewTodo(event) {
   let inputEl = document.getElementById("todoInput");
   toDoObj.task = inputEl.value;
   inputEl.value = "New todo...";
-  
-  let indList = document.getElementById("todo-list");
-  let indListEl = document.createElement("li");
 
+  let indList = document.getElementById("todo-list");
+
+  let indListEl = document.createElement("li");
   let indListText = document.createTextNode(toDoObj.task);
   indListEl.appendChild(indListText);
   indListEl.className =
-      "list-group-item d-flex justify-content-between align-items-center";
-    let indSpanEl = document.createElement("span");
-    indSpanEl.className = "badge bg-primary rounded-pill";
-    indListEl.appendChild(indSpanEl);
-    let checkEl = document.createElement("i");
-    checkEl.className = "fa fa-check";
-    checkEl.ariaHidden = true;
-    indSpanEl.appendChild(checkEl);
-    let trashEl = document.createElement("i");
-    trashEl.className = "fa fa-trash";
-    trashEl.ariaHidden = true;
-    indSpanEl.appendChild(trashEl);
-    indList.appendChild(indListEl);
-    todos.push(toDoObj);
+    "list-group-item d-flex justify-content-between align-items-center";
+  let indSpanEl = document.createElement("span");
+  indSpanEl.className = "badge bg-primary rounded-pill";
+  indListEl.appendChild(indSpanEl);
+  let checkEl = document.createElement("i");
+  checkEl.className = "fa fa-check";
+  checkEl.ariaHidden = true;
+  indSpanEl.appendChild(checkEl);
+  checkEl.addEventListener("click", deleteAllCompletedTodos);
+  let trashEl = document.createElement("i");
+  trashEl.className = "fa fa-trash";
+  trashEl.ariaHidden = true;
+  indSpanEl.appendChild(trashEl);
+  trashEl.addEventListener("click", deleteAllCompletedTodos);
+  indList.appendChild(indListEl);
+  todos.push(toDoObj);
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   // Write your code here...
+
+  if (this.classList.contains("fa-check")) {
+    this.parentNode.parentNode.className += " lineThru";
+  }
+  if (this.classList.contains("fa-trash")) {
+    if (this.parentNode.parentNode.classList.contains("lineThru")) {
+      this.parentNode.parentNode.remove();
+    }
+  }
 }
