@@ -1,5 +1,9 @@
 function readingList(books) {
   // Write your code here...
+  const array = ["readingList, books"]
+  array.forEach(function (readingList, books) {
+    console.log(array);
+  });
 }
 
 const books = [
@@ -25,3 +29,31 @@ const books = [
 ];
 
 readingList(books);
+
+for (var i = 0; i < books.length; i++) {
+  var bookP = document.createElement("p");
+  var bookDescription = document.createTextNode(books[i].title + " by " + books[i].author);
+  console.log(bookDescription);
+};
+
+var bookList = document.createElement("ul");
+for (var i = 0; i < books.length; i++) {
+  var bookItem = document.createElement("li");
+  var bookItem = document.createElement("img");
+  bookImg.src = books[i].img;
+  bookItem.appendChild(bookImg);
+  var bookDescription = document.createTextNode(books[i].title + " by " + books[i].author);
+  bookItem.appendChild(bookDescription);
+  if (books[i].readAlready) {
+    bookItem.style.color = "green";
+      }  else {
+      (books[i].notYetRead) 
+    bookItem.style.color = "red";
+              
+    }
+  
+    };
+  
+  
+  
+console.log(bookDescription);
