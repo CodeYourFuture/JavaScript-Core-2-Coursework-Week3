@@ -17,6 +17,7 @@ We want to render the paragraph on the page, along with a dropdown with the diff
 
 ## Exercise
 
+
 - Create a `<p>` element.
 - Create a `<select>` element.
 - Iterate over the options array and create an `<option>` element in the `<select>` for each element.

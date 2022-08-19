@@ -1,5 +1,36 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
+
+  const section = document.querySelector("#content");
+  const selection = document.createElement("select");
+  const paragraphs = document.createElement("p");
+  section.append(selection, paragraphs);
+
+  paragraph.split(" ").forEach((item) => {
+    paragraphs.innerHTML += `<span>${item}</span> `;
+  });
+
+  colours.reverse().forEach((tint) => {
+    const item = document.createElement("option");
+    item.setAttribute("value", tint);
+    item.appendChild(document.createTextNode(tint));
+    selection.appendChild(item);
+  });
+
+  const menu = document.querySelector("select");
+
+  let choice = "none";
+  menu.addEventListener("change", () => {
+    choice = menu.options[menu.selectedIndex].value;
+  });
+
+  document.querySelectorAll("span").forEach((container) => {
+    container.addEventListener("click", () => {
+      container.style.backgroundColor =
+        choice === "none" ? "transparent" : choice;
+    });
+  });
+
 }
 
 const paragraph =
