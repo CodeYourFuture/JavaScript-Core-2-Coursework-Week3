@@ -4,12 +4,12 @@ The function **readingList** takes an array of book objects:
 
 ```js
 const books = [
-  {
+  {b
     title: 'The Design of Everyday Things',
     author: 'Don Norman',
     alreadyRead: false,
     bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780465050659.jpg',
-  },
+  }
   {
     title: 'The Most Human Human',
     author: 'Brian Christian',
