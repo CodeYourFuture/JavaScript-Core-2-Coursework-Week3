@@ -152,6 +152,10 @@ body {
   background: #87ca8a;
 }
 
+.toggleTodo{
+  text-decoration: line-through;
+}
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
