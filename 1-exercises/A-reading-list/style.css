@@ -152,8 +152,33 @@ body {
   background: #87ca8a;
 }
 
+.card {
+width: 300px;
+height: 400px;
+padding: 10px;
+margin-top: 15px;
+margin-left: 10px;
+border-radius: 5px;
+box-shadow: 5px 5px 5px 5px #f0ad4e;
+text-align: center;
+
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+img{
+  width: 300px;
+  height: 300px;
+}
+
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
   }
 }
+
+

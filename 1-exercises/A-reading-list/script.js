@@ -1,6 +1,13 @@
 function readingList(books) {
   // Write your code here...
+const allBook = document.querySelector('id');
+const p = document.createElement('p')
+allBook.append(p)
+
+p.innerText = 'books.tile'
 }
+
+
 
 const books = [
   {
@@ -24,4 +31,21 @@ const books = [
   },
 ];
 
-readingList(books);
+// readingList(books);
+const firstDiv = document.getElementById('content');
+function div(){
+for (const book of books) {
+   content += `<div class="card">
+  <img class="card--avatar" src=${book.bookCoverImage}>
+  <p class="card--title">${book.title}</p>
+  <p class="card--title">${book.author}</p>
+  <p class="card--title">${book.alreadyRead}</p>
+  </div>
+`
+ 
+}
+firstDiv.innerHTML = content
+
+};
+div()
+
