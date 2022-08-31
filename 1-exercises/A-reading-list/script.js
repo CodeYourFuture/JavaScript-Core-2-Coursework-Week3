@@ -35,17 +35,15 @@ const books = [
 const firstDiv = document.getElementById('content');
 function div(){
 for (const book of books) {
-   content += `<div class="card">
+  content += `<div class="card">
   <img class="card--avatar" src=${book.bookCoverImage}>
   <p class="card--title">${book.title}</p>
   <p class="card--title">${book.author}</p>
   <p class="card--title">${book.alreadyRead}</p>
-  </div>
-`
+  </div>`
  
 }
 firstDiv.innerHTML = content
 
 };
 div()
-
