@@ -1,5 +1,31 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  let content = document.getElementById("content");
+  let p = document.createElement("p");
+  content.appendChild(p);
+  let select = document.createElement("select");
+  content.appendChild(select);
+
+  colours.forEach((colour) => {
+    let option = document.createElement("option");
+    select.appendChild(option);
+    option.innerHTML = colour;
+    select.value = colour;
+    //
+    //
+    //  Can't seem to get the paragraph to space a normal sentence would.
+    //  when I get it that way, it does not output the required result.
+    //  IE.  set the background of clicked "word" to the value in the select drop-down, instead it either initiates it on the whole paragraph or each indivual letter.
+    // Not sure what I'm missing here.
+
+    paragraph.split(" ").forEach((word) => {
+      let span = document.createElement("span");
+      span.innerText = word;
+      p.appendChild(span);
+      span.addEventListener("click", () => {
+        span.style.backgroundColor = select.value;
+      });
+    });
+  });
 }
 
 const paragraph =
