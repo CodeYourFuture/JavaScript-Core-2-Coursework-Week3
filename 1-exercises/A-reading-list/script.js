@@ -1,5 +1,4 @@
 function readingList(books) {
-  // Write your code here...
   let colors = ["red", "green", "green"];
   let container = document.getElementById("content");
   let ul = document.createElement("ul");
