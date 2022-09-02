@@ -27,6 +27,10 @@ function populateTodoList(todos) {
     i1.addEventListener("click", () => {
       li.classList.toggle("lineThrough");
     });
+    document.getElementsByClassName("fa-trash");
+    i2.addEventListener("click", () => {
+      li.remove();
+    });
   });
 }
 
