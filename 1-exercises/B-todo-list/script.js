@@ -7,26 +7,17 @@ const todos = [
   { todo: "go shopping" },
 ];
 
-// const myTodo = document.getElementById('content')
-// function todoList() {
-  // Write your code here...
-
-//   todos.forEach((element) => { 
-  
-//     content += '<div class="list">
-//     <ul>
-//       <li class="listed--items"> ${element}</li>
-//     </ul> 
-//     </div>'
-//     });
-//   };
-
-//   myTodo.innerHTML = content
-
-// todoList();
-
 
 const firstDiv = document.getElementById('content');
+
+// EVENT LISTER
+todos.forEach(todo => {
+  firstDiv.addEventListener('click', function(e){
+    e.target.style.textDecoration = "line-through";
+});
+
+})
+// EVENT LISTER - END
 
 function todoList() {
   todos.forEach((element) => { 
