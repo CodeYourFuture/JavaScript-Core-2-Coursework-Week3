@@ -1,6 +1,47 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
+   let content = document.querySelector("#content");
+let paragraphs = document.createElement("p"); //   - Create a `<p>` element.
+content.append(paragraphs);
+let select = document.createElement("select"); // - Create a `<select>` element.
+
+// - Iterate over the options array and create an `<option>` element in the `<select>` for each element.
+colours.forEach(x => {
+  let options = document.createElement("option");  //create an `<option>` element
+  options.value = x;
+  options.innerText = x;
+  select.append(options);  //in the `<select>` for each element.
+  })
+  paragraphs.append(select);
+
+// - You'll need to turn the paragraph into an array to iterate over it. You can use the `.split(" ")` method here.
+let words = paragraph.split(" ");
+
+words.forEach(x => {
+  let span = document.createElement("span"); // For each word, create a `<span>` element 
+ span.innerText = x + " ";  //set the innerText to the word, plus a space - " ".
+ paragraphs.append(span);  // Add this to the `<p>`.
+
+ // - Each `<span>` should have an eventListener that will listen for clicks.
+ // - When clicked, we need to check the value of the `<select>` element using the `.value` property.
+ span.addEventListener("click", () => {
+ if(select.value === "yellow"){
+   span.style.backgroundColor = "yellow";
+ }
+ if(select.value === "green"){
+  span.style.backgroundColor = "green";
 }
+if(select.value === "blue"){
+  span.style.backgroundColor = "blue";
+}
+if(select.value === "none"){
+  span.style.backgroundColor = "transparent";
+}
+    })
+
+ })
+}
+
 
 const paragraph =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ut sem finibus ultrices. Phasellus hendrerit placerat libero non facilisis. Etiam tincidunt ut elit id elementum. Etiam accumsan semper ipsum, ac porttitor ex tempus non. Donec vitae massa condimentum, faucibus magna non, sagittis libero. Phasellus ullamcorper malesuada tellus at egestas. Duis volutpat turpis velit, ut bibendum tellus ornare ac. Nullam feugiat nisi fringilla eleifend scelerisque. Phasellus elit nulla, sodales eget consectetur sed, tincidunt vitae velit. Fusce eget tempus magna, vitae ultrices purus. Proin ac purus tellus. Curabitur rhoncus est quis libero egestas ultrices. Proin viverra a ex sed convallis. Fusce ut orci consectetur, placerat ipsum non, commodo neque. Nulla at dui velit. In ut accumsan libero. Duis ac lacus consectetur, posuere eros nec, aliquet nisl. Quisque sodales fringilla lacinia. Donec hendrerit ornare lectus, nec iaculis justo tincidunt et. Cras a varius libero, ac bibendum est. Aliquam molestie, leo non aliquam lobortis, nulla tortor hendrerit turpis, et ullamcorper magna diam quis elit. Maecenas elit libero, tincidunt sit amet lacinia sit amet, venenatis nec est.";
