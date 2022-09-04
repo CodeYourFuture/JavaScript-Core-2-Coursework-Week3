@@ -49,19 +49,46 @@ function addNewTodo(event) {
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 
-  let userInput = document.getElementById("todoInput");
-  let userOutput = userInput.value;
-  let newTodo = {
-    task: userOutput,
-    completed: false,
-  };
-  userInput.value = ""; // clear input field after button press
-  todos.push(newTodo);
+  event = document.getElementById("todoInput");
+  let userOutput = event.value;
+  if (!userOutput) {
+    alert("Please enter a task.");
+  } else {
+    let list = document.getElementById("todo-list");
+    let li = document.createElement("li");
+    li.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
+    li.innerHTML = userOutput;
+    list.appendChild(li);
+    let span = document.createElement("span");
+    span.classList.add("badge", "bg-primary", "rounded-pill");
+    li.appendChild(span);
+    let i1 = document.createElement("i");
+    i1.className = "fa fa-check";
+    i1.ariaHidden = "true";
+    let i2 = document.createElement("i");
+    i2.className = "fa fa-trash";
+    i2.ariaHidden = "true";
+    span.append(i1, i2);
+    event.value = ""; // clear input field after button press
+    document.getElementsByClassName("fa-check");
+    i1.addEventListener("click", () => {
+      li.classList.toggle("lineThrough");
+    });
+    document.getElementsByClassName("fa-trash");
+    i2.addEventListener("click", () => {
+      li.remove();
+    });
+  }
 }
 let button = document.querySelector("button");
 button.addEventListener("click", addNewTodo());
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+// Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   // Write your code here...
 }
