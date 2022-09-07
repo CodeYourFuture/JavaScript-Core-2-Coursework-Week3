@@ -11,10 +11,17 @@ function readingList(books) {
     <img src=${item.bookCoverImage} alter =${item.bookCoverImage}>`
   }).join('');
  
-  return mainDiv.innerHTML = book;
+   mainDiv.innerHTML = book;
+   const bck = document.querySelectorAll('.color');
+    bck.forEach(el =>{
+      if(el.textContent){
+       el.classList.add('green');
+      }else {
+        el.classList.add('red');
+      }
+    });
 };
-const bck = document.querySelectorAll('ul li.color');
-console.log(bck);
+
 
 const books = [
   {

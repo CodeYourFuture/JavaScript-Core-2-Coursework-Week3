@@ -182,4 +182,10 @@ body {
     text-align: center;
     color: #b3d6d6;
   }
+  .red {
+    background-color: red;
+  }
+  .green {
+    background-color: green;
+  }
 }
