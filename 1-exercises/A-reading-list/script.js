@@ -1,6 +1,20 @@
+const mainDiv = document.getElementById('content');
+const p = document.createElement('p');
 function readingList(books) {
-  // Write your code here...
-}
+  // Write your code here...re
+ const book =  books.map(item =>{
+    return `<p>${item.title}</p>
+    <p>${item.author}</p>
+    <ul>
+      <li class="color">${item.alreadyRead}</li>
+    </ul>
+    <img src=${item.bookCoverImage} alter =${item.bookCoverImage}>`
+  }).join('');
+ 
+  return mainDiv.innerHTML = book;
+};
+const bck = document.querySelectorAll('ul li.color');
+console.log(bck);
 
 const books = [
   {
