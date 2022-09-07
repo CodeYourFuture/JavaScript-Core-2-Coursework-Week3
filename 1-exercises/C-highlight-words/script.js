@@ -1,5 +1,28 @@
+const mainDiv = document.getElementById('content');
 function highlightWords(paragraph, colours) {
   // Write your code here...
+  const p = document.createElement('p');
+  const para = paragraph.toLowerCase().split(' ');
+       para.forEach(pg =>{
+  const span = document.createElement('SPAN');
+    span.innerText = pg;
+    p.appendChild(span);
+  });
+console.log(p);
+  const arr = colours.map(item =>{
+    console.log(item);
+    return `<select class='sect'>
+      <option value=${item}>${item}</option>
+   </select>`
+  }).join('');
+  mainDiv.append(arr,p);
+  
+  const selectBck = document.querySelectorAll('.sect option');
+  console.log(selectBck);
+  selectBck.addEventListener('change', () =>{
+
+  })
+
 }
 
 const paragraph =

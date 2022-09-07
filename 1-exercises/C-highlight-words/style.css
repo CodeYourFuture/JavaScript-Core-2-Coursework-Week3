@@ -156,4 +156,21 @@
      .navbar-brand > img {
         max-height: 80px;
      }
+     #content {
+        background-color: #292b2c;
+        padding: 20px;
+        width: 70%;
+        margin: 0 auto;
+        min-height: 100%;
+     }
+     p {
+        padding: 10px;
+        width: 70%;
+        display: flex;
+        margin: 0 auto;
+        color: white;
+        flex-wrap: wrap;
+        font-size: 20px;
+        text-align: justify;
+     }
  }
