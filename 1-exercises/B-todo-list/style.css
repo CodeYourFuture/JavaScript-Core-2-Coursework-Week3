@@ -156,4 +156,17 @@ body {
   .navbar-brand > img {
     max-height: 80px;
   }
+
+  ul{
+    padding: 0;
+    margin-left: 20px;
+    list-style: none;
+    font-size: 20px;
+  }
+  .ligne{
+    text-decoration: line-through;
+  }
+  .rmv {
+    display: none;
+  }
 }
