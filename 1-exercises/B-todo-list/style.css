@@ -152,6 +152,26 @@ body {
   background: #87ca8a;
 }
 
+/* ToDo */
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  letter-spacing: 0.1rem;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+}
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;

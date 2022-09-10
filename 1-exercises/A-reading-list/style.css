@@ -120,6 +120,10 @@ body {
   margin-bottom: 0;
 }
 
+.green {
+  background-color: green;
+}
+
 .red {
   background-color: red;
 }
@@ -150,6 +154,31 @@ body {
 
 #greenBtn {
   background: #87ca8a;
+}
+
+/* Books */
+ul {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  margin-bottom: 1em;
+  padding: 1em;
+  list-style: none;
+  width: 400px;
+  text-align: center;
+  border-radius: 0.3em;
+}
+
+p {
+  margin-bottom: 0.4em;
+}
+
+img {
+  width: 200px;
 }
 
 @media screen and (min-width: 992px) {
