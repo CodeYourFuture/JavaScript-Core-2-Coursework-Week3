@@ -1,159 +1,100 @@
-/**
- * Base styles to use at the start of the class
- *
- * Module: HTML/CSS
- * Lesson: 1,2
- * Class: Scotland 2017
- */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
- html,
- body {
-     font-family: "Source Sans Pro",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
- }
- 
- .site-footer {
-     margin-top: 4em;
- }
- 
- .site-footer p {
-     border-top: 1px solid #dccdc6;
-     padding-top: 2em;
-     padding-bottom: 2em;
- }
- 
- .navbar-brand > img {
-     max-height: 40px;
-     width: auto;
- }
- 
- .navbar-light .navbar-nav .nav-link {
-     color: #292b2c;
-     font-weight: 600;
-     text-transform: uppercase;
- }
- 
- /* Buttons */
- .btn {
-     border-radius: 0.15em;
- }
- 
- /* Alert */
- .alert {
-     position: relative;
-     margin-top: 2em;
-     margin-bottom: 3em;
-     padding-top: 1.5em;
-     padding-bottom: 1.5em;
-     border: 1px solid #dccdc6;
-     border-radius: 0;
-     font-size: 0.85rem;
-     line-height: 1.3em;
-     background: transparent;
-     color: #292b2c;
- }
- 
- .alert:before {
-     content: '';
-     position: absolute;
-     left: -1px;
-     top: 0;
-     height: 100%;
-     width: 1px;
-     background: #ce5f31;
- }
- 
- /* Jumbotron */
- .jumbotron {
-     border-radius: 0;
- }
- 
- /* Headings */
- .heading-underline {
-     position: relative;
-     margin-bottom: 2em;
-     padding-bottom: 0.5em;
-     border-bottom: 1px solid #dccdc6;
-     font-size: 1rem;
-     font-weight: 600;
-     text-transform: uppercase;
- }
- 
- .heading-underline:before {
-     content: '';
-     position: absolute;
-     bottom: -1px;
-     left: 0;
-     width: 25%;
-     height: 1px;
-     max-width: 100px;
-     background: #ce5f31;
- }
- 
- /* Article */
- .article {
-     margin-bottom: 2em;
- }
- 
- .article-title {
-     margin-bottom: 0.5em;
-     font-weight: 700;
- }
- 
- .article-read-more a {
-     font-size: 0.85em;
-     font-weight: 700;
-     text-decoration: uppercase;
- }
- 
- .article-read-more a:hover,
- .article-read-more a:focus {
-     text-decoration: none;
- }
- 
- .article-read-more .fa {
-     margin-right: 0.5em;
-     color: #ce5f31;
- }
- 
- .article-read-more:last-child {
-     margin-bottom: 0;
- }
- 
- .red {
-     background-color: red;
- }
- 
- .addArticle {
-     margin-bottom: 10px;
- }
- 
- #addArticleBtn {
-     margin-left: 20px;
-     height: 37px;
- }
- 
- .colorButton {
-     margin-bottom: 20px;
-     margin-right: 20px;
-     width: 100px;
-     height: 50px;
- }
- 
- #blueBtn {
-     background: #588fbd;
- }
- 
- #orangeBtn {
-     background: #f0ad4e;
- }
- 
- #greenBtn {
-     background: #87ca8a
- }
- 
- @media screen and (min-width: 992px) {
- 
-     .navbar-brand > img {
-        max-height: 80px;
-     }
- }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  background-color: hsl(0, 0%, 15%);
+  color: hsl(0, 0%, 5%);
+  font-family: "Indie Flower", serif;
+  text-shadow: 0 0 0.1rem black;
+  font-size: 1.3rem;
+}
+
+#content {
+  max-width: 600px;
+  padding: 2rem 2rem 4rem 2rem;
+  border: 0.4rem solid orange;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 0.25rem solid hsl(60, 80%, 45%);
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0rem 1rem black;
+  background-color: hsla(0, 0%, 100%, 0.7);
+  background-image: url("background.png")
+}
+
+
+h1 {
+  font-size: 2.5rem;
+  color: hsl(60, 100%, 50%);
+  text-shadow: 0 0 0.1rem black;
+}
+
+.button-clean-the-page {
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid hsl(0, 0%, 50%);
+  border-radius: 0.5rem;
+}
+
+.option-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.option-description {
+  font-weight: bold;
+}
+
+.option-drop-down {
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid hsl(0, 0%, 50%);
+  border-radius: 0.5rem;
+}
+
+.word {
+  cursor: pointer;
+}
+
+.highlighted-none {
+  background-color: none;
+}
+
+.highlighted-violet {
+  background-color: hsl(300, 76%, 72%, 0.8);
+}
+
+.highlighted-indigo {
+  background-color: hsl(275, 100%, 25%, 0.8);
+}
+
+.highlighted-blue {
+  background-color: hsl(240, 100%, 50%, 0.8);
+}
+
+.highlighted-green {
+  background-color: hsl(120, 100%, 25%, 0.8);
+}
+
+.highlighted-yellow {
+  background-color: hsl(60, 100%, 50%, 0.8);
+}
+
+.highlighted-orange {
+  background-color: hsl(39, 100%, 50%, 0.8);
+}
+
+.highlighted-red {
+  background-color: hsl(0, 100%, 50%, 0.8);
+}
