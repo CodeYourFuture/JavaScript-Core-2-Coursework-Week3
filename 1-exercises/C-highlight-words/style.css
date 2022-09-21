@@ -63,6 +63,11 @@ h1 {
   border-radius: 0.5rem;
 }
 
+p {
+  user-select: none;
+  /* this disables text highlighting */
+}
+
 .word {
   cursor: pointer;
 }
