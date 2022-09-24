@@ -1,15 +1,16 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
+  let list = document.getElementById("todo-list"); // CYF
 
   todos.forEach((item) => {
-    let li = document.createElement("li");
+    let li = document.createElement("li"); // create variable to create li element
     li.classList.add(
+      // add class to the element
       "list-group-item",
       "d-flex",
       "justify-content-between",
       "align-items-center"
     );
-    li.innerHTML = item.task;
+    li.innerText = item.task;
     list.appendChild(li);
     let span = document.createElement("span");
     span.classList.add("badge", "bg-primary", "rounded-pill");
