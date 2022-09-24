@@ -9,11 +9,9 @@ function todoList(todos) {
     content.append(unorderedList);
 
     listItem.addEventListener("click", () => {
-      if (listItem.style.textDecoration === "line-through") {
-        listItem.style.textDecoration = "none";
-      } else {
-        listItem.style.textDecoration = "line-through";
-      }
+      listItem.style.textDecoration === "line-through"
+        ? (listItem.style.textDecoration = "none")
+        : (listItem.style.textDecoration = "line-through");
     });
   });
 }
