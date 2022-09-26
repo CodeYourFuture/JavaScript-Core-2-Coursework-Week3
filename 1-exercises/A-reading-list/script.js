@@ -1,5 +1,38 @@
-function readingList(books) {
-  // Write your code here...
+function readingList(books)
+{
+  let content = document.getElementById("content");
+  let uList = document.createElement("ul");
+  content.appendChild(uList);
+
+  books.forEach((book) =>
+  {
+    let list = document.createElement("li");
+    let paragraph = document.createElement("p");
+    let image = document.createElement("img");
+
+    paragraph.textContent = book.title + " by " + book.author;
+    image.src = book.bookCoverImage;
+
+    list.appendChild(paragraph);
+    paragraph.parentNode.appendChild(image);
+    uList.appendChild(list);
+    
+    if(book.alreadyRead)
+    {
+      list.style.backgroundColor = "green";
+    }
+
+    else
+    {
+      list.style.backgroundColor = "red";
+    }
+
+    /* TESTING FOR ALT IF
+    book.alreadyRead
+    ? (list.style.backgroundColor = "red")
+    : (list.style.backgroundColor = "green");
+    */
+  });
 }
 
 const books = [
