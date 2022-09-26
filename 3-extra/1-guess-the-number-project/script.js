@@ -19,13 +19,13 @@ function guessNumber() {
         "Please enter a number between 1 and 100")
     : //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
     guess > randomNumber
-    ? (output.innerHTML = `${randomNumber} Number is too high, try again`)
+    ? (output.innerText = `Number is too high, try again`)
     : //If the users guess is lower than the random number print Number is too low, try again  (hint use .final-out class to print)
     guess < randomNumber
-    ? (output.innerHTML = `${randomNumber} Number is too low, try again`)
+    ? (output.innerText = `Number is too low, try again`)
     : //If the user has guessed the random number correctly print out the randomNumber with a message "Guess is correct. You win!"
-      (output.innerHTML = `${randomNumber} Guess is correct. You win!`);
-  document.querySelector(".Tries-output").innerHTML = `${++tries} attempt`;
+      (output.innerText = `Guess is correct. You win!`);
+  document.querySelector(".Tries-output").innerText = `${++tries} attempt`;
 }
 
 // For this task we will be making a "New Game" button function which will reset our game,
@@ -41,7 +41,7 @@ function newGame() {
   //Reset tries, and triesTaken by the user
   tries = 0;
   document.querySelector(".Tries-output").innerHTML = "";
-  output.innerHTML = "Guess a number between 1 and 100";
+  output.innerText = "Guess a number between 1 and 100";
 }
 
 //keyboard exception
