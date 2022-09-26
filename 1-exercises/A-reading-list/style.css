@@ -157,3 +157,9 @@ body {
     max-height: 80px;
   }
 }
+.notReadTheBook{
+  background-color: red;
+}
+.readthebook{
+  background-color: green;
+}
