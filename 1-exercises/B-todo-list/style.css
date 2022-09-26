@@ -157,3 +157,11 @@ body {
     max-height: 80px;
   }
 }
+.doneTheme {
+  background-color: green;
+  font-size: 3rem;
+  color: #fb5151;
+}
+.notDOneTheme{
+  font-size: 2rem;
+}
