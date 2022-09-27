@@ -1,12 +1,14 @@
+let list = document.getElementById("todo-list");
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
   todos.map((todo) => {
+    // Creating elements
     let item = document.createElement("li");
     let span = document.createElement("span");
     let icon1 = document.createElement("i");
     let icon2 = document.createElement("i");
 
+    // Adding content and attributes
     item.innerText = todo.task;
     item.classList.add(
       "list-group-item",
@@ -20,9 +22,25 @@ function populateTodoList(todos) {
     icon1.setAttribute("aria-hidden", true);
     icon2.setAttribute("aria-hidden", true);
 
-    list.appendChild(item);
+    // Appending elements
+    list.append(item);
     item.appendChild(span);
     span.append(icon1, icon2);
+
+    // Click events
+    icon1.addEventListener("click", () => {
+      if (item.classList.contains("complete")) {
+        item.classList.remove("complete");
+        todo.completed = false;
+      } else {
+        item.classList.add("complete");
+        todo.completed = true;
+      }
+    });
+
+    icon2.addEventListener("click", () => {
+      list.removeChild(item);
+    });
   });
 }
 
@@ -40,9 +58,18 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  let input = document.getElementById("todoInput");
+  populateTodoList([{ task: input.value, completed: false }]);
+  input.value = "";
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  // Write your code here...
+  let items = document.querySelectorAll("li");
+
+  items.forEach((item) => {
+    if (item.classList.contains("complete")) {
+      list.removeChild(item);
+    }
+  });
 }
