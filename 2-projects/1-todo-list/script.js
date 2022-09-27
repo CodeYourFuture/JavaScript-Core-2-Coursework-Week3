@@ -1,6 +1,24 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
+  let li_classes = [
+    "list-group-item",
+    "d-flex",
+    "justify-content-between",
+    "align-items-center",
+  ];
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  for (let todo in todos) {
+    let li = document.createElement("li");
+    for (let li_class in li_classes) li.classList.add(li_classes[li_class]);
+    li.setAttribute("aria-hidden", "true");
+    li.innerHTML =
+      todos[todo].task +
+      `<span class="badge bg-primary rounded-pill">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>`;
+    list.appendChild(li);
+  }
 }
 
 // These are the same todos that currently display in the HTML
@@ -23,3 +41,19 @@ function addNewTodo(event) {
 function deleteAllCompletedTodos() {
   // Write your code here...
 }
+
+document.querySelectorAll(".fa-check").forEach((x) => {
+  x.addEventListener("click", (x) => {
+    let y = x.path[2].style;
+    y.textDecoration === "line-through"
+      ? (y.textDecoration = "none")
+      : (y.textDecoration = "line-through");
+  });
+});
+
+document.querySelectorAll(".fa-trash").forEach((x) => {
+  x.addEventListener("click", (x) => {
+    let y = x.path[2];
+    y.style.textDecoration === "line-through" ? y.remove() : "";
+  });
+});
