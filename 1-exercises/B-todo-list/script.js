@@ -1,10 +1,10 @@
 function todoList(todos) {
   // Write your code here...
-  const content = document.querySelector("#content");
-  const unorderedList = document.createElement("ul");
+  let content = document.querySelector("#content");
+  let unorderedList = document.createElement("ul");
   content.appendChild(unorderedList);
   todos.forEach((task) => {
-    const list = document.createElement("li");
+    let list = document.createElement("li");
     list.innerHTML = task.todo;
     unorderedList.appendChild(list);
 
