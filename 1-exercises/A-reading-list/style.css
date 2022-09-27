@@ -157,3 +157,9 @@ body {
     max-height: 80px;
   }
 }
+.redColor{
+  background-color: red;
+}
+.greenColor{
+  background-color: green;
+}

@@ -157,3 +157,9 @@ body {
     max-height: 80px;
   }
 }
+.romove{
+  text-decoration: none;
+}
+.add{
+  text-decoration: line-through;
+}
