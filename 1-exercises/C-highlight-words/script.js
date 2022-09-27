@@ -1,5 +1,34 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
+  const myParagraph = document.createElement("p");
+  const content = document.getElementById("content");
+  let selectList = document.createElement("select");
+  selectList.id = "mySelect";
+  selectList.style.fontSize = "20px";
+  content.appendChild(selectList);
+  content.appendChild(myParagraph);
+  for (var i = 0; i < colours.length; i++) {
+    var option = document.createElement("option");
+    option.value = colours[i];
+    option.text = colours[i];
+    selectList.appendChild(option);
+  }
+  const splitParagraph = Array.from(paragraph.split(" "));
+  for (var i = 0; i < splitParagraph.length; i++) {
+    var mySpan = document.createElement("span");
+    mySpan.innerText = splitParagraph[i] + " ";
+    mySpan.id = "mySpan" + i;
+    myParagraph.appendChild(mySpan);
+    let mySpan2 = document.getElementById("mySpan" + i);
+    mySpan2.addEventListener("click", function () {
+      highLight(mySpan2);
+    });
+  }
+}
+
+function highLight(mySpan) {
+  var selectedColour = document.getElementById("mySelect").value;
+  mySpan.style.backgroundColor = selectedColour;
 }
 
 const paragraph =

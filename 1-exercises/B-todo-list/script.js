@@ -27,10 +27,6 @@ function todoList(todos) {
   }
 }
 
-function myFunction() {
-  alert("YOU CLICKED ME!");
-}
-
 const todos = [
   { todo: "wash the dishes" },
   { todo: "walk the dog" },
