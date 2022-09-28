@@ -15,6 +15,15 @@
   },
   "homepage": "https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week3-London8#readme",
   "devDependencies": {
-    "jest": "^27.4.7"
+    "@testing-library/dom": "^8.18.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "^14.4.3",
+    "jest": "^27.4.7",
+    "jsdom": "^20.0.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./jest.setup.js"
+    ]
   }
 }
