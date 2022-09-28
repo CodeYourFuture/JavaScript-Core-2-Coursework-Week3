@@ -1,33 +1,37 @@
 function populateTodoList(todos) {
-  for (let i = 0; i < todos.length; i++) {
+  todos.forEach((toDo) => {
+    //create an li, span, and icon. find list
     const newLI = document.createElement("li");
-    const icon1 = document.createElement("i");
     const span = document.createElement("span");
+    const icon1 = document.createElement("i");
     const icon2 = document.createElement("i");
     const list = document.getElementById("todo-list");
+    //add styles to new html elements
     span.className = "badge bg-primary rounded-pill";
     icon1.className = "fa fa-check";
     icon2.className = "fa fa-trash";
     icon1.ariaHidden = "true";
     icon2.ariaHidden = "true";
-    newLI.innerText = todos[i].task;
     newLI.className =
       "list-group-item d-flex justify-content-between align-items-center";
+
+    //add task input to list item, add buttons to list item
+    newLI.innerText = toDo.task;
     span.append(icon1, icon2);
     newLI.append(span);
 
+    //icon functionality
     icon1.addEventListener("click", () => {
       newLI.style.textDecoration === "line-through"
         ? (newLI.style.textDecoration = "none")
         : (newLI.style.textDecoration = "line-through");
     });
-
     icon2.addEventListener("click", () => {
       list.removeChild(newLI);
     });
 
     list.append(newLI);
-  }
+  });
 }
 
 // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
@@ -53,10 +57,45 @@ function addNewTodo(event) {
   let userInput = document.querySelector("#todoInput");
 
   addBtn.addEventListener("click", () => {
-    console.log(userInput);
     todos.unshift({ task: userInput.value, completed: false });
-    console.log(todos);
+    let newTodos = [todos[0]];
+
+    newTodos.forEach((todo) => {
+      const newLI = document.createElement("li");
+      const span = document.createElement("span");
+      const icon1 = document.createElement("i");
+      const icon2 = document.createElement("i");
+      const list = document.getElementById("todo-list");
+      //add styles to new html elements
+      span.className = "badge bg-primary rounded-pill";
+      icon1.className = "fa fa-check";
+      icon2.className = "fa fa-trash";
+      icon1.ariaHidden = "true";
+      icon2.ariaHidden = "true";
+      newLI.className =
+        "list-group-item d-flex justify-content-between align-items-center";
+
+      //add task input to list item, add buttons to list item
+      newLI.innerText = todo.task;
+
+      if (newLI.innerText !== "") {
+        icon1.addEventListener("click", () => {
+          newLI.style.textDecoration === "line-through"
+            ? (newLI.style.textDecoration = "none")
+            : (newLI.style.textDecoration = "line-through");
+        });
+        icon2.addEventListener("click", () => {
+          list.removeChild(newLI);
+        });
+        span.append(icon1, icon2);
+        newLI.append(span);
+        list.append(newLI);
+      }
+    });
+    // populateTodoList(newTodos);
+    console.log(newTodos);
     userInput.value = "";
+    newTodos.pop();
   });
 
   // }
