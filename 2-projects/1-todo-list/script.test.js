@@ -1,10 +1,10 @@
 const path = require("path");
 const { JSDOM } = require("jsdom");
+const { default: userEvent } = require("@testing-library/user-event");
 
 let page = null;
 
 beforeEach(async () => {
-  console.log(__dirname);
   page = await JSDOM.fromFile(path.join(__dirname, "index.html"), {
     resources: "usable",
     runScripts: "dangerously",
