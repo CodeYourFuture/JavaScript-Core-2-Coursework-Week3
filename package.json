@@ -17,7 +17,7 @@
   "devDependencies": {
     "@testing-library/dom": "^8.18.1",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/user-event": "^14.4.3",
+    "@testing-library/user-event": "^13.3.0",
     "jest": "^27.4.7",
     "jsdom": "^20.0.0"
   },
