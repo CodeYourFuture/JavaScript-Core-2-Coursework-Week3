@@ -1,6 +1,22 @@
-function todoList(todos) {
-  // Write your code here...
+  function todoList(todos) {
+  let content = document.querySelector("#content");
+  let unOrderedList = document.createElement("#ul");
+  content.appendChild(unorderedList);
+  todos.forEach((item) => {
+  let list = document.createElement("li");
+  list.innerHTML = item.todo;
+  unorderedList.appendChild(list);
+  list.addEventListener("click", () => {
+  if (list.style.textDecoration === "line-through") {
+  list.style.textDecoration = "";
+  } 
+  else {
+        list.style.textDecoration = "line-through";
+      }
+    });
+  });
 }
+
 
 const todos = [
   { todo: "wash the dishes" },

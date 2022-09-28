@@ -1,5 +1,22 @@
-function readingList(books) {
-  // Write your code here...
+  function readingList(books) {
+  let content = document.querySelector("#content");
+   let unorderedList = document.createElement("ul");
+   content.appendChild(unorderedList);
+   books.forEach(book => {
+   let list = document.createElement("li");
+   unorderedList.appendChild(list);
+   let para = document.createElement("p");
+   para.innerHTML = `${book.title}: ${book.author}`;
+   list.appendChild(para);
+   let img = document.createElement("img");
+   img.src = book.bookCoverImage;
+   list.appendChild(img);
+   if (book.alreadyRead === false) {
+   list.style.backgroundColor = "red";
+    } else {
+    list.style.backgroundColor = "green";
+    }
+   });
 }
 
 const books = [
