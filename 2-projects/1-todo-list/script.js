@@ -2,11 +2,7 @@ function populateTodoList(todos)
 {
   let mainList = document.getElementById("todo-list");
 
-  while (mainList.hasChildNodes())
-  {
-    mainList.removeChild(mainList.firstChild);
-  }
-  
+  mainList.innerText = "";
   todos.forEach((item) => 
   {
     let btn1 = document.createElement("i");
@@ -43,10 +39,18 @@ function populateTodoList(todos)
 
     btn2.addEventListener("click", () =>
     {
-      //delete li;
+      deleteFromArray(item.task);
       sublist.parentElement.removeChild(sublist);
     });
   });
+}
+
+function deleteFromArray(item)
+{
+  if(todos.length > 0)
+  {
+    todos = todos.filter(todo => todo.task !== item)
+  }
 }
 
 // These are the same todos that currently display in the HTML
@@ -70,7 +74,7 @@ function addNewTodo(event)
   let create = input.value;
   if (!create)
   {
-    create = ".";
+    return;
   }
   todos.push
   ({
@@ -84,6 +88,7 @@ function addNewTodo(event)
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
+function deleteAllCompletedTodos()
+{
   // Write your code here...
 }
