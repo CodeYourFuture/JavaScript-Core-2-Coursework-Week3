@@ -27,6 +27,13 @@ function populateTodoList(todos) {
         todoElement.style.textDecoration = "line-through";
       }
     });
+
+    trashButton.addEventListener("click", function () {
+      if (todoElement.style.textDecoration === "line-through") {
+        todoElement.remove()
+      }
+    });
+
   });
 
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
@@ -77,17 +84,25 @@ function addNewTodo(event) {
     });
     
     trashButton.addEventListener("click", function() {
-      todoElement.style.color = "red";
+      if (todoElement.style.textDecoration === "line-through") {
+        todoElement.remove();
+      }
     })
   });
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-// function deleteAllCompletedTodos() {
-//   // Write your code here...#
-//   let deleteBtn = document.querySelectorAll(".fa-trash");
-//   deleteBtn.addEventListener("click", ()=>{
+function deleteAllCompletedTodos() {
+  // Write your code here...#
+  let allLiElements = document.querySelectorAll("li");
+  allLiElements.forEach(element=>{
+    if (element.style.textDecoration === "line-through") {
+      element.remove()
+    }
+  })
+}
 
-//   })
-// }
+//  deleteAllCompletedTodos()
+
+
