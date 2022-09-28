@@ -1,9 +1,17 @@
 function highlightWords(paragraph, colours) {
 let content = document.querySelector(#content)
-} let unorderedList = document.createElement("ul");
-content.appendChild(unorderedList);
-let paragraph = document.createElement("p");
-paragraph.innerHTML = 
+} let paragraph = document.createElement("p");
+content.appendChild(paragraph);
+let select  = document.createElement("select");
+let elementArray = array.from(document.querySelectorAll("options"));
+let words = paragraph.split("");
+let span = document.createElement("span");
+span.addEventListener("click");
+let span = colours.input(" ")
+
+
+
+
 
 
 const paragraph =
