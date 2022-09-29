@@ -16,6 +16,10 @@ select.innerHTML = color;
 paragraph.appendChild(span)
 let button = document.querySelector("#button");
 button.addEventListener("click");
+if (select.value === "none") {
+span.style.backgroundColor = "white";
+    } else {
+        span.style.backgroundColor = "color";
     )               
 };
 
