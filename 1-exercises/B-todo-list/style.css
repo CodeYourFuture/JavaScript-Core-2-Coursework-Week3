@@ -157,3 +157,10 @@ body {
     max-height: 80px;
   }
 }
+.remove {
+  text-decoration: none;
+}
+
+.add {
+  text-decoration: line-through;
+}
