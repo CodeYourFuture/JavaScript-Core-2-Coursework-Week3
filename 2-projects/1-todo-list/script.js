@@ -1,22 +1,51 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
-  let li_classes = [
-    "list-group-item",
-    "d-flex",
-    "justify-content-between",
-    "align-items-center",
-  ];
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+
+  while (list.hasChildNodes()) {
+    list.removeChild(list.lastChild);
+  }
+
   for (let todo in todos) {
     let li = document.createElement("li");
-    for (let li_class in li_classes) li.classList.add(li_classes[li_class]);
-    li.setAttribute("aria-hidden", "true");
-    li.innerHTML =
-      todos[todo].task +
-      `<span class="badge bg-primary rounded-pill">
-                  <i class="fa fa-check" aria-hidden="true"></i>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </span>`;
+    li.className =
+      "list-group-item d-flex justify-content-between align-items-center";
+    li.innerText = todos[todo].task;
+
+    let span = document.createElement("span");
+    span.className = "badge bg-primary rounded-pill";
+
+    let i_delete = document.createElement("i");
+    i_delete.onclick = function (e) {
+      todos = todos.filter((t) => {
+        return t.task !== e.path[2].innerText;
+      });
+      e.path[2].remove();
+    };
+    i_delete.className = "fa fa-trash";
+
+    let i_complete = document.createElement("i");
+    i_complete.onclick = function (e) {
+      todos.forEach((t) => {
+        if (e.path[2].innerText === t.task) {
+          todos[todo].completed = todos[todo].completed ? false : true;
+        }
+      });
+
+      let y = e.path[2].style;
+
+      y.textDecoration === "line-through"
+        ? (y.textDecoration = "none")
+        : (y.textDecoration = "line-through");
+    };
+
+    i_complete.className = "fa fa-check";
+    if (todos[todo].completed) {
+      li.style = "text-decoration: line-through;";
+    }
+    span.appendChild(i_complete);
+    span.appendChild(i_delete);
+    li.appendChild(span);
     list.appendChild(li);
   }
 }
@@ -35,25 +64,20 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  todos.push({
+    task: document.querySelector("#todoInput").value,
+    completed: false,
+  });
+  populateTodoList(todos);
+  document.querySelector("#todoInput").value = "";
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
+function deleteAllCompletedTodos(event) {
   // Write your code here...
+  event.preventDefault();
+  todos = todos.filter((todo) => {
+    return !todo.completed;
+  });
+  populateTodoList(todos);
 }
-
-document.querySelectorAll(".fa-check").forEach((x) => {
-  x.addEventListener("click", (x) => {
-    let y = x.path[2].style;
-    y.textDecoration === "line-through"
-      ? (y.textDecoration = "none")
-      : (y.textDecoration = "line-through");
-  });
-});
-
-document.querySelectorAll(".fa-trash").forEach((x) => {
-  x.addEventListener("click", (x) => {
-    let y = x.path[2];
-    y.style.textDecoration === "line-through" ? y.remove() : "";
-  });
-});
