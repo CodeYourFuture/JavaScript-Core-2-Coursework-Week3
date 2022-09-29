@@ -3,11 +3,21 @@ let content = document.querySelector(#content)
 } let paragraph = document.createElement("p");
 content.appendChild(paragraph);
 let select  = document.createElement("select");
+
 let elementArray = array.from(document.querySelectorAll("options"));
-let words = paragraph.split("");
+let words = paragraph.split(" ");
 let span = document.createElement("span");
 span.addEventListener("click");
 let span = colours.input(" ")
+
+colours.forEach (color => {
+const select = document.createElement("select")
+select.innerHTML = color;
+paragraph.appendChild(span)
+let button = document.querySelector("#button");
+button.addEventListener("click");
+    )               
+};
 
 
 
