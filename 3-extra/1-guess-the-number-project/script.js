@@ -1,17 +1,20 @@
 const newGameBtn = document.querySelector(".btnNewGame");
 let randomNumber = Math.floor(Math.random() * 100 + 1);
-let guess = document.querySelector(".inputs-Values").value;
 let countTries = document.querySelector("#count-tries");
 let output = document.querySelector(".final-output");
 countTries.innerHTML = 7;
 
 function guessNumber() {
   //Collect input from the user
+  let guess = document.querySelector(".inputs-Values").value;
   let userGuess = Number(guess);
   //If the user inputs a bad input ie 0, empty string, number greater that 100, number less than zero Print "Please enter a number between 1 and 100"
-  if (userGuess < 1 || userGuess > 100 || userGuess === "") {
+  if (countTries.innerHTML <= 0) {
+    output.innerText = "Out of Tries. You lose! ";
+  } else if (userGuess < 1 || userGuess > 100 || userGuess === "") {
     output.innerText = "Please enter a number between 1 and 100";
     countTries.innerHTML -= 1;
+    console.log(userGuess, typeof userGuess);
   }
   //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
   else if (userGuess > randomNumber) {
