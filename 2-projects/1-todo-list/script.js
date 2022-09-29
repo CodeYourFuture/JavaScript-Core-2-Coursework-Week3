@@ -62,8 +62,15 @@ function addNewTodo(event) {
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
   let userInput = document.querySelector("#todoInput");
-  populateTodoList([{ task: userInput.value, completed: false }]);
-  userInput.value = "";
+   populateTodoList([{ task: userInput.value, completed: false }]);
+   userInput.value = "";
+
+  //lol @ my original solution
+  // todos.unshift({ task: userInput.value, completed: false });
+  // let newTodos = [todos[0]];
+  // populateTodoList(newTodos);
+  // userInput.value = "";
+  // newTodos.pop();
 }
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompleteTodos(event) {
