@@ -12,6 +12,9 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+.line-through {
+  text-decoration: line-through;
+}
 .site-footer {
   margin-top: 4em;
 }

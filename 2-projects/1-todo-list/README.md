@@ -33,7 +33,7 @@ The `populateTodoList()` function should iterate over the list of todos that we 
 
 The items in the todo list are currently hard-coded into the HTML, refactor the code so that this function creates them and adds the following functionality to them:
 
-Each todo should have this HTML inside it:
+Each todo should have this HTML inside it: 
 
 ```html
 <span class="badge bg-primary rounded-pill">
