@@ -1,26 +1,29 @@
 function readingList(books) {
-   let unOrderedList=document.createElement("ul");
+   let unOrderedList = document.createElement("ul");
 
-   books.forEach(book => { 
+   books.map((book) => { 
     
   let list = document.createElement("li");
    let paragraph = document.createElement("p");
    let image = document.createElement("img");
-   
+
    image.src = book.bookCoverImage;
-   paragraph.innerHTML=`${book.title} by ${book.author}`;
+   paragraph.innerHTML = `${book.title} by ${book.author}`;
    
    list.appendChild(paragraph)
    list.appendChild(image)
 
-   unOrderedList.appendChild(list)
+   
    if(book.alreadyRead) {
-    list.className="greenColor"
+    list.className = "greenColor"
    } else {
-    list.className="redColor"
+    list.className = "redColor"
    }
+
+   unOrderedList.appendChild(list);
+   
    });
- let divEl=document.body.querySelector("#content");
+ let divEl = document.body.querySelector("#content");
  divEl.appendChild(unOrderedList)
 
 }

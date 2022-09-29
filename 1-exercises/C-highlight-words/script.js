@@ -1,34 +1,39 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
-  let paragraphEl=document.createElement("p");
-  let selectEl=document.createElement("select");
-  colours.forEach(color => {
-    let optionEl=document.createElement("option")
+  let paragraphEl = document.createElement("p");
+  let selectDropdown = document.createElement("select");
+
+  colours.map((color) => {
+    let optionEl = document.createElement("option")
     optionEl.setAttribute("value",color);
-    optionEl.innerHTML=color;
-    selectEl.appendChild(optionEl);
+    optionEl.innerHTML = color;
+    selectDropdown.appendChild(optionEl);
   });
-  let wordArray=paragraph.split(" ");
-  wordArray.forEach(word => {
-    let spanEl=document.createElement("span");
-    spanEl.innerHTML=word + " ";
-    paragraphEl.appendChild(spanEl);
-    spanEl.addEventListener("click",setBackground);
+
+  let wordArray = paragraph.split(" ");
+
+  wordArray.map((word) => {
+    let span = document.createElement("span");
+    span.innerHTML = `${word} `;
+    paragraphEl.appendChild(span);
+
+    //click event
+    span.addEventListener("click",setBackground);
     function setBackground(){
-      if(selectEl.value==="yellow"){
-        spanEl.style.backgroundColor="yellow"
-      }else if(selectEl.value==="green"){
-      spanEl.style.backgroundColor="green";
-      }else if(selectEl.value==="blue"){
-      spanEl.style.backgroundColor="blue";
+      if(selectDropdown.value === "yellow"){
+      span.style.backgroundColor = "yellow"
+      }else if(selectDropdown.value === "green"){
+      span.style.backgroundColor = "green";
+      }else if(selectDropdown.value === "blue"){
+      span.style.backgroundColor = "blue";
       }else {
-      spanEl.style.backgroundColor="";
+      span.style.backgroundColor = "";
       }
     }
   });
     let divEl=document.getElementById("content");
     divEl.appendChild(paragraphEl);
-    divEl.appendChild(selectEl); 
+    divEl.appendChild(selectDropdown); 
 }
 
 const paragraph =

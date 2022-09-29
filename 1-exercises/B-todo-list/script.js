@@ -1,9 +1,13 @@
 function todoList(todos) {
   let unOrderedList = document.createElement("ul");
-  todos.forEach((object) => {
+
+  todos.map((item) => {
     let list = document.createElement("li");
-    list.innerHTML = object.todo;
-    list.className = "romove";
+    // let todo = document.createElement("p");
+
+    list.innerHTML = item.todo;
+
+    list.className = "remove";
     unOrderedList.appendChild(list);
     list.addEventListener("click", lineThroughStyle);
     function lineThroughStyle() {
@@ -14,6 +18,7 @@ function todoList(todos) {
       }
     }
   });
+  
   let divEl = document.getElementById("content");
   divEl.appendChild(unOrderedList);
 }
