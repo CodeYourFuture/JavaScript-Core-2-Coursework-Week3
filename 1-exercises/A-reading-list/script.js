@@ -1,21 +1,31 @@
 function readingList(books) {
   let output = "";
   let container = document.querySelector('#content');
-  const bookBackground = document.createElement('li');
+  let bookBackground = document.createElement('li');
 
-  if (books.alreadyRead === true) {
-    bookBackground.style.backgroundColor = "green";
-  } else {
-    bookBackground.style.backgroundColor = "red";
-  }
-  console.log(bookBackground)
+  // books.map((books) => {
+  //   if (books.alreadyRead === true) {
+  //     bookBackground.style.backgroundColor = "green";
+  //   } else {
+  //     bookBackground.style.backgroundColor = "red";
+  //   }
+  // })
+  
+  // books.forEach((alreadyRead) => {
+  //   if (Object.value(alreadyRead) === true) {
+  //         bookBackground.style.backgroundColor = "green";
+  //       } else {
+  //         bookBackground.style.backgroundColor = "red";
+  //      }
+  // });
+
 
   for(let value of books){
     console.log(value);
 
     output += `
     <div id = content>
-    <ul><li id = 'content--color'> 
+    <ul><li id = 'content--color'>${Object.key === true ? bookBackground.style.backgroundColor = "green" : bookBackground.style.backgroundColor = "red"}
     <p id = 'content--title' >${value.title} by ${value.author}</p>
     <img id = 'content--avatar' width = 200rem height = 280rem src = ${value.bookCoverImage}  >
     </li></ul>

@@ -1,19 +1,49 @@
 function populateTodoList(todos) {
-  const list = document.getElementById("todo-list");
-  const addBtn = document.getElementsByClassName('btn btn-primary mb-3');
+  let todoInput = document.getElementById("todoInput");
   
-  addBtn.addEventListener('click', () => {
-    if (document.getElementById('todoInput') = 'text'){
-      const listItem = document.createElement("li");
-      listItem.innerHTML.push() = list.appendChild(listItem);
-      
-    }
-  })
+  const newTask = todoInput.value
+  
+  if (!newTask) {
+      alert("Please add a todo ");
+      return todos;
+  } else {
+    const list = document.querySelector("#todo-list");
+    list.classList.add("newTask");
+
+    const listItem = document.createElement('li');
+    listItem.classList.add("todoInput");
+    listItem.innerText = newTask;
+    // listItem.setAttribute("id", "todoInput");
+    list.append(listItem);
+    console.log(listItem);
+
+    let span = document.createElement('span');
+    listItem.append(span);
+    span.setAttribute("class", "badge bg-primary rounded-pill");
+
+    // let lineThru = document.createElement("i");
+    // let trash = document.createElement('i');
+    // span.appendChild(lineThru, trash);
+    // lineThru.setAttribute("class", "fa fa-check");
+    // lineThru.setAttribute("aria-hidden", "true");
+    // trash.setAttribute("class", "fa fa-trash");
+    // trash.setAttribute("aria-hidden", "true");
+  }
+  console.log(listItem);
+
+  // document.getElementById("todoInput").setAttribute("type", "badge bg-primary rounded-pill");
+  // console.log(addBtn);
+  // addBtn.addEventListener('click', () => {
+  //   if (todoInput = 'text') {
+  //     return todoInput = li.innerHTML;
+  //   }
+  // };
+}
 
 
 
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
-}
+
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
