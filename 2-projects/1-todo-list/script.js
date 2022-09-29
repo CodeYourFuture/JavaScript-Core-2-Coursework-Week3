@@ -24,7 +24,8 @@ function populateTodoList(todos) {
     icon1.addEventListener("click", () => {
       newLI.style.textDecoration === "line-through"
         ? (newLI.style.textDecoration = "none")
-        : (newLI.style.textDecoration = "line-through");
+        : (newLI.style.textDecoration = "line-through") &&
+          toDo.completed === true;
     });
     icon2.addEventListener("click", () => {
       list.removeChild(newLI);
@@ -57,50 +58,20 @@ function addNewTodo(event) {
   let userInput = document.querySelector("#todoInput");
 
   addBtn.addEventListener("click", () => {
-    todos.unshift({ task: userInput.value, completed: false });
-    let newTodos = [todos[0]];
-
-    newTodos.forEach((todo) => {
-      const newLI = document.createElement("li");
-      const span = document.createElement("span");
-      const icon1 = document.createElement("i");
-      const icon2 = document.createElement("i");
-      const list = document.getElementById("todo-list");
-      //add styles to new html elements
-      span.className = "badge bg-primary rounded-pill";
-      icon1.className = "fa fa-check";
-      icon2.className = "fa fa-trash";
-      icon1.ariaHidden = "true";
-      icon2.ariaHidden = "true";
-      newLI.className =
-        "list-group-item d-flex justify-content-between align-items-center";
-
-      //add task input to list item, add buttons to list item
-      newLI.innerText = todo.task;
-
-      if (newLI.innerText !== "") {
-        icon1.addEventListener("click", () => {
-          newLI.style.textDecoration === "line-through"
-            ? (newLI.style.textDecoration = "none")
-            : (newLI.style.textDecoration = "line-through");
-        });
-        icon2.addEventListener("click", () => {
-          list.removeChild(newLI);
-        });
-        span.append(icon1, icon2);
-        newLI.append(span);
-        list.append(newLI);
-      }
-    });
-    // populateTodoList(newTodos);
-    console.log(newTodos);
+    if (userInput.value !== "") {
+      populateTodoList([{ task: userInput.value, completed: false }]);
+    }
     userInput.value = "";
-    newTodos.pop();
   });
 
   // }
 }
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
+function deleteAllCompleteTodos(event) {
   // Write your code here...
+  event.preventDefault();
+  const list = document.querySelector("#todo-list");
+  let listItem = document.querySelectorAll("li");
+  console.log("hello world");
+  list.remove(listItem);
 }
