@@ -56,7 +56,7 @@ function addNewTodo(event) {
   let addTodoBtn = document.querySelector(".btn-primary");
   let todoTextField = document.getElementById("todoInput");
   let list = document.getElementById("todo-list");
-  addTodoBtn.addEventListener("click", function () {
+  //addTodoBtn.addEventListener("click", function () {
     let todoText = todoTextField.value;
     let todoElement = document.createElement("li");
     todoElement.innerText = todoText;
@@ -88,7 +88,7 @@ function addNewTodo(event) {
         todoElement.remove();
       }
     })
-  });
+ // });
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 }
 

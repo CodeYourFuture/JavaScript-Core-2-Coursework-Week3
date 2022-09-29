@@ -11,7 +11,7 @@ function guessNumber() {
   //If the user inputs a bad input ie 0, empty string, number greater that 100, number less than zero Print "Please enter a number between 1 and 100"
   let outputField = document.querySelector(".final-output");  
 
-  guessButton.addEventListener("click", function () {
+  
     if (guess <= 0 || guess > 100 || guess == "") {
       outputField.innerText = "Please enter a number between 1 and 100";
       outputField.style.color = "red";
@@ -33,7 +33,7 @@ function guessNumber() {
     
     numberOfTries--;
     triesField.innerText = `Number of Tries: ${numberOfTries}`;
-  });
+  
 
   //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
 
