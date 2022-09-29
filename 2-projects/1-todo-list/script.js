@@ -22,10 +22,17 @@ function populateTodoList(todos) {
 
     //icon functionality
     icon1.addEventListener("click", () => {
-      newLI.style.textDecoration === "line-through"
-        ? (newLI.style.textDecoration = "none")
-        : (newLI.style.textDecoration = "line-through") &&
-          toDo.completed === true;
+      // newLI.style.textDecoration === "line-through"
+      //   ? (newLI.style.textDecoration = "none")
+      //   : (newLI.style.textDecoration = "line-through") &&
+      //     toDo.completed === true;
+      if (newLI.classList.contains("done")) {
+        newLI.classList.remove("done");
+        toDo.completed = false;
+      } else {
+        newLI.classList.add("done");
+        toDo.completed = true;
+      }
     });
     icon2.addEventListener("click", () => {
       list.removeChild(newLI);
@@ -47,31 +54,26 @@ let todos = [
   { task: "new tester", completed: false },
 ];
 //console.log(todos);
-console.log(populateTodoList(todos));
+populateTodoList(todos);
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
-  const addBtn = document.querySelector(".mb-3");
   let userInput = document.querySelector("#todoInput");
-
-  addBtn.addEventListener("click", () => {
-    if (userInput.value !== "") {
-      populateTodoList([{ task: userInput.value, completed: false }]);
-    }
-    userInput.value = "";
-  });
-
-  // }
+  populateTodoList([{ task: userInput.value, completed: false }]);
+  userInput.value = "";
 }
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompleteTodos(event) {
   // Write your code here...
   event.preventDefault();
   const list = document.querySelector("#todo-list");
-  let listItem = document.querySelectorAll("li");
-  console.log("hello world");
-  list.remove(listItem);
+  const listItem = document.querySelectorAll("li");
+  for (let i = 0; i < listItem.length; i++) {
+    listItem[i].classList.contains("done")
+      ? list.removeChild(listItem[i])
+      : listItem;
+  }
 }
