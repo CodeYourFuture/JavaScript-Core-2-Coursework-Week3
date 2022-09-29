@@ -3,6 +3,7 @@ let randomNumber = Math.floor(Math.random() * 100 + 1);
 let countTries = document.querySelector("#count-tries");
 let output = document.querySelector(".final-output");
 countTries.innerHTML = 7;
+String.from
 
 function guessNumber() {
   //Collect input from the user

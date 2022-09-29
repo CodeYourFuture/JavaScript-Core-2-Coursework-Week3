@@ -1,12 +1,10 @@
 function populateTodoList(todos) {
   todos.forEach((toDo) => {
-    //create an li, span, and icon. find list
     const newLI = document.createElement("li");
     const span = document.createElement("span");
     const icon1 = document.createElement("i");
     const icon2 = document.createElement("i");
     const list = document.getElementById("todo-list");
-    //add styles to new html elements
     span.className = "badge bg-primary rounded-pill";
     icon1.className = "fa fa-check";
     icon2.className = "fa fa-trash";
@@ -14,18 +12,10 @@ function populateTodoList(todos) {
     icon2.ariaHidden = "true";
     newLI.className =
       "list-group-item d-flex justify-content-between align-items-center";
-
-    //add task input to list item, add buttons to list item
     newLI.innerText = toDo.task;
     span.append(icon1, icon2);
     newLI.append(span);
-
-    //icon functionality
     icon1.addEventListener("click", () => {
-      // newLI.style.textDecoration === "line-through"
-      //   ? (newLI.style.textDecoration = "none")
-      //   : (newLI.style.textDecoration = "line-through") &&
-      //     toDo.completed === true;
       if (newLI.classList.contains("done")) {
         newLI.classList.remove("done");
         toDo.completed = false;
@@ -37,7 +27,6 @@ function populateTodoList(todos) {
     icon2.addEventListener("click", () => {
       list.removeChild(newLI);
     });
-
     list.append(newLI);
   });
 }
@@ -53,7 +42,6 @@ let todos = [
   { task: "Do the shopping", completed: false },
   { task: "new tester", completed: false },
 ];
-//console.log(todos);
 populateTodoList(todos);
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
@@ -62,15 +50,8 @@ function addNewTodo(event) {
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
   let userInput = document.querySelector("#todoInput");
-   populateTodoList([{ task: userInput.value, completed: false }]);
-   userInput.value = "";
-
-  //lol @ my original solution
-  // todos.unshift({ task: userInput.value, completed: false });
-  // let newTodos = [todos[0]];
-  // populateTodoList(newTodos);
-  // userInput.value = "";
-  // newTodos.pop();
+  populateTodoList([{ task: userInput.value, completed: false }]);
+  userInput.value = "";
 }
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompleteTodos(event) {
