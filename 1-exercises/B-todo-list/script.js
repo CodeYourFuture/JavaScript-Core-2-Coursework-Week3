@@ -1,5 +1,30 @@
 function todoList(todos) {
-  // Write your code here...
+  const content = document.querySelector("#content");
+  let headingEl = document.createElement("h1");
+  content.appendChild(headingEl)
+  todos.forEach(task => {
+    
+    let unorderedListEl = document.createElement("ul")
+    let listItemEl = document.createElement("li");
+
+    headingEl.innerText = "Todo list";
+    listItemEl.append(task.todo)
+    content.appendChild(unorderedListEl);
+    unorderedListEl.append(listItemEl);
+    listItemEl.style.cursor = "pointer"
+
+    listItemEl.addEventListener("click", function () {
+      listItemEl.style.textDecoration = "line-through";
+      listItemEl.addEventListener("click", function () {
+        if(listItemEl.style.textDecoration = "line-through"){
+          listItemEl.style.textDecoration = "none"
+        } else {
+          listItemEl.style.textDecoration = "line-through"
+        }
+      })
+    })
+  });
+
 }
 
 const todos = [
