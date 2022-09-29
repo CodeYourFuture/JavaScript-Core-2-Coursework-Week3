@@ -18,17 +18,17 @@ function guessNumber() {
   }
   //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
   else if (userGuess > randomNumber) {
-    output.innerText = "too high, try again";
+    output.innerText = "too high, try again 😦";
     countTries.innerHTML -= 1;
   }
   //If the users guess is lower than the random number print Number is too low, try again  (hint use .final-out class to print)
   else if (userGuess < randomNumber) {
-    output.innerText = "too low, try again";
+    output.innerText = "too low, try again 😬";
     countTries.innerHTML -= 1;
   }
   //If the user has guessed the random number correctly print out the randomNumber with a message "Guess is correct. You win!"
   else if (userGuess === randomNumber) {
-    output.innerText = "Guess is correct. You win!";
+    output.innerText = "Guess is correct. You win! 🎉";
   }
 }
 
