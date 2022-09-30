@@ -10,3 +10,6 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+.complete{
+    text-decoration: line-through;
+  }
