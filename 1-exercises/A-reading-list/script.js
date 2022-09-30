@@ -14,14 +14,14 @@ function readingList(books) {
     uList.append(item);
     container.append(uList);
 
-    item.style.textAlign="center";
-    uList.style.listStyle="none";
-    paragraph.style.fontSize="2rem";
-    paragraph.style.fontWeight="bold";
-    paragraph.style.paddingTop="1em";
-    container.style.width="850px";
-    container.style.margin="auto";
-    image.style.paddingBottom="3em";
+    item.style.textAlign = "center";
+    uList.style.listStyle = "none";
+    paragraph.style.fontSize = "2rem";
+    paragraph.style.fontWeight = "bold";
+    paragraph.style.paddingTop = "1em";
+    container.style.width = "850px";
+    container.style.margin = "auto";
+    image.style.paddingBottom = "3em";
 
     book.alreadyRead
       ? (item.style.background = "green")

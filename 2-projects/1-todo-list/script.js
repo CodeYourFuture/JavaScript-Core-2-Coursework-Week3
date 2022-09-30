@@ -77,11 +77,11 @@ function deleteAllCompletedTodos() {
     let list = document.getElementById("todo-list");
     let allTodo = document.querySelectorAll("li");
 
-    for(let todo of allTodo){
-      if(todo.style.textDecoration==="line-through"){
+    for (let todo of allTodo) {
+      if (todo.style.textDecoration === "line-through") {
         list.removeChild(todo);
-      }else{
-        todo.style.fontWeight="bold";
+      } else {
+        todo.style.fontWeight = "bold";
       }
     }
   });
