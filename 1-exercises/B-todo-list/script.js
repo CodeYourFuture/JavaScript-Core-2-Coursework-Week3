@@ -1,13 +1,14 @@
 function todoList(todos) {
   const content = document.querySelector("#content");
   let headingEl = document.createElement("h1");
-  content.appendChild(headingEl)
+  content.appendChild(headingEl);
+  headingEl.innerText = "Todo list";
+
   todos.forEach(task => {
     
     let unorderedListEl = document.createElement("ul")
     let listItemEl = document.createElement("li");
 
-    headingEl.innerText = "Todo list";
     listItemEl.append(task.todo)
     content.appendChild(unorderedListEl);
     unorderedListEl.append(listItemEl);
