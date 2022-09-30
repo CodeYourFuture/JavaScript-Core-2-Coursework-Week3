@@ -47,6 +47,7 @@ function addNewTodo(event) {
   }
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
+  document.querySelector("#todoInput").value = "";
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 }
 
