@@ -2,6 +2,7 @@
 
 The function **todoList** takes an array of todo objects:
 
+
 ```js
 const todos = [{ todo: "wash the dishes" }, { todo: "walk the dog" }];
 ```
