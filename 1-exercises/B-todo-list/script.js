@@ -9,9 +9,9 @@ function todoList(todos) {
     let unorderedListEl = document.createElement("ul")
     let listItemEl = document.createElement("li");
 
-    listItemEl.append(task.todo)
     content.appendChild(unorderedListEl);
-    unorderedListEl.append(listItemEl);
+    unorderedListEl.appendChild(listItemEl);
+    listItemEl.append(task.todo)
     listItemEl.style.cursor = "pointer"
 
     listItemEl.addEventListener("click", function () {
@@ -19,9 +19,7 @@ function todoList(todos) {
       listItemEl.addEventListener("click", function () {
         if(listItemEl.style.textDecoration = "line-through"){
           listItemEl.style.textDecoration = "none"
-        } else {
-          listItemEl.style.textDecoration = "line-through"
-        }
+         } 
       })
     })
   });
