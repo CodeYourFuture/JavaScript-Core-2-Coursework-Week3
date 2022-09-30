@@ -1,5 +1,46 @@
+var place = document.getElementById("content");
+var para = document.createElement("p");
+
+place.appendChild(para);
+
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  var select = document.createElement("select");
+  select.setAttribute("id", "mySelect");
+  place.appendChild(select);
+
+  for (var i = 0; i < colours.length; i++) {
+    var opt = document.createElement("option");
+    opt.value = [i];
+    opt.innerHTML = colours[i];
+    select.appendChild(opt);
+  }
+
+  var party = paragraph.split(" ");
+
+  for (var i = 0; i < party.length; i++) {
+    var spa = document.createElement("span");
+    spa.innerText = party[i] + " ";
+    para.appendChild(spa);
+  }
+
+  var trial = document.getElementsByTagName("span");
+  for (let i = 0; i < trial.length; i++) {
+    trial[i].addEventListener("click", clicked);
+
+    function clicked() {
+      var result = document.getElementById("mySelect").value;
+      console.log(result);
+      if (result === "0") {
+        trial[i].style.backgroundColor = "yellow";
+      } else if (result === "1") {
+        trial[i].style.backgroundColor = "green";
+      } else if (result === "2") {
+        trial[i].style.backgroundColor = "blue";
+      } else if (result === "3") {
+        trial[i].style.backgroundColor = "none";
+      }
+    }
+  }
 }
 
 const paragraph =

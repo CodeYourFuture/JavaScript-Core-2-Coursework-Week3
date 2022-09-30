@@ -68,17 +68,15 @@
  }
  
  /* Headings */
- .heading-underline {
+ .heading{
      position: relative;
-     margin-bottom: 2em;
-     padding-bottom: 0.5em;
-     border-bottom: 1px solid #dccdc6;
+  
      font-size: 1rem;
-     font-weight: 600;
-     text-transform: uppercase;
+     font-weight: 200;
+    
  }
  
- .heading-underline:before {
+ /* .heading-underline:before {
      content: '';
      position: absolute;
      bottom: -1px;
@@ -88,7 +86,7 @@
      max-width: 100px;
      background: #ce5f31;
  }
- 
+  */
  /* Article */
  .article {
      margin-bottom: 2em;

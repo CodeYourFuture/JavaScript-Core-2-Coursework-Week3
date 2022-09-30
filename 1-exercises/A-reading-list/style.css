@@ -71,15 +71,15 @@ body {
 /* Headings */
 .heading-underline {
   position: relative;
-  margin-bottom: 2em;
+ 
   padding-bottom: 0.5em;
-  border-bottom: 1px solid #dccdc6;
-  font-size: 1rem;
+  
+  font-size: 2rem;
   font-weight: 600;
-  text-transform: uppercase;
+  
 }
 
-.heading-underline:before {
+/* .heading-underline:before {
   content: "";
   position: absolute;
   bottom: -1px;
@@ -88,7 +88,7 @@ body {
   height: 1px;
   max-width: 100px;
   background: #ce5f31;
-}
+} */
 
 /* Article */
 .article {
@@ -122,6 +122,14 @@ body {
 
 .red {
   background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.image {
+  width: 300px;
 }
 
 .addArticle {
