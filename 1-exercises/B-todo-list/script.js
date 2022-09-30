@@ -1,6 +1,6 @@
   function todoList(todos) {
   let content = document.querySelector("#content");
-  let unOrderedList = document.createElement("#ul");
+  let unorderedList = document.createElement("#ul");
   content.appendChild(unorderedList);
   todos.forEach((item) => {
   let list = document.createElement("li");

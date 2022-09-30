@@ -1,4 +1,4 @@
-function highlightWords(paragraph, colours) {
+function highlightWords(paragraph, colors) {
 let content = document.querySelector(#content)
 } let paragraph = document.createElement("p");
 content.appendChild(paragraph);
@@ -8,9 +8,9 @@ let elementArray = array.from(document.querySelectorAll("options"));
 let words = paragraph.split(" ");
 let span = document.createElement("span");
 span.addEventListener("click");
-let span = colours.input(" ")
+let span = colors.input(" ")
 
-colours.forEach (color => {
+colors.forEach (color => {
 const select = document.createElement("select")
 select.innerHTML = color;
 paragraph.appendChild(span)
