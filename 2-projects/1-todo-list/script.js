@@ -81,7 +81,7 @@ function deleteAllCompletedTodos() {
       if (todo.style.textDecoration === "line-through") {
         list.removeChild(todo);
       } else {
-        todo.style.fontWeight = "bold";
+        todo.style.textDecoration = "none";
       }
     }
   });
