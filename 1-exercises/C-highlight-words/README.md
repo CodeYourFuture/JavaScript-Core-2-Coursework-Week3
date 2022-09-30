@@ -1,4 +1,4 @@
-# Highlight Words
+ # Highlight Words
 
 The function **highlightWords** takes a paragraph of words in the form of one long string:
 

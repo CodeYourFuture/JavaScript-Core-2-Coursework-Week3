@@ -1,6 +1,5 @@
 function readingList(books) {
-
-let content = document.querySelector('#content');
+  let content = document.querySelector('#content');
     let unorderedList = document.createElement('ul')
     content.appendChild(unorderedList);
     books.forEach(book => {
@@ -18,6 +17,8 @@ let content = document.querySelector('#content');
         list.style.backgroundColor = 'green';
       }
     });
+
+
   }
 
 const books = [
