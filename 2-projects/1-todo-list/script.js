@@ -1,22 +1,19 @@
 function populateTodoList(todos) {
   var list = document.getElementById("todo-list");
 
-  for (var i = 0; i < todos.length; i++) {
-    // to create and append li
+  todos.forEach((item) => {
     var lists = document.createElement("li");
     lists.setAttribute("id", "lista");
     lists.className =
       "list-group-item d-flex justify-content-between align-items-center";
     list.appendChild(lists);
-    var newer = todos[i].task;
-    lists.innerText = newer;
+    lists.innerText = item.task;
 
     // to create the span
 
     var spann = document.createElement("span");
     spann.className = "badge bg-primary rounded-pill";
     lists.appendChild(spann);
-
     // to create an i tag
 
     var ii = document.createElement("i");
@@ -29,15 +26,16 @@ function populateTodoList(todos) {
     is.ariaHidden = "true";
     spann.appendChild(is);
 
+    ii.addEventListener("click", clicked);
+    function clicked() {
+      ii.parentElement.parentElement.classList.toggle("line-through");
+    }
+
     is.addEventListener("click", clicking);
     function clicking() {
       lists.remove(document.getElementById("lista"));
     }
-    ii.addEventListener("click", clicked);
-    function clicked() {
-      document.getElementById("lista").style.textDecoration = "line-through";
-    }
-  }
+  });
 
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
 }
@@ -61,9 +59,18 @@ function addNewTodo(event) {
       task: val.value,
     },
   ];
+  populateTodoList(valvalue);
+  val.value = "";
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  // Write your code here...
+  var toDo = document.querySelectorAll("li");
+
+  for (let i = 0; i < toDo.length; i++) {
+    if (toDo[i].classList.contains("line-through")) {
+      toDo[i].remove();
+    }
+  }
 }
+setInterval(deleteAllCompletedTodos, 1000);
