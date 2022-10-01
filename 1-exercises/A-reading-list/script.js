@@ -9,23 +9,18 @@ function readingList(books) {
 
     content.style.display = "flex";
     content.style.flexDirection = "column";
-    paragraph.innerText = book.title;
+    paragraph.innerText = `${book.title} by ${book.author}`;
     image.src = book.bookCoverImage;
-    unorderedList.style.alignSelf = "center";
     listItem.style.listStyleType = "none";
-    listItem.style.padding = "2rem";
     paragraph.style.fontSize = "1.5rem";
-    paragraph.style.textAlign = "center";
 
     listItem.append(paragraph, image);
     unorderedList.append(listItem);
     content.append(unorderedList);
 
-    if (book.alreadyRead) {
-      listItem.style.backgroundColor = "green";
-    } else {
-      listItem.style.backgroundColor = "red";
-    }
+    book.alreadyRead
+      ? (listItem.style.backgroundColor = "green")
+      : (listItem.style.backgroundColor = "red");
   });
 }
 
