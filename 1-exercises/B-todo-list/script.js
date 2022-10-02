@@ -19,6 +19,9 @@ function todoList(todos) {
         if(todo.style.textDecoration = 'line-through'){
           todo.style.textDecoration = 'none'
         }
+        todo.addEventListener('click', function(){
+          todo.style.textDecoration = 'line-through'
+        })
       })
       });
     })
