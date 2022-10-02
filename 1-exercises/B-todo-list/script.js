@@ -1,5 +1,4 @@
 function todoList(todos) {
-  // Write your code here...
 
   let myToDoList = document.getElementById('content');
   let myToDos = document.createElement('ul');
@@ -11,18 +10,18 @@ function todoList(todos) {
     todo.innerText = item.todo;
     myToDos.appendChild(theToDo);
     theToDo.appendChild(todo);
-  })
+    todo.style.cursor = 'pointer';
+   
 
-  theToDo.addEventListener("click", () =>{
-    if (theToDo.style.textDecoration === 'line-through'){
-      theToDo.style.textDecoration = 'none'
-    }
-    else{
-      theToDo.style.textDecoration = 'line-through'
-    }
-  })
-
-  
+    todo.addEventListener("click", function () {
+      todo.style.textDecoration = 'line-through';
+      todo.addEventListener("click", function (){
+        if(todo.style.textDecoration = 'line-through'){
+          todo.style.textDecoration = 'none'
+        }
+      })
+      });
+    })
 }
 
 const todos = [
