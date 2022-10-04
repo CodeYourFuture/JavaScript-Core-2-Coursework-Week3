@@ -12,7 +12,7 @@ function todoList(todos) {
     theToDo.appendChild(todo);
     todo.style.cursor = 'pointer';
    
-
+// need to find a better way to do this
     todo.addEventListener("click", function () {
       todo.style.textDecoration = 'line-through';
       todo.addEventListener("click", function (){
