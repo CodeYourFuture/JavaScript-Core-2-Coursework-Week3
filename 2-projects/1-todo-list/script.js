@@ -1,5 +1,7 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
+  let todoList = document.createElement('ul');
+  list.appendChild(todoList)
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
 }
 
@@ -23,3 +25,34 @@ function addNewTodo(event) {
 function deleteAllCompletedTodos() {
   // Write your code here...
 }
+/*
+Each todo should have this HTML inside it:
+
+```html
+<span class="badge bg-primary rounded-pill">
+  <i class="fa fa-check" aria-hidden="true"></i>
+  <i class="fa fa-trash" aria-hidden="true"></i>
+</span>
+```
+
+The first `<i>` tag needs an event listener that applies a line-through text-decoration styling to the text of the todo. It should remove the styling if it is clicked again.
+
+The second `<i>` tag needs an event listener that deletes the parent `<li>` element from the `<ul>`.
+
+## Advanced Challenge
+
+### Mass delete of completed ToDos
+
+Develop the ToDo list further and allow users to delete all completed ToDos.
+
+Add a button that users can click that will iterate through the list of ToDos and then delete them only if they have been completed.
+
+## Extra Advanced Challenge
+
+### Set deadlines for ToDos
+
+We want users to be able to set, and see, deadlines for their ToDos.
+
+When creating ToDos we want the user to be able to use a datepicker input so they can see when they need to complete the ToDo. The date can be added to the ToDo in the list. If there is no date set when the ToDo is created then this can be skipped.
+
+*/
