@@ -10,13 +10,30 @@ function highlightWords(paragraph, colours) {
   selectElement.appendChild(optionElement);
   optionElement.textContent = "choose a colour";
 
-  colours.forEach((colour) => {
-    let chooseAColour = document.createElement('optionElement')
-    chooseAColour.textContent = colour
+  colours.forEach((color) => {
+    let chooseAColour = document.createElement('option')
+    chooseAColour.innerText = color
+    chooseAColour.value = color
     selectElement.appendChild(chooseAColour)
   });
 
-  paragraph.split(" ").forEach(
+  paragraph.split(" ").forEach((word) => {
+    let spanElement = document.createElement('span');
+    spanElement.textContent = `${word} `;
+    paragraphElement.appendChild(spanElement);
+    spanElement.style.cursor = 'pointer'
+    
+    spanElement.addEventListener("click", function () 
+    { let spanColor = selectElement.value;
+      if(selectElement === "none"){
+        spanElement.style.backgroundColor = "transparent";
+      }else {
+        spanElement.style.backgroundColor = spanColor
+      }
+    // need to figure out how to remove
+      
+    });
+  }
 
   )
 
