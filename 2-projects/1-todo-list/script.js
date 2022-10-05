@@ -1,9 +1,48 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   let todoList = document.createElement('ul');
-  list.appendChild(todoList)
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  list.appendChild(todoList);
+
+
+  todos.forEach((todo) =>{
+    let listElement = document.createElement('li');
+    listElement.className =
+      "list-group-item d-flex justify-content-between align-items-center";
+    listElement.textContent = todo.task;
+    todoList.appendChild(listElement);
+    let span = document.createElement('span');
+    span.className = "badge bg-primary rounded-pill";
+    listElement.appendChild(span);
+    let checkIcon = document.createElement('i');
+    checkIcon.className = 'fa fa-check';
+    checkIcon.style.padding = "0px 1px"
+    span.appendChild(checkIcon);
+    let trashIcon = document.createElement('i')
+    trashIcon.className = 'fa fa-trash';
+    trashIcon.style.padding = "0px 1px";
+    span.appendChild(trashIcon);
+
+    checkIcon.addEventListener('click', function(){
+      listElement.style.textDecoration = 'line-through';
+      checkIcon.addEventListener('click', function (){
+        if(listElement.style.textDecoration = 'line-through'){
+          listElement.style.textDecoration = 'none'
+        }
+        checkIcon.addEventListener('click', function (){
+          listElement.style.textDecoration = 'line-through'
+        })
+      })
+    })
+
+    trashIcon.addEventListener('click', function(){
+      listElement.remove()
+    })
+
+    
+  })
 }
+
+
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
@@ -16,6 +55,9 @@ populateTodoList(todos);
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 function addNewTodo(event) {
+  let newTodo = document.querySelector('#todoInput').value;
+  populateTodoList([{task: newTodo, completed: false}])
+
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
