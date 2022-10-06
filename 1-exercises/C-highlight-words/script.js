@@ -35,7 +35,10 @@ function highlightWords(paragraph, colours) {
   
 
     spanEl.addEventListener("click", () => {
-      selectEl.value === "none"
+      if (selectEl.value === "none") {
+        // do nothing
+        return
+      }
         if (spanEl.style.backgroundColor = "white"){
        spanEl.style.backgroundColor = selectEl.value};
 })
