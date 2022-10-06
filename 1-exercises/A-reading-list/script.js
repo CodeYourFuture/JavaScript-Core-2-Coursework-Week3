@@ -15,11 +15,7 @@ function readingList(books) {
     unorderedListEl.append(listItemEl);
     content.append(unorderedListEl);
 
-    if (book.alreadyRead) {
-      listItemEl.style.backgroundColor = "green";
-    } else {
-      listItemEl.style.backgroundColor = "red";
-    }
+    listItemEl.style.backgroundColor = (book.alreadyRead) ? 'green' :'red'
 })
 }
 
