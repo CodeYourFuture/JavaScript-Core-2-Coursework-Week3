@@ -4,12 +4,12 @@ function todoList(todos) {
   content.appendChild(headingEl);
   headingEl.innerText = "Todo list";
 
+    let unorderedListEl = document.createElement("ul")
+    content.appendChild(unorderedListEl);
   todos.forEach(task => {
     
-    let unorderedListEl = document.createElement("ul")
     let listItemEl = document.createElement("li");
 
-    content.appendChild(unorderedListEl);
     unorderedListEl.appendChild(listItemEl);
     listItemEl.append(task.todo)
     listItemEl.style.cursor = "pointer"
