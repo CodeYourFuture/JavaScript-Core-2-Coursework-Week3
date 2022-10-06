@@ -1,9 +1,10 @@
 function readingList(books) {
   const content = document.querySelector("#content");
+  let unorderedListEl = document.createElement("ul");
   books.forEach((book) => {
     let paragraphEl = document.createElement("p");
     let imageEl = document.createElement("img");
-    let unorderedListEl = document.createElement("ul");
+    
     let listItemEl = document.createElement("li");
 
     paragraphEl.innerText = `${book.title} by ${book.author}`;
