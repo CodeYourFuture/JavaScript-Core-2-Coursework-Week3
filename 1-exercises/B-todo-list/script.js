@@ -13,7 +13,7 @@ function todoList(todos) {
     todo.style.cursor = 'pointer';
    
 // need to find a better way to do this
-    /*todo.addEventListener("click", function () {
+    todo.addEventListener("click", function () {
       todo.style.textDecoration = 'line-through';
       todo.addEventListener("click", function (){
         if(todo.style.textDecoration = 'line-through'){
@@ -23,13 +23,7 @@ function todoList(todos) {
           todo.style.textDecoration = 'line-through'
         })
       })
-      });*/
-
-      //better way :o)
-
-      todo.addEventListener("click", function (){
-        todo.style.textDecoration.toggle('line-through') 
-      })
+      });
     })
 }
 

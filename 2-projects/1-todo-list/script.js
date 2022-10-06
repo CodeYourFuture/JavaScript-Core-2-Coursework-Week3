@@ -21,6 +21,7 @@ function populateTodoList(todos) {
     trashIcon.className = 'fa fa-trash';
     trashIcon.style.padding = "0px 1px";
     span.appendChild(trashIcon);
+    
 
     checkIcon.addEventListener('click', function(){
       listElement.style.textDecoration = 'line-through';
