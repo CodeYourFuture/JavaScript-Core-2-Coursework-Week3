@@ -39,9 +39,8 @@ function highlightWords(paragraph, colours) {
         // do nothing
         return
       }
-        if (spanEl.style.backgroundColor = "white"){
        spanEl.style.backgroundColor = selectEl.value};
-})
+)
 })
   
 
