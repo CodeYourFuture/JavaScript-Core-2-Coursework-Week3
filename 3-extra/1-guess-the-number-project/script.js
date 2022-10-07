@@ -2,7 +2,8 @@ const newGameBtn = document.querySelector(".btnNewGame");
 let randomNumber = Math.floor(Math.random() * 100 + 1);
 let countTries = document.querySelector("#count-tries");
 let output = document.querySelector(".final-output");
-countTries.innerHTML = 7;
+let score = 7;
+countTries.innerHTML = score;
 
 function guessNumber() {
   //Collect input from the user
@@ -30,8 +31,9 @@ function guessNumber() {
   //   output.innerText = "Guess is correct. You win! 🎉";
   // }
 
-  countTries.innerHTML -= 1;
-  countTries.innerHTML <= 0
+  score === 0 ? (score = 0) : (score -= 1);
+  console.log(score);
+  score <= 0
     ? (output.innerText = "Out of Tries. You lose!")
     : userGuess < 1 || userGuess > 100 || userGuess === ""
     ? (output.innerText = "Please enter a number between 1 and 100")
@@ -42,6 +44,7 @@ function guessNumber() {
     : userGuess === randomNumber
     ? (output.innerText = "Guess is correct. You win! 🎉")
     : (document.querySelector(".inputs-Values").value = "");
+  countTries.innerHTML = score;
 }
 
 // For this task we will be making a "New Game" button function which will reset our game,
