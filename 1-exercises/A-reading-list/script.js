@@ -1,4 +1,23 @@
 function readingList(books) {
+  let content = document.querySelector("#content");
+  let orderedListBook = document.createElement("ul");
+  content.appendChild(orderedListBook);
+  books.forEach(book => {
+    let list = document.createElement("li");
+    orderedListBook.appendChild(list);
+    let paragraph = document.createElement("p");
+    paragraph.innerHTML = `${book.title}: ${book.author}`;
+    list.appendChild(paragraph);
+    let img = document.createElement("img");
+    img.src = book.bookCoverImage;
+    list.appendChild(img);
+    if (book.alreadyRead === false) {
+      list.style.backgroundColor = "red";
+    } else {
+      list.style.backgroundColor = "green";
+    }
+
+  });
   // Write your code here...
 }
 
