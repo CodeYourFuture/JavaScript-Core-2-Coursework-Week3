@@ -1,6 +1,4 @@
 function readingList(books) {
-  // Write your code here...
-
   const readingList = document.querySelector("#reading-list");
 
   books.forEach((book) => {
