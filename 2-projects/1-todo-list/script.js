@@ -26,7 +26,8 @@ function addNewTodo(event) {
   const input = document.getElementById("todoInput");
   const value = input.value;
   let listItem;
-  if (value) {
+  // checks if the value is not empty or only white spaces
+  if (value && !/^\s+$/g.test(value)) {
     listItem = createtodo(value);
     list.appendChild(listItem);
     input.value = "";
