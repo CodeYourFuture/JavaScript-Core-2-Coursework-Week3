@@ -20,10 +20,11 @@ function populateTodoList(todos) {
 
     liTag.innerText = todos[x].task;
     liTag.style.listStyleType = "none";
-    liTag.classList.add("list-group-item","d-flex", "justify-content-between", "align-items-center");
+    liTag.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
     
     iTagOne.classList.add("fa", "fa-check");
     iTagTwo.classList.add("fa", "fa-trash");
+    spanTag.classList.add("badge", "bg-primary", "rounded-pill");
     iTagOne.ariaHidden = true;
     iTagTwo.ariaHidden = true;
 
@@ -35,11 +36,19 @@ function populateTodoList(todos) {
 
     // APPENDING VARIABLES
     list.appendChild(liTag);
-   }
-  
-  // list.appendChild(liTag);
-}
 
+    iTagOne.onclick = function () {
+      liTag.style.textDecoration = "line-through";
+    }
+    iTagTwo.onclick = function () { 
+      iTagTwo.parentNode.parentNode.parentNode.removeChild(liTag);
+    } ;
+    //  }
+  
+    // list.appendChild(liTag);
+  }
+
+}
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
@@ -68,6 +77,7 @@ function addNewTodo(event) {
 function deleteAllCompletedTodos() {
   // Write your code here...
 
+  // METHOD NOT USED AS VARIABLE SCOPE HAS BEEN KEPT IN THE OTHER 2 METHODS!
 
 
 }
