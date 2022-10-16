@@ -1,13 +1,13 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
-  // const ulTag = document.createElement("ul");
-  // const divLeft = document.getElementById()
+  
+  
   const previousListClasses = document.querySelector("li");
   let classValues = previousListClasses.classList;
   classValues = classValues.toString().replace(" ", ",");
-  console.log("CLASSES IN ELEMENT ==> " + previousListClasses.classList);
-  console.log(classValues);
+  // console.log("CLASSES IN ELEMENT ==> " + previousListClasses.classList);
+  // console.log(classValues);
 
 
   for (let x in todos) {
@@ -39,6 +39,8 @@ function populateTodoList(todos) {
 
     iTagOne.onclick = function () {
       liTag.style.textDecoration = "line-through";
+      
+      
     }
     iTagTwo.onclick = function () { 
       iTagTwo.parentNode.parentNode.parentNode.removeChild(liTag);
@@ -52,7 +54,7 @@ function populateTodoList(todos) {
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
-  { task: "Wash the dishes", completed: false },
+  { task: "Wash the dishes", completed: true },
   { task: "Do the shopping", completed: false },
 ];
 
@@ -67,7 +69,7 @@ function addNewTodo(event) {
   const todoInput = document.getElementById("todoInput");
   const newObject = {task : todoInput.value, completed : false};
   todos.push(newObject);
-  console.log(todos);
+  // console.log(todos);
 
   populateTodoList(todos);
 
@@ -77,7 +79,33 @@ function addNewTodo(event) {
 function deleteAllCompletedTodos() {
   // Write your code here...
 
-  // METHOD NOT USED AS VARIABLE SCOPE HAS BEEN KEPT IN THE OTHER 2 METHODS!
+  if (todos.length !== []) {
+    console.log("List of todos left: " + todos);
+    todos.pop();
+    console.log("List of todos left: " + todos);
 
+   }
 
 }
+
+// deleteAllCompletedTodos();
+
+const clearTodosButton = document.createElement("button");
+clearTodosButton.innerText = "Clear All";
+const divContainer = document.querySelector(".container");
+divContainer.appendChild(clearTodosButton);
+
+clearTodosButton.onclick = function () {
+  
+   todos.map(value => value).filter(function (value) {
+    if (value.completed == true) {
+      console.log("Deleted " + value);
+    } else {
+      console.log("Not deleted");
+    }
+  
+    // console.log(todos);
+  });
+
+}
+
