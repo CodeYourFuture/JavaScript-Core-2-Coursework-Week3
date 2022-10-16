@@ -9,7 +9,7 @@ function populateTodoList(todos) {
   console.log("CLASSES IN ELEMENT ==> " + previousListClasses.classList);
   console.log(classValues);
 
-  
+
   for (let x in todos) {
     // CREATING VARIABLES ON TAGS
     const liTag = document.createElement("li");
@@ -22,8 +22,16 @@ function populateTodoList(todos) {
     liTag.style.listStyleType = "none";
     liTag.classList.add("list-group-item","d-flex", "justify-content-between", "align-items-center");
     
+    iTagOne.classList.add("fa", "fa-check");
+    iTagTwo.classList.add("fa", "fa-trash");
+    iTagOne.ariaHidden = true;
+    iTagTwo.ariaHidden = true;
 
 
+    spanTag.appendChild(iTagOne);
+    spanTag.appendChild(iTagTwo);
+
+    liTag.appendChild(spanTag);
 
     // APPENDING VARIABLES
     list.appendChild(liTag);
