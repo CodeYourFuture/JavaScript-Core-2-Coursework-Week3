@@ -39,22 +39,31 @@ function populateTodoList(todos) {
 
     iTagOne.onclick = function () {
       liTag.style.textDecoration = "line-through";
-      
+
+      // todos.map((value) => value).filter(function (value) {
+      //     if (value.completed == true) {
+      //       const v = value;
+      //       delete todos[todos.findIndex((v) => v.completed == true)];
+      //       console.log("Deleted " + value.task);
+      //       console.log
+      //     } else {
+      //       console.log("Not deleted " + value.task);
+      //     }
+      //   });
       
     }
+
     iTagTwo.onclick = function () { 
       iTagTwo.parentNode.parentNode.parentNode.removeChild(liTag);
-    } ;
-    //  }
+    } 
   
-    // list.appendChild(liTag);
   }
 
 }
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
-  { task: "Wash the dishes", completed: true },
+  { task: "Wash the dishes", completed: false },
   { task: "Do the shopping", completed: false },
 ];
 
@@ -70,43 +79,52 @@ function addNewTodo(event) {
   const newObject = {task : todoInput.value, completed : false};
   todos.push(newObject);
   // console.log(todos);
+  // lastElement = todos[todos.length - 1]
 
   populateTodoList(todos);
 
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
-
-  if (todos.length !== []) {
-    console.log("List of todos left: " + todos);
-    todos.pop();
-    console.log("List of todos left: " + todos);
-
-   }
-
-}
-
-// deleteAllCompletedTodos();
 
 const clearTodosButton = document.createElement("button");
 clearTodosButton.innerText = "Clear All";
 const divContainer = document.querySelector(".container");
 divContainer.appendChild(clearTodosButton);
 
-clearTodosButton.onclick = function () {
-  
-   todos.map(value => value).filter(function (value) {
-     if (value.completed == true) {
-       todos.pop();
-      console.log("Deleted " + value);
-    } else {
-      console.log("Not deleted");
-    }
-  
-    // console.log(todos);
-  });
 
+// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+function deleteAllCompletedTodos() {
+  // Write your code here...
+
+  // if (todos.length !== []) {
+  //   console.log("List of todos left: " + todos);
+  //   todos.pop();
+  //   console.log("List of todos left: " + todos);
+
+
+
+  //  }#
+
+  clearTodosButton.onclick = function () {
+  
+    todos.map(value => value).filter(function (value) {
+      if (value.completed == true) {
+        const v = value;
+        delete todos[todos.findIndex(v => v.completed == true)];
+        console.log("Deleted " + value.task);
+        console.log(todos);
+      } else {
+        console.log("Not deleted " + value.task);
+      }
+  
+      // console.log(todos);
+    });
+
+  }
 }
+
+deleteAllCompletedTodos();
+
+
+
 
