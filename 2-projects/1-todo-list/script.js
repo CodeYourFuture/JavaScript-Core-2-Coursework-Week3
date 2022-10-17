@@ -1,22 +1,28 @@
-let unorderedList=document.getElementById("todo-list");
+let unorderedList = document.getElementById("todo-list");
 // // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
-function populateTodoList(todos) { 
-  // 
-  todos.forEach(todo => {
+function populateTodoList(todos) {
+  // Write your code here...
+
+  todos.forEach((todo) => {
     //create elements
-    let list=document.createElement("li");
-    let span=document.createElement("span");
-    let icon1=document.createElement("i");
-    let icon2=document.createElement("i");
+    let list = document.createElement("li");
+    let span = document.createElement("span");
+    let icon1 = document.createElement("i");
+    let icon2 = document.createElement("i");
 
     //add text content,class name and attributes
-    list.innerHTML=todo.task;
-    list.classList.add("list-group-item" ,"d-flex", "justify-content-between", "align-items-center");
+    list.innerHTML = todo.task;
+    list.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
     span.classList.add("badge", "bg-primary", "rounded-pill");
     icon1.classList.add("fa", "fa-check");
-    icon1.setAttribute("aria-hidden",true);
+    icon1.setAttribute("aria-hidden", true);
     icon2.classList.add("fa", "fa-trash");
-    icon2.setAttribute("aria-hidden",true);
+    icon2.setAttribute("aria-hidden", true);
 
     // append child element
     span.appendChild(icon1);
@@ -54,16 +60,15 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
-  let inputEl=document.getElementById("todoInput");
-  populateTodoList([{task: inputEl.value, completed: false }]);
-  inputEl.value="";
+  let inputEl = document.getElementById("todoInput");
+  populateTodoList([{ task: inputEl.value, completed: false }]);
+  inputEl.value = "";
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  let listOfTodos=document.querySelectorAll("li")
-  listOfTodos.forEach(todo => {
-    if(todo.classList.contains("complete"))
-    unorderedList.removeChild(todo);
+  let listOfTodos = document.querySelectorAll("li");
+  listOfTodos.forEach((todo) => {
+    if (todo.classList.contains("complete")) unorderedList.removeChild(todo);
   });
 }
