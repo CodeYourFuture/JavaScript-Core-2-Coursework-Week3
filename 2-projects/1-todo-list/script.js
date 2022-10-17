@@ -99,12 +99,20 @@ clearTodosButton.addEventListener("click", deleteAllCompletedTodos);
 function deleteAllCompletedTodos() {
   // Write your code here...
 
-  
+  // if (todos.length !== []) {
+  //   console.log("List of todos left: " + todos);
+  //   todos.pop();
+  //   console.log("List of todos left: " + todos);
+
+
+
+  //  }#
 
   
     todos.map(value => value).filter(function (value) {
       if (value.completed == true) {
-       
+        // const v = value;
+        // delete todos[todos.findIndex(v => v.completed == true)];
         delete value;
         console.log("Deleted " + value.task);
         console.log(todos);
