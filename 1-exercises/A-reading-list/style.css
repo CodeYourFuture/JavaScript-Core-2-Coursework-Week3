@@ -25,7 +25,6 @@ body {
 .navbar-brand > img {
   max-height: 40px;
   width: auto;
-  
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -52,7 +51,6 @@ body {
   line-height: 1.3em;
   background: transparent;
   color: #292b2c;
- 
 }
 
 .alert:before {

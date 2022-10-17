@@ -3,7 +3,7 @@ function readingList(books) {
   let content = document.getElementById("content");
   let unorderedList = document.createElement("ul");
   content.appendChild(unorderedList);
-
+  content.style.cssText = "display:block;";
   books.forEach((element) => {
     let list = document.createElement("li");
     unorderedList.appendChild(list);
@@ -12,12 +12,13 @@ function readingList(books) {
     list.appendChild(paragraph);
     paragraph.innerText = `${element.title} by ${element.author}`;
     image.src = element.bookCoverImage;
-    paragraph.appendChild(image);
-    list.style.cssText = "margin-bottom:20px ; background-color: green;";
-    image.style.cssText =
-      "width:130px ; height:200px ; margin-left:5px ; margin-top:20px ";
-    paragraph.style.cssText = "margin-top:2px";
+    list.appendChild(image);
+    list.style.cssText = "background-color: green";
+    image.style.cssText = "width:130px ; height:200px ; margin-top:10px ";
+    paragraph.style.cssText = "font-size: 20px; margin-bottom: 10px; font:bold";
   });
+  let img1 = document.querySelector("li");
+  img1.style.cssText = "background-color: red";
 }
 
 const books = [
