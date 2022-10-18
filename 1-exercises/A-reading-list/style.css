@@ -124,10 +124,15 @@ body {
   background-color: red;
 }
 
+.green {
+  background-color: green;
+}
+
 .addArticle {
   margin-bottom: 10px;
 }
 
+ 
 #addArticleBtn {
   margin-left: 20px;
   height: 37px;
@@ -157,3 +162,4 @@ body {
     max-height: 80px;
   }
 }
+
