@@ -13,7 +13,7 @@ It also takes an array of colour strings as it's second argument:
 const colours = ["blue", "purple", "orange"];
 ```
 
-We want to render the paragraph on the page, along with a dropdown with the different colour options in it. When we click on a word in the paragraph we want to highlight it with the colour selected in the dropdown. If 'none' is selected in the dropdown, then no highlighting should be applied to the words, or highlighting should be removed if the clicked word is already highlighted.
+Paragrafı sayfadaki ve içindeki farklı renk seçeneklerine sahip bir açılır menü ile birlikte oluşturmak istiyoruz. When we click on a word in the paragraph we want to highlight it with the colour selected in the dropdown. If 'none' is selected in the dropdown, then no highlighting should be applied to the words, or highlighting should be removed if the clicked word is already highlighted.
 
 ## Exercise
 
