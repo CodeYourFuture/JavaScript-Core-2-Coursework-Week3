@@ -14,8 +14,7 @@ const books = [
     title: 'The Most Human Human',
     author: 'Brian Christian',
     alreadyRead: true,
-    bookCoverImage:
-      'https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg',
+    bookCoverImage: 'https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg',
   },
   ...
 ];

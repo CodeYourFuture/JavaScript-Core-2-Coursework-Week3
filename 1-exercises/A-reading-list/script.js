@@ -1,5 +1,28 @@
 function readingList(books) {
-  // Write your code here...
+  let divBox = document.querySelector("#content");
+  let ul = document.createElement("ul");
+  
+  
+  divBox.appendChild(ul)
+  for(let i=0; i<books.length; i++){
+    
+    
+    let li = `<li id="list${i}">
+            <p id="title${i}"></p>
+            <img id="image${i}" src="${books[i].bookCoverImage}">
+              </li>`
+    ul.insertAdjacentHTML("beforeend",li);
+    let textOfp = `${books[i].title} by ${books[i].author}`;
+    document.getElementById(`title${i}`).innerHTML = textOfp;
+    if(books[i].alreadyRead){
+      document.getElementById(`list${i}`).style.backgroundColor = "green"
+    }else{
+      document.getElementById(`list${i}`).style.backgroundColor = "red"
+    }
+    
+  }
+  
+    
 }
 
 const books = [
