@@ -1,6 +1,35 @@
+let list = document.getElementById("todo-list");
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  todos.forEach((element) => {
+    let li = document.createElement("li");
+    let span = document.createElement("span");
+    let iconComplet = document.createElement("i");
+    let iconDelet = document.createElement("i");
+
+    li.innerHTML = element.task;
+    li.setAttribute(
+      "class",
+      "list-group-item d-flex justify-content-between align-items-center"
+    );
+    span.setAttribute("class", "badge bg-primary rounded-pill");
+    iconComplet.setAttribute("class", "fa fa-check");
+    iconComplet.setAttribute("aria-hidden", "true");
+    iconDelet.setAttribute("class", "fa fa-trash");
+    iconDelet.setAttribute("aria-hidden", "true");
+
+    span.appendChild(iconComplet);
+    span.appendChild(iconDelet);
+    li.appendChild(span);
+    list.appendChild(li);
+
+    iconComplet.addEventListener("click", function () {
+      li.classList.toggle("line-through");
+    });
+    iconDelet.addEventListener("click", function () {
+      list.removeChild(li);
+    });
+  });
 }
 
 // These are the same todos that currently display in the HTML
@@ -17,6 +46,38 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  let input = document.getElementById("todoInput");
+  let value = input.value;
+  if (value) {
+    let li = document.createElement("li");
+    let span = document.createElement("span");
+    let iconComplet = document.createElement("i");
+    let iconDelet = document.createElement("i");
+
+    li.innerText = value;
+    li.setAttribute(
+      "class",
+      "list-group-item d-flex justify-content-between align-items-center"
+    );
+    span.setAttribute("class", "badge bg-primary rounded-pill");
+    iconComplet.setAttribute("class", "fa fa-check");
+    iconComplet.setAttribute("aria-hidden", "true");
+    iconDelet.setAttribute("class", "fa fa-trash");
+    iconDelet.setAttribute("aria-hidden", "true");
+
+    span.appendChild(iconComplet);
+    span.appendChild(iconDelet);
+    li.appendChild(span);
+    list.appendChild(li);
+
+    iconComplet.addEventListener("click", function () {
+      li.classList.toggle("line-through");
+    });
+    iconDelet.addEventListener("click", function () {
+      list.removeChild(li);
+    });
+  }
+  input.value = ""
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
