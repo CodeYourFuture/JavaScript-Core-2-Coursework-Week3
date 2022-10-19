@@ -12,6 +12,10 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+ul {
+  list-style: none;
+}
+
 .site-footer {
   margin-top: 4em;
 }
@@ -93,6 +97,7 @@ body {
 /* Article */
 .article {
   margin-bottom: 2em;
+  background-color: #f0ad4e;
 }
 
 .article-title {
