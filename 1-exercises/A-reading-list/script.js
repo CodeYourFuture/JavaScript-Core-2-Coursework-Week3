@@ -1,6 +1,25 @@
-function readingList(books) {
+function readingList(books) {}
   // Write your code here...
-}
+  const createTitleBooks = document.querySelector("p");
+  const titleBook = document.createElement("The Design of Everyday Things");
+  const body = document.querySelector("body");
+  body.appendChild(createTitleBooks);
+  
+
+  
+
+console.log(removeEventListener);
+/*
+- Iterate through the list of books.
+- For each book, create a `<p>` element with the book title and author.
+- Add an `<img>` to each book that links to a URL of the book cover.
+- Use a `<ul>` and `<li>` to display the books and append it to the page.
+- Change the style of the book depending on whether you have read it (green) or not (red). Hint: try adding some CSS classes to styles.css for these styles.
+- All of your HTML should go inside the `<div>` with the id **"content"**.
+
+The end result should look something like this
+
+*/
 
 const books = [
   {
