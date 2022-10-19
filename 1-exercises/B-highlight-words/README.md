@@ -4,7 +4,7 @@ The function **highlightWords** takes a paragraph of words in the form of one lo
 
 ```js
 const paragraph =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ut sem finibus ultrices. Phasellus hendrerit placerat libero...";
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ut sem finibus ultrices. Phasellus hendrerit placerat libero";
 ```
 
 It also takes an array of colour strings as it's second argument:
