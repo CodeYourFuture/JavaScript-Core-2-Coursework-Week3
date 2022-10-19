@@ -32,6 +32,15 @@ body {
   font-weight: 600;
   text-transform: uppercase;
 }
+/* script style */
+ .scriptPara{
+  font-weight: bold;
+  
+}
+#content{
+  width: 98%;
+  height: 10%;
+}
 
 /* Buttons */
 .btn {
