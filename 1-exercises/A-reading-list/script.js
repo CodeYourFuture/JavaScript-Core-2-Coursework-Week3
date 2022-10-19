@@ -10,7 +10,7 @@ function readingList(books) {
     let paragraph = document.createElement("p");
     let image = document.createElement("img");
     list.appendChild(paragraph);
-    paragraph.innerText = `${element.title} by ${element.author}`;
+    paragraph.innerHTML = `<strong>${element.title} by ${element.author} </strong>`;
     image.src = element.bookCoverImage;
     list.appendChild(image);
     list.style.cssText = "background-color: green";
