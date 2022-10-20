@@ -37,7 +37,6 @@ const colours = ["yellow", "green", "blue", "none"];
 //   content.appendChild(selectEl)
 // }
 
-highlightWords(paragraph, colours);
 function highlightWords(paragraph, colours) {
   let content = document.querySelector("#content");
   let pElement = document.createElement("p");
