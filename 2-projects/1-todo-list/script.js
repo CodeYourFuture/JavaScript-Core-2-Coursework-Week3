@@ -1,5 +1,5 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
+  let list = document.getElementById("todo-list");// select element by ID ul tag
   for(let i = 0 ; i < todos.length;i++){
     //loop in the todtask array
     let todoTask = document.createElement("li"); // create li tage
