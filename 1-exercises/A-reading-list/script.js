@@ -1,5 +1,35 @@
 function readingList(books) {
-  // Write your code here...
+  const content = document.querySelector("#content");
+  books.forEach((book) => {
+    let unorderedList = document.createElement("ul");
+    let listItem = document.createElement("li");
+
+    let paragraph = document.createElement("p");
+    let image = document.createElement("img");
+    
+    listItem.append(paragraph, image);
+    unorderedList.append(listItem);
+    content.append(unorderedList);
+
+
+    content.style.display = "flex";
+    content.style.flexDirection = "column";
+    paragraph.innerText = book.title;
+    image.src = book.bookCoverImage;
+    unorderedList.style.alignSelf = "center";
+    listItem.style.listStyleType = "none";
+    listItem.style.padding = "2rem";
+    paragraph.style.fontSize = "1.5rem";
+    paragraph.style.textAlign = "center";
+
+    
+    if (book.alreadyRead) {
+      listItem.style.backgroundColor = "green";
+    } else {
+      listItem.style.backgroundColor = "red";
+    }
+  });
+
 }
 
 const books = [
