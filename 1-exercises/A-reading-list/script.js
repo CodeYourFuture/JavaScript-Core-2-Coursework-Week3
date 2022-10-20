@@ -1,6 +1,24 @@
-function readingList(books) {
-  // Write your code here...
-}
+function readingList(books){
+const content = document.getElementById("content");
+books.forEach(book) => {
+  //create tags
+  const pTag = document.createElement("p");
+  const imgTag = document.createElement("img");
+  const ulTag = document.createElement("ul");
+  const liTag = document.createElement("li");
+
+  //create content
+  pTag.textContent = `Title: ${book.title}, Author: ${book.author}`;
+  pTag.style.backgroundColor = book.alreadyRead ? "green" : "red";
+  imgTag.setAttribute("src", book.bookCoverImage);
+
+  //append to content
+  liTag.appendChild(pTag);
+  liTag.appendChild(imgTag);
+  ulTag.appendChild(liTag);
+  content.appendChild(ulTag);
+
+}};
 
 const books = [
   {
@@ -23,5 +41,3 @@ const books = [
     bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780135957059.jpg',
   },
 ];
-
-readingList(books);
