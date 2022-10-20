@@ -1,42 +1,114 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
-for(x in todos){
-  let todoElement = document.createElement("li");
-  let spanElement= document.createElement("span");
-  spanElement.classList.add("badge");
-  spanElement.classList.add("bg-primary");
-  spanElement.classList.add("rounded-pill");
-  let iCheck= document.createElement("i");
-  let iTrash= document.createElement("i");
+  let ulElement = document.getElementById("todo-list");
+  for(x of todos){
+    let todoElement = document.createElement("li");
+    todoElement.classList.add("list-group-item");
+    todoElement.classList.add("d-flex");
+    todoElement.classList.add("justify-content-between");
+    todoElement.classList.add("align-items-center"); 
+    todoElement.innerText = x.task; 
+    if( x.completed ){
+      todoElement.style.textDecoration = "line-through";
+    }
+  
+    let spanElement = document.createElement("span");
+    spanElement.classList.add("badge");
+    spanElement.classList.add("bg-primary");
+    spanElement.classList.add("rounded-pill");
 
+  
+    let iCheck = document.createElement("i");
+    iCheck.classList.add("fa");
+    iCheck.classList.add("fa-check");
 
+    let iTrash = document.createElement("i");
+    iTrash.classList.add("fa");
+    iTrash.classList.add("fa-trash");        
+  
 
-
-  let AddnewTodos= document.appendChild(list);
-
-
-}
-
+    spanElement.appendChild(iCheck);
+    spanElement.appendChild(iTrash);
+    todoElement.appendChild(spanElement);  
+      
+    ulElement.appendChild(todoElement);
+  } 
 }
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
-  { task: "Wash the dishes", completed: false },
+  { task: "Wash the dishes", completed: false }, 
   { task: "Do the shopping", completed: false },
 ];
 
 populateTodoList(todos);
 
-// This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  
+  let valueInput = document.querySelector('#todoInput').value;
+
+  let todoElement = document.createElement("li");
+    todoElement.classList.add("list-group-item");
+    todoElement.classList.add("d-flex");
+    todoElement.classList.add("justify-content-between");
+    todoElement.classList.add("align-items-center"); 
+    todoElement.innerText = valueInput;  
+  
+    let spanElement = document.createElement("span");
+    spanElement.classList.add("badge");
+    spanElement.classList.add("bg-primary");
+    spanElement.classList.add("rounded-pill");
+
+  
+    let iCheck = document.createElement("i");
+    iCheck.classList.add("fa");
+    iCheck.classList.add("fa-check");
+
+    let iTrash = document.createElement("i");
+    iTrash.classList.add("fa");
+    iTrash.classList.add("fa-trash");        
+  
+
+    spanElement.appendChild(iCheck);
+    spanElement.appendChild(iTrash);
+    todoElement.appendChild(spanElement); 
+
+    document.getElementById("todo-list").appendChild(todoElement);
+    actionProcess(); 
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+
+
+function actionProcess() {
+    
+  let checks = document.querySelectorAll('.fa-check');
+  for (let i = 0; i < checks.length; i++) {
+    checks[i].addEventListener("click", function(e) {
+      e.currentTarget.parentElement.parentElement.style.textDecoration = "line-through";  
+    });
+  }
+
+  let trashes = document.querySelectorAll('.fa-trash');
+  for (let i = 0; i < trashes.length; i++) {
+    trashes[i].addEventListener("click", function(e) {
+      e.currentTarget.parentElement.parentElement.remove();
+    });
+  }
+
+} 
+actionProcess();
+
+
+function deleteAllCompletedTodos(event){
+  event.preventDefault();
+
+  let list = document.querySelectorAll('li');
+  for (let i = 0; i < list.length; i++) {
+    if( list[i].getAttribute("style") && list[i].getAttribute("style").indexOf("text-decoration:") != -1 ){
+      list[i].remove();
+    }
+  }
+
+  
 }
