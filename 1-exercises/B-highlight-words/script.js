@@ -7,7 +7,6 @@ function highlightWords(paragraph, colours) {
   let select = document.createElement("select");
 
   colours.forEach((colour) => {
-    colour;
     const option = document.createElement("option");
     option.value = colour;
     option.innerText = colour;
@@ -26,9 +25,7 @@ function highlightWords(paragraph, colours) {
     spans.addEventListener("click", clickFunction);
 
     function clickFunction() {
-      select.value = "yellow"
-        ? (spans.style.backgroundColor = select.value)
-        : false;
+      spans.style.backgroundColor = select.value;
     }
 
     paragraph1.appendChild(spans);
