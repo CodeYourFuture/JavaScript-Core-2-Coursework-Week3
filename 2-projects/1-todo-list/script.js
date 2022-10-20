@@ -17,7 +17,19 @@ function populateTodoList(todos) {
     const span = document.createElement("span");
     span.setAttribute("class", "badge bg-primary rounded-pill");
     const i_check = document.createElement("i");
+    
+    // completed tasks put line-through
+    i_check.addEventListener('click', function () {
+      p.style.textDecoration = "line-through";
+    });
+
     const i_trash = document.createElement("i");
+
+    // remove tasks
+    i_trash.addEventListener('click', function () {
+      list.removeChild(li);
+    })
+
     i_check.setAttribute("class", "fa fa-check");
     i_trash.setAttribute("class", "fa fa-trash");
 
@@ -34,9 +46,13 @@ function populateTodoList(todos) {
 
     list.appendChild(li);
   });
-
+ 
 }
-
+const form = document.querySelector("form");
+const deleteAllCompleted = document.createElement("button");
+deleteAllCompleted.innerText = 'Delete All Completed Tasks'
+deleteAllCompleted.addEventListener("click", deleteAllCompletedTodos);
+form.appendChild(deleteAllCompleted);
 /*
 These are the same todos that currently display in the HTML
 You will want to remove the ones in the current HTML after you have created them using JavaScript
@@ -68,4 +84,7 @@ function addNewTodo(event) {
 */
 function deleteAllCompletedTodos() {
   // Write your code here...
+  if (todos.task.style === "") {
+  
+}
 }
