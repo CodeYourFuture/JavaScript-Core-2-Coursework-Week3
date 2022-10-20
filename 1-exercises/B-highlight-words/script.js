@@ -1,5 +1,33 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  const content = document.querySelector("#content"); //   selector to Div
+  const paragraphs = document.createElement("p"); // create paragraphs tag
+  const selecter = document.createElement("select"); //create select tag 
+ let newparagraphs=paragraph.split(" ")// convert words  to array of text 
+ 
+ for(let j=0;j< newparagraphs.length;j++){// loop in a new array every word 
+   const span = document.createElement("span"); // create a new span tag for every word
+   span.innerText=` ${newparagraphs[j]} `// set word to span 
+   span.addEventListener("click", function chengColor() { // add eventlisener in click 
+    span.style.backgroundColor=selecter.value // set color to word in click by select value 
+
+   });
+
+  paragraphs.appendChild(span);// span tag  it's child of p tag 
+   
+ }
+
+ content.appendChild(paragraphs)// p tag it's child of div tag 
+ 
+ 
+  for (let i = 0; i < colours.length; i++) // loop in coloers array 
+  {
+    const option = document.createElement("option"); //create option tag
+    option.value = colours[i]; // set value to option tag from colors array
+    option.text = colours[i]; // set text to option tag from colors array
+    selecter.value = colours[i];// set select value to colors 
+    selecter.appendChild(option); // set option tag it's child of select tag
+  }
+  content.appendChild(selecter); // set select tag it's child of div tag 
 }
 
 const paragraph =
