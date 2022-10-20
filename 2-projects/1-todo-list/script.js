@@ -48,11 +48,7 @@ function populateTodoList(todos) {
   });
  
 }
-const form = document.querySelector("form");
-const deleteAllCompleted = document.createElement("button");
-deleteAllCompleted.innerText = 'Delete All Completed Tasks'
-deleteAllCompleted.addEventListener("click", deleteAllCompletedTodos);
-form.appendChild(deleteAllCompleted);
+
 /*
 These are the same todos that currently display in the HTML
 You will want to remove the ones in the current HTML after you have created them using JavaScript
@@ -84,7 +80,7 @@ function addNewTodo(event) {
 */
 function deleteAllCompletedTodos() {
   // Write your code here...
-  if (todos.task.style === "") {
-  
+ 
 }
-}
+
+
