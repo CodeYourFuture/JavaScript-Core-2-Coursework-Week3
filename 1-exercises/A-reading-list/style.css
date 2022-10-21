@@ -23,7 +23,7 @@ body {
 }
 
 .navbar-brand > img {
-  max-height: 40px;
+  max-height: 120px;
   width: auto;
 }
 
@@ -151,7 +151,11 @@ body {
 #greenBtn {
   background: #87ca8a;
 }
-
+/* ul {
+  height: 200px;
+  width: 300px;
+  margin: 10px;
+} */
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
