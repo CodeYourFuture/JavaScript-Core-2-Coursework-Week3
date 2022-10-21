@@ -1,37 +1,52 @@
-function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // list.textContent = "";
-  for (let todo of todos) {
-    let lilist = document.createElement("li");
-    lilist.class =
-      "list-group-item d-flex justify-content-between align-items-center";
-    lilist.innerText = todo.task;
-    if (todo.completed) {
-      lilist.style.textDecoration = "line-through";
-    }
-    let span = document.createElement("span");
-    span.class = "badge bg-primary rounded-pill";
-    let icon = document.createElement("i");
-    icon.class = "fa fa-check";
-    icon.ariaHidden = "true";
-    span.appendChild(lilist);
-    span.appendChild(icon);
-    list.appendChild(lilist);
-    console.log(span);
-  }
-}
-
-// These are the same todos that currently display in the HTML
-// You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
   { task: "Wash the dishes", completed: false },
   { task: "Do the shopping", completed: false },
 ];
 
-populateTodoList(todos);
+function populateTodoList(todos) {
+  let list = document.getElementById("todo-list");
+  // list.textContent = "";
 
-// This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
+  for (let todo of todos) {
+    let liElement = document.createElement("li");
+    liElement.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
+    liElement.innerText = todo.task;
+    list.appendChild(liElement);
+    let spanItem = document.createElement("span");
+    let doneIcon = document.createElement("i");
+    let deleteIcon = document.createElement("i");
+    spanItem.classList.add("badge", "bg-primary", "rounded-pill");
+    doneIcon.classList.add("fa", "fa-check");
+    deleteIcon.classList.add("fa", "fa-trash");
+    doneIcon.setAttribute("aria-hidden", "true");
+    deleteIcon.setAttribute("aria-hidden", "true");
+    liElement.appendChild(spanItem);
+    spanItem.appendChild(doneIcon);
+    spanItem.appendChild(deleteIcon);
+
+    doneIcon.addEventListener("click", function () {
+      liElement.classList.toggle("line-through");
+    });
+    deleteIcon.addEventListener("click", function () {
+      ullist.removeChild(liElement);
+    });
+  }
+}
+
+// These are the same todos that currently display in the HTML
+// You will want to remove the ones in the current HTML after you have created them using JavaScript
+
+populateTodoList(todos);
 function addNewTodo(event) {
+  let inputEl = document.getElementById("todoInput").value;
+  //  buttonToDo.addEventListener("click",function() {
+  populateTodoList([{ task: inputEl, completed: false }]);
+
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
