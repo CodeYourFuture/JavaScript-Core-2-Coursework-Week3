@@ -1,5 +1,5 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  
  const divEl = document.querySelector("#content")
  const selectEl = document.createElement("select")
  const paraEl = document.createElement("p")
@@ -10,7 +10,7 @@ function highlightWords(paragraph, colours) {
       spanEl.innerText = word;
       spanEl.style.padding = 3 + "px";
 
-    spanEl.addEventListener('click', function(){
+    spanEl.addEventListener('click',function(){
         if(selectEl.value === "none"){
               spanEl.style.backgroundColor = "white";
           }
@@ -27,7 +27,7 @@ function highlightWords(paragraph, colours) {
       selectEl.appendChild(optionEl)
   }
 
-   divEl.appendChild(selectEl);
+      divEl.appendChild(selectEl);
     divEl.appendChild(paraEl);
 }
 
