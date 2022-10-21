@@ -1,7 +1,19 @@
 function readingList(books) {
-  // Write your code here...
-}
+  const content = document.querySelector("#content")
+  const unorderedList = document.createElement("ul")
 
+  content.insertAdjacentElement("afterbegin", unorderedList);
+
+
+books.forEach((item)=> {
+  const listItem = Document.createElement("li")
+  unorderedList.insertAdjacentElement("beforeend",listItem);
+  const para = `<p>${item.title} by ${item.author}<p>`;
+  const img = `<img src = ${item.bookCoverImage}>`
+  listItem.insertAdjacentElement("beforeend", para);
+  listItem.insertAdjacentElement
+});
+}
 const books = [
   {
     title: 'The Design of Everyday Things',
