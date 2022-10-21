@@ -39,7 +39,7 @@ Each todo should have this HTML inside it:
 <span class="badge bg-primary rounded-pill">
   <i class="fa fa-check" aria-hidden="true"></i>
   <i class="fa fa-trash" aria-hidden="true"></i>
-</span>
+</span>,
 ```
 
 The first `<i>` tag needs an event listener that applies a line-through text-decoration styling to the text of the todo. It should remove the styling if it is clicked again.
