@@ -5,6 +5,7 @@ function highlightWords(paragraph, colours) {
   const selectElement = document.createElement("select");
   const pElement = document.createElement("p");
   const splitedParagraph = paragraph.split(" ");
+
   for (let word of splitedParagraph) {
     const spans = document.createElement("span");
     spans.style.border = "solid" + 2 + "1px";
@@ -29,7 +30,7 @@ function highlightWords(paragraph, colours) {
     selectElement.appendChild(option);
   }
 
-  parentElement.append(selectElement);
+  parentElement.appendChild(selectElement);
   parentElement.appendChild(pElement);
 }
 
