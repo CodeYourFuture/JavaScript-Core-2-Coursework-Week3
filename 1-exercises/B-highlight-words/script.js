@@ -11,7 +11,7 @@ function highlightWords(paragraph, colours) {
     console.log(e.target.id);
     const selectedWord = document.getElementById(e.target.id);
     const selectedWordColor = e.target.style.background;
-    if (!selectedWordColor || selectedWordColor != selectedColor)
+    if (!selectedWordColor || selectedWordColor != selectedColor2)
       selectedWord.style.background = selectedColor;
     else selectedWord.style.background = "";
 
