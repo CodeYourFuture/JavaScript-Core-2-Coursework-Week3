@@ -1,5 +1,15 @@
 function readingList(books) {
   // Write your code here...
+// for(let i = 0; i < books.length; i++){
+//   books[i].readingList;
+// }
+const content = document.querySelector('#content');
+const newParagraph = document.createElement('p');
+const newImage = document.createElement('img');
+const newList = document.createElement('list');
+
+
+
 }
 
 const books = [
