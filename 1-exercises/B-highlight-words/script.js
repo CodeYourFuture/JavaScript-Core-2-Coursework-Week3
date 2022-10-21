@@ -17,9 +17,8 @@ function highlightWords(paragraph, colours) {
     let spanEl = document.createElement("span");
     spanEl.innerText = word + " ";
     para.appendChild(spanEl);
-  }
 
-  spanEl.addEventListener("click", () => {
+    spanEl.addEventListener("click", () => {
     let result = menu.value;
     if (result === "none") {
       spanEl.style.backgroundColor = "white";
@@ -27,6 +26,9 @@ function highlightWords(paragraph, colours) {
       spanEl.style.backgroundColor = result;
     }
   });
+  }
+
+  
 }
 
 const paragraph =
