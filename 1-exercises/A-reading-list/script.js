@@ -11,7 +11,10 @@ books.forEach((item)=> {
   const para = `<p>${item.title} by ${item.author}<p>`;
   const img = `<img src = ${item.bookCoverImage}>`
   listItem.insertAdjacentElement("beforeend", para);
-  listItem.insertAdjacentElement
+  listItem.insertAdjacentElement("beforeend" ,img);
+
+  if (item.alreadyRead) listItem.classList.add("green")
+  else listItem.classList.add("red")
 });
 }
 const books = [
