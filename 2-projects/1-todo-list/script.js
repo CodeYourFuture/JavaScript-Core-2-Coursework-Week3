@@ -9,14 +9,12 @@ function populateTodoList(todos) {
       (item) => item["task"] !== listElement.innerText
     );
     todos = [...filteredTodos];
-    console.log(todos, "after");
     listElement.remove();
   };
   const markTaskDone = (event) => {
     const currnetElement = event.target;
     const listElement = currnetElement.parentElement.parentElement;
 
-    console.log(listElement);
     if (!listElement.style.textDecoration)
       listElement.style.textDecoration = "line-through";
     else listElement.style.textDecoration = "";
@@ -24,7 +22,6 @@ function populateTodoList(todos) {
 
   const listElementParent = document.querySelector("#todo-list");
   todos.forEach((item, index) => {
-    console.log(item);
     const listElement = document.createElement("li");
     listElement.id = index;
     listElement.innerText = item["task"];
@@ -75,6 +72,11 @@ function addNewTodo(event) {
   populateTodoList(newTaskArr);
 }
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+function deleteAllCompletedTodos(event) {
+  event.preventDefault();
+  const allTasks = document.querySelectorAll("li");
+  allTasks.forEach((task) => {
+    if (task.style.textDecoration) task.remove();
+  });
 }
+// Write your code here...
