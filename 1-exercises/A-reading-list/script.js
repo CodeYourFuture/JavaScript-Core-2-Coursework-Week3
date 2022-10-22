@@ -1,26 +1,32 @@
 function readingList(books) {
   const content = document.querySelector("#content");
+  let unorderedList = document.createElement("ul");
+  content.appendChild(unorderedList);
   books.forEach((book) => {
-    let unorderedList = document.createElement("ul");
+    
     let listItem = document.createElement("li");
 
     let paragraph = document.createElement("p");
     let image = document.createElement("img");
     
-    listItem.append(paragraph, image);
-    unorderedList.append(listItem);
-    content.append(unorderedList);
-
-
-    content.style.display = "flex";
-    content.style.flexDirection = "column";
-    paragraph.innerText = book.title;
+    listItem.appendChild(paragraph);
+    listItem.appendChild(image);
+    unorderedList.appendChild(listItem);
+     
+    paragraph.innerText = `${book.title} by ${book.author}`
     image.src = book.bookCoverImage;
-    unorderedList.style.alignSelf = "center";
-    listItem.style.listStyleType = "none";
-    listItem.style.padding = "2rem";
-    paragraph.style.fontSize = "1.5rem";
-    paragraph.style.textAlign = "center";
+    
+
+
+    // content.style.display = "flex";
+    // content.style.flexDirection = "column";
+    // 
+    // 
+    // unorderedList.style.alignSelf = "center";
+    // listItem.style.listStyleType = "none";
+    // listItem.style.padding = "2rem";
+    // paragraph.style.fontSize = "1.5rem";
+    // paragraph.style.textAlign = "center";
 
     
     if (book.alreadyRead) {
