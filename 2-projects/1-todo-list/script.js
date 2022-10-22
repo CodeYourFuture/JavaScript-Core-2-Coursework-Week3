@@ -16,6 +16,7 @@ function populateTodoList(todos) {
     </li>
 `
 list.insertAdjacentHTML("beforeend", li)
+
   }
   
 }
@@ -40,12 +41,14 @@ populateTodoList(todos);
 function line(event){
   
 let label = event.parentElement.parentElement
-
+let idNo = label.getAttribute("id")
+console.log(idNo)
   if(label.classList.contains("lines")){
     label.classList.remove("lines")
-
+    todos[idNo].completed = false
   }else{
     label.classList.add("lines")
+    todos[idNo].completed = true
   }
   event.preventDefault()
   
@@ -58,7 +61,18 @@ function removing(element){
   populateTodoList(todos)
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+document.querySelector("#filter").addEventListener("click", deleteAllCompletedTodos)
+
+function deleteAllCompletedTodos(e) {
+console.log("asdasd")
+todos = todos.filter(val => val.completed == false)
+
+populateTodoList(todos)
+e.preventDefault()
 }
+
+  
+
+
+
+
