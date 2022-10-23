@@ -11,7 +11,7 @@ function readingList(books) {
     list.appendChild(img);
     paragraph.innerText = `${book.title} by ${book.author}`
     img.src = book.bookCoverImage;
-    if (book.alreadyRead === true) {
+    if (book.alreadyRead) {
       list.style.backgroundColor = 'green';
     } else {
       list.style.backgroundColor = 'red';
