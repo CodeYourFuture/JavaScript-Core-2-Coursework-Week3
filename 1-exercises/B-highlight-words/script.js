@@ -1,5 +1,31 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
+  // - Create a `<p>` element.
+  let paragraphEl = document.createElement("p");
+  // - Create a `<select>` element.
+  let selectEl = document.createElement("select");
+  // Iterate over the options array and create an `<option>` element in the `<select>` for each element.
+  // - You'll need to turn the paragraph into an array to iterate over it. You can use the `.split(" ")` method here
+  console.log(selectEl);
+   let arrayOption = []; let theParagraph = paragraph.splice(" ");
+  //    selectEl = document.appendChild(arrayOption)
+  for (let i = 0; i < theParagraph.length; i++){
+     arrayOption[i] = document.createElement("option")
+    //  selectEl = document.appendChild(arrayOption[i]) // The appendChild is not working can give some hint here 
+  }
+
+
+  // arrayOption = document.createElement("option")
+     console.log(arrayOption)
+     //   Iterate over the array of words.
+// - For each word, create a `<span>` element and set the innerText to the word, plus a space - " ". Add this to the `<p>`.
+     for (let i=0; i < theParagraph.length; i++){
+      spanEl[i] = document.createElement("span")
+      spanEl[i].innerText = theParagraph[i] + " ";
+      paragraphEl.appendChild(spanEl[i])
+     }
+ 
+   
 }
 
 const paragraph =
