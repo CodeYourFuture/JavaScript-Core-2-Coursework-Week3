@@ -21,18 +21,20 @@ function highlightWords(paragraph, colours) {
     eachWord = document.createElement('span');
     eachWord.innerText = `${paragraphArray[i]} `;
     paragraphElement.appendChild(eachWord);
-    
-    // paragraphElement.innerText = selectedColor;
-    eachWord.addEventListener('click', () => {
+  }
+
+  allWordSpans = document.querySelectorAll('span');
+
+  for (let i = 0; i < allWordSpans.length; i++) {
+    allWordSpans[i].addEventListener('click', () => {
       let selectedColor = select.value;
-      clicked
-
+      if (selectedColor != 'none') {
+        allWordSpans[i].style.backgroundColor = selectedColor;
+      }
+      else {
+        allWordSpans[i].style.backgroundColor = 'transparent';
+      }
     })
-
-    // let selectedColorBox = document.querySelector('select');
-    // let selectedColor = selectedColorBox.value;
-    // // paragraphElement.appendChild(selectedColor);
-    // // eachWord.addEventListener('click', )
   }
 }
 
