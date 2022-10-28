@@ -11,27 +11,39 @@ function populateTodoList(todos) {
     newItem.appendChild(spanElement);
     spanElement.className = "badge bg-primary rounded-pill";
 
-    iElementFirst = document.createElement('i');
-    spanElement.appendChild(iElementFirst);
-    iElementFirst.className = "fa fa-check";
-    iElementFirst.setAttribute("aria-hidden", "true");
-    iElementFirst.addEventListener('click', () => {
-      if (newItem.style.textDecoration == "line-through") {
-        newItem.style.textDecoration = "none"
+  }
+
+  let allSpanElements = document.querySelectorAll('span');
+  let allListElements = document.querySelectorAll('li');
+  
+  firstLi = document.querySelector('li');
+  
+  for (let i = 0; i < allSpanElements.length; i++) {
+    iElementOne = document.createElement('i');
+    allSpanElements[i].appendChild(iElementOne);
+    iElementOne.className = "fa fa-check";
+    iElementOne.setAttribute("aria-hidden", "true");
+
+    iElementOne.addEventListener('click', () => {
+
+      if (allListElements[i].style.textDecoration == "line-through") {
+        allListElements[i].style.textDecoration = "none";
       }
       else {
-        newItem.style.textDecoration = "line-through"
+        allListElements[i].style.textDecoration = "line-through";
       }
     })
-    
-    iElementSecond = document.createElement('i');
-    spanElement.appendChild(iElementSecond);
-    iElementSecond.className = "fa fa-trash";
-    iElementFirst.setAttribute("aria-hidden", "true");
 
+    iElementTwo = document.createElement('i');
+    allSpanElements[i].appendChild(iElementTwo);
+    iElementTwo.className = "fa fa-trash";
+    iElementTwo.setAttribute("aria-hidden", "true");
 
-
+    iElementTwo.addEventListener('click', () => {
+      allListElements[i].remove(iElementTwo);
+    })
   }
+
 }
 
 // These are the same todos that currently display in the HTML
