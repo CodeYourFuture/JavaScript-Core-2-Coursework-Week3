@@ -1,6 +1,6 @@
 function readingList(books){
 const content = document.getElementById("content");
-books.forEach(book) => {
+books.forEach((book) => {
   //create tags
   const pTag = document.createElement("p");
   const imgTag = document.createElement("img");
@@ -18,7 +18,8 @@ books.forEach(book) => {
   ulTag.appendChild(liTag);
   content.appendChild(ulTag);
 
-}};
+})
+};
 
 const books = [
   {
@@ -41,3 +42,5 @@ const books = [
     bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780135957059.jpg',
   },
 ];
+
+readingList(books);
