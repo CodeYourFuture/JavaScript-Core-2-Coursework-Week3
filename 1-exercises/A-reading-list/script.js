@@ -1,5 +1,23 @@
+
 function readingList(books) {
-  // Write your code here...
+   // Write your code here...
+  let myElement = document.querySelector("#content");
+  books.forEach((book) => {
+  let paragraph = document.createElement("p");
+  paragraph.innerText = book.title;
+  myElement.appendChild(paragraph);
+
+
+  let image = document.createElement("img");
+  image.src = book.bookCoverImage;
+  myElement.appendChild(image);
+  
+
+if (book.alreadyRead) {
+  myElement.style.backgroundColor = "green";
+}
+  
+ });
 }
 
 const books = [

@@ -157,3 +157,6 @@ body {
     max-height: 80px;
   }
 }
+ul{
+  list-style: none;
+}
