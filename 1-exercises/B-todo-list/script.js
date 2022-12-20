@@ -10,7 +10,7 @@ function todoList(todos) {
     myTask.addEventListener("click", () => {
       if (myTask.style.textDecoration === "line-through"){
         myTask.style.textDecoration = "none";
-      } else {
+      } else { 
         myTask.style.textDecoration = "line-through";
       }
       // myTask.classList.toggle("line-through");
