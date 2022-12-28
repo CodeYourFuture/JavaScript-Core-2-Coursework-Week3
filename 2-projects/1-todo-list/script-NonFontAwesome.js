@@ -35,7 +35,17 @@ function createToDo(todo) {
     "align-items-center"
   );
 
-  createLi.textContent = todo.task;
+  const createLeftDiv = document.createElement("div");
+
+  const createInputCheckBox = document.createElement("input");
+  createInputCheckBox.classList.add("form-check-input", "me-2");
+  createInputCheckBox.type = "checkbox";
+
+  const createLabel = document.createElement("label");
+  createLabel.classList.add("form-check-label");
+  createLabel.textContent = todo.task;
+
+  createLeftDiv.append(createInputCheckBox, createLabel);
 
   const createRightDiv = document.createElement("div");
   createRightDiv.classList.add("d-flex", "align-items-center");
@@ -50,17 +60,16 @@ function createToDo(todo) {
     ? `${daysLeft} ${daysLeft === 1 ? `day` : `days`} left`
     : "";
 
-  const tickIcon = document.createElement("i");
-  tickIcon.classList.add("fa", "fa-check");
-  tickIcon.onclick = () => toggleOneTask(createLi);
+  const closeBin = document.createElement("button");
+  closeBin.classList.add("btn-close");
+  closeBin.setAttribute("id", "taskCloseBtn");
+  closeBin.type = "button";
+  closeBin.onclick = () => deleteOneTask(createLi);
 
-  const binIcon = document.createElement("i");
-  binIcon.classList.add("fa", "fa-trash");
-  binIcon.onclick = () => deleteOneTask(createLi);
-
-  createRightDiv.append(dayLeft, tickIcon, binIcon);
-  createLi.append(createRightDiv);
+  createRightDiv.append(dayLeft, closeBin);
+  createLi.append(createLeftDiv, createRightDiv);
   list.append(createLi);
+  toggleCompleted();
 }
 
 let todos = [
@@ -90,12 +99,18 @@ function addNewTodo(event) {
 }
 const AddTodoBtn = document.querySelector(".btn");
 AddTodoBtn.addEventListener("click", addNewTodo);
-function toggleOneTask(li) {
-  if (!li.style.textDecoration) {
-    li.style.textDecoration = "line-through";
-  } else {
-    li.style.textDecoration = null;
-  }
+
+function toggleCompleted() {
+  const checkboxes = document.querySelectorAll(".form-check-input");
+  checkboxes.forEach((x) => {
+    x.addEventListener("change", () => {
+      if (x.checked) {
+        x.nextSibling.style.textDecoration = "line-through";
+      } else {
+        x.nextSibling.style.textDecoration = null;
+      }
+    });
+  });
 }
 function deleteOneTask(li) {
   list.removeChild(li);
@@ -103,10 +118,10 @@ function deleteOneTask(li) {
 
 function deleteAllCompletedTodos(e) {
   e.preventDefault();
-  const completedTodos = [...document.querySelectorAll("li")].filter(
-    (li) => li.style.textDecoration === "line-through"
-  );
-  completedTodos.forEach((li) => list.removeChild(li));
+  const completedTodos = [
+    ...document.querySelectorAll(".form-check-label"),
+  ].filter((x) => x.style.textDecoration === "line-through");
+  completedTodos.forEach((x) => list.removeChild(x.parentNode.parentNode));
 }
 
 document.querySelector("#endDateCloseBtn").addEventListener("click", clearDate);

@@ -1,35 +1,45 @@
-let randomNumber = Math.floor(Math.random() * 100 + 1);
+let randomNumber = 0;
+const finalOutputEl = document.querySelector(".final-output");
+const triesOutputEl = document.querySelector(".Tries-output");
+let leftNum;
 
 function guessNumber() {
-  //Collect input from the user
   let guess = document.querySelector(".inputs-Values").value;
-
-  //If the user inputs a bad input ie 0, empty string, number greater that 100, number less than zero Print "Please enter a number between 1 and 100"
-
-  //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
-
-  //If the users guess is lower than the random number print Number is too low, try again  (hint use .final-out class to print)
-
-  //If the user has guessed the random number correctly print out the randomNumber with a message "Guess is correct. You win!"
+  if (!leftNum > 0) return;
+  if (guess > 100 || guess < 1) {
+    triesOutputEl.textContent = `Number of Tries: ${leftNum}`;
+    finalOutputEl.textContent = "Please enter a number between 1 and 100";
+  } else if (guess > randomNumber || guess < randomNumber) {
+    leftNum--;
+    triesOutputEl.textContent = `Number of Tries: ${leftNum}`;
+    finalOutputEl.textContent = `Number is too ${
+      guess > randomNumber ? `high` : `low`
+    }, try again`;
+    if (leftNum < 1) {
+      triesOutputEl.textContent = `You Lose, the number was ${randomNumber}`;
+      finalOutputEl.textContent = "";
+    }
+  } else if (guess == randomNumber) {
+    triesOutputEl.textContent = `It took you ${7 - leftNum} tries`;
+    finalOutputEl.textContent = `${guess} is correct. You win!!!`;
+  }
 }
 
-// For this task we will be making a "New Game" button function which will reset our game,
-// Once the user clicks on this button the user will have new random number to guess
-// 1. Reset the values inside the body of the function
-// 2. Attach our new game button using an event listener to the .btnNewGame button
 function newGame() {
-  //Your code here
-  //Reset randomNumber
-  //Reset users input field
-  //Reset tries, and triesTaken by the user
+  randomNumber = Math.floor(Math.random() * 100 + 1);
+  leftNum = 7;
+  triesOutputEl.textContent = `Number of Tries: ${leftNum}`;
+  finalOutputEl.textContent = `Guess a number between 1 and 100`;
+  document.querySelector(".inputs-Values").value = null;
+  console.log(randomNumber, leftNum);
 }
-
+newGame();
 //keyboard exception
 function keyBoardEvents(e) {
   if (e.keyCode === 13) {
     guessNumber();
   }
 }
-
+document.querySelector(".btnNewGame").addEventListener("click", newGame);
 document.querySelector(".btnGuess").addEventListener("click", guessNumber);
 document.addEventListener("keypress", keyBoardEvents);

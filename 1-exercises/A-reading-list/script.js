@@ -1,5 +1,19 @@
 function readingList(books) {
-  // Write your code here...
+  const ul = document.getElementById("reading-list");
+
+  books.forEach((x) => {
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    const p2 = document.createElement("p");
+    const img = document.createElement("img");
+    p.textContent = x.title;
+    p2.textContent = x.author;
+    img.src = x.bookCoverImage;
+    li.style.backgroundColor = x.alreadyRead ? "green" : "red";
+
+    li.append(p, p2, img);
+    ul.append(li);
+  });
 }
 
 // for the tests, do not modify this array of books
