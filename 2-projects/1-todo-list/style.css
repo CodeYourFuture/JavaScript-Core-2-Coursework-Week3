@@ -10,3 +10,20 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+  #todo-list{
+    list-style: none;
+  }
+  
+  .todo {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .todo li{
+    flex: 1;
+    color: white
+  }
+  
+
+  
