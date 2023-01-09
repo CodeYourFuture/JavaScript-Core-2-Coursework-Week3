@@ -25,5 +25,9 @@ body {
     color: white
   }
   
+  .fa-trash, 
+  .fa-check {
+    pointer-events: none;
+  }
 
   

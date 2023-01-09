@@ -19,9 +19,13 @@ function populateTodoList(todos) {
 // completed and delete buttons adding like normal.
 const todoInput = document.getElementById("todoInput");
 const todoButton = document.getElementById('todoButton')
+const removeAllButton = document.getElementById('remove-all-completed')
 const todoList = document.getElementById("todo-list");
 
+
 todoButton.addEventListener("click", addNewTodo)
+todoList.addEventListener('click', deleteCheck)
+removeAllButton.addEventListener('click', deleteAllCompletedTodos)
 
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
@@ -31,14 +35,17 @@ function addNewTodo(event) {
   div.classList.add('todo')
   const li = document.createElement('li')
   li.innerText = todoInput.value;
+  li.classList.add('todo-item')
   div.appendChild(li)
 
   const completeButton = document.createElement('button')
   completeButton.innerHTML = '<i class = "fa fa-check"></i>'
+  completeButton.classList.add('complete-button')
   div.appendChild(completeButton)
 
   const deleteButton = document.createElement('button')
   deleteButton.innerHTML = '<i class = "fa fa-trash"></i>'
+  deleteButton.classList.add('delete-button')
   div.appendChild(deleteButton)
   
   todoList.appendChild(div)
@@ -46,10 +53,28 @@ function addNewTodo(event) {
   todoInput.value = "";
 }
 
-
+function deleteCheck(e) {
+  // Write your code here...
+  e.preventDefault();
+  const item = e.target;
+  if (item.classList[0] === 'delete-button'){
+    const todo = item.parentElement;
+    todo.remove()
+  }
+  if (item.classList[0] === 'complete-button'){
+    const todo = item.parentElement;
+    todo.style.textDecoration = "line-through"
+  }
+}
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones 
 // (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
+function deleteAllCompletedTodos(e) {
   // Write your code here...
-}
+  const item = e.target;
+  const todo = item; 
+    if(todo.style.textDecoration === "line-through"){
+      todo.remove()
+    }
+  }
+
