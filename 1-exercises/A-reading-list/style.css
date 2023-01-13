@@ -157,3 +157,7 @@ body {
     max-height: 80px;
   }
 }
+
+.green {
+  background-color: green;
+}
