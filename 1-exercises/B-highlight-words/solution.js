@@ -6,8 +6,8 @@ function highlightWords(paragraph, colours) {
     const span = document.createElement("span");
     span.addEventListener("click", (event) => {
       const selectedColour = document.querySelector("select").value;
-      event.target.style.backgroundColor = selectedColour;
-    });
+      event.target.style.backgroundColor = selectedColour; 
+    }); 
     span.innerText = word + " ";
     p.appendChild(span);
   });
