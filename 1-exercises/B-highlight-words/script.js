@@ -14,12 +14,11 @@ function highlightWords(paragraph, colours) {
     span.innerText = word + " ";
 
     span.addEventListener("click", (event) => {
-      if (colorSelector.value) {
+      if (colorSelector.value === "none") {
+        span.style.backgroundColor = null;
+      } else {
         span.style.backgroundColor = colorSelector.value;
       }
-      // else if (colorSelector.value === none) {
-      //   span.style.backgroundColor = "white";
-      // }
     });
 
     paragraphInfo.appendChild(span);
