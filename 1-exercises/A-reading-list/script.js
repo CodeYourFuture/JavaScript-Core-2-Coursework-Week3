@@ -1,5 +1,25 @@
 function readingList(books) {
-  // Write your code here...
+  books.forEach(book => {
+
+    const createPTag = document.createElement("p");
+    createPTag.innerText = `${book.title} by ${book.author}`;
+
+    const createImgTag = document.createElement("img");
+    createImgTag.src = book.bookCoverImage;
+    createImgTag.style.width = "150px";
+    createImgTag.style.marginTop = "20px";
+
+    const createDivTagForImg = document.createElement("div");
+    createDivTagForImg.appendChild(createImgTag);
+
+    const createLiTag = document.createElement("li");
+    createLiTag.appendChild(createPTag).appendChild(createDivTagForImg);
+
+    createLiTag.style.backgroundColor = "green";
+    const ulParent = document.querySelector("ul");
+    ulParent.appendChild(createLiTag);
+  });
+  document.querySelector("li").style.backgroundColor = "red";
 }
 
 // for the tests, do not modify this array of books
