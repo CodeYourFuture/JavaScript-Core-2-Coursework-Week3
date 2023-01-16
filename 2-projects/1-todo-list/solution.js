@@ -49,6 +49,7 @@ function createDOMListItem(todo) {
   }
   if (todo.completed) {
     li.style.textDecoration = "line-through";
+
   }
 
   li.innerText = todo.task;
