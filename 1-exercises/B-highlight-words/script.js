@@ -5,8 +5,10 @@ function highlightWords(paragraph, colours) {
   document.querySelector("#content").appendChild(paraText);
   document.querySelector("#content").appendChild(selectColor);
 
-  ["Choose a Color", ...colours].forEach((color) => {
+  ["Please choose a colour", ...colours].forEach((color) => {
     let optionColor = document.createElement("option");
+    optionColor.value = color;
+
     optionColor.innerText = color[0].toUpperCase() + color.slice(1);
     selectColor.appendChild(optionColor);
   });
@@ -17,7 +19,12 @@ function highlightWords(paragraph, colours) {
     paraText.appendChild(span);
 
     span.addEventListener("click", () => {
-      span.style.backgroundColor = selectColor.value;
+      let col = selectColor.value;
+      if (col === "none") {
+        span.style.backgroundColor = "transparent";
+      } else {
+        span.style.backgroundColor = col;
+      }
     });
   });
 }
