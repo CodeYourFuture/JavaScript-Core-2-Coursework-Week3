@@ -2,14 +2,41 @@ function highlightWords(paragraph, colours) {
   const content = document.querySelector("#content");
 
   // Creating paragraph element
-  const prgrph = document.createElement("p");
-  prgrph.innerText = paragraph;
-  content.appendChild(prgrph);
+  const paragraphEl = document.createElement("p");
+  // prgrph.innerText = paragraph;
+  content.appendChild(paragraphEl);
 
   // Creating select element
   const select = document.createElement("select");
-  select.????????????? = colours;
-  content.appendChild(select)
+  for (let colour of colours) {
+    const option = document.createElement("option");
+    option.value = colour;
+    option.innerText = colour;
+    select.appendChild(option);
+  }
+
+  content.appendChild(select);
+
+  //iterate over paragraph
+  paragraph.split(" ").forEach((element) => {
+    // const option = document.createElement("option");
+    // option.value = colour;
+    // option.innerText = colour;
+    // select.appendChild(option);
+
+    const span = document.createElement("span");
+    const spanWithSpace = document.createElement("span");
+    span.innerText = element;
+    spanWithSpace.innerHTML = " ";
+    paragraphEl.appendChild(span);
+    paragraphEl.appendChild(spanWithSpace);
+
+    span.addEventListener("click", () => {
+    //  let selectValue = select.value;
+     span.style.backgroundColor = select.value;
+    
+    })
+  });
 }
 
 const paragraph =
