@@ -22,13 +22,13 @@ function highlightWords(paragraph, colours) {
   })
   pEl.appendChild(spanEl);
  }
+ 
  for(let selectOptions of colours){
   const optionEl =document.createElement("option");
   optionEl.value = selectOptions;
   optionEl .innerText =selectOptions;
   selectEl.appendChild(optionEl)
  }
-
 }
 
 
