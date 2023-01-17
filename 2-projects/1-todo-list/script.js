@@ -1,16 +1,16 @@
+let list = document.querySelector("#todo-list");
+
+const liElement = document.createElement("li");
+
+const span = document.createElement("span");
+const firstI = document.createElement("i");
+const secondI = document.createElement("i");
+
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-
   for (let chore of todos) {
-    const liElement = document.createElement("li");
-
     liElement.innerText = chore.task;
 
     list.appendChild(liElement);
-
-    const span = document.createElement("span");
-    const firstI = document.createElement("i");
-    const secondI = document.createElement("i");
 
     span.setAttribute("class", "badge bg-primary rounded-pill");
     firstI.setAttribute("class", "fa fa-check");
@@ -51,7 +51,6 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
-  let list = document.querySelector("#todo-list");
 
   let todo = document.querySelector(".btn");
   todo.setAttribute("id", "addTodo");
@@ -60,8 +59,6 @@ function addNewTodo(event) {
 
   addTodo.addEventListener("click", (event) => {
     const taskInput = document.querySelector("#todoInput").value;
-
-    const liElement = document.createElement("li");
 
     liElement.innerText = taskInput;
 

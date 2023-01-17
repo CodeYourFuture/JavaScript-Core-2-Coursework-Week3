@@ -24,10 +24,12 @@ function highlightWords(paragraph, colours) {
     paragraphInfo.appendChild(span);
   }
 
+  colours.unshift("Please choose a colour");
+
   for (let eachOption of colours) {
     const option = document.createElement("option");
     option.value = eachOption;
-    option.innerText = eachOption;
+    option.innerText = eachOption[0].toUpperCase() + eachOption.slice(1);
 
     colorSelector.appendChild(option);
   }
