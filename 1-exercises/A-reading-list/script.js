@@ -1,5 +1,9 @@
 function readingList(books) {
   // Write your code here...
+  books.forEach((book) => {
+    document.createElement("p");
+    document.createElement("img");
+  });
 }
 
 // for the tests, do not modify this array of books
