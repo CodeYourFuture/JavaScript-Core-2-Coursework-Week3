@@ -10,7 +10,6 @@ function readingList(books) {
     let imgOfBooks = document.createElement("img")
     imgOfBooks.src =book.bookCoverImage
    newList.appendChild(imgOfBooks);
-    //  newList.style.backgroundColor = book.alreadyRead ? "green" : "red";
      if (book.alreadyRead) {
       newList.className +=" green";
     } else {
