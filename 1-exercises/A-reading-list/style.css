@@ -157,3 +157,11 @@ body {
     max-height: 80px;
   }
 }
+
+.imageSize {
+  width: 200px;
+}
+
+.fontSize {
+  font-size: 25px;
+}

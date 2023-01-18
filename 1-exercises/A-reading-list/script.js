@@ -13,8 +13,11 @@ function readingList(books) {
       ? (newList.style.backgroundColor = "green")
       : (newList.style.backgroundColor = "red");
 
-    newList.appendChild(titleAndAuthor).style.fontSize = "25px";
-    newList.appendChild(bookImg).style.width = "200px";
+    newList.appendChild(titleAndAuthor); // .style.fontSize = "25px";
+    // titleAndAuthor.classList.add("fontSize");
+
+    newList.appendChild(bookImg); // .style.width = "200px";
+    // bookImg.classList = "imageSize";
     newReadingList.appendChild(newList);
   });
 }
