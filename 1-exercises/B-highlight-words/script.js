@@ -1,5 +1,61 @@
+import { createElement } from "./creatEl.js";
+
+function pickedColorFn(event) {
+  console.log(event);
+  let pickedColorEl = document.querySelector("#selectEl");
+  let pickedColor = pickedColorEl.value;
+  console.log(pickedColor);
+  console.log(event.target.innerText);
+
+  event.target.classList.remove("red", "yellow", "green", "blue");
+  if (pickedColor === "none") return;
+
+  event.target.classList.add(`${pickedColor}`);
+}
+
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  let newP = createElement("p", { class: ["pParent"] });
+  let wordNodes = paragraph.split(" ").map((el) => {
+    let randomId = Math.random().toString(16).slice(6);
+    console.log(randomId);
+    let spanEl = createElement("span", {
+      id: `${randomId}`,
+      class: ["classSpan"],
+      innerText: ` ${el}`,
+    });
+    console.log(spanEl);
+
+    spanEl.addEventListener("click", pickedColorFn);
+
+    return spanEl;
+  });
+  newP.append(...wordNodes);
+  console.log(newP);
+
+  let formEl = createElement("form", { class: ["formClass"], id: "form" });
+  let labelEl = createElement("label", {
+    class: ["label"],
+    id: "label",
+    for: "selectEl",
+    innerText: "Please choose a color",
+  });
+  let selectEl = createElement("select", {
+    class: ["ClassSelect"],
+    id: "selectEl",
+  });
+
+  let colorsToAdd = colours.map((el) => {
+    let optionEL = createElement("option", {
+      innerText: el,
+      class: ["optionClass", `${el}Option`],
+    });
+    return optionEL;
+  });
+  selectEl.append(...colorsToAdd);
+  formEl.append(labelEl, selectEl);
+
+  let parentDiv = document.querySelector("#content");
+  parentDiv.append(newP, formEl);
 }
 
 const paragraph =
