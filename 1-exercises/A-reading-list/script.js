@@ -15,11 +15,10 @@ function readingList(books) {
     const createLiTag = document.createElement("li");
     createLiTag.appendChild(createPTag).appendChild(createDivTagForImg);
 
-    createLiTag.style.backgroundColor = "green";
+    createLiTag.style.backgroundColor = book.alreadyRead ? "green" : "red";
     const ulParent = document.querySelector("ul");
     ulParent.appendChild(createLiTag);
   });
-  document.querySelector("li").style.backgroundColor = "red";
 }
 
 // for the tests, do not modify this array of books
