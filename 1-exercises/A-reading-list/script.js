@@ -1,22 +1,23 @@
 function readingList(books) {
   // Write your code here...
-  const readingList = document.querySelector("#reading-list");
+  let content = document.getElementById("content");
+  let uList = document.createElement("ul");
+  content.appendChild(uList);
 
   books.forEach((book) => {
-    const li = document.createElement("li");
-    const titleText = document.createElement("p");
-    const authorText = document.createElement("p");
-    const imageElelment = document.createElement("img");
-
-    titleText.innerText = book.title;
-    authorText.innerText = book.author;
-    imageElelment.src = book.bookCoverImage;
-    li.style.backgroundColor = book.alreadyRead ? "green" : "red";
-
-    li.appendChild(titleText);
-    li.appendChild(authorText);
-    li.appendChild(imageElelment);
-    readingList.appendChild(li);
+    let list = document.createElement("li");
+    let authorAndTitle = document.createElement("p");
+    authorAndTitle.innerText = book.title + " \n " + book.author;
+    list.appendChild(authorAndTitle);
+    let bookImg = document.createElement("img");
+    bookImg.src = book.bookCoverImage;
+    list.appendChild(bookImg);
+    if (book.alreadyRead) {
+      list.classList.add("green");
+    } else {
+      list.classList.add("red");
+    }
+    uList.appendChild(list);
   });
 }
 
