@@ -157,3 +157,32 @@ body {
     max-height: 80px;
   }
 }
+reading-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#reading-list li {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+#reading-list li img {
+  width: 350px;
+  margin-bottom: 2rem;
+}
+
+#reading-list li h2 {
+  font-style: italic;
+  font-size: 25px;
+}
+
+#reading-list li p {}
