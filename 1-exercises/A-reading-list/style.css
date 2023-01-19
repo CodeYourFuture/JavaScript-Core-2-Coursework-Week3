@@ -157,3 +157,13 @@ body {
     max-height: 80px;
   }
 }
+
+
+.book-reed {
+  background-color: green;
+}
+
+.book-not-reed {
+  background-color: red;
+}
+

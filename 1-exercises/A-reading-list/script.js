@@ -1,6 +1,36 @@
 function readingList(books) {
   // Write your code here...
+
+  // 1-create  2- manipulate  3-append 
+  let reed = document.querySelector("#reading-list")
+    books.forEach(book => {
+    let listItem = document.createElement("li");
+
+    let paragraph = document.createElement("p") ;
+    paragraph.innerText = `${book.title }`+`${book.author}` ;
+    listItem.appendChild(paragraph);
+
+    let imageTag = document.createElement("img");
+    imageTag.src = book.bookCoverImage;
+    listItem.appendChild(imageTag);
+
+    if(book.alreadyRead){
+      listItem.className ="book-reed";
+    }else{
+      listItem.className = "book-not-reed";
+    } ;
+
+
+   reed.appendChild(listItem);
+   
+  }
+  )
+    
+
+
+  
 }
+  
 
 // for the tests, do not modify this array of books
 const books = [
