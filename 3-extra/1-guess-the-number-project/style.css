@@ -21,3 +21,8 @@ body {
 .btn {
   margin-bottom: 20px;
 }
+
+/*style the .pop-up class*/
+.pop-up {
+  display: none;
+}
