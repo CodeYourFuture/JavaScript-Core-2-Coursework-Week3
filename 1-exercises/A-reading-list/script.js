@@ -1,4 +1,28 @@
 function readingList(books) {
+  array.forEach(element => {
+    const bookList = document.createElement('li');
+    const bookTitles = document.createElement('h1');
+    const bookAuthor = document.createElement('h2');
+    const images = document.createElement('img');
+
+
+    bookTitles.innerText = element.title;
+    bookAuthor.innerText = element.author;
+    images.src= element.bookCoverImage;
+    if (element.alreadyRead) {
+      bookList.style.backgroundColor= "green";
+    } else{
+      bookList.style.backgroundColor= "red";
+    }
+
+    document.querySelector("#reading-list").appendChild(bookList);
+    bookList.appendChild(bookTitles);
+    bookList.appendChild(bookAuthor);
+    bookList.appendChild(images)
+
+    
+  });
+    
   // Write your code here...
 }
 

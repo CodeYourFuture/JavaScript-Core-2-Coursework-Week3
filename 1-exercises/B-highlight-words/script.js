@@ -1,4 +1,33 @@
 function highlightWords(paragraph, colours) {
+const p= document.createElement('p');
+document.body.appendChild(p);
+
+paragraph .split("").forEach(( word)=>{
+  const  span = document.createElement('span');
+
+  span.addEventListener('click',()=>{
+    const colors = document.querySelector('chosen').ariaValueMax;
+    if (colors==="green")){
+      chosen.target.style.backgroundColor=colors;
+      chosen.target.style.color="red";
+    }else{
+      chosen.target.style.backgroundColor=colors;
+      chosen.target.style.color="purple";
+
+    }
+    });
+    const selected = document.createElement("selected");
+    document.body.appendChild(selected);
+    ["Choose a color", ...select].forEach((select) => {
+      const option = document.createElement("option");
+      option.value = select;
+      option.innerText=select[0].toUpperCase();+select.slice(1);
+
+      selected.appendChild(option);
+      
+      
+    });
+
   // Write your code here...
 }
 
