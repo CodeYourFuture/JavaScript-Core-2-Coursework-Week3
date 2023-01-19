@@ -1,5 +1,5 @@
 body {
-    background-image: url(assets/world.jpg);
+   /* background-image: url(assets/world.jpg);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -9,4 +9,30 @@ body {
   .container {
     margin-top: 150px;
     width: 90%;
+  }
+  
+  /* Styles for the form */
+  #todo-input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
   }
