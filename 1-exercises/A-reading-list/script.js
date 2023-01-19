@@ -1,5 +1,23 @@
 function readingList(books) {
   // Write your code here...
+  const readingListBook = document.querySelector("#reading-list");
+
+
+books.forEach((book)=>{
+  const li = document.createElement("li");
+  const Title = document.createElement("p");
+  const Author = document.createElement("p");
+  const CoverImage = document.createElement("img");
+  Title.innerText = book.title;
+  Author.innerText = book.author;
+  CoverImage.src = book.bookCoverImage;
+  li.style.background = book.alreadyRead ? "green" : "red";
+  li.appendChild(Title);
+  li.appendChild(Author);
+  li.appendChild(CoverImage);
+  readingListBook.appendChild(li);
+});
+
 }
 
 // for the tests, do not modify this array of books
