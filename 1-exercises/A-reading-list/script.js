@@ -1,5 +1,42 @@
 function readingList(books) {
-  // Write your code here...
+  // Get the 'content' div
+  const content = document.getElementById("content");
+
+  // Create a 'ul' element
+  const list = document.createElement("ul");
+
+  // Iterate through the books array
+  books.forEach((book) => {
+    // Create a 'li' element
+    const item = document.createElement("li");
+
+    // Create a 'p' element 
+    const bookInfo = document.createElement("p");
+    // input book title and author in the 'p' element
+    bookInfo.innerHTML = `${book.title} by ${book.author}`;
+
+    // Create an 'img' element with the book cover image
+    const bookCover = document.createElement("img");
+    // add 'src' attribute value to 'bookCover' 
+    bookCover.src = book.bookCoverImage;
+
+    // Append the bookInfo (title and author) and bookCover to the 'li' element
+    item.appendChild(bookInfo);
+    item.appendChild(bookCover);
+
+    // Add a class to the 'li' element depending on whether the book has been read
+    if (book.alreadyRead) {
+      item.classList.add("read");
+    } else {
+      item.classList.add("not-read");
+    }
+
+    // Append the 'li' element to the 'ul' element
+    list.appendChild(item);
+  });
+
+  // Append the 'ul' element to the 'content' div
+  content.appendChild(list);
 }
 
 // for the tests, do not modify this array of books

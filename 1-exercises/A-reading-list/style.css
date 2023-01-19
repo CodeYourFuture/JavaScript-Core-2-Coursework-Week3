@@ -152,6 +152,17 @@ body {
   background: #87ca8a;
 }
 
+/* style the books depending on whether they have been read or not:*/
+.read {
+  color: green;
+}
+
+.not-read {
+  color: red;
+}
+
+
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
