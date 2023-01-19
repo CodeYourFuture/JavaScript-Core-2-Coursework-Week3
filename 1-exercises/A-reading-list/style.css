@@ -5,7 +5,9 @@
  * Lesson: 1,2
  * Class: Scotland 2017
  */
-
+#reading-list li img {
+  width: 300px;
+}
 html,
 body {
   font-family: "Source Sans Pro", -apple-system, system-ui, BlinkMacSystemFont,
