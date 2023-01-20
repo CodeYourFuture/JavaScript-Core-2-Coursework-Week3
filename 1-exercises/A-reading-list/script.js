@@ -6,14 +6,10 @@ function readingList(books) {
 
     const createImgTag = document.createElement("img");
     createImgTag.src = book.bookCoverImage;
-    createImgTag.style.width = "150px";
-    createImgTag.style.marginTop = "20px";
-
-    const createDivTagForImg = document.createElement("div");
-    createDivTagForImg.appendChild(createImgTag);
 
     const createLiTag = document.createElement("li");
-    createLiTag.appendChild(createPTag).appendChild(createDivTagForImg);
+    createLiTag.appendChild(createPTag);
+    createLiTag.appendChild(createImgTag);
 
     createLiTag.style.backgroundColor = book.alreadyRead ? "green" : "red";
     const ulParent = document.querySelector("ul");
