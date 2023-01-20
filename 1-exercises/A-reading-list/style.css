@@ -157,3 +157,11 @@ body {
     max-height: 80px;
   }
 }
+
+.bookHasBeenRead{
+  background-color: #099410;
+}
+
+.bookHasNotBeenRead{
+  background-color: #ce313e;
+}
