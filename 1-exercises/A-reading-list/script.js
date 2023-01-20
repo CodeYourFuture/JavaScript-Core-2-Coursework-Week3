@@ -1,36 +1,5 @@
-// function newObj2(arr) {
-//   console.log(arr);
-//   let object = Object.assign({}, ...arr);
-//   //object.keys(obj)
-
-//   return object;
-// }
-// let imgArr = [
-//   { class: ["class1", "class2", "class3"] },
-//   { id: " " },
-//   { src: "img_girl.jpg" },
-//   { alt: "girl in jacket" },
-// ];
-// let liArr = [{ class: ["classPlaceHolder"] }, { id: " " }];
-
-// let pArr = [
-//   { class: ["p-Class1", "p-Class2"] },
-//   { id: " " },
-//   { textContent: " " },
-// ];
-// let imgObj1 = newObj2(imgArr);
+//note object createion template in testfolder
 import { createElement } from "../B-highlight-words/creatEl.js";
-// const createElement = function (type, attributes) {
-//   let element = document.createElement(type);
-//   for (let key in attributes) {
-//     if (key === "class") {
-//       element.classList.add(...attributes[key]);
-//     } else {
-//       element[key] = attributes[key];
-//     }
-//   }
-//   return element;
-// };
 
 function readingList(books) {
   let parUl = document.querySelector("#reading-list");

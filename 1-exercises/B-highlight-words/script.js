@@ -1,36 +1,30 @@
 import { createElement } from "./creatEl.js";
+import { newObj2, TestSpan1, randomId } from "./creatElAttributes.js";
+
+const newSpanObj = newObj2(TestSpan1);
 
 function pickedColorFn(event) {
   console.log(event);
-  let pickedColorEl = document.querySelector("#selectEl");
-  let pickedColor = pickedColorEl.value;
-  console.log(pickedColor);
-  console.log(event.target.innerText);
-
+  let pickedColor = document.querySelector("#selectEl").value;
   event.target.classList.remove("red", "yellow", "green", "blue");
   if (pickedColor === "none") return;
-
   event.target.classList.add(`${pickedColor}`);
 }
 
 function highlightWords(paragraph, colours) {
   let newP = createElement("p", { class: ["pParent"] });
   let wordNodes = paragraph.split(" ").map((el) => {
-    let randomId = Math.random().toString(16).slice(6);
-    console.log(randomId);
-    let spanEl = createElement("span", {
-      id: `${randomId}`,
-      class: ["classSpan"],
-      innerText: ` ${el}`,
-    });
-    console.log(spanEl);
-
-    spanEl.addEventListener("click", pickedColorFn);
+    let spanEl = createElement(
+      "span",
+      newSpanObj,
+      pickedColorFn,
+      ` ${el}`,
+      randomId()
+    );
 
     return spanEl;
   });
   newP.append(...wordNodes);
-  console.log(newP);
 
   let formEl = createElement("form", { class: ["formClass"], id: "form" });
   let labelEl = createElement("label", {
