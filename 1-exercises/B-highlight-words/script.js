@@ -1,5 +1,47 @@
+// Exercise
+
+// - Create a `<p>` element.
+// - Create a `<select>` element.
+// - Iterate over the options array and create an `<option>` element in the `<select>` for each element.
+// - You'll need to turn the paragraph into an array to iterate over it. You can use the `.split(" ")` method here.
+// - Iterate over the array of words.
+// - For each word, create a `<span>` element and set the innerText to the word, plus a space - " ". Add this to the `<p>`.
+// - Each `<span>` should have an eventListener that will listen for clicks.
+// - When clicked, we need to check the value of the `<select>` element using the `.value` property.
+// - We can then update the `background-color` property of the `<span>` with the value of the select - remember that the value "none" is a special case and we need to be handled differently.
+// - All of your HTML should go inside the `<div>` with the id **"content"**.
+
 function highlightWords(paragraph, colours) {
   // Write your code here...
+
+  const content = document.querySelector("#content");
+
+  const newParagraph = document.createElement("p");
+  content.appendChild(newParagraph);
+  const select = document.createElement("select");
+  select.value = "Please choose a colour";
+  content.appendChild(select);
+
+  for (let i = 0; i < colours.length; i++) {
+    const option = document.createElement("option");
+    option.innerText = colours[i];
+    const upperCaseColor = colours[i][0].toUpperCase() + colours[i].slice(1);
+    option.innerText = upperCaseColor;
+    option.value = colours[i];
+    select.appendChild(option);
+  }
+
+  paragraph.split(" ").forEach((word) => {
+    const span = document.createElement("span");
+    span.innerText = word + " ";
+    newParagraph.appendChild(span);
+
+    span.addEventListener("click", () => {
+      if (select.value !== "none") {
+        span.style.backgroundColor = select.value;
+      }
+    });
+  });
 }
 
 const paragraph =
