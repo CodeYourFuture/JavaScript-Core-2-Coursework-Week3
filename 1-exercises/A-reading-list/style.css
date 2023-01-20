@@ -140,6 +140,14 @@ body {
   height: 50px;
 }
 
+.bookHasAlreadyRead{
+  background-color: #106c15;
+}
+
+.bookHasNotAlreadyRead{
+background-color: red;
+}
+
 #blueBtn {
   background: #588fbd;
 }
