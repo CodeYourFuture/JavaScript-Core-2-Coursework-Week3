@@ -1,6 +1,29 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+
+  //function should iterate over the list of todos
+  for (let todo of todos) {
+    //create a `<li>`
+    let tasks = document.createElement("li");
+    tasks.innerText = todo.task;
+    list.appendChild(tasks);
+    //create completed tasks button
+    let completedTaskBtn = document.createElement("button");
+    completedTaskBtn.innerText = "Completed";
+    completedTaskBtn.addEventListener("click", function () {
+      todo.completed = true;
+      tasks.style.textDecoration = "line-through";
+    });
+    tasks.appendChild(completedTaskBtn);
+
+    //create delete tasks button
+    let deleteTaskBtn = document.createElement("button");
+    deleteTaskBtn.innerText = "Delete";
+    deleteTaskBtn.addEventListener("click", function () {
+      tasks.style.display = "none";
+    });
+    tasks.appendChild(deleteTaskBtn);
+  }
 }
 
 // These are the same todos that currently display in the HTML
@@ -17,6 +40,7 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  let addInput = document.querySelector("#todoInput");
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
