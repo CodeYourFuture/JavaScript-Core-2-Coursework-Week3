@@ -6,6 +6,7 @@ function populateTodoList(todos) {
     //create a `<li>`
     let tasks = document.createElement("li");
     tasks.innerText = todo.task;
+    tasks.style.color = "skyBlue";
     list.appendChild(tasks);
     //create completed tasks button
     let completedTaskBtn = document.createElement("button");
