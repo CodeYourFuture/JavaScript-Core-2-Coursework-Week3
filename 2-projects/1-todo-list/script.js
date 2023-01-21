@@ -1,5 +1,11 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
+
+  todos.forEach((toDo) => {
+    let newList = createDOMListItem(todo);
+    list.appendChild(newList);
+  });
+
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
 }
 
@@ -23,3 +29,7 @@ function addNewTodo(event) {
 function deleteAllCompletedTodos() {
   // Write your code here...
 }
+
+// develop the ToDo list further and allow users to delete all completed ToDos.
+
+// Add a button that users can click that will iterate through the list of ToDos and then delete them only if they have been completed.
