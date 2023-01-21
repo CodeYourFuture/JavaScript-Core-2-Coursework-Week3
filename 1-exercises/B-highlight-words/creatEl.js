@@ -24,11 +24,12 @@ export function createElement(type, ...args) {
     } else if (key === "innerText" && inrText) {
       element[key] = inrText;
     } else if (key === "id" && rID) {
-      element[key] = rID;
+      element[key] = rID ? rID : null;
     } else {
       element[key] = attributes[key];
     }
   }
+  console.log(element);
   if (eventHandler) {
     element.addEventListener("click", eventHandler);
   }
