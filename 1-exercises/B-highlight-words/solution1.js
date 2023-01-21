@@ -10,7 +10,7 @@ function highlightWords(paragraph, colours) {
   const select = document.createElement("select");
   select.value = "Please choose a colour";
   content.appendChild(select);
-
+//
   for (let i = 0; i < colours.length; i++) {
     const option = document.createElement("option");
     const upperCaseColour = colours[i][0].toUpperCase() + colours[i].slice(1);
