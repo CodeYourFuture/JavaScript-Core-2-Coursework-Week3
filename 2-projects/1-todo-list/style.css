@@ -10,3 +10,9 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+#todo-list {
+  color: white;
+  font-size: larger;
+}
+
