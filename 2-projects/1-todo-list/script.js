@@ -40,8 +40,7 @@ function addNewTodo(event) {
   let findInput = document.querySelector("#todoInput");
   todos.push({ task: findInput.value, completed: false });
   populateTodoList();
-  let inputParent = document.querySelector(".col-auto");
-  inputParent.innerHTML = '<input class="form-control" id = "todoInput" placeholder = "New todo..."/> '
+  findInput.value = "";
 }
 
 
