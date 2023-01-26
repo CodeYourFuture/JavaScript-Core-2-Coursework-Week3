@@ -1,24 +1,33 @@
-function readingList(books) {
+
   // Write your code here...
-  const readingList = document.querySelector("#reading-list");
+  const content = document.querySelector('#content');
+
+function readingList(books) {
+  const readingList = document.createElement('ul');
 
   books.forEach((book) => {
-    const li = document.createElement("li");
-    const titleText = document.createElement("p");
-    const authorText = document.createElement("p");
-    const imageElelment = document.createElement("img");
+    const bookItem = document.createElement('li');
 
-    titleText.innerText = book.title;
-    authorText.innerText = book.author;
-    imageElelment.src = book.bookCoverImage;
-    li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+    if (book.alreadyRead) bookItem.classList.add('book-list-item__is-read');
+    else bookItem.classList.add('book-list-item__not-read');
 
-    li.appendChild(titleText);
-    li.appendChild(authorText);
-    li.appendChild(imageElelment);
-    readingList.appendChild(li);
+    const bookInfo = document.createElement('p');
+    const bookImage = document.createElement('img');
+
+    const bookInfoText = `${book.title} by ${book.author}`;
+
+    bookInfo.innerText = bookInfoText;
+    bookImage.src = book.bookCoverImage;
+    bookImage.classList.add('book-image-cover');
+
+    bookItem.append(bookInfo, bookImage);
+    readingList.appendChild(bookItem);
   });
+
+  content.appendChild(readingList);
 }
+
+  
 
 // for the tests, do not modify this array of books
 const books = [
