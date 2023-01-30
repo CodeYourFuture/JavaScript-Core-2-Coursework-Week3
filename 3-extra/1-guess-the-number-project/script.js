@@ -2,6 +2,8 @@ let randomNumber = Math.floor(Math.random() * 100 + 1);
 let outputTries = document.querySelector(".Tries-output");
 let finalMessage = document.querySelector(".final-output");
 let guessBtn = document.querySelector(".btnGuess btn btn-outline-success");
+let guess = document.querySelector(".inputs-Values").value;
+let count = 1;
 
 function guessNumber() {
   let guess = document.querySelector(".inputs-Values").value;
@@ -12,20 +14,21 @@ function guessNumber() {
   )
     outputTries.innerHTML = "Please enter a number between 1 and 100";
   finalMessage.innerHTML = "";
-  if (Number(guess) < randomNumber && Number(guess) > 0)
+  if (Number(guess) < randomNumber)
     finalMessage.innerHTML = "Number is too low, try again";
-  if (Number(guess) > randomNumber && Number(guess) > 0)
+  if (Number(guess) > randomNumber)
     finalMessage.innerHTML = "Number is too high, try again";
   if (Number(guess) === randomNumber)
     finalMessage.innerHTML = "Guess is correct. You win!";
 }
-let count = 0;
 
 function triesLeft() {
+  let guess = document.querySelector(".inputs-Values").value;
   count++;
   let noLeft = 7 - count;
-  if (noLeft === 0) {
-    outputTries.innerHTML = `You lose the number was ${guess}`;
+  if (noLeft === 0 && randomNumber !== guess) {
+    finalMessage.innerHTML = "";
+    outputTries.innerHTML = `You lose the number was ${randomNumber}`;
   } else outputTries.innerHTML = `You have ${noLeft} guesses left`;
 }
 
@@ -34,10 +37,12 @@ function triesLeft() {
 // 1. Reset the values inside the body of the function
 // 2. Attach our new game button using an event listener to the .btnNewGame button
 function newGame() {
-  //Your code here
-  //Reset randomNumber
-  //Reset users input field
-  //Reset tries, and triesTaken by the user
+  randomNumber = Math.floor(Math.random() * 100 + 1);
+  let input = document.querySelector(".inputs-Values");
+  input.value = "";
+  outputTries.innerHTML = " ";
+  finalMessage.innerHTML = " ";
+  count = 1;
 }
 
 //keyboard exception
