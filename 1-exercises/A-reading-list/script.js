@@ -1,8 +1,27 @@
 function readingList(books) {
-  // Write your code here...
+  let content = document.getElementById("content");
+
+  books.forEach((book) => {
+    var div = document.createElement("div");
+
+    let titleBook = document.createElement("p");
+    titleBook.innerHTML = `${book.title} - ${book.author}`;
+
+    let img = document.createElement("img");
+    img.src = book.bookCoverImage;
+
+    content.appendChild(div);
+    div.appendChild(titleBook);
+    div.appendChild(img);
+
+    if (book.alreadyRead === true) {
+      div.style.backgroundColor = "green";
+    } else {
+      div.style.backgroundColor = "red";
+    }
+  });
 }
 
-// for the tests, do not modify this array of books
 const books = [
   {
     title: "The Design of Everyday Things",
