@@ -26,3 +26,35 @@ const books = [
 ];
 
 readingList(books);
+let myExistingDIv=document.querySelector(`#content`)
+let ulElement=document.createElement(`ul`);
+
+
+myExistingDIv.appendChild(ulElement);
+
+
+
+for (let book of books){
+let liElement=document.createElement(`li`);
+ulElement.appendChild(liElement);
+
+let titleOfBook=document.createElement("p");
+titleOfBook.innerText=`${book.title}`;
+
+let authorOfBook=document.createElement("p");
+
+authorOfBook.innerText=`${book.author}`;
+
+let CoverOfBook=document.createElement("img");
+CoverOfBook.src=`${book.bookCoverImage}`;
+
+liElement.appendChild(titleOfBook);
+liElement.appendChild(authorOfBook);
+liElement.appendChild(CoverOfBook);
+if (book.alreadyRead){
+  liElement.style.backgroundColor="green"
+}
+
+}
+
+
