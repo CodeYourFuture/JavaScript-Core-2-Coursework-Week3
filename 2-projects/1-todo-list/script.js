@@ -1,25 +1,60 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("#todo-list");
-  for (let chore of todos) {
-    const listOfJobs = document.createElement("li");
-    listOfJobs.innerText = chore.task;
+  let list = document.getElementsByTagName("ul")[0];
+  let listClass = document.querySelectorAll(".list-group");
+  listClass[0].style.display = "flex";
+  listClass[0].style.flexDirection = "column";
+  listClass[0].borderRadius = "10px";
 
-    list.appendChild(listOfJobs);
+  for (let eachjob of todos) {
+    let li = document.createElement("li");
 
-    const span = document.createElement("span");
+    li.className = "list-items";
+    let litext = document.createTextNode(eachjob.task);
+    li.appendChild(litext);
+
+    let span = document.createElement("span");
     span.className = "badge bg-primary rounded-pill";
+    li.appendChild(span);
 
-    const check = document.createElement("i");
+    let check = document.createElement("i");
     check.className = "fa fa-check";
     check.setAttribute("aria-hidden", "true");
+    span.appendChild(check);
 
-    const trash = document.createElement("i");
+    let trash = document.createElement("i");
     trash.className = "fa fa-trash";
     trash.setAttribute("aria-hidden", "true");
+    span.appendChild(trash);
+
+    list.appendChild(li);
   }
 
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  let liClass = document.querySelectorAll(".list-items");
+  for (let item of liClass) {
+    item.style.padding = "8px 16px 8px 16";
+    item.style.backgroundColor = "white";
+    item.style.border = "1px solid rgba(0, 0, 0, .125)";
+  }
 }
+// let list = document.getElementById("#todo-list");
+// for (let chore of todos) {
+//   const listOfJobs = document.createElement("li");
+//   listOfJobs.innerText = chore.task;
+
+//   list.appendChild(listOfJobs);
+
+//   const span = document.createElement("span");
+//   span.className = "badge bg-primary rounded-pill";
+
+//   const check = document.createElement("i");
+//   check.className = "fa fa-check";
+//   check.setAttribute("aria-hidden", "true");
+
+//   const trash = document.createElement("i");
+//   trash.className = "fa fa-trash";
+//   trash.setAttribute("aria-hidden", "true");
+
+// Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript

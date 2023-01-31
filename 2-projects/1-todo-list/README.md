@@ -1,5 +1,24 @@
 # ToDo-list
 
+//<ul id="todo-list" class="list-group">
+
+  <li class="list-items"> 
+  Wash the dishes
+  <span class="badge bg-primary rounded-pill">
+  <i class="fa fa-check" aria-hidden="true"></i>
+  <i class="fa fa-trash" aria-hidden="true"></i>
+  
+  </span>
+</li>
+  
+<li class="list-items">
+Do the shopping
+<span class="badge bg-primary rounded-pill">
+  <i class="fa fa-check" aria-hidden="true"></i>
+  <i class="fa fa-trash" aria-hidden="true"></i>
+
+<!-- </span></li> </ul> -->
+
 ## Explanation
 
 This is a super handy, super simple to do list.
