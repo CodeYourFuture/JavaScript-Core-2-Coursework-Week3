@@ -7,7 +7,7 @@
  */
 
  html,
- body {
+ /* body {
      font-family: "Source Sans Pro",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
  }
  
@@ -30,15 +30,15 @@
      color: #292b2c;
      font-weight: 600;
      text-transform: uppercase;
- }
+ } */
  
  /* Buttons */
- .btn {
+ /* .btn {
      border-radius: 0.15em;
- }
+ } */
  
  /* Alert */
- .alert {
+ /* .alert {
      position: relative;
      margin-top: 2em;
      margin-bottom: 3em;
@@ -61,14 +61,14 @@
      width: 1px;
      background: #ce5f31;
  }
- 
+  */
  /* Jumbotron */
- .jumbotron {
+ /* .jumbotron {
      border-radius: 0;
  }
- 
+  */
  /* Headings */
- .heading-underline {
+ /* .heading-underline {
      position: relative;
      margin-bottom: 2em;
      padding-bottom: 0.5em;
@@ -88,7 +88,7 @@
      max-width: 100px;
      background: #ce5f31;
  }
- 
+  */
  /* Article */
  .article {
      margin-bottom: 2em;

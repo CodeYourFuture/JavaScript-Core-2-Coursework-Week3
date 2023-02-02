@@ -1,4 +1,37 @@
+const content = document.getElementById("content");
+
 function highlightWords(paragraph, colours) {
+  const para = document.createElement("p");
+  const select = document.createElement("select");
+  const wordsArray = paragraph.split(" ");
+  let selectedColor;
+
+  for (const color of colours) {
+    const option = document.createElement("option");
+    option.setAttribute("value", color);
+    option.innerText = color;
+    select.append(option);
+  }
+
+  select.onchange = (e) => {
+    selectedColor = e.target.value;
+  };
+
+  for (const word of wordsArray) {
+    const span = document.createElement("span");
+    span.innerText = `${word} `;
+    para.appendChild(span);
+    span.onclick = (e) => {
+      if (selectedColor === "none") {
+        span.style.backgroundColor = "white";
+      } else {
+        span.style.backgroundColor = selectedColor;
+      }
+    };
+  }
+  content.append(select);
+  content.append(para);
+
   // Write your code here...
 }
 
