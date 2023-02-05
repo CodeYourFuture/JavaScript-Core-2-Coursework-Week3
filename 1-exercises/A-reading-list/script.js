@@ -1,5 +1,23 @@
 function readingList(books) {
   // Write your code here...
+  
+
+const content = document.getElementById("content");
+const ul = document.createElement("ul");
+
+for (const book of books){
+  const li = document.createElement("li");
+  li.className = book.alreadyRead ? "read" : "not-read";
+  const p = document.createElement("p");
+  p.textContent = `${book.title} by ${book.author}`;
+  li.appendChild(p);
+  const img = document.createElement("img");
+  img.src = book.bookCoverImage;
+  li.appendChild(img);
+  ul.appendChild(li);
+}
+
+content.appendChild(ul);
 }
 
 const books = [
