@@ -15,7 +15,20 @@ We also want to be able to add ToDos to the list using an input field and a butt
 
 More details for the implementation of this challenge can be found in `script.js`
 
+## InstallationToDos that we are no longer interested in doing.
+
+We also want to be able to add ToDos to the list using an input field and a button. When ToDos are created this way they should be added to the list with the 2 above buttons.
+
+More details for the implementation of this challenge can be found in `script.js`
+
 ## Installation
+
+To view the website, open index.html in a browser.
+
+## Example Solution
+
+A basic example of this can website can be found here
+
 
 To view the website, open index.html in a browser.
 

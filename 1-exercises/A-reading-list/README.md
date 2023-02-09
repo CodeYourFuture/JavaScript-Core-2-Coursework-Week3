@@ -11,7 +11,7 @@ const books = [
     bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780465050659.jpg',
   },
   {
-    title: 'The Most Human Human',
+    thtmlitle: 'The Most Human Human',
     author: 'Brian Christian',
     alreadyRead: true,
     bookCoverImage:
