@@ -69,14 +69,26 @@ body {
 }
 
 /* Headings */
-.heading-underline {
+.title {
   position: relative;
   margin-bottom: 2em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid #dccdc6;
+  margin-top: 1rem;
+  border-bottom: 1px solid #29fff4;
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  padding: 2rem;
+
+}
+
+.picture{
+  background-color: blueviolet;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .heading-underline:before {
@@ -100,7 +112,7 @@ body {
   font-weight: 700;
 }
 
-.article-read-more a {
+.article-title-more a {
   font-size: 0.85em;
   font-weight: 700;
   text-decoration: uppercase;
@@ -122,6 +134,10 @@ body {
 
 .red {
   background-color: red;
+}
+
+.grenn {
+  background-color: rgb(0, 204, 44);
 }
 
 .addArticle {
