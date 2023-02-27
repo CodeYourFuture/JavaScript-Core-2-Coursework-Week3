@@ -15,7 +15,7 @@ function readingList(books) {
     imgOfBooks.src = book.bookCoverImage
     newList.appendChild(imgOfBooks);
     if (book.alreadyRead === true) {
-      newList.className = "grenn";
+      newList.className = "green";
     } else {
       newList.className = "red";
     }
