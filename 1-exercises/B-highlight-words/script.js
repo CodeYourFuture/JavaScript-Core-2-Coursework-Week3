@@ -32,11 +32,19 @@ highlightWords(paragraph, colours);
 const selectSpanEvent = document.querySelector('p');
 const currentColor = document.getElementById("mySelect");
 
+
 selectSpanEvent.addEventListener('click', (event) => {
   if (event.target.tagName === 'SPAN') {
     createSelectOption(event.target);
   }
 })
+
 function createSelectOption(span) {
-  span.style.backgroundColor = currentColor.value;
+  if (currentColor.value === "none") {
+    span.style.backgroundColor = ""; // set background color to default value
+  } else if (span.style.backgroundColor === currentColor.value) {
+    span.style.backgroundColor = ""; // remove highlighting if already highlighted
+  } else {
+    span.style.backgroundColor = currentColor.value;
+  }
 }
