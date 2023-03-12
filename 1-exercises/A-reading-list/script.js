@@ -1,5 +1,18 @@
 function readingList(books) {
   // Write your code here...
+  let result = '';
+  for (let book of books) {
+    let read = "class='not-read'";
+    book.alreadyRead? read = 'class="read"' : read;
+      
+    result += `
+      <li ${read}>
+      <p>${book.title}</p>
+      <p>${book.author}</p>
+      <img src="${book.bookCoverImage}" alt="">
+    </li>`
+  }
+  $('#reading-list').html(result);
 }
 
 // for the tests, do not modify this array of books

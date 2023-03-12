@@ -63,6 +63,19 @@ body {
   background: #ce5f31;
 }
 
+#reading-list {
+  display: flex;
+    column-gap: 2rem;
+}
+
+.read {
+  background-color: #87ca8a;
+}
+
+.not-read {
+  background-color: #ce5f31;
+}
+
 /* Jumbotron */
 .jumbotron {
   border-radius: 0;
