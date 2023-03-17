@@ -1,0 +1,11 @@
+name: Run projects tests
+on: pull_request
+jobs:
+  projects-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: npm install
+    - name: Run mandatory tests
+      run: npm test -- --selectProjects projects
