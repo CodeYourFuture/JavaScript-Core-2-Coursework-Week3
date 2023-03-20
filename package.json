@@ -30,12 +30,18 @@
         "displayName": "projects",
         "testMatch": [
           "<rootDir>/2-projects/*/*.test.js"
+        ],
+        "setupFilesAfterEnv": [
+          "./jest.setup.js"
         ]
       },
       {
         "displayName": "exercises",
         "testMatch": [
           "<rootDir>/1-exercises/*/*.test.js"
+        ],
+        "setupFilesAfterEnv": [
+          "./jest.setup.js"
         ]
       }
     ]
