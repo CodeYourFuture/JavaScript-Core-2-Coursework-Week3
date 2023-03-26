@@ -1,3 +1,8 @@
+// Get DOM elements
+const addTodo = document.getElementById('add-todo');
+const eventsInTodoList = document.querySelector('#todo-list');
+const btnRemoveAll = document.querySelector('#remove-all-completed');
+
 const populateTodoList = (todos) => {
   const result = todos.reduce((acc, { id, task, completed, deadline }) => {
     const completedTodo = completed ? 'line-through' : 'none';
@@ -16,38 +21,29 @@ const populateTodoList = (todos) => {
   $('#todo-list').html(result);
 };
 
-
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
   { task: "Wash the dishes", completed: false, id: Date.now(), deadline: 0},
   { task: "Do the shopping", completed: false, id: Date.now() + 1, deadline: 0},
 ];
+
 populateTodoList(todos);
-const addTodo = document.getElementById('add-todo');
-const eventsInTodoList = document.querySelector('#todo-list');
-const btnRemoveAll = document.querySelector('#remove-all-completed');
 
 function completeTodoTask(event) {
-  const id = Number(event.target.dataset.id)
-  
+  const id = Number(event.target.dataset.id);
   todos.map((elem) => {
     if (elem.id === id) {
-      if (elem.completed) {
-        elem.completed = false;
-      } else {
-        elem.completed = true;
-      }
-    }
-  })
-  populateTodoList(todos)
+      elem.completed ? elem.completed = false : elem.completed = true
+  }});
+  populateTodoList(todos);
 }
 
 function removeTodoTask (event) {
-  const id = Number(event.target.dataset.id)
+  const id = Number(event.target.dataset.id);
   todos.forEach((elem, index) => {
   if (elem.id === id) {
-    todos.splice(index, 1)
+    todos.splice(index, 1);
   }
 })
 populateTodoList(todos);
@@ -71,8 +67,7 @@ function addNewTodo(event) {
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   // Write your code here...
-  todos = todos.filter(todo => !todo.completed)
-  
+  todos = todos.filter(todo => !todo.completed);
   populateTodoList(todos);
 }
 

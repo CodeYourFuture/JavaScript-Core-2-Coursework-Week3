@@ -1,3 +1,6 @@
+// Get DOM elements
+const bookContainer = document.querySelector('#reading-list');
+
 function readingList(books) {
   // Write your code here...
   let result = '';
@@ -12,7 +15,7 @@ function readingList(books) {
       <img src="${book.bookCoverImage}" alt="">
     </li>`
   }
-  $('#reading-list').html(result);
+  bookContainer.innerHTML = result;
 }
 
 // for the tests, do not modify this array of books

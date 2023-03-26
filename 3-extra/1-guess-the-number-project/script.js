@@ -1,6 +1,9 @@
+// Get DOM elements
+const triesOutput = document.querySelector(".Tries-output");
+const finalOutput = document.querySelector(".final-output");
+
+// Assign global variables
 let randomNumber = Math.floor(Math.random() * 100 + 1);
-let triesOutput = document.querySelector(".Tries-output")
-let finalOutput = document.querySelector(".final-output");
 let i = 7;
 triesOutput.innerHTML = `Number of Tries: ${i}`
 
@@ -28,7 +31,7 @@ function guessNumber() {
     finalOutput.textContent = "";
   }
 }
-console.log(randomNumber)
+
 // For this task we will be making a "New Game" button function which will reset our game,
 // Once the user clicks on this button the user will have new random number to guess
 // 1. Reset the values inside the body of the function
