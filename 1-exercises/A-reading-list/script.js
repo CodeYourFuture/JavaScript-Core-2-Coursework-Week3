@@ -1,5 +1,7 @@
 function readingList(books) {
   // Write your code here...
+  const bookList = document.querySelector("#reading-list");
+  const bookDetails = document.createElement("li");
 }
 
 // for the tests, do not modify this array of books
