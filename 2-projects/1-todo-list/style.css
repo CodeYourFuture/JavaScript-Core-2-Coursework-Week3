@@ -10,3 +10,15 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+  .li-sec {
+    color: black;
+    border: 1px solid yellow;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    background-color: beige;
+  }
+
+  .list-sec {
+    list-style: none;
+  }
