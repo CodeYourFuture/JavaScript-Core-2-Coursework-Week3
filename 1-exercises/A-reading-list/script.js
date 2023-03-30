@@ -24,6 +24,25 @@ function readingList(books) {
   }
 }
 
+/*
+Alternative method from Stack Overflow
+
+
+function readingList(books) {
+  const list = document.querySelector('#reading-list');
+
+  let html = '';
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i];
+    const bookClass = book.alreadyRead ? 'read' : 'unread';
+    html += `<li class="${bookClass}">
+              <p>${book.title} - ${book.author}</p>
+              <img src="${book.bookCoverImage}">
+            </li>`;
+  }
+  list.innerHTML = html;
+*/
+
 // for the tests, do not modify this array of books
 const books = [
   {
