@@ -1,5 +1,28 @@
 function readingList(books) {
-  // Write your code here...
+  books.forEach((book, index) => {
+    let { title, author, alreadyRead, bookCoverImage } = book;
+    // create p tag
+    const p = document.createElement("p");
+    // Append content to p
+    p.appendChild(document.createTextNode(`${title} by ${author}`));
+    // Create li tag
+    const li = document.createElement("li");
+    if (index === 0) {
+      li.classList.add("red");
+    } else {
+      li.style.backgroundColor = "green";
+    }
+    // Add p to the li
+    li.appendChild(p);
+    // Create img tag
+    const img = document.createElement("img");
+    //Assign src property to img
+    img.src = bookCoverImage;
+    // Add img to li
+    li.appendChild(img);
+    const readingList = document.querySelector("#reading-list");
+    readingList.appendChild(li);
+  });
 }
 
 // for the tests, do not modify this array of books
