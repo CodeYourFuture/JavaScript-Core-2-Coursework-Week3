@@ -1,5 +1,6 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
+  const contentDiv = document.querySelector("#content");
 }
 
 const paragraph =
