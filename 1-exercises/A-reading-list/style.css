@@ -12,6 +12,12 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
 .site-footer {
   margin-top: 4em;
 }
