@@ -2,6 +2,20 @@ function readingList(books) {
   // Write your code here...
   const bookList = document.querySelector("#reading-list");
   const bookDetails = document.createElement("li");
+
+  for (let book of books) {
+    const bookDetails = document.createElement("li");
+
+    if (book.alreadyRead === true) {
+      bookDetails.innerHTML = `<p>${book.title} by ${book.author}</p> <a href="${book.bookCoverImage}"><img src="${book.bookCoverImage}"/></a>`;
+      bookDetails.classList.add("green");
+      bookList.appendChild(bookDetails);
+    } else {
+      bookDetails.innerHTML = `<p>${book.title} by ${book.author}</p> <a href="${book.bookCoverImage}"><img src="${book.bookCoverImage}"/></a>`;
+      bookDetails.classList.add("red");
+      bookList.appendChild(bookDetails);
+    }
+  }
 }
 
 // for the tests, do not modify this array of books
