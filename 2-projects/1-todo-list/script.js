@@ -20,32 +20,59 @@ let todos = [
 
 populateTodoList(todos);
 
-const completed = document.querySelectorAll(".fa-check");
-for (let i = 0; i < completed.length; i++) {
-  completed[i].addEventListener("click", lineThrough);
-}
-function lineThrough(e) {
-  const target = e.target.parentNode.parentNode;
-  target.classList.toggle("lineThru");
+const completed = document.getElementsByClassName("fa-check");
+for (let nList of [...completed]) {
+  nList.addEventListener("click", (e) => {
+    const target = e.target.parentNode.parentNode;
+    target.classList.toggle("lineThru");
+  });
 }
 
 const removed = document.querySelectorAll(".fa-trash");
 for (let i = 0; i < removed.length; i++) {
-  removed[i].addEventListener("click", removedTask);
-}
-function removedTask(e) {
-  const target = e.target.parentNode.parentNode;
-  target.remove();
+  removed[i].addEventListener("click", (e) => {
+    const target = e.target.parentNode.parentNode;
+    target.remove();
+  });
 }
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
+
 function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  let inputValue = document.getElementById("todoInput").value;
+  const userInput = [{ task: inputValue }];
+  populateTodoList(userInput);
+  const completed = document.querySelector("li:last-child");
+
+  completed.addEventListener("click", (e) => {
+    const target = e.target.parentNode.parentNode;
+    target.classList.toggle("lineThru");
+  });
+
+  const removed = document.querySelectorAll(".fa-trash");
+  for (let i = 0; i < removed.length; i++) {
+    removed[i].addEventListener("click", (e) => {
+      const target = e.target.parentNode.parentNode;
+      target.remove();
+    });
+  }
+  const resetInput = document.querySelector(".g-3");
+  resetInput.reset();
 }
 
+const addTodo = document.querySelector(".btn");
+addTodo.addEventListener("click", addNewTodo);
+
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+function deleteAllCompletedTodos(event) {
+  event.preventDefault();
+  let list = document.getElementById("todo-list");
+  for (let prop of [...list.children]) {
+    if (prop.classList.contains("lineThru")) {
+      prop.remove();
+    }
+  }
 }
+const removeCompleted = document.getElementById("remove-all-completed");
+removeCompleted.addEventListener("click", deleteAllCompletedTodos);
