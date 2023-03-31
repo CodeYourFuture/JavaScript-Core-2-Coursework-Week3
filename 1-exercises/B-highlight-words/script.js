@@ -1,5 +1,35 @@
+function highlightIt(event) {
+  //check colour
+  let highlightColor = document.querySelector("#main-select").value;
+  if (highlightColor === "none") highlightColor = "";
+  if (this.style.backgroundColor === "") {
+    this.style.backgroundColor = highlightColor;
+  } else {
+    this.style.backgroundColor = "";
+  }
+}
+
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  let mainDiv = document.querySelector("#content");
+
+  let mainParagraph = document.createElement("p");
+  let arrayOfWords = paragraph.split(" ");
+  for (const aWord of arrayOfWords) {
+    let spanWord = document.createElement("span");
+    spanWord.innerText = aWord + " ";
+    spanWord.addEventListener("click", highlightIt);
+    mainParagraph.appendChild(spanWord);
+  }
+
+  mainDiv.appendChild(mainParagraph);
+  let mainSelect = document.createElement("select");
+  mainSelect.id = "main-select";
+  for (const aColour of colours) {
+    let anOption = document.createElement("option");
+    anOption.innerText = aColour;
+    mainSelect.appendChild(anOption);
+  }
+  mainDiv.appendChild(mainSelect);
 }
 
 const paragraph =
