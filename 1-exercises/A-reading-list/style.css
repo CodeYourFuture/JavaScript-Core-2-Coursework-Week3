@@ -123,7 +123,17 @@ body {
 .red {
   background-color: red;
 }
+.green {
+  background-color: green;
+}
 
+.book-list-item{
+  margin-right: 100px;
+}
+
+.book-image{
+  width: 200px;
+}
 .addArticle {
   margin-bottom: 10px;
 }
