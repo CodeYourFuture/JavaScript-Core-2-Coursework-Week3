@@ -67,9 +67,7 @@ function deleteAllCompletedTodos(event) {
   event.preventDefault();
   let currentItems = document.querySelectorAll(".to-do-items");
   for (const currentItem of currentItems) {
-    let textSpan = currentItem.querySelector("span");
-    if (textSpan.classList.contains("done-text")) {
-      console.log(textSpan);
+    if (currentItem.classList.contains("done-text")) {
       currentItem.parentElement.removeChild(currentItem);
     }
   }
