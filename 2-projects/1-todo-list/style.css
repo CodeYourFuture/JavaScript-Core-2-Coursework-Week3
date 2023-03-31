@@ -10,3 +10,7 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+  .done-text {
+    text-decoration:line-through;
+  }
