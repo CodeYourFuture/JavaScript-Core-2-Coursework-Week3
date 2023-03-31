@@ -1,5 +1,6 @@
 function checkItem(event) {
-  this.parentElement.parentElement.classList.toggle("done-text");
+  console.log(this.parentElement.parentElement.parentElement);
+  this.parentElement.parentElement.parentElement.classList.toggle("done-text");
 }
 function trashItem(event) {
   this.parentElement.parentElement.parentElement.parentElement.removeChild(
