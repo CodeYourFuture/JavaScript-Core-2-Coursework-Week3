@@ -25,4 +25,11 @@ const books = [
   },
 ];
 
+
+
+for(let b in books){
+
+  console.log(books[b]);
+}
+
 readingList(books);
