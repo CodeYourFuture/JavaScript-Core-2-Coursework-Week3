@@ -1,11 +1,23 @@
 function readingList(books) {
   // Write your code here...
+
   for (let book of books) {
     const paragraph = document.createElement("p");
-    // const readingList = document.createElement("div");
-    let content = document.querySelector("#content");
-    content.appendChild(paragraph);
+    // let content = document.querySelector("#content");
+    // content.appendChild(paragraph);
     paragraph.innerText = `${book.title} by ${book.author}`;
+
+    const li = document.createElement("li");
+    let ul = document.querySelector("#reading-list");
+
+    if (book.alreadyRead) {
+      li.style.backgroundColor = "red";
+    } else {
+      li.style.backgroundColor = "green";
+    }
+    li.appendChild(paragraph);
+    ul.appendChild(li);
+
     let bookImage = document.createElement(`img`);
     bookImage.src = book.bookCoverImage;
     paragraph.appendChild(bookImage);
