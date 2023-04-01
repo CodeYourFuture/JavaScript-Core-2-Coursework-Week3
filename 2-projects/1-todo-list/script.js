@@ -1,4 +1,4 @@
-function populateTodoList(todos) {
+/*function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
 }
@@ -23,3 +23,65 @@ function addNewTodo(event) {
 function deleteAllCompletedTodos() {
   // Write your code here...
 }
+*/
+
+function populateTodoList(todos) {
+  const list = document.getElementById("todo-list");
+  list.innerHTML = "";
+
+  todos.forEach((todo) => {
+    const li = document.createElement("li");
+    li.innerText = todo.task;
+
+    if (todo.completed) {
+      li.classList.add("completed");
+    }
+
+    const checkIcon = document.createElement("i");
+    checkIcon.classList.add("fa", "fa-check");
+    checkIcon.addEventListener("click", () => {
+      li.classList.toggle("completed");
+    });
+
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa", "fa-trash");
+    deleteIcon.addEventListener("click", () => {
+      li.remove();
+    });
+
+    li.appendChild(checkIcon);
+    li.appendChild(deleteIcon);
+    list.appendChild(li);
+  });
+}
+
+let todos = [
+  { task: "Wash the dishes", completed: false },
+  { task: "Do the shopping", completed: false },
+];
+
+populateTodoList(todos);
+
+function addNewTodo(event) {
+  event.preventDefault();
+
+  const input = document.getElementById("todoInput");
+  const task = input.value;
+
+  if (task.trim() !== "") {
+    const todo = { task: task, completed: false };
+    todos.push(todo);
+    populateTodoList(todos);
+    input.value = "";
+  }
+}
+
+function deleteAllCompletedTodos() {
+  todos = todos.filter((todo) => !todo.completed);
+  populateTodoList(todos);
+}
+
+document.getElementById("todoForm").addEventListener("submit", addNewTodo);
+document
+  .getElementById("deleteAllCompleted")
+  .addEventListener("click", deleteAllCompletedTodos);
