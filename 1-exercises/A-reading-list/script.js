@@ -1,5 +1,15 @@
 function readingList(books) {
   // Write your code here...
+  for (let book of books) {
+    const paragraph = document.createElement("p");
+    // const readingList = document.createElement("div");
+    let content = document.querySelector("#content");
+    content.appendChild(paragraph);
+    paragraph.innerText = `${book.title} by ${book.author}`;
+    let bookImage = document.createElement(`img`);
+    bookImage.src = book.bookCoverImage;
+    paragraph.appendChild(bookImage);
+  }
 }
 
 // for the tests, do not modify this array of books
