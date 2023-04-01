@@ -7,6 +7,7 @@ function populateTodoList(todos) {
   <i class="fa fa-check" aria-hidden="true" ></i>
   <i class="fa fa-trash" aria-hidden="true" ></i>
 </span>`;
+
     list.appendChild(taskList);
   }
 }
@@ -20,20 +21,22 @@ let todos = [
 
 populateTodoList(todos);
 
+function completedTask(e) {
+  const target = e.target.parentNode.parentNode;
+  target.classList.toggle("lineThru");
+}
 const completed = document.getElementsByClassName("fa-check");
 for (let nList of [...completed]) {
-  nList.addEventListener("click", (e) => {
-    const target = e.target.parentNode.parentNode;
-    target.classList.toggle("lineThru");
-  });
+  nList.addEventListener("click", completedTask);
 }
 
+function removeTask(e) {
+  const target = e.target.parentNode.parentNode;
+  target.remove();
+}
 const removed = document.querySelectorAll(".fa-trash");
 for (let i = 0; i < removed.length; i++) {
-  removed[i].addEventListener("click", (e) => {
-    const target = e.target.parentNode.parentNode;
-    target.remove();
-  });
+  removed[i].addEventListener("click", removeTask);
 }
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
@@ -52,10 +55,7 @@ function addNewTodo(event) {
 
   const removed = document.querySelectorAll(".fa-trash");
   for (let i = 0; i < removed.length; i++) {
-    removed[i].addEventListener("click", (e) => {
-      const target = e.target.parentNode.parentNode;
-      target.remove();
-    });
+    removed[i].addEventListener("click", removeTask);
   }
   const resetInput = document.querySelector(".g-3");
   resetInput.reset();
