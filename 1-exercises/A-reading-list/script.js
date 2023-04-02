@@ -1,6 +1,32 @@
 function readingList(books) {
-  // Write your code here...
+  let ul = document.createElement("ul");
+  content.appendChild(ul)
+
+  for (let book of books) {
+    let pElement = document.createElement("p");
+    pElement.innerText = `${book.title} by ${book.author}`;
+    
+    let imgElement = document.createElement("img");
+    imgElement.setAttribute("src", book.bookCoverImage)
+  
+    let li = document.createElement("li")
+    
+    li.appendChild(pElement);
+    li.appendChild(imgElement);
+    ul.appendChild(li);
+
+    if(book.alreadyRead){
+      li.classList.add("green")
+    }else {
+      li.classList.add("red")
+    }
+  }
+
+  
+
 }
+
+
 
 // for the tests, do not modify this array of books
 const books = [
