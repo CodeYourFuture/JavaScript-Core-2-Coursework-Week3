@@ -1,13 +1,21 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  todos.forEach(element => {
+    let listItem = list.appendChild(document.createElement("li"));
+    listItem.appendChild(document.createTextNode(element.task));
+  });
+
+  //console.log(list)
 }
+
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
   { task: "Wash the dishes", completed: false },
   { task: "Do the shopping", completed: false },
+  {task: "my name is sss", completed: false},
 ];
 
 populateTodoList(todos);
@@ -23,3 +31,5 @@ function addNewTodo(event) {
 function deleteAllCompletedTodos() {
   // Write your code here...
 }
+
+//function setDeadlinesForTodos(){}
