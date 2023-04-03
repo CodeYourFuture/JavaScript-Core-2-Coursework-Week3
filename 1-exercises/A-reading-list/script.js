@@ -4,7 +4,13 @@ function readingList(books) {
     let author = createElement("p");
     let image = createElement("img");
 
+
     image.url = bookCoverImage;
+
+    if (alreadyRead == true) {
+      book.style = "cssClass"
+
+    };
 
 });
 
