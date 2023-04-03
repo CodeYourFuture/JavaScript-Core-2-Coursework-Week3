@@ -8,7 +8,7 @@ function readingList(books) {
     image.url = bookCoverImage;
 
     if (alreadyRead == true) {
-      book.style = "cssClass"
+      book.style = "cssClass";
 
     };
 
