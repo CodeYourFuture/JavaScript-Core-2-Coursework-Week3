@@ -2,6 +2,9 @@ function readingList(books) {
   books.forEach(function(book) {
     let title = createElement("p");
     let author = createElement("p");
+    let image = createElement("img");
+
+    image.url = bookCoverImage;
 
 });
 
