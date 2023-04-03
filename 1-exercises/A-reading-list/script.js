@@ -1,6 +1,9 @@
 function readingList(books) {
-  // Write your code here...
-}
+  books.forEach(function(book) {
+    let title = createElement("p");
+    let author = createElement("p");
+
+});
 
 // for the tests, do not modify this array of books
 const books = [
@@ -25,4 +28,4 @@ const books = [
   },
 ];
 
-readingList(books);
+readingList(books); }
