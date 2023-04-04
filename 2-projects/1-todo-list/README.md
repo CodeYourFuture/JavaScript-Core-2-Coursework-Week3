@@ -23,7 +23,7 @@ To view the website, open index.html in a browser.
 
 A basic example of this can website can be found here
 
-https://chrisowen101.github.io/ToDoListSolution/
+/https://chrisowen101.github.io/ToDoListSolution
 
 This covers only the basic tasks, not the advanced tasks.
 
