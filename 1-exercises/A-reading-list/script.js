@@ -22,6 +22,11 @@ function readingList(books) {
     bookImage.src = book.bookCoverImage;
     paragraph.appendChild(bookImage);
   }
+
+  document.querySelector("#reading-list").appendChild(li);
+  li.appendChild(title);
+  li.appendChild(author);
+  li.appendChild(image);
 }
 
 // for the tests, do not modify this array of books
