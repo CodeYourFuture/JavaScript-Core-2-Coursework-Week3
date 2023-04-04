@@ -2,16 +2,16 @@ function highlightWords(paragraph, colours) {
   // Create p tag
   const p = document.createElement("p");
   // Turn string to array
-  const arrayForParagraph = paragraph.split(' ');
-  arrayForParagraph.forEach(word => {
+  const arrayForParagraph = paragraph.split(" ");
+  arrayForParagraph.forEach((word) => {
     // Create span tag
-    const span = document.createElement('span')
+    const span = document.createElement("span");
     // Add word to the span
     span.innerText = word + " ";
     //Add span to p
-    p.appendChild(span)
-  })
-  
+    p.appendChild(span);
+  });
+
   // Create select tag
   let select = document.createElement("select");
   // Create option tag
@@ -19,19 +19,23 @@ function highlightWords(paragraph, colours) {
   // give a default value to option
   option.appendChild(document.createTextNode("Please choose a colour"));
   // Add option to select
-  select.appendChild(option)
+  select.appendChild(option);
   colours.forEach((colour) => {
     // Create option tag
     const option = document.createElement("option");
     // Add colour to option
-    option.appendChild(document.createTextNode(colour.charAt(0).toUpperCase()+colour.substring(1)));
+    option.appendChild(
+      document.createTextNode(
+        colour.charAt(0).toUpperCase() + colour.substring(1)
+      )
+    );
     // Add value to option
     option.value = colour;
     // Add option to the select
     select.appendChild(option);
   });
   // Access to content div
-  const content = document.querySelector('#content')
+  const content = document.querySelector("#content");
   // Add p to content div
   content.appendChild(p);
   // Add select to content div
@@ -42,35 +46,29 @@ const paragraph =
 const colours = ["yellow", "green", "blue", "none"];
 highlightWords(paragraph, colours);
 
-
 //variables
 // Access to select input
-const spans = document.querySelectorAll('span'),
-      // Access to select
-      select = document.querySelector('select')
-
+const spans = document.querySelectorAll("span"),
+  // Access to select
+  select = document.querySelector("select");
 
 //Eventlisteners
-spans.forEach((span => {
-  // Add eventlistener for all spans in p 
-  span.addEventListener('click', function(){
+spans.forEach((span) => {
+  // Add eventlistener for all spans in p
+  span.addEventListener("click", function () {
     switch (select.value) {
-      case 'yellow':
-         span.style.backgroundColor = 'yellow'
+      case "yellow":
+        span.style.backgroundColor = "yellow";
         break;
-      case 'green':
-         span.style.backgroundColor = 'green'
+      case "green":
+        span.style.backgroundColor = "green";
         break;
-      case 'blue':
-         span.style.backgroundColor = 'blue'
+      case "blue":
+        span.style.backgroundColor = "blue";
         break;
-      default: span.style.backgroundColor = 'none'
+      default:
+        span.style.backgroundColor = "none";
         break;
     }
   });
-}))
-
-  
-
-
-
+});

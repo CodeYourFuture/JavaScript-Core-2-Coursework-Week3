@@ -11,7 +11,7 @@ body {
     width: 90%;
   }
 
-  .li-sec {
+  .todo-li-sec {
     color: black;
     border: 1px solid yellow;
     padding: 0.5rem;
@@ -19,6 +19,6 @@ body {
     background-color: beige;
   }
 
-  .list-sec {
+  .todo-list-sec {
     list-style: none;
   }

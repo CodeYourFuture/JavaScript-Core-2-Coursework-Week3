@@ -2,7 +2,7 @@ function populateTodoList(todos) {
   // Access to the list div
   let list = document.getElementById("todo-list");
   // Add class to list
-  list.classList = "list-sec";
+  list.classList = "todo-list-sec";
   // Remove all list before recreating
   list.textContent = "";
   // Loop throug to our todos
@@ -10,7 +10,7 @@ function populateTodoList(todos) {
     // Create li tag
     const li = document.createElement("li");
     // Add class to li
-    li.classList = "li-sec";
+    li.classList = "todo-li-sec";
     // Add content to li
     li.innerHTML = `
       ${todo.task} 
@@ -104,7 +104,7 @@ function removeLiFromList(e) {
 function deleteAllCompletedTodos(e) {
   e.preventDefault();
   // Access to all lis
-  const lis = document.querySelectorAll(".li-sec");
+  const lis = document.querySelectorAll(".todo-li-sec");
   // loop through to nodeList
   lis.forEach((li) => {
     // Find todos that has completed

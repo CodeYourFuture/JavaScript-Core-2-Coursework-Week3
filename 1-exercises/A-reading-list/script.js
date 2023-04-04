@@ -7,11 +7,7 @@ function readingList(books) {
     p.appendChild(document.createTextNode(`${title} by ${author}`));
     // Create li tag
     const li = document.createElement("li");
-    if (index === 0) {
-      li.classList.add("red");
-    } else {
-      li.style.backgroundColor = "green";
-    }
+    li.style.backgroundColor = alreadyRead ? "green" : "red";
     // Add p to the li
     li.appendChild(p);
     // Create img tag
