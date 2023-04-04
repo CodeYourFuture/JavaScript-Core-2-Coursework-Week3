@@ -1,5 +1,15 @@
 function readingList(books) {
-  // Write your code here...
+  const ul = document.querySelector("#reading-list")
+  books.forEach(element => {
+  const bookContainer = document.createElement("li")
+const bookTitle = document.createElement("p")
+  bookTitle.innerText = element.title
+  const bookImage = document.createElement("img")
+  bookImage.src = element.bookCoverImage
+  bookContainer.append(bookTitle, bookImage)
+  
+  ul.append(bookContainer)
+  });
 }
 
 // for the tests, do not modify this array of books
