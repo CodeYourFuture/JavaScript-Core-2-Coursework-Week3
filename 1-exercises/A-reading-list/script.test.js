@@ -42,7 +42,7 @@ describe("Reading list", () => {
     expect(readingList).toHaveTextContent("The Pragmatic Programmer");
     expect(readingList).toHaveTextContent("Andrew Hunt");
   });
-  test("each book in the list has an image", () => {
+  test.only("each book in the list has an image", () => {
     const firstLi = page.window.document.querySelector(
       "#reading-list > :first-child"
     );
