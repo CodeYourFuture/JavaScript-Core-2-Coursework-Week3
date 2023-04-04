@@ -157,3 +157,19 @@ body {
     max-height: 80px;
   }
 }
+
+.greenMark {
+  color: azure;
+  background-color: green;
+  padding: 1rem;
+}
+
+.redMark {
+  color: azure;
+  background-color: rgb(230, 0, 0);
+  padding: 1rem;
+}
+
+.image {
+  width: 10rem;
+}
