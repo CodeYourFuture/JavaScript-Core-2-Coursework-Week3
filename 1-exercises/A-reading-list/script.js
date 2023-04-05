@@ -30,9 +30,6 @@ function readingList(books) {
       bookListItem.classList.add("green");
     }
   }
-
-  // ***How can we change the colours of each list item?
-  // const allListItems = document.querySelectorAll("#reading-list > *");
 }
 
 // for the tests, do not modify this array of books
