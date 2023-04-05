@@ -1,5 +1,28 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  // everything goes in here
+  const contentDiv = document.querySelector("#content");
+
+  // Create a `<p>` element.
+  const pElement = document.createElement("p");
+
+  // Create a `<select>` element.
+  const myDropdown = document.createElement("select");
+  // remember to append it to a parent
+  contentDiv.appendChild(myDropdown);
+
+  // Iterate over the options (colours?) array and create an `<option>` element in the `<select>` for each element.
+  for (const colour of colours) {
+    // creating a new option
+    const newOption = document.createElement("option");
+    // assigning value and text
+    newOption.value = colour;
+    newOption.text = colour;
+    // adding new option to the dropdown menu
+    myDropdown.appendChild(newOption);
+
+    // To iterate over the paragraph, it needs to be an array. Atm, it's a string.
+    // Turn the paragraph into an array - use the `.split(" ")` method here.
+  }
 }
 
 const paragraph =
