@@ -1,5 +1,23 @@
 function readingList(books) {
   // Write your code here...
+  // same as what we learned from CYF Blocks , same exact steps :)
+  books.map((eachBook) => {
+    const li = document.createElement("li");
+    const title = document.createElement("p");
+    const author = document.createElement("p");
+    const image = document.createElement("img");
+
+    title.innerText = eachBook.title;
+    author.innerText = eachBook.author;
+    image.src = eachBook.bookCoverImage;
+    li.style.backgroundColor = eachBook.alreadyRead ? "green" : "red";
+
+    li.appendChild(title);
+    li.appendChild(author);
+    li.appendChild(image);
+
+    document.querySelector("#reading-list").appendChild(li);
+  });
 }
 
 // for the tests, do not modify this array of books
