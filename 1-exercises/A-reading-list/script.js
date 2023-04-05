@@ -1,5 +1,18 @@
-function readingList(books) {
-  // Write your code here...
+function readingList(booksArray) {
+  let booksUlElem = document.querySelector('ul#reading-list');
+  for(let book of booksArray){
+    let bookElem = document.createElement('li');
+    bookElem.classList.add(book.alreadyRead ? 'green' : 'red');
+    let bookTitle = document.createElement('p');
+    bookTitle.innerText = `${book.title} by ${book.author}`;
+    let bookImg  = document.createElement('img');
+    bookImg.src = book.bookCoverImage;
+    // bookImg.width = '300';
+    bookElem.appendChild(bookTitle);
+    bookElem.appendChild(bookImg);
+    booksUlElem.appendChild(bookElem)
+  };
+
 }
 
 // for the tests, do not modify this array of books

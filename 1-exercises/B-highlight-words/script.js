@@ -1,5 +1,37 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  //paragraph
+  const paragraphElem = document.createElement('p');
+  const wordArray = paragraph.split(' ');
+  for (let word of wordArray) {
+    let span = document.createElement('span');
+    span.innerText = `${word} `;
+    span.addEventListener('click', function(){
+      //span.style.backgroundColor = selectElem.value === 'none' ? 'initial' :  selectElem.value;
+      selectElem.value === 'none' ? span.style = "" :  span.style.backgroundColor = selectElem.value;
+    });
+    paragraphElem.appendChild(span);
+  };
+
+  //select code
+  const selectElem = document.createElement('select');
+  let option = document.createElement('option')
+  option.innerText = "Please choose a colour";
+  option.value = "Please choose a colour";
+  selectElem.appendChild(option);
+
+  for( let colour of colours){
+    let option = document.createElement('option')
+    option.innerText = colour[0].toUpperCase() + colour.slice(1);
+    option.value = colour;
+    option.name = colour;
+    selectElem.appendChild(option);
+  }
+  //insert into page
+  const contentElem = document.querySelector('#content');
+  contentElem.appendChild(paragraphElem);
+  //contentElem.appendChild(label);
+  contentElem.appendChild(selectElem);
+
 }
 
 const paragraph =
