@@ -80,68 +80,64 @@
 
 //practise work
 
-// function populateTodoList(todos) {
-//   const list = document.getElementById("todo-list");
+function populateTodoList(todos) {
+  const list = document.getElementById("todo-list");
 
-//   todos.forEach((todo, index) => {
-//     const li = document.createElement("li");
-//     li.classList.add("list-group-item");
-//     li.innerText = todo.task;
+  todos.forEach((todo, index) => {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.innerText = todo.task;
 
-//     const span = document.createElement("span");
-//     span.classList.add("badge", "bg-primary", "rounded-pill");
+    const span = document.createElement("span");
+    span.classList.add("badge", "bg-primary", "rounded-pill");
 
-//     const checkIcon = document.createElement("i");
-//     checkIcon.classList.add("fa", "fa-check");
-//     checkIcon.setAttribute("aria-hidden", "true");
-//     checkIcon.addEventListener("click", () => {
-//       li.classList.toggle("text-decoration-line-through");
-//     });
+    const checkIcon = document.createElement("i");
+    checkIcon.classList.add("fa", "fa-check");
+    checkIcon.setAttribute("aria-hidden", "true");
+    checkIcon.addEventListener("click", () => {
+      li.classList.toggle("text-decoration-line-through");
+    });
 
-//     const deleteIcon = document.createElement("i");
-//     deleteIcon.classList.add("fa", "fa-trash");
-//     deleteIcon.setAttribute("aria-hidden", "true");
-//     deleteIcon.addEventListener("click", () => {
-//       li.remove();
-//     });
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa", "fa-trash");
+    deleteIcon.setAttribute("aria-hidden", "true");
+    deleteIcon.addEventListener("click", () => {
+      li.remove();
+    });
 
-//     span.appendChild(checkIcon);
-//     span.appendChild(deleteIcon);
-//     li.appendChild(span);
-//     list.appendChild(li);
-//   });
-// }
-// let todos = [
-//   { task: "Wash the dishes", completed: false },
-//   { task: "Do the shopping", completed: false },
-// ];
+    span.appendChild(checkIcon);
+    span.appendChild(deleteIcon);
+    li.appendChild(span);
+    list.appendChild(li);
+  });
+}
+let todos = [
+  { task: "Wash the dishes", completed: false },
+  { task: "Do the shopping", completed: false },
+];
 
+  populateTodoList(todos);
+  function addNewTodo(event) {
+  event.preventDefault();
+  const newTodoInput = document.getElementById("new-todo-input");
+  const newTodo = { task: newTodoInput.value, completed: false };
+  todos.push(newTodo);
+  populateTodoList(todos);
+  newTodoInput.value = "";
+}
+function deleteAllCompletedTodos() {
+  const listItems = document.querySelectorAll("#todo-list li");
+  listItems.forEach((li) => {
+    if (li.classList.contains("text-decoration-line-through")) {
+      li.remove();
+    }
+  });
+}
+const addTodoBtn = document.getElementById("add-todo-btn");
+addTodoBtn.addEventListener("click", addNewTodo);
 
-
-
-//practise work
-//   populateTodoList(todos);
-//   function addNewTodo(event) {
-//   event.preventDefault();
-//   const newTodoInput = document.getElementById("new-todo-input");
-//   const newTodo = { task: newTodoInput.value, completed: false };
-//   todos.push(newTodo);
-//   populateTodoList(todos);
-//   newTodoInput.value = "";
-// }
-// function deleteAllCompletedTodos() {
-//   const listItems = document.querySelectorAll("#todo-list li");
-//   listItems.forEach((li) => {
-//     if (li.classList.contains("text-decoration-line-through")) {
-//       li.remove();
-//     }
-//   });
-// }
-// const addTodoBtn = document.getElementById("add-todo-btn");
-// addTodoBtn.addEventListener("click", addNewTodo);
-
-// const deleteCompletedBtn = document.getElementById("delete-completed-btn");
-// deleteCompletedBtn.addEventListener("click", deleteAllCompletedTodos);
+const deleteCompletedBtn = document.getElementById("delete-completed-btn");
+deleteCompletedBtn.addEventListener("click", deleteAllCompletedTodos);
 
 
 
@@ -165,98 +161,102 @@
 
 
 
-function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
+
+
+//practise work
+
+// function populateTodoList(todos) {
+//   let list = document.getElementById("todo-list");
   
-  // Clear the list to avoid duplicating items
-  list.innerHTML = "";
+//   // Clear the list to avoid duplicating items
+//   list.innerHTML = "";
 
-  // Loop through each todo
-  todos.forEach((todo, index) => {
-    // Create a new <li> element for each todo
-    let li = document.createElement("li");
-    li.className = "list-group-item d-flex justify-content-between align-items-center";
-    li.innerHTML = todo.task;
+//   // Loop through each todo
+//   todos.forEach((todo, index) => {
+//     // Create a new <li> element for each todo
+//     let li = document.createElement("li");
+//     li.className = "list-group-item d-flex justify-content-between align-items-center";
+//     li.innerHTML = todo.task;
 
-    // Create the buttons for each todo
-    let span = document.createElement("span");
-    span.className = "badge bg-primary rounded-pill";
-    span.innerHTML = `
-      <i class="fa fa-check" aria-hidden="true"></i>
-      <i class="fa fa-trash" aria-hidden="true"></i>
-    `;
-    let checkButton = span.querySelector(".fa-check");
-    let deleteButton = span.querySelector(".fa-trash");
+//     // Create the buttons for each todo
+//     let span = document.createElement("span");
+//     span.className = "badge bg-primary rounded-pill";
+//     span.innerHTML = `
+//       <i class="fa fa-check" aria-hidden="true"></i>
+//       <i class="fa fa-trash" aria-hidden="true"></i>
+//     `;
+//     let checkButton = span.querySelector(".fa-check");
+//     let deleteButton = span.querySelector(".fa-trash");
 
-    // Apply line-through styling if the todo is completed
-    if (todo.completed) {
-      li.style.textDecoration = "line-through";
-      checkButton.classList.add("text-white");
-    }
+//     // Apply line-through styling if the todo is completed
+//     if (todo.completed) {
+//       li.style.textDecoration = "line-through";
+//       checkButton.classList.add("text-white");
+//     }
 
-    // Toggle line-through styling on click
-    checkButton.addEventListener("click", () => {
-      if (li.style.textDecoration === "line-through") {
-        li.style.textDecoration = "none";
-        checkButton.classList.remove("text-white");
-        todos[index].completed = false;
-      } else {
-        li.style.textDecoration = "line-through";
-        checkButton.classList.add("text-white");
-        todos[index].completed = true;
-      }
-    });
+//     // Toggle line-through styling on click
+//     checkButton.addEventListener("click", () => {
+//       if (li.style.textDecoration === "line-through") {
+//         li.style.textDecoration = "none";
+//         checkButton.classList.remove("text-white");
+//         todos[index].completed = false;
+//       } else {
+//         li.style.textDecoration = "line-through";
+//         checkButton.classList.add("text-white");
+//         todos[index].completed = true;
+//       }
+//     });
 
-    // Delete the todo on click
-    deleteButton.addEventListener("click", () => {
-      li.remove();
-      todos.splice(index, 1);
-    });
+//     // Delete the todo on click
+//     deleteButton.addEventListener("click", () => {
+//       li.remove();
+//       todos.splice(index, 1);
+//     });
 
-    // Add the buttons to the <li> element and add the <li> element to the list
-    li.appendChild(span);
-    list.appendChild(li);
-  });
-}
+//     // Add the buttons to the <li> element and add the <li> element to the list
+//     li.appendChild(span);
+//     list.appendChild(li);
+//   });
+// }
 
-let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
-];
+// let todos = [
+//   { task: "Wash the dishes", completed: false },
+//   { task: "Do the shopping", completed: false },
+// ];
 
-populateTodoList(todos);
+// populateTodoList(todos);
 
 
 
-function addNewTodo(event) {
-  event.preventDefault();
-  const newTodo = document.createElement('li');
-  newTodo.innerText = todoInput.value;
-  const completeButton = document.createElement('button');
-  completeButton.innerText = 'Complete';
-  completeButton.addEventListener('click', () => {
-    newTodo.classList.toggle('completed');
-  });
-  const deleteButton = document.createElement('button');
-  deleteButton.innerText = 'Delete';
-  deleteButton.addEventListener('click', () => {
-    newTodo.remove();
-  });
-  newTodo.appendChild(completeButton);
-  newTodo.appendChild(deleteButton);
-  todoList.appendChild(newTodo);
-  todos.push({ text: todoInput.value, completed: false });
-  todoInput.value = '';
-}
+// function addNewTodo(event) {
+//   event.preventDefault();
+//   const newTodo = document.createElement('li');
+//   newTodo.innerText = todoInput.value;
+//   const completeButton = document.createElement('button');
+//   completeButton.innerText = 'Complete';
+//   completeButton.addEventListener('click', () => {
+//     newTodo.classList.toggle('completed');
+//   });
+//   const deleteButton = document.createElement('button');
+//   deleteButton.innerText = 'Delete';
+//   deleteButton.addEventListener('click', () => {
+//     newTodo.remove();
+//   });
+//   newTodo.appendChild(completeButton);
+//   newTodo.appendChild(deleteButton);
+//   todoList.appendChild(newTodo);
+//   todos.push({ text: todoInput.value, completed: false });
+//   todoInput.value = '';
+// }
 
-function deleteAllCompletedTodos() {
-  const completedTodos = document.querySelectorAll('.completed');
-  completedTodos.forEach(todo => {
-    todo.remove();
-    const index = todos.findIndex(t => t.text === todo.innerText);
-    todos.splice(index, 1);
-  });
-}
+// function deleteAllCompletedTodos() {
+//   const completedTodos = document.querySelectorAll('.completed');
+//   completedTodos.forEach(todo => {
+//     todo.remove();
+//     const index = todos.findIndex(t => t.text === todo.innerText);
+//     todos.splice(index, 1);
+//   });
+// }
 
 
 
