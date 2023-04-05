@@ -121,7 +121,11 @@ body {
 }
 
 .red {
-  background-color: red;
+  background-color: coral;
+}
+
+.green {
+  background-color: lightgreen;
 }
 
 .addArticle {
