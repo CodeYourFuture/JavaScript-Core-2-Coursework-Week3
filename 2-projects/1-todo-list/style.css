@@ -10,3 +10,20 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+  .line {
+  text-decoration: line-through;
+  }
+
+.background-list{
+  background-color: antiquewhite;
+  color: black;
+  margin: 0.02rem;
+  padding: 0.5rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  row-gap: 0.2rem;
+}
+
+
