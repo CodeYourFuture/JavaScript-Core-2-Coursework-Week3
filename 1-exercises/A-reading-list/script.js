@@ -1,6 +1,31 @@
+
 function readingList(books) {
-  // Write your code here...
+
+  let unorderedList = document.getElementById("reading-list");
+
+  for (book of books) {
+    let listItem = document.createElement("li");
+
+    let paragraph = document.createElement("p");
+    paragraph.innerText = book.title;
+
+    let image = document.createElement("img");
+    image.src = book.bookCoverImage;
+
+    unorderedList.appendChild(listItem);
+    listItem.appendChild(paragraph);
+    listItem.appendChild(image);
+
+    if (book.alreadyRead) {
+      listItem.style.backgroundColor = "Green";
+    } else {
+      listItem.style.backgroundColor = "Red";
+    }
+  }
+
 }
+
+
 
 // for the tests, do not modify this array of books
 const books = [
@@ -26,3 +51,6 @@ const books = [
 ];
 
 readingList(books);
+
+
+
