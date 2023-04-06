@@ -147,8 +147,8 @@ deleteCompletedBtn.addEventListener("click", deleteAllCompletedTodos);
   completedTodos.forEach(todo => todo.remove());
   const removeAllButton = document.getElementById(remove-All-btn);
   
-  removeAllButton.addEventListener('click', deleteAllCompletedTodos);
-  }
+}
+removeAllButton.addEventListener('click', deleteAllCompletedTodos);
 
 
 
