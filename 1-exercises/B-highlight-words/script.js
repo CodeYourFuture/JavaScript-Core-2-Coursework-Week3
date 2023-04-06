@@ -71,3 +71,50 @@ spans.forEach((span) => {
 });
 
 
+// Update code blow
+// function highlightWords(paragraph, colours) {
+//   if (typeof paragraph !== 'string' || !Array.isArray(colours)) {
+//     throw new Error('Invalid arguments');
+//   }
+  
+//   const p = document.createElement("p");
+
+//   paragraph.split(" ").forEach((word) => {
+//     const span = document.createElement("span");
+//     span.textContent = `${word} `;
+//     p.appendChild(span);
+//   });
+
+//   const select = document.createElement("select");
+//   select.setAttribute('placeholder', 'Please choose a colour');
+  
+//   colours.forEach((colour) => {
+//     const option = document.createElement("option");
+//     option.textContent = `${colour.charAt(0).toUpperCase()}${colour.substring(1)}`;
+//     option.value = colour;
+//     select.appendChild(option);
+//   });
+
+//   const content = document.querySelector("#content");
+//   content.appendChild(p);
+//   content.appendChild(select);
+
+//   p.addEventListener('click', function(event) {
+//     const span = event.target;
+//     switch (select.value) {
+//       case "yellow":
+//         span.style.backgroundColor = "yellow";
+//         break;
+//       case "green":
+//         span.style.backgroundColor = "green";
+//         break;
+//       case "blue":
+//         span.style.backgroundColor = "blue";
+//         break;
+//       default:
+//         span.style.backgroundColor = "transparent";
+//         break;
+//     }
+//   });
+// }
+
