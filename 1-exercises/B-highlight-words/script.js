@@ -5,46 +5,39 @@
 // const colours = ["yellow", "green", "blue", "none"];
 
 function highlightWords(paragraph, colours) {
-  // Create p tag
   const p = document.createElement("p");
-  // Turn string to array
+  
   const arrayForParagraph = paragraph.split(" ");
   arrayForParagraph.forEach((word) => {
-    // Create span tag
+  
     const span = document.createElement("span");
-    // Add word to the span
-    span.innerText = word + " ";
-    //Add span to p
+   span.innerText = word + " ";
+    
     p.appendChild(span);
   });
 
-  // Create select tag
+  
   let select = document.createElement("select");
-  // Create option tag
-  const option = document.createElement("option");
-  // give a default value to option
-  option.appendChild(document.createTextNode("Please choose a colour"));
-  // Add option to select
-  select.appendChild(option);
-  colours.forEach((colour) => {
-    // Create option tag
     const option = document.createElement("option");
-    // Add colour to option
+  
+  option.appendChild(document.createTextNode("Please choose a colour"));
+    select.appendChild(option);
+  colours.forEach((colour) => {
+    
+    const option = document.createElement("option");
+    
     option.appendChild(
       document.createTextNode(
         colour.charAt(0).toUpperCase() + colour.substring(1)
       )
     );
-    // Add value to option
+    
     option.value = colour;
-    // Add option to the select
     select.appendChild(option);
   });
-  // Access to content div
+  
   const content = document.querySelector("#content");
-  // Add p to content div
-  content.appendChild(p);
-  // Add select to content div
+  content.appendChild(p);  
   content.appendChild(select);
 }
 const paragraph =
@@ -52,15 +45,13 @@ const paragraph =
 const colours = ["yellow", "green", "blue", "none"];
 highlightWords(paragraph, colours);
 
-//variables
-// Access to select input
+
+Access to select input
 const spans = document.querySelectorAll("span"),
-  // Access to select
   select = document.querySelector("select");
 
-//Eventlisteners
 spans.forEach((span) => {
-  // Add eventlistener for all spans in p
+
   span.addEventListener("click", function () {
     switch (select.value) {
       case "yellow":
