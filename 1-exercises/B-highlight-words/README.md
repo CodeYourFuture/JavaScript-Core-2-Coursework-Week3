@@ -19,7 +19,7 @@ We want to render the paragraph on the page, along with a dropdown with the diff
 
 - Create a `<p>` element.
 - Create a `<select>` element.
-- Iterate over the options array and create an `<option>` element in the `<select>` for each element.
+- Iterate over the colours array and create an `<option>` element in the `<select>` for each element.
 - You'll need to turn the paragraph into an array to iterate over it. You can use the `.split(" ")` method here.
 - Iterate over the array of words.
 - For each word, create a `<span>` element and set the innerText to the word, plus a space - " ". Add this to the `<p>`.

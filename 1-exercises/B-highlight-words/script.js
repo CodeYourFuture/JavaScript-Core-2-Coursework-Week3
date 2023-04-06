@@ -1,5 +1,56 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  const pElement = document.createElement("p");
+  const sElement = document.createElement("select");
+
+  document.body.appendChild(sElement);
+  document.body.appendChild(pElement);
+
+  for (const color of colours) {
+    const oElement = document.createElement("option");
+    oElement.value = color;
+    oElement.innerText = color;
+    sElement.appendChild(oElement);
+  }
+  const wordArray = paragraph.split(" ");
+
+  for (let word of wordArray) {
+    const spanElement = document.createElement("span");
+    spanElement.innerText = `${word} `;
+    pElement.appendChild(spanElement);
+    spanElement.addEventListener("click", changeColor);
+    function changeColor() {
+      if (sElement.value === "yellow") {
+        spanElement.classList.add("yellow");
+      } else if (sElement.value === "blue") {
+        spanElement.classList.add("blue");
+      } else if (sElement.value === "green") {
+        spanElement.classList.add("green");
+      } else {
+        spanElement.classList.add("none");
+      }
+    }
+  }
+
+  //   function changeSize(){
+  //   for(const item of document.querySelectorAll("a")){
+  //     item.classList.add("larger");
+  //   };
+  // };
+
+  // links.addEventListener("click", changeSize);
+
+  //     function () {
+  //   for (const link of document.querySelectorAll("a")) {
+  //     link.classList.add("larger");
+  //   }
+
+  // let largerLinksBtn = document.querySelector("#largerLinksBtn");
+
+  // largerLinksBtn.addEventListener("click", function () {
+  //   for (const link of document.querySelectorAll("a")) {
+  //     link.classList.add("larger");
+  //   }
+  // });
 }
 
 const paragraph =
