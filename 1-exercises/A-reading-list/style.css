@@ -124,6 +124,10 @@ body {
   background-color: red;
 }
 
+.green {
+  background-color: green;
+}
+
 .addArticle {
   margin-bottom: 10px;
 }
