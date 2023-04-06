@@ -50,7 +50,11 @@ function readingList(books) {
       item.style.backgroundColor = 'red';
     }
 
-  
+    list.appendChild(item);
+  });
+
+  content.appendChild(list);
+}
 
 
 
