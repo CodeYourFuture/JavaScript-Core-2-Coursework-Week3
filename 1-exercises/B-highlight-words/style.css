@@ -120,7 +120,23 @@
  }
  
  .red {
-     background-color: red;
+     background-color: lightcoral;
+ }
+
+ .yellow {
+    background-color: yellow;
+ }
+
+ .green {
+    background-color: lightgreen;
+ }
+
+ .blue {
+    background-color: lightblue;
+ }
+
+ .none {
+    background-color: none;
  }
  
  .addArticle {

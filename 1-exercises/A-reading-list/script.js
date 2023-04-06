@@ -11,7 +11,6 @@ function readingList(books) {
     bookImage.src = `${book.bookCoverImage}`;
 
     //   - Use a `<ul>` and `<li>` to display the books and append it to the page.
-
     const bookList = document.querySelector("#reading-list");
     const bookListItem = document.createElement("li");
 

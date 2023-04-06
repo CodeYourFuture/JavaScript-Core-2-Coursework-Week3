@@ -1,12 +1,12 @@
 function highlightWords(paragraph, colours) {
-  // everything goes in here
-  const contentDiv = document.querySelector("#content");
-
   // Create a `<p>` element.
   const pElement = document.createElement("p");
 
   // Create a `<select>` element.
   const myDropdown = document.createElement("select");
+
+  // Create div variable
+  const contentDiv = document.querySelector("#content");
   // remember to append it to a parent
   contentDiv.appendChild(myDropdown);
 
@@ -19,10 +19,39 @@ function highlightWords(paragraph, colours) {
     newOption.text = colour;
     // adding new option to the dropdown menu
     myDropdown.appendChild(newOption);
-
-    // To iterate over the paragraph, it needs to be an array. Atm, it's a string.
-    // Turn the paragraph into an array - use the `.split(" ")` method here.
   }
+
+  // To iterate over the paragraph, it needs to be an array. Atm, it's a string.
+  // Turn the paragraph into an array - use the `.split(" ")` method here.
+  const wordArray = paragraph.split(" ");
+  contentDiv.append(pElement);
+  for (const word of wordArray) {
+    //- For each word, create a `<span>` element and set the innerText to the word, plus a space - " ". Add this to the `<p>`.
+    const spanElement = document.createElement("span");
+    spanElement.innerText = `${word} `;
+    pElement.append(spanElement);
+
+    // - Each `<span>` should have an eventListener that will listen for clicks.
+
+    spanElement.addEventListener("click", changeColour);
+
+    function changeColour() {
+      if (myDropdown.value === "yellow") {
+        spanElement.classList.add("yellow");
+      } else if (myDropdown.value === "green") {
+        spanElement.classList.add("green");
+      } else if (myDropdown.value === "blue") {
+        spanElement.classList.add("blue");
+      } else {
+        spanElement.classList.add("none");
+      }
+    }
+
+    // - When clicked, we need to check the value of the `<select>` element using the `.value` property.
+  }
+
+  // - Each `<span>` should have an eventListener that will listen for clicks.
+  console.log(pElement);
 }
 
 const paragraph =
