@@ -112,18 +112,19 @@ function deleteAllCompletedTodos() {
    let list = document.querySelector("#todo-list")
    let allInTheList = list.querySelectorAll("li")
    let allInTheListArray = Array.from(allInTheList)
+   console.log(allInTheListArray)
    let removeButton = document.querySelector("#remove-all-completed")
 
    removeButton.addEventListener("click", function(event){
     event.preventDefault() ; 
-    for (let element of allInTheListArray){
-       if (element.completed == true){
-        element.remove()
-      } 
-        continue
+    for (let liElement of allInTheListArray){
+       if (liElement.classList === "line"){
+        liElement.remove()
+      }
+    list.appendChild(allInTheList)
     }
   });
-  list.appendChild(allInTheList)
+  
         
    
 }

@@ -42,10 +42,10 @@ describe("Highlight words", () => {
   test("select menu is created using the colours", () => {
     const select = page.window.document.querySelector("select");
 
-    expect(select).toContainHTML('<option value="yellow">Yellow</option>');
-    expect(select).toContainHTML('<option value="green">Green</option>');
-    expect(select).toContainHTML('<option value="blue">Blue</option>');
-    expect(select).toContainHTML('<option value="none">None</option>');
+    expect(select).toContainHTML('<option value="yellow">yellow</option>');
+    expect(select).toContainHTML('<option value="green">green</option>');
+    expect(select).toContainHTML('<option value="blue">blue</option>');
+    expect(select).toContainHTML('<option value="none">none</option>');
     expect(select).toHaveValue("Please choose a colour");
   });
   test("clicking on span updates its background color based off select menu", () => {
@@ -54,11 +54,11 @@ describe("Highlight words", () => {
     const span = page.window.document.querySelector("span:nth-child(3)");
     expect(span).toHaveStyle({ backgroundColor: "none" });
 
-    userEvent.selectOptions(select, ["Green"]);
+    userEvent.selectOptions(select, ["green"]);
     userEvent.click(span);
     expect(span).toHaveStyle({ backgroundColor: "green" });
 
-    userEvent.selectOptions(select, ["Blue"]);
+    userEvent.selectOptions(select, ["blue"]);
     userEvent.click(span);
     expect(span).toHaveStyle({ backgroundColor: "blue" });
   });

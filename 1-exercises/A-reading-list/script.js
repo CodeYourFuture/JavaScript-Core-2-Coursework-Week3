@@ -12,7 +12,6 @@ function readingList(books) {
 
     let createImage = document.createElement("img")
     createImage.src = book.bookCoverImage 
-    createImage.classList.add("image")
 
     
     listElement.appendChild(createP)

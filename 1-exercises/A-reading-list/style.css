@@ -152,12 +152,6 @@ body {
   background: #87ca8a;
 }
 
-@media screen and (min-width: 992px) {
-  .navbar-brand > img {
-    max-height: 80px;
-  }
-}
-
 .greenMark {
   color: azure;
   background-color: green;
@@ -166,10 +160,15 @@ body {
 
 .redMark {
   color: azure;
-  background-color: rgb(230, 0, 0);
+  background-color: red;
   padding: 1rem;
 }
 
-.image {
-  width: 10rem;
+@media screen and (min-width: 992px) {
+  .navbar-brand > img {
+    max-height: 80px;
+  }
 }
+
+
+
