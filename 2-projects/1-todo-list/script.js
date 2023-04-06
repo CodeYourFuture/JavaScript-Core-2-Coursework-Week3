@@ -80,77 +80,75 @@
 
 //practise work
 
-function populateTodoList(todos) {
-  const list = document.getElementById("todo-list");
-
-  todos.forEach((todo, index) => {
-    const li = document.createElement("li");
-    li.classList.add("list-group-item");
-    li.innerText = todo.task;
-
-    const span = document.createElement("span");
-    span.classList.add("badge", "bg-primary", "rounded-pill");
-
-    const checkIcon = document.createElement("i");
-    checkIcon.classList.add("fa", "fa-check");
-    checkIcon.setAttribute("aria-hidden", "true");
-    checkIcon.addEventListener("click", () => {
-      li.classList.toggle("text-decoration-line-through");
-    });
-
-    const deleteIcon = document.createElement("i");
-    deleteIcon.classList.add("fa", "fa-trash");
-    deleteIcon.setAttribute("aria-hidden", "true");
-    deleteIcon.addEventListener("click", () => {
-      li.remove();
-    });
-
-    span.appendChild(checkIcon);
-    span.appendChild(deleteIcon);
-    li.appendChild(span);
-    list.appendChild(li);
-  });
-}
-let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
-];
-
-  populateTodoList(todos);
-  function addNewTodo(event) {
-  event.preventDefault();
-  const newTodoInput = document.getElementById("new-todo-input");
-  const newTodo = { task: newTodoInput.value, completed: false };
-  todos.push(newTodo);
-  populateTodoList(todos);
-  newTodoInput.value = "";
-}
-function deleteAllCompletedTodos() {
-  const listItems = document.querySelectorAll("#todo-list li");
-  listItems.forEach((li) => {
-    if (li.classList.contains("text-decoration-line-through")) {
-      li.remove();
-    }
-  });
-}
-const addTodoBtn = document.getElementById("add-todo-btn");
-addTodoBtn.addEventListener("click", addNewTodo);
-
-const deleteCompletedBtn = document.getElementById("delete-completed-btn");
-deleteCompletedBtn.addEventListener("click", deleteAllCompletedTodos);
-
-
-
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-//function deleteAllCompletedTodos() {
-  //Write your code here...
-  function deleteAllCompletedTodos() {
-  const completedTodos = todoList.querySelectorAll('.completed');
-  completedTodos.forEach(todo => todo.remove());
-  const removeAllButton = document.getElementById(remove-All-btn);
+// function populateTodoList(todos) {
+//   const list = document.getElementById("todo-list");
   
-  removeAllButton.addEventListener('click', deleteAllCompletedTodos);
-  }
+//   todos.forEach((todo, index) => {
+//     const li = document.createElement("li");
+//     li.classList.add("list-group-item");
+//     li.innerText = todo.task;
+
+//     const span = document.createElement("span");
+//     span.classList.add("badge", "bg-primary", "rounded-pill");
+
+//     const checkIcon = document.createElement("i");
+//     checkIcon.classList.add("fa", "fa-check");
+//     checkIcon.setAttribute("aria-hidden", "true");
+//     checkIcon.addEventListener("click", () => {
+//       li.classList.toggle("text-decoration-line-through");
+//     });
+
+//     const deleteIcon = document.createElement("i");
+//     deleteIcon.classList.add("fa", "fa-trash");
+//     deleteIcon.setAttribute("aria-hidden", "true");
+//     deleteIcon.addEventListener("click", () => {
+//       li.remove();
+//     });
+
+//     span.appendChild(checkIcon);
+//     span.appendChild(deleteIcon);
+//     li.appendChild(span);
+//     list.appendChild(li);
+//   });
+// }
+// let todos = [
+//   { task: "Wash the dishes", completed: false },
+//   { task: "Do the shopping", completed: false },
+// ];
+
+//   populateTodoList(todos);
+//   function addNewTodo(event) {
+//   event.preventDefault();
+//   const newTodoInput = document.getElementById("new-todo-input");
+//   const newTodo = { task: newTodoInput.value, completed: false };
+//   todos.push(newTodo);
+//   populateTodoList(todos);
+//   newTodoInput.value = "";
+// }
+// function deleteAllCompletedTodos() {
+//   const listItems = document.querySelectorAll("#todo-list li");
+//   listItems.forEach((li) => {
+//     if (li.classList.contains("text-decoration-line-through")) {
+//       li.remove();
+//     }
+//   });
+// }
+// const addTodoBtn = document.getElementById("add-todo-btn");
+// addTodoBtn.addEventListener("click", addNewTodo);
+
+// const deleteCompletedBtn = document.getElementById("delete-completed-btn");
+// deleteCompletedBtn.addEventListener("click", deleteAllCompletedTodos);
+
+// // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+// //function deleteAllCompletedTodos() {
+//   //Write your code here...
+//   function deleteAllCompletedTodos() {
+//   const completedTodos = todoList.querySelectorAll('.completed');
+//   completedTodos.forEach(todo => todo.remove());
+//   const removeAllButton = document.getElementById(remove-All-btn);
+  
+//   removeAllButton.addEventListener('click', deleteAllCompletedTodos);
+//   }
 
 
 
@@ -256,7 +254,137 @@ deleteCompletedBtn.addEventListener("click", deleteAllCompletedTodos);
 
 
 
+function populateTodoList(todos) {
+  let list = document.getElementById("todo-list");
+  list.innerHTML = "";
+  todos.forEach(function(todo, index) {
+    let li = document.createElement("li");
+    li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+    li.innerText = todo.task;
+    if (todo.completed) {
+      li.classList.add("completed");
+    }
+    let span = document.createElement("span");
+    span.classList.add("badge", "bg-primary", "rounded-pill");
+    let checkIcon = document.createElement("i");
+    checkIcon.classList.add("fas", "fa-check");
+    checkIcon.addEventListener("click", function() {
+      li.classList.toggle("completed");
+    });
+    let trashIcon = document.createElement("i");
+    trashIcon.classList.add("fas", "fa-trash");
+    trashIcon.addEventListener("click", function() {
+      li.remove();
+    });
+    span.appendChild(checkIcon);
+    span.appendChild(trashIcon);
+    li.appendChild(span);
+    list.appendChild(li);
+  });
+}
 
+let todos = [
+  { task: "Wash the dishes", completed: false },
+  { task: "Do the shopping", completed: false },
+];
+
+populateTodoList(todos);
+
+let addTodoForm = document.getElementById("todo-form");
+let addTodoInput = document.getElementById("todo-input");
+let addTodoBtn = document.getElementById("add-todo-btn");
+
+addTodoForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  if (addTodoInput.value.trim() !== "") {
+    let newTodo = { task: addTodoInput.value.trim(), completed: false };
+    todos.push(newTodo);
+    populateTodoList(todos);
+    addTodoInput.value = "";
+  }
+});
+
+let deleteCompletedBtn = document.getElementById("delete-completed-btn");
+
+deleteCompletedBtn.addEventListener("click", function() {
+let todoList = document.getElementById("todo-list");
+let completedTodos = todoList.querySelectorAll("li.completed");
+
+completedTodos.forEach(function(todo) {
+todo.remove();
+});
+});
+
+
+function populateTodoList(todos) {
+  let list = document.getElementById("todo-list");
+
+  for (let i = 0; i < todos.length; i++) {
+    let todo = todos[i];
+
+    let li = document.createElement("li");
+    li.classList.add("list-group-item");
+
+    let span = document.createElement("span");
+    span.innerText = todo.task;
+
+    let badge = document.createElement("span");
+    badge.classList.add("badge", "bg-primary", "rounded-pill");
+
+    let checkIcon = document.createElement("i");
+    checkIcon.classList.add("fa", "fa-check");
+    checkIcon.setAttribute("aria-hidden", "true");
+
+    checkIcon.addEventListener("click", function() {
+      if (span.style.textDecoration === "line-through") {
+        span.style.textDecoration = "none";
+      } else {
+        span.style.textDecoration = "line-through";
+      }
+    });
+
+    let trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa", "fa-trash");
+    trashIcon.setAttribute("aria-hidden", "true");
+
+    trashIcon.addEventListener("click", function() {
+      li.parentNode.removeChild(li);
+    });
+
+    badge.appendChild(checkIcon);
+    badge.appendChild(trashIcon);
+
+    li.appendChild(span);
+    li.appendChild(badge);
+
+    list.appendChild(li);
+  }
+}
+
+function addNewTodo() {
+  let input = document.getElementById("todo-input");
+  let task = input.value.trim();
+
+  if (task !== "") {
+    let todo = { task: task, completed: false };
+    todos.push(todo);
+    populateTodoList([todo]);
+    input.value = "";
+  }
+}
+function deleteAllCompletedTodos() {
+  let list = document.getElementById("todo-list");
+  let items = list.querySelectorAll("li");
+
+  for (let i = 0; i < items.length; i++) {
+    let item = items[i];
+    let span = item.querySelector("span");
+
+    if (span.style.textDecoration === "line-through") {
+      list.removeChild(item);
+    }
+  }
+}
 
 
 
