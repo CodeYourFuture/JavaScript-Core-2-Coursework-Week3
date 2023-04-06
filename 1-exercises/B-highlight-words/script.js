@@ -7,7 +7,7 @@ function highlightWords(paragraph, colours) {
   document.querySelector("#content").appendChild(para);
   document.querySelector("#content").appendChild(selectColour);
 
-  ["Choose a colour", ...colours].forEach((colour) => {
+  ["Please choose a colour", ...colours].forEach((colour) => {
     let colourOption = document.createElement("option");
     colourOption.value = colour;
     colourOption.innerText = colour[0].toUpperCase() + colour.slice(1);
@@ -20,7 +20,7 @@ function highlightWords(paragraph, colours) {
     para.appendChild(span);
 
     span.addEventListener("click", function () {
-      switch (colourOption.value) {
+      switch (document.querySelector("select").value) {
         case "yellow":
           span.style.backgroundColor = "yellow";
           break;
