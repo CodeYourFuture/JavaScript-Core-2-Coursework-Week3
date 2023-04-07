@@ -1,14 +1,23 @@
 function readingList(books) {
-  const ul = document.querySelector("#reading-list")
-  books.forEach(element => {
-  const bookContainer = document.createElement("li")
-const bookTitle = document.createElement("p")
-  bookTitle.innerText = element.title
-  const bookImage = document.createElement("img")
-  bookImage.src = element.bookCoverImage
-  bookContainer.append(bookTitle, bookImage)
-  
-  ul.append(bookContainer)
+  books.forEach((book, index) => {
+    let { title, author, alreadyRead, bookCoverImage } = book;
+    // create p tag
+    const p = document.createElement("p");
+    // Append content to p
+    p.appendChild(document.createTextNode(`${title} by ${author}`));
+    // Create li tag
+    const li = document.createElement("li");
+    li.style.backgroundColor = alreadyRead ? "green" : "red";
+    // Add p to the li
+    li.appendChild(p);
+    // Create img tag
+    const img = document.createElement("img");
+    //Assign src property to img
+    img.src = bookCoverImage;
+    // Add img to li
+    li.appendChild(img);
+    const readingList = document.querySelector("#reading-list");
+    readingList.appendChild(li);
   });
 }
 
