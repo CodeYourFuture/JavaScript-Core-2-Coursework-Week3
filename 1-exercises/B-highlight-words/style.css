@@ -122,7 +122,23 @@
  .red {
      background-color: red;
  }
+
+ .yellow {
+    background-color: yellow;
+ }
  
+ .blue {
+    background-color: blue;
+ }
+
+ .green {
+    background-color: green;
+ }
+
+ .transparent {
+    background-color: transparent;
+ }
+
  .addArticle {
      margin-bottom: 10px;
  }
