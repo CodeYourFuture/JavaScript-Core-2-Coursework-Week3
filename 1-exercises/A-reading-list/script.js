@@ -1,5 +1,18 @@
 function readingList(books) {
-  // Write your code here...
+  for (const book of books) {
+    let pElement = document.createElement("p");
+    let bookImgElement = document.createElement("img");
+    let listItemElement = document.createElement("li");
+    pElement.innerText = `${book.title} by ${book.author}`;
+    bookImgElement.src = book.bookCoverImage;
+    listItemElement.append(pElement, bookImgElement);
+    document.querySelector("#reading-list").appendChild(listItemElement);
+    if (book.alreadyRead === true) {
+      listItemElement.classList.add("greenBg");
+    } else {
+      listItemElement.classList.add("redBg");
+    }
+  }
 }
 
 // for the tests, do not modify this array of books
