@@ -110,19 +110,17 @@ addNewTodo(event)
 function deleteAllCompletedTodos() {
   // Write your code here...
    let list = document.querySelector("#todo-list")
-   let allInTheList = list.querySelectorAll("li")
-   let allInTheListArray = Array.from(allInTheList)
-   console.log(allInTheListArray)
    let removeButton = document.querySelector("#remove-all-completed")
-
+  
    removeButton.addEventListener("click", function(event){
     event.preventDefault() ; 
-    for (let liElement of allInTheListArray){
-       if (liElement.classList === "line"){
-        liElement.remove()
+    todos = todos.filter(todo => todo.completed === false);
+    for(let li of list.children) {
+      if (li.classList.contains("line")){
+       list.removeChildAll(li);   
       }
-    list.appendChild(allInTheList)
     }
+    list.appendChild(li)
   });
   
         
