@@ -88,7 +88,11 @@ function addNewTodo(event) {
       cardContainer.classList.remove("strike");
     } else {
       cardContainer.classList.add("strike");
-    }      
+    }   
+  })
+  // click event listener for trash icon, when clicked remove the cardContainer element
+  trashIcon.addEventListener("click", function (){
+    cardContainer.remove();
   })
   // add check and trash icons to the the icon span container
   iconSpan.append(checkIcon, trashIcon);
