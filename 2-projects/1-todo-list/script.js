@@ -110,7 +110,20 @@ let addButton = document.querySelector("#add-todo");
 addButton.addEventListener("click", addNewTodo);
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
-  let resetButton = document.querySelector("#remove-all-complete")
+function deleteAllCompletedTodos(event) {
+  // stop page refreshing after click
+  event.preventDefault();
+  // find element on page with id "todo-list" and assign to variable ulElement
+  let ulElement = document.getElementById("todo-list");
+  // find all divs inside ul element. we are searching for divs as the  list structure is: ul > div > li
+  let divElements = ulElement.querySelectorAll("div");
+  // iterate over divs and check if div includes a class called "strike", if true: remove element
+  for (divElement of divElements) {
+    if (divElement.classList.contains("strike")) {
+      divElement.remove();
+    }
+  }
 }
+
+let resetButton = document.querySelector("#remove-all-completed");
+resetButton.addEventListener("click", deleteAllCompletedTodos);
