@@ -76,6 +76,7 @@ function addNewTodo(event) {
   let newListItem = document.createElement("li");
   // container which holds the check and trash icons
   let iconSpan = document.createElement("span");
+  iconSpan.classList.add("rounded-pill", "bg-primary")
   // icons elements calling from the font awesome icons library using class names fa-check and fa-trash
   let checkIcon = document.createElement("i");
   let trashIcon = document.createElement("i");
