@@ -82,6 +82,14 @@ function addNewTodo(event) {
   let trashIcon = document.createElement("i");
   checkIcon.classList.add("fa", "fa-check");
   trashIcon.classList.add("fa", "fa-trash");
+   // click event listener for check icon, when clicked and cardContainer does not contains the "strike" class: add class, else: remove class
+   checkIcon.addEventListener("click", function() {
+    if (cardContainer.classList.contains("strike") === true) {
+      cardContainer.classList.remove("strike");
+    } else {
+      cardContainer.classList.add("strike");
+    }      
+  })
   // add check and trash icons to the the icon span container
   iconSpan.append(checkIcon, trashIcon);
   // set the innerText of newListItem to be equal to the todoText which is from the text input field
