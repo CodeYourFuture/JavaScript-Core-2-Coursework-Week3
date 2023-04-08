@@ -30,27 +30,6 @@ function highlightWords(paragraph, colours) {
       }
     }
   }
-
-  //   function changeSize(){
-  //   for(const item of document.querySelectorAll("a")){
-  //     item.classList.add("larger");
-  //   };
-  // };
-
-  // links.addEventListener("click", changeSize);
-
-  //     function () {
-  //   for (const link of document.querySelectorAll("a")) {
-  //     link.classList.add("larger");
-  //   }
-
-  // let largerLinksBtn = document.querySelector("#largerLinksBtn");
-
-  // largerLinksBtn.addEventListener("click", function () {
-  //   for (const link of document.querySelectorAll("a")) {
-  //     link.classList.add("larger");
-  //   }
-  // });
 }
 
 const paragraph =
