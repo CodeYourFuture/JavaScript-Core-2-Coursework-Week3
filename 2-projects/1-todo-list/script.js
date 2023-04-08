@@ -62,26 +62,35 @@ function addNewTodo(event) {
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
   let list = document.getElementById("todo-list");
+  // create a div container which will hold the new task text and the check and trash icons
   let cardContainer = document.createElement("div");
-  let todoText = document.querySelector("#todoInput").value;
-  let newListItem = document.createElement("li");
-  let iconSpan = document.createElement("span");
-  let checkIcon = document.createElement("i");
-  let trashIcon = document.createElement("i");
-  checkIcon.classList.add("fa", "fa-check");
-  trashIcon.classList.add("fa", "fa-trash");
-  iconSpan.append(checkIcon, trashIcon);
   cardContainer.classList.add(
     "list-group-item",
     "d-flex",
     "justify-content-between",
     "align-items-center"
     );
-    newListItem.append(todoText);
-    cardContainer.append(newListItem, iconSpan);
-    list.append(cardContainer);
-    document.querySelector("#todoInput").value = "";
-    
+  // check the input field on the site and set a variable with name todoText to it 
+  let todoText = document.querySelector("#todoInput").value;
+  // create new list item which will hold the task text
+  let newListItem = document.createElement("li");
+  // container which holds the check and trash icons
+  let iconSpan = document.createElement("span");
+  // icons elements calling from the font awesome icons library using class names fa-check and fa-trash
+  let checkIcon = document.createElement("i");
+  let trashIcon = document.createElement("i");
+  checkIcon.classList.add("fa", "fa-check");
+  trashIcon.classList.add("fa", "fa-trash");
+  // add check and trash icons to the the icon span container
+  iconSpan.append(checkIcon, trashIcon);
+  // set the innerText of newListItem to be equal to the todoText which is from the text input field
+  newListItem.innerText = todoText;
+  // add task  text and icons to cardContainer div
+  cardContainer.append(newListItem, iconSpan);
+  // add cardContainer div to list element on site
+  list.append(cardContainer);
+  // set value of text input field to an empty string
+  document.querySelector("#todoInput").value = "";
 }
 
 let addButton = document.querySelector("#add-todo");
