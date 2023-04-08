@@ -6,12 +6,25 @@ function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
   todos.map((todo) => {
+    // create a div container which will hold the new task text and the check and trash icons
     let cardContainer = document.createElement("div");
+    cardContainer.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
+    // create new list item which will hold the task text
     let newListItem = document.createElement("li");
+    // container which holds the check and trash icons
     let iconSpan = document.createElement("span");
+    iconSpan.classList.add("rounded-pill", "bg-primary");
+    // icons elements calling from the font awesome icons library using class names fa-check and fa-trash
     let checkIcon = document.createElement("i");
     let trashIcon = document.createElement("i");
     checkIcon.classList.add("fa", "fa-check");
+    trashIcon.classList.add("fa", "fa-trash");
+    // click event listener for check icon, when clicked and cardContainer does not contains the "strike" class: add class, else: remove class
     checkIcon.addEventListener("click", function() {
       if (cardContainer.classList.contains("strike") === true) {
         cardContainer.classList.remove("strike");
@@ -19,20 +32,18 @@ function populateTodoList(todos) {
         cardContainer.classList.add("strike");
       }      
     })
-    trashIcon.classList.add("fa", "fa-trash");
-    iconSpan.classList.add("rounded-pill", "bg-primary");
+    // click event listener for trash icon, when clicked remove the cardContainer element
+    trashIcon.addEventListener("click", function (){
+      cardContainer.remove();
+    })
+    // add the check and trash icon elements as a child to the IconSpan element
     iconSpan.append(checkIcon, trashIcon);
-    // let text = document.createTextNode(todo.task);
-    // newListItem.appendChild(text);
-    cardContainer.classList.add(
-      "list-group-item",
-      "d-flex",
-      "justify-content-between",
-      "align-items-center"
-    );
+    // set newListItem innerText to value of task inside todo array item
     newListItem.innerText = todo.task;
+    // add task text and icons to the container div
     cardContainer.append(newListItem, iconSpan);
-    list.appendChild(cardContainer);
+    // add container div to the list element on the site
+    list.append(cardContainer);
   });
 }
 
@@ -54,6 +65,12 @@ function addNewTodo(event) {
   let cardContainer = document.createElement("div");
   let todoText = document.querySelector("#todoInput").value;
   let newListItem = document.createElement("li");
+  let iconSpan = document.createElement("span");
+  let checkIcon = document.createElement("i");
+  let trashIcon = document.createElement("i");
+  checkIcon.classList.add("fa", "fa-check");
+  trashIcon.classList.add("fa", "fa-trash");
+  iconSpan.append(checkIcon, trashIcon);
   cardContainer.classList.add(
     "list-group-item",
     "d-flex",
@@ -61,8 +78,8 @@ function addNewTodo(event) {
     "align-items-center"
     );
     newListItem.append(todoText);
-    cardContainer.appendChild(newListItem);
-    list.appendChild(cardContainer);
+    cardContainer.append(newListItem, iconSpan);
+    list.append(cardContainer);
     document.querySelector("#todoInput").value = "";
     
 }
