@@ -45,5 +45,8 @@
         ]
       }
     ]
+  },
+  "dependencies": {
+    "eslint": "^8.37.0"
   }
 }
