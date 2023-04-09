@@ -1,5 +1,23 @@
 function readingList(books) {
-  // Write your code here...
+  let contentEl = document.getElementById("content");
+  let readingListEl = document.getElementById("reading-list");
+  for (let i = 0; i < books.length; i++) {
+    let book = books[i];
+    let liEl = document.createElement("li");
+    liEl.className = book.alreadyRead ? "read" : "not-read";
+    book.alreadyRead ===false?liEl.style.backgroundColor = "red":liEl.style.backgroundColor = "green";
+    let pEl = document.createElement("p");
+    //liEl.style.backgroundColor ="red";
+    pEl.textContent = book.title + "by" + book.author;
+    let imgEl = document.createElement("img");
+    imgEl.style.width ="200";
+
+    imgEl.src = book.bookCoverImage;
+    liEl.appendChild(pEl);
+    liEl.appendChild(imgEl);
+    readingListEl.appendChild(liEl);
+  }
+  contentEl.appendChild(readingListEl);
 }
 
 // for the tests, do not modify this array of books
