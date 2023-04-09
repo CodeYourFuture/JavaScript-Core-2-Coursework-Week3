@@ -157,3 +157,10 @@ body {
     max-height: 80px;
   }
 }
+/* colours */
+.read_it {
+  background-color: green;
+}
+.not_read_it{
+  background-color: red;
+}
