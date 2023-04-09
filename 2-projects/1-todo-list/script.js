@@ -1,7 +1,8 @@
+let list = document.querySelector("#todo-list");
+let button = document.querySelector("button")
+let inputList = document.querySelector("#todoInput") 
 
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  
 
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
   for (let task of todos){
@@ -35,9 +36,6 @@ function populateTodoList(todos) {
     span.appendChild(iElement)
     span.appendChild(iElementSecond)
   }
-  
-  
-
 }
 
 // These are the same todos that currently display in the HTML
@@ -53,21 +51,16 @@ populateTodoList(todos);
 
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
-function addNewTodo(event) {
+function addNewTodo() {
   
 
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
     // event.preventDefolt()
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
-    let button = document.querySelector("button")
-    let inputList = document.querySelector("#todoInput")  
-
-  
     button.addEventListener("click", function(event){
       
     event.preventDefault();
  
-    let list = document.querySelector("#todo-list");
     let newLi = document.createElement("li")
     newLi.classList.add("background-list")
     newLi.innerText = inputList.value
@@ -104,7 +97,7 @@ function addNewTodo(event) {
 
 }
 
-addNewTodo(event)
+addNewTodo()
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
@@ -117,10 +110,9 @@ function deleteAllCompletedTodos() {
     todos = todos.filter(todo => todo.completed === false);
     for(let li of list.children) {
       if (li.classList.contains("line")){
-       list.removeChildAll(li);   
+       list.removeChild(li);   
       }
     }
-    list.appendChild(li)
   });
   
         
