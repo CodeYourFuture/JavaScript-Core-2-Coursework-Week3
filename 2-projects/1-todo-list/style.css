@@ -10,3 +10,10 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+    li {
+      display: flex;
+      justify-content: space-around;
+      color: rgb(7, 98, 176);
+      background-color: aliceblue;
+
+    }
