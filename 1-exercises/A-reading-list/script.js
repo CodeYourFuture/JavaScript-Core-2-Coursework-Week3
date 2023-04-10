@@ -1,7 +1,7 @@
 
 function readingList(books) {
   const bookDiv = document.querySelector("#content");
-  const listOfBooks = document.createElement('ul');
+  const listOfBooks = document.querySelector("#reading-list");
   bookDiv.appendChild(listOfBooks);
   for (let book of books){
     let bookTitle = document.createElement("p");

@@ -13,10 +13,14 @@
 function highlightWords(paragraph, colours) {
   let paragraf = document.createElement("p");
   let selectElement = document.createElement("select");
+  let defaultColor = document.createElement("option");
+    // defaultColor.value = none;
+    defaultColor.innerText = "Please choose a colour";
+    selectElement.appendChild(defaultColor);
   for (let colour of colours){
     let colorOption = document.createElement("option");
     colorOption.value = colour;
-    colorOption.innerText = colour;
+    colorOption.innerText = colour.charAt(0).toUpperCase() + colour.slice(1);
     selectElement.appendChild(colorOption);
   }
 
