@@ -1,8 +1,3 @@
-function readingList(books) {
-  // Write your code here...
-}
-
-// for the tests, do not modify this array of books
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -25,4 +20,39 @@ const books = [
   },
 ];
 
-readingList(books);
+
+const contentDiv = document.querySelector("#content");
+const ul = document.createElement("ul")
+contentDiv.appendChild(ul)
+
+for (let oneOfBooks of books){   
+    const paragraf = document.createElement("p");
+    const image = document.createElement("img");
+    const listItem = document.createElement("li");
+    
+    paragraf.textContent = oneOfBooks.title + oneOfBooks.author;
+    image.src = oneOfBooks.bookCoverImage;
+
+    listItem.appendChild(paragraf);
+    listItem.appendChild(image)
+
+    //styling starts here
+    paragraf.style.color = "white";
+    image.style.width = "200px";
+
+    if (oneOfBooks.alreadyRead === true) {
+      listItem.style.backgroundColor = "green"
+    }
+    else if (oneOfBooks.alreadyRead === false) {
+      listItem.style.backgroundColor = "red"
+    }
+    //styling ends here
+    ul.appendChild(listItem)
+};
+
+
+
+
+
+// for the tests, do not modify this array of books
+
