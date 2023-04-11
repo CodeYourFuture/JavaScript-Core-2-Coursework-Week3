@@ -122,6 +122,19 @@
  .red {
      background-color: red;
  }
+
+ .yellow {
+    background-color: yellow;
+ }
+
+ .green {
+    background-color: green;
+ }
+
+ .blue {
+    background-color: blue;
+ }
+
  
  .addArticle {
      margin-bottom: 10px;
