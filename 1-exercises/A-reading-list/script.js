@@ -1,5 +1,37 @@
 function readingList(books) {
-  // Write your code here...
+  for (i = 0; i <= books.length; i++) {
+    let liElement = document.createElement("li");
+
+    liElement.classList.add("bookBoxSizing");
+    
+    let pElement = document.createElement("p");
+
+    pElement.classList.add("bookTitleFont");
+
+    let bookInfo = books[i].title + " by " + books[i].author;
+    pElement.textContent = bookInfo; // textContent only targets the text portion
+
+    if (books[i].alreadyRead === true) {
+      liElement.classList.add("green");
+    } else {
+      liElement.classList.add("red");
+    }
+
+    liElement.appendChild(pElement);
+
+    let imgElement = document.createElement("img");
+    
+    imgElement.classList.add("bookImgSize");
+
+    let bookImageUrl = books[i].bookCoverImage;
+
+    imgElement.src = bookImageUrl;
+
+    liElement.appendChild(imgElement);
+
+    let ulElement = document.querySelector("#reading-list");
+    ulElement.appendChild(liElement);
+  }
 }
 
 // for the tests, do not modify this array of books

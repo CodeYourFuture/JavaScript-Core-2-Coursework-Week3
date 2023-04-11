@@ -124,6 +124,22 @@ body {
   background-color: red;
 }
 
+.green {
+  background-color: green;
+}
+
+.bookImgSize {
+  width: 18em;
+}
+
+.bookBoxSizing {
+  width: 63em;
+}
+
+.bookTitleFont {
+  font-size: 2em;
+}
+
 .addArticle {
   margin-bottom: 10px;
 }
