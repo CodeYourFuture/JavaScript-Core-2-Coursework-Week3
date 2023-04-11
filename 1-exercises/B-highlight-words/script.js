@@ -6,10 +6,8 @@ function highlightWords(paragraph, colours) {
   //p.innerText=paragraph;
   let selectElement=document.createElement("select");
 
-
   divElement.appendChild(p);
   divElement.appendChild(selectElement);
-
 
   colours.forEach(colour => {
     let option=document.createElement("option");
