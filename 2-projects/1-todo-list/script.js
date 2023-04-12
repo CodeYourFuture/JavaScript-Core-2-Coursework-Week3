@@ -64,4 +64,21 @@ function addNewTodo(event) {
   appendTodo({ task, completed: false });
 }
 
-function deleteAllCompletedTodos() {}
+
+function deleteAllCompletedTodos(e) {
+  e.preventDefault();
+  const list = document.querySelector("ul");
+  const completedTodos = [...document.querySelectorAll("li")].filter((todo) => {
+    return todo.style.textDecoration === "line-through";
+  });
+
+  completedTodos.forEach((todo) => {
+    list.removeChild(todo);
+  });
+}
+
+const button = document.querySelector(".btn");
+button.addEventListener("click", addNewTodo);
+document
+  .querySelector("#remove-all-completed")
+  .addEventListener("click", deleteAllCompletedTodos);
