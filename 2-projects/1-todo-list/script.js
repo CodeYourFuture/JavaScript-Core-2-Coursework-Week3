@@ -28,7 +28,35 @@ let todos = [
   { task: "Do the shopping", completed: false },
 ];
 
+
 populateTodoList(todos);
+
+function createDOMListItem(todo) {
+  const li = document.createElement("li");
+
+  const tickIcon = document.createElement("i");
+  tickIcon.classList.add("fa", "fa-check");
+  const binIcon = document.createElement("i");
+  binIcon.classList.add("fa", "fa-trash");
+
+  if (!tickIcon.onclick) {
+    tickIcon.addEventListener("click", () => {
+      toggleIsComplete(todo);
+      redrawTodo(li, todo.completed);
+    });
+  }
+  if (!binIcon.onclick) {
+    binIcon.addEventListener("click", () => deleteTodo(li));
+  }
+  if (todo.completed) {
+    li.style.textDecoration = "line-through";
+  }
+
+  li.innerText = todo.task;
+  li.appendChild(tickIcon);
+  li.appendChild(binIcon);
+  return li;
+}
 
 function addNewTodo(event) {
   event.preventDefault();
