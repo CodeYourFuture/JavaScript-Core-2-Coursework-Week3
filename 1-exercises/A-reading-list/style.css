@@ -157,3 +157,15 @@ body {
     max-height: 80px;
   }
 }
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.bookBoxSizing {
+  height: 700em;
+  width: 400em;
+}
