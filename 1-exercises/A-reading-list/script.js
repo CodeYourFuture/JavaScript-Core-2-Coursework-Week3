@@ -1,34 +1,35 @@
 function readingList(books) {
-    for (i = 0; i <= books.length; i++) {
-      let liElement = document.createElement("li");
-      let pElement = document.createElement("p");
-    
-      let bookInfo = books[i].title + " by " + books[i].author;
-      pElement.textContent = bookInfo; 
-      
-      if (books[i].alreadyRead === true) {
-        liElement.classList.add("green");
-      } else {
-        liElement.classList.add("red");
-      }
-  
-      
-      liElement.appendChild(pElement);
-      
-      let imgElement = document.createElement("img");
-      let bookImageUrl = books[i].bookCoverImage;
-      
-      imgElement.src = bookImageUrl;
-      
-      liElement.appendChild(imgElement);
-      
-    
-      
-      let ulElement = document.querySelector("#reading-list");
-      ulElement.appendChild(liElement);
-    }
+  if (!books || !Array.isArray(books) || books.length === 0) {
+    console.log("Invalid or empty 'books' array.");
+    return;
   }
-  
+
+  for (const book of books) {
+    let liElement = document.createElement("li");
+    let pElement = document.createElement("p");
+
+    let bookInfo = book.title + " by " + book.author;
+    pElement.textContent = bookInfo;
+
+    if (book.alreadyRead === true) {
+      liElement.classList.add("green");
+    } else {
+      liElement.classList.add("red");
+    }
+
+    if (book.bookCoverImage) {
+      let imgElement = document.createElement("img");
+      imgElement.src = book.bookCoverImage;
+      liElement.appendChild(imgElement);
+    }
+
+    liElement.appendChild(pElement);
+
+    let ulElement = document.querySelector("#reading-list");
+    ulElement.appendChild(liElement);
+  }
+}
+
 
 
 // for the tests, do not modify this array of books
