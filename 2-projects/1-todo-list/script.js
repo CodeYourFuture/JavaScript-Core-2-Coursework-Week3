@@ -33,6 +33,11 @@ function populateTodoList(todos) {
     doneIcon.className = "fa fa-check";
     doneIcon.addEventListener("click", function () {
       liElement.classList.toggle("done");
+      if (liElement.classList.contains("done")) {
+        todo.completed = true;
+      } else {
+        todo.completed = false;
+      }
     });
     const removeIcon = document.createElement("i");
     removeIcon.className = "fa fa-trash";
@@ -69,15 +74,14 @@ function addNewTodo(event) {
 document.querySelector("#add-todo").addEventListener("click", addNewTodo);
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
+function deleteAllCompletedTodos(event) {
+  event.preventDefault();
   let list = document.getElementById("todo-list");
-  const todoElements = document.querySelectorAll("li");
-  for (const element of todoElements) {
-    if (element.style.textDecoration === "line-through") {
+  for (const element of list.children) {
+    if (element.classList.contains("done")) {
       list.removeChild(element);
     }
   }
 }
-document
-  .getElementById("deleteAllCompleted")
-  .addEventListener("click", deleteAllCompletedTodos);
+let removeButton = document.querySelector("#remove-all-completed");
+removeButton.addEventListener("click", deleteAllCompletedTodos);
