@@ -10,3 +10,8 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+  .list-group{
+    /* border: 5px solid red; */
+    margin-left: 4rem;
+    background-color: white;
+  }
