@@ -27,6 +27,14 @@ body {
   width: auto;
 }
 
+.trueli{
+  background-color: green;
+}
+
+.falseli{
+  background-color: red;
+}
+
 .navbar-light .navbar-nav .nav-link {
   color: #292b2c;
   font-weight: 600;
