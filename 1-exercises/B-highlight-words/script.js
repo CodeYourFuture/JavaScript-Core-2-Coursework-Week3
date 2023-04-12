@@ -1,31 +1,25 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
-<<<<<<< Updated upstream
-=======
-  let para = document.createElement("p");
-  let sele = document.createElement("select");
-  document.body.appendChild(para);
-  
-  colours.forEach(color =>{
-    let optio = document.createElement("option");
-    optio.value = color;
-    sele.appendChild(optio);
+  const p = document.createElement("p");
 
-  })
+  document.body.appendChild(p);
+  paragraph.split(" ").forEach((word) => {
+    const span = document.createElement("span");
+    span.addEventListener("click", (event) => {
+      const selectedColour = document.querySelector("select").value;
+      event.target.style.backgroundColor = selectedColour;
+    });
+    span.innerText = word + " ";
+    p.appendChild(span);
+  });
 
-   const wordArr = paragraph.split(" "); 
-   wordArr.forEach((word) => {
-      let spanEl = document.createElement("span") ;
-      spanEl.innerText = `${word }`;
-      para.appendChild(spanEl) ;
-
-      
-      spanEl.addEventListener("click", (event) => {
-        const selectedColour = document.querySelector("select").value;
-        event.target.style.backgroundColor = selectedColour;
-      });
-   })
->>>>>>> Stashed changes
+  const select = document.createElement("select");
+  document.body.appendChild(select);
+  ["Please choose a colour", ...colours].forEach((colour) => {
+    const option = document.createElement("option");
+    option.value = colour;
+    option.innerText = colour[0].toUpperCase() + colour.slice(1);
+    select.appendChild(option);
+  });
 }
 
 const paragraph =
