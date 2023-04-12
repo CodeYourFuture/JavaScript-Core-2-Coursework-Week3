@@ -1,10 +1,50 @@
-function highlightWords(paragraph, colours) {
-  // Write your code here...
+function todoList(todos) {
+  
+  const ulElement = document.createElement("ul");
+  // create a ul element
+
+  todos.forEach(element => {
+    // loop through the todos array
+    const liElement = document.createElement("li");
+    liElement.className = "strikethrough-false";
+    liElement.textContent = element.todo;
+    liElement.addEventListener("click", strikethroughToggle);
+    ulElement.appendChild(liElement);
+    // create the li element
+    // give it a class
+    // give it textContent
+    // add an eventListener, which on click, runs the "strikeThroughToggle" function
+  })
+
+  content.appendChild(ulElement);
+  // append the ul element to the div element "content"
 }
 
-const paragraph =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ut sem finibus ultrices. Phasellus hendrerit placerat libero non facilisis. Etiam tincidunt ut elit id elementum. Etiam accumsan semper ipsum, ac porttitor ex tempus non. Donec vitae massa condimentum, faucibus magna non, sagittis libero. Phasellus ullamcorper malesuada tellus at egestas. Duis volutpat turpis velit, ut bibendum tellus ornare ac. Nullam feugiat nisi fringilla eleifend scelerisque. Phasellus elit nulla, sodales eget consectetur sed, tincidunt vitae velit. Fusce eget tempus magna, vitae ultrices purus. Proin ac purus tellus. Curabitur rhoncus est quis libero egestas ultrices. Proin viverra a ex sed convallis. Fusce ut orci consectetur, placerat ipsum non, commodo neque. Nulla at dui velit. In ut accumsan libero. Duis ac lacus consectetur, posuere eros nec, aliquet nisl. Quisque sodales fringilla lacinia. Donec hendrerit ornare lectus, nec iaculis justo tincidunt et. Cras a varius libero, ac bibendum est. Aliquam molestie, leo non aliquam lobortis, nulla tortor hendrerit turpis, et ullamcorper magna diam quis elit. Maecenas elit libero, tincidunt sit amet lacinia sit amet, venenatis nec est.";
+function strikethroughToggle(event) {
+  if (event.target.classList[0] === "strikethrough-false") {
+    event.target.classList.replace("strikethrough-false", "strikethrough-true");
+  } else if (event.target.classList[0] === "strikethrough-true") {
+    event.target.classList.replace("strikethrough-true", "strikethrough-false");
+  }
+  // check the first element in the classList (i know i can do this with className, but i want to practice using classList)
+  // and replace its value with the opposite
+}
 
-const colours = ["yellow", "green", "blue", "none"];
+const todos = [
+  { todo: "wash the dishes 😰🧽" },
+  { todo: "walk the cat 🤪🐈" },
+  { todo: "learn javascript 🤓💻" },
+  { todo: "go shopping 🤤🍗" }
+];
 
-highlightWords(paragraph, colours);
+const content = document.getElementById("content");
+// define the div element "content"
+
+const h1Element = document.createElement("h1");
+h1Element.textContent = "🗒️To Do List ";
+content.appendChild(h1Element);
+// create the h1 element
+// give it textContent
+// append the h1 element to the div element "content"
+
+todoList(todos);
