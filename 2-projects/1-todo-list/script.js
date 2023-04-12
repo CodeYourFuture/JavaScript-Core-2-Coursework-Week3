@@ -37,11 +37,12 @@ populateTodoList(todos);
 //variables
 const addBtn = document.querySelector(".btn-primary");
 const list = document.querySelector("#todo-list");
-
+const clearList = document.querySelector("#remove-all-completed");
 //eventListeners
 addBtn.addEventListener("click", addNewTodo);
 list.addEventListener("click", controlComplited);
 list.addEventListener("click", controlDeleted);
+clearList.addEventListener("click", deleteAllCompletedTodos);
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 
 
@@ -82,6 +83,15 @@ li.remove();
 
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+function deleteAllCompletedTodos(event) {
+  event.preventDefault();
+  const allLi = document.querySelectorAll(".todo-li-sec");
+
+ for(const li of allLi){
+ 
+  if (li.firstElementChild.firstElementChild.textContent === "true") {
+    li.remove();
+  }
+ }
+  
 }

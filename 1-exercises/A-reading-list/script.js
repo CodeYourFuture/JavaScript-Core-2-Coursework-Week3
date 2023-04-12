@@ -23,11 +23,11 @@ function readingList(books) {
   const ulbook = document.querySelector("#reading-list");
   ulbook.appendChild(liBook);
   if(book.alreadyRead){
-    liBook.classList.add('trueli');
-//liBook.style.backgroundColor = "green";
+    
+liBook.style.backgroundColor = "green";
   }else{
-    liBook.classList.add("falseli");
-
+   
+liBook.style.backgroundColor = "red"; 
   }
 
  } 

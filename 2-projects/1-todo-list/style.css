@@ -16,10 +16,11 @@ body {
 
 .todo-li-sec {
     color: black;
-    border: 1px solid yellow;
+    border: 1px solid black;
+    border-radius: 5px;
     padding: 0.5rem;
     margin: 0.5rem 0;
-    background-color: beige;
+    background-color: white;
   }
 
 
