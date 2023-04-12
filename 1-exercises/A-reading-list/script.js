@@ -1,4 +1,16 @@
 function readingList(books) {
+  let liElement = document.createElement("li");
+  let pElement = document.createElement("p");
+
+  let bookInfo = books[0].title + " by " + books[0].author;
+  pElement.textContent = bookInfo;
+
+  liElement.appendChild(pElement);
+
+  let imgElement = document.createElement("img");
+  let bookImageUrl = books[0].bookCoverImage;
+
+  imgElement.src = bookImageUrl;
   // Write your code here...
 }
 

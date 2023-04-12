@@ -1,4 +1,14 @@
 function highlightWords(paragraph, colours) {
+  let pElement = document.createElement("p");
+  let arrayOfWords = paragraph.split("");
+  arrayOfWords.forEach((word)=>{
+    let spanElement = document.createElement("span");
+    spanElement.textContent = word + " ";
+    pElement.appendChild(spanElement);
+  })
+
+  let selectElement = document.createElement("select");
+  colours.forEach((colour))
   // Write your code here...
 }
 
