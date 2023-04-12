@@ -60,13 +60,24 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
   let todoInput = document.getElementById("todoInput");
-  populateTodoList([{ task: todoInput.value, completed: false }]);
-  todoInput.value = "";
+  if (todoInput.value !== "") {
+    populateTodoList([{ task: todoInput.value, completed: false }]);
+    todoInput.value = "";
+  }
   event.preventDefault();
 }
+document.querySelector("#add-todo").addEventListener("click", addNewTodo);
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos(event) {
-  document.querySelectorAll(".done").forEach((liElement) => liElement.remove());
-  event.preventDefault();
+function deleteAllCompletedTodos() {
+  let list = document.getElementById("todo-list");
+  const todoElements = document.querySelectorAll("li");
+  for (const element of todoElements) {
+    if (element.style.textDecoration === "line-through") {
+      list.removeChild(element);
+    }
+  }
 }
+document
+  .getElementById("deleteAllCompleted")
+  .addEventListener("click", deleteAllCompletedTodos);
