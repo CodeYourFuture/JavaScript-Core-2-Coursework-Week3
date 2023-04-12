@@ -60,6 +60,8 @@ function createDOMListItem(todo) {
 
 function addNewTodo(event) {
   event.preventDefault();
+  const { value: task } = document.querySelector("#todoInput");
+  appendTodo({ task, completed: false });
 }
 
 function deleteAllCompletedTodos() {}
