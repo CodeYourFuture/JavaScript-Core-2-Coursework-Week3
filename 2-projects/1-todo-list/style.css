@@ -14,3 +14,7 @@ body {
   .list-group {
     background-color: white;
   }
+
+  .completed-task {
+    text-decoration: line-through;
+  }
