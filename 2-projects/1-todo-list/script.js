@@ -70,11 +70,10 @@ function deleteAllCompletedTodos(event) {
   event.preventDefault();
   todos = todos.filter(todo => todo.completed === false);
   let list = document.getElementById("todo-list");
-  for (let li of list.children){
-    if(li.classList.contains('completed')){
-      list.removeChild(li);
-    }
-  }
+  const completedTasks = list.querySelectorAll('li.completed');
+  completedTasks.forEach(function(task) {
+    task.remove();
+  });
 }
 
 let addButton = document.querySelector('#add-item-btn');
