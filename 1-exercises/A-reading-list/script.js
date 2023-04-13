@@ -1,5 +1,5 @@
 function readingList(books) {
-  for (i = 0; i <= books.length; i++) {
+  for (i = 0; i < books.length; i++) {
     let liElement = document.createElement("li");
 
     liElement.classList.add("bookBoxSizing");
@@ -20,8 +20,6 @@ function readingList(books) {
     liElement.appendChild(pElement);
 
     let imgElement = document.createElement("img");
-    
-    imgElement.classList.add("bookImgSize");
 
     let bookImageUrl = books[i].bookCoverImage;
 

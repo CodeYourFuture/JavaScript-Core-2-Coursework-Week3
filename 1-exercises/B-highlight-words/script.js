@@ -1,19 +1,27 @@
 function highlightWords(paragraph, colours) {
-  
   const divElement = document.querySelector("#content");
-  // console.log(divElement)
-  
+
   const pElement = document.createElement("p");
-  // console.log(pElement);
-  
-  let paraArray = paragraph.split(" ")
-  // console.log(paraArray);
+
+  let paraArray = paragraph.split(" ");
 
   const selectElement = document.createElement("select");
 
+  // we create the a firstOptionElement as our first option that will have "Please choose a colour"
+  const firstOptionElement = document.createElement("option");
+  firstOptionElement.textContent = "Please choose a colour";
+  firstOptionElement.value = "Please choose a colour";
+  selectElement.appendChild(firstOptionElement);
+
+  // forEach element inside the paraArray we make a new span tag
+  // we can update that span tag with the curent word
+  // we can then append the span to the p tag
+  // when we click on the span
+  // we need to find the value in the select tag
+
   paraArray.forEach((word, index) => {
     const spanElement = document.createElement("span");
-    spanElement.textContent = `${word} `
+    spanElement.textContent = `${word} `;
 
     spanElement.addEventListener("click", function (event) {
       event.preventDefault();
@@ -24,24 +32,25 @@ function highlightWords(paragraph, colours) {
       } else if (selectElement.value === "blue") {
         spanElement.classList.add("blue");
       } else {
-        spanElement.classList.remove("yellow" || "green" || "blue");
+        spanElement.classList.remove("yellow");
+        spanElement.classList.remove("green");
+        spanElement.classList.remove("blue");
       }
-    })
-    
-    pElement.appendChild(spanElement);
-  })
+    });
 
-  
+    pElement.appendChild(spanElement);
+  });
+
   colours.forEach((colour, index) => {
     const optionElement = document.createElement("option");
-    optionElement.textContent = `${colour}`
+    optionElement.textContent = colour[0].toUpperCase() + colour.substr(1);
+    optionElement.value = colour;
     selectElement.appendChild(optionElement);
-  })
-  
+  });
+
   divElement.appendChild(pElement);
 
   divElement.appendChild(selectElement);
-
 }
 
 const paragraph =
@@ -52,8 +61,3 @@ const colours = ["yellow", "green", "blue", "none"];
 highlightWords(paragraph, colours);
 
 
-// forEach element we can make a new span tag
-// we can update that span tag with the curent word
-// we can then append the span to the p tag
-// when we click on the span
-// we need to find the value in the select tag
