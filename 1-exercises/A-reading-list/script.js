@@ -1,7 +1,25 @@
 function readingList(books) {
-  // Write your code here...
-}
+      let contentEle = document.querySelector("#content");
+      let unorderedList = document.querySelector("#reading-list");
 
+      for (const book of books) {
+        let listItem = document.createElement("li");
+
+        listItem.classList.add("li-item");
+        if (book.alreadyRead) {
+          listItem.classList.add("green");
+        } else {
+          listItem.classList.add("red");
+        }
+        let paraEle = document.createElement("p");
+        paraEle.innerText = `${book.title} by ${book.author} `;
+        listItem.appendChild(paraEle);
+        let imageEle = document.createElement("img");
+        imageEle.src = book.bookCoverImage;
+        listItem.appendChild(imageEle);
+        unorderedList.appendChild(listItem);
+      }
+}
 // for the tests, do not modify this array of books
 const books = [
   {

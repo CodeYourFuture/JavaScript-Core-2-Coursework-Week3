@@ -119,10 +119,17 @@ body {
 .article-read-more:last-child {
   margin-bottom: 0;
 }
+.li-item{
+  margin-right: 80px;
+}
 
 .red {
   background-color: red;
 }
+.green {
+background-color: green;
+}
+
 
 .addArticle {
   margin-bottom: 10px;
@@ -151,6 +158,7 @@ body {
 #greenBtn {
   background: #87ca8a;
 }
+
 
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
