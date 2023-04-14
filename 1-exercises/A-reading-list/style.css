@@ -12,6 +12,7 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+
 .site-footer {
   margin-top: 4em;
 }
@@ -25,6 +26,7 @@ body {
 .navbar-brand > img {
   max-height: 40px;
   width: auto;
+  background-color: ;
 }
 
 .navbar-light .navbar-nav .nav-link {
