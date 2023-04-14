@@ -44,3 +44,5 @@ const paragraph =
 const colours = ["yellow", "green", "blue", "none"];
 
 highlightWords(paragraph, colours);
+
+// to run test.... npm test -- --selectProjects exercises
