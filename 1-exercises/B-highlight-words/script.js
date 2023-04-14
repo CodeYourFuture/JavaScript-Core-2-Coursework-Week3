@@ -1,5 +1,3 @@
-
-
 function highlightWords(paragraph, colours) {
 
   let currentHighlightColour;

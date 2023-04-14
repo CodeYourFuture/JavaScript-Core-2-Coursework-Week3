@@ -5,8 +5,29 @@ body {
     background-position: center;
     background-size: auto 100%;
   }
+ul {
+  list-style-type: none;
 
-  .container {
-    margin-top: 150px;
-    width: 90%;
-  }
+}
+
+.container {
+  margin-top: 150px;
+  width: 90%;
+}
+
+ 
+.span-for-buttons {
+  background-color: #0d6efd;
+  border-radius: 30px;
+  justify-items: center;
+  padding: 5px 10px;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+  color: #fff;
+  font-size: .70em;
+}
+
+.list-item {
+  background-color: #fff;
+}
