@@ -10,3 +10,11 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+
+  .list-group {
+    background-color: white;
+  }
+
+  .completed-task {
+    text-decoration: line-through;
+  }
