@@ -1,9 +1,9 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
+  let ulList = document.getElementById("todo-list");
   for (let singleItem of todos) {
     let liElement = document.createElement("li");
     let spanTextElement = document.createElement("span");
-    spanElement.textContent = singleItem.task;
+    spanTextElement.textContent = singleItem.task;
 
     let spanIconElement = document.createElement("span")
     spanIconElement.classList.add("badge", "bg-primary", "rounded-pill");
@@ -11,21 +11,22 @@ function populateTodoList(todos) {
     tickElement.classList.add = ("fa","fa-check");
 
     function checkItem () {
-      this.parentElement.classList.add("completed-task")
-    }
+      this.parentElement.parentElement.classList.add("completed-task");
+    };
 
     tickElement.addEventListener("click", checkItem);
 
-    let binElement = document.createElement("i");
-    binElement.classList.add = ("fa", "fa-trash");
-
-    binElement.addEventListener("click" checkItem);
+    
 
     function removeItem() {
       //this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement)
       liElement.remove();
-
     }
+    let binElement = document.createElement("i");
+    binElement.classList.add = ("fa", "fa-trash");
+
+    binElement.addEventListener("click",removeItem);
+
 
     spanIconElement.appendChild(tickElement);
     spanIconElement.appendChild(binElement);
@@ -67,9 +68,9 @@ function addNewTodo(event) {
     if (inputElement.value === " ") {
 
     }else {
-      let ulFlusher = document.getElementById("todo-list")
+      let ulFlusher = document.getElementById("todo-list");
       ulFlusher.innerHTML = " ";
-      let newItem = {}
+      let newItem = {};
       newItem["task"] = inputElement.value;
       newItem["completed"] = false;
       todos.push(newItem);
