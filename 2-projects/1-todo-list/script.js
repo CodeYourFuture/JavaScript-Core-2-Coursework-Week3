@@ -60,11 +60,18 @@ function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
     // event.preventDefolt()
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
-      
+  let newObgectElement = {};
+   
     event.preventDefault();
     if (inputList.value !== ""){
-            createNewElement(inputList.value)
+      list.innerHTML = ""
+      newObgectElement["task"] = inputList.value
+      newObgectElement["completed"] = false
+      todos.push(newObgectElement)
+      populateTodoList(todos)
+      inputList.value = ""
     }
+    
 }
 
 button.addEventListener("click", addNewTodo)
@@ -73,16 +80,19 @@ button.addEventListener("click", addNewTodo)
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos(event) {
+  event.preventDefault()
   // Write your code here...
-    event.preventDefault() ; 
-    console.log(list)
-    for(let li of list.children) {
-      // console.log(list.children, li)
-      if (li.classList.contains("line")){
-       console.log(li)
-        list.removeChild(li);   
-      }
-    }  
+    let listForArray = list.querySelectorAll("li")
+    let newArrayToCheck =Array.from(listForArray)
+console.log(newArrayToCheck)
+  for (item of newArrayToCheck){
+    if (item.classList.contains("line")){
+        item.remove()
+    }
+
+  }
+    
+     
 }
 
 removeButton.addEventListener("click", deleteAllCompletedTodos)
