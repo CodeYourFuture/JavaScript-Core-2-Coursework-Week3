@@ -1,4 +1,5 @@
 function highlightWords(paragraph, colours) {
+
  let pElement = document.createElement("p");
  let arrayOfWords = paragraph.split(" ");
  

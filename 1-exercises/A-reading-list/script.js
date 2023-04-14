@@ -1,30 +1,34 @@
 function readingList(books) {
-  const content = document.getElementById('content');
-  const list = document.createElement('ul');
-books.forEach((book) => { 
-  const item = document.createElement('li');
-  const paragraph = document.createElement('p');
-  const title = document.createTextNode (book.title);
-  const author = document.createTextNode(`by ${book.author}`);
-  const image = document.createElement('img');
 
- paragraph.appendChild(title);
- paragraph.appendChild(author);
- item.appendChild(paragraph);
- item.appendChild(image);
-
- image.src = book.bookCoverImage;
- image.alt = book.title;
-
- if  (book.alreadyRead) {
-  item.style.backgroundColor ='green';
- }else {
-  item.style.backgroundColor ='red';
- }
-list.appendChild(item);
-});
-content.appendChild(list);
+   for (i = 0; i <= books.length; i++) {
+    let liElement = document.createElement("li");
+    let pElement = document.createElement("p");
   
+    let bookInfo = books[i].title + " by " + books[i].author;
+    pElement.textContent = bookInfo; // textContent only targets the text portion but leave any HTML alone
+    
+    if (books[i].alreadyRead === true) {
+      liElement.classList.add("green");
+    } else {
+      liElement.classList.add("red");
+    }
+
+    
+    liElement.appendChild(pElement);
+    
+    let imgElement = document.createElement("img");
+    let bookImageUrl = books[i].bookCoverImage;
+    
+    imgElement.src = bookImageUrl;
+    
+    liElement.appendChild(imgElement);
+    
+    // [...liElement].map(li => li.classList.add("bookBoxSizing"));
+    // liElement.forEach(li => li.classList.add("bookBoxSizing"));
+    
+    let ulElement = document.querySelector("#reading-list");
+    ulElement.appendChild(liElement);
+  }
 
 }
 
