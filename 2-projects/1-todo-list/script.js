@@ -10,7 +10,8 @@ function populateTodoList(todos) {
   todos.forEach(todo => {
     const listItem = document.createElement("li");
     listItem.textContent = todo.task;
-    console.log(todo)
+    listItem.classList.add('list-group-item');
+    console.log(todo);
     ListOfToDo.appendChild(listItem);
   });
 }
