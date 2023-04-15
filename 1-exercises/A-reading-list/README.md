@@ -6,13 +6,13 @@ The function **readingList** takes an array of book objects:
 const books = [
   {
     title: 'The Design of Everyday Things',
-    author: 'Don Norman',
+    author: 'By Don Norman',
     alreadyRead: false,
-    bookCoverImage: 'https://blackwells.co.uk/jacket/l/9780465050659.jpg',
+    bookCoverImage: "https://blackwells.co.uk/jacket/l/9780465050659.jpg",
   },
   {
     title: 'The Most Human Human',
-    author: 'Brian Christian',
+    author: 'BY Brian Christian',
     alreadyRead: true,
     bookCoverImage:
       'https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg',
@@ -21,7 +21,7 @@ const books = [
 ];
 ```
 
-Render the list of books on the page. Each book should have a title, author and image and a background colour that is set dependent on whether we have read the book or not.
+Render the list of books on the page. Each book should have a title, author and image and a background color that is set dependent on whether we have read the book or not.
 
 ## Exercise
 

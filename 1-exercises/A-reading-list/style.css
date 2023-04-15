@@ -120,8 +120,25 @@ body {
   margin-bottom: 0;
 }
 
+.green {
+  background-color: green;
+}
 .red {
   background-color: red;
+}
+
+.book-list-item {
+  margin-bottom: 1em;  
+}
+
+li:first-child {
+  border: 2px solid orange;
+}
+
+
+img {
+  width: 400px;
+  height: 599px;
 }
 
 .addArticle {
