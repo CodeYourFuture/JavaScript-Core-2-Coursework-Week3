@@ -1,9 +1,29 @@
 function readingList(books) {
-  // Write your code here...
+  let contentElm = document.querySelector("#content");
+  let unorderedList = document.querySelector("#reading-list");
+
+  for (let book of books) {
+    let listItem = document.createElement("li");
+
+   listItem.classList.add("li-item");
+    if(book.alreadyRead) {
+      listItem.classList.add("green");
+    }else{
+      listItem.classList.add("red")
+    }
+  let paraElm = document.createElement("p");
+      paraElm.innerText = `${book.title} by ${book.author} `;
+
+      listItem.appendChild(paraElm);
+      let imageElm = document.createElement("img");
+        imageElm.src = book.bookCoverImage;
+        listItem.appendChild(imageElm);
+        unorderedList.appendChild(listItem);
+  }
 }
 
 // for the tests, do not modify this array of books
-const books = [
+    const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
@@ -24,5 +44,7 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
+
+let result = readingList(books);
 
 readingList(books);
