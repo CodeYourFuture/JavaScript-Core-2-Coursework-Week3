@@ -21,7 +21,7 @@ function readingList(books) {
       let imgElement = document.createElement("img");
       imgElement.setAttribute("src", books[i].bookCoverImage);
       liElement.append(imgElement);
-      
+    
       
       let ulElement = document.querySelector("#reading-list");
       ulElement.appendChild(liElement);

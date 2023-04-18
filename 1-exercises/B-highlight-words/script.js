@@ -1,12 +1,7 @@
-
 function changeColour (){
-let highlightColor = document.querySelector("#colourSelect").value;
+  let highlightColor = document.querySelector("#colourSelect").value;
   if (highlightColor === "none") highlightColor = "";
-  if (this.style.backgroundColor === "") {
-    this.style.backgroundColor = highlightColor;
-  } else {
-    this.style.backgroundColor = "";
-  }
+  this.style.backgroundColor = highlightColor;
 }
 function highlightWords(paragraph, colours) {
   let contentDiv = document.querySelector("#content");
@@ -23,10 +18,16 @@ function highlightWords(paragraph, colours) {
   contentDiv.appendChild(pElement);
   let selectElement = document.createElement("select");
   selectElement.id = "colourSelect";
+
+  let option = document.createElement("option");
+  option.innerText = 'Please choose a colour';
+  option.value = 'Please choose a colour';
+  selectElement.appendChild(option);
+
   colours.forEach((colour) => {
    let optionElement = document.createElement("option");
    optionElement.value = colour;
-   optionElement.innerText = colour;
+   optionElement.innerText = colour[0].toUpperCase() + colour.slice(1);
   selectElement.appendChild(optionElement);
   });
   contentDiv.appendChild(selectElement);
