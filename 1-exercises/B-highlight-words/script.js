@@ -1,5 +1,25 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  const p = document.createElement("p");
+
+  document.body.appendChild(p);
+  paragraph.split(" ").forEach((word) => {
+    const span = document.createElement("span");
+    span.addEventListener("click", (event) => {
+      const selectedColor = document.querySelector("select").value;
+      event.target.style.backgroundColor = selectedColor;
+    });
+    span.innerText = word + " ";
+    p.appendChild(span);
+  });
+
+  const select = document.createElement("select");
+  document.body.appendChild(select);
+  ["Please choose a colour", ...colours].forEach((color) => {
+    const option = document.createElement("option");
+    option.value = color;
+    option.innerText = color[0].toUpperCase() + color.slice(1);
+    select.appendChild(option);
+  });
 }
 
 const paragraph =
