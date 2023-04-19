@@ -152,6 +152,18 @@ body {
   background: #87ca8a;
 }
 
+.read {
+  background-color: green;
+  border: 1px solid black;
+  width: 80%;
+}
+
+.unread {
+  background-color: red;
+  border: 1px solid black;
+  width: 80%;
+}
+
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;
