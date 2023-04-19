@@ -13,8 +13,8 @@ function populateTodoList(todos) {
     completedBtn.classList.add("btn", "btn-primary", "me-2");
     completedBtn.addEventListener("click", () => {
       li.classList.toggle("text-decoration-line-through");
+  
     });
-    li.appendChild(completedBtn);
 
     const deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
@@ -22,13 +22,14 @@ function populateTodoList(todos) {
     deleteBtn.addEventListener("click", () => {
       li.remove();
     });
+
+    li.appendChild(completedBtn);
     li.appendChild(deleteBtn);
     
     list.appendChild(li);
   });
 
 }
-
 
 let todos = [
   { task: "Complete everything", completed: false },
@@ -38,20 +39,18 @@ let todos = [
 populateTodoList(todos);
 
 function addNewTodo(event) {
-    let todoInput = document.querySelector('todoInput');
+  event.preventDefault();
+    let todoInput = document.getElementById('todoInput');
     let newTask = todoInput.value.trim();
     
     if (newTask !== "") {
       const todo = { task: newTask, completed: false };
       todos.push(todo);
-      populateTodoList(todos);
       todoInput.value = "";
       populateTodoList(todos);
     }
 
 }
-const addBtn = document.querySelector('btn-primary');
-addBtn.addEventListener("click", addNewTodo);
 
 function deleteAllCompletedTodos() {
   todos.forEach((todo, index) => {
@@ -64,6 +63,6 @@ function deleteAllCompletedTodos() {
   });
 }
 
-let addToDoButton = document.querySelector("addButton");
+let addToDoButton = document.getElementById("addButton");
 addToDoButton.addEventListener("click", addNewTodo);
 
