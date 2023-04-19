@@ -32,8 +32,8 @@ function populateTodoList(todos) {
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
+  { task: "Complete everything", completed: false },
+  { task: "Conquer Earth", completed: false },
 ];
 
 populateTodoList(todos);
@@ -53,12 +53,12 @@ function addNewTodo(event) {
   //event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 }
-const addBtn = document.querySelector('#addBtn');
+const addBtn = document.querySelector('btn-primary');
 addBtn.addEventListener("click", addNewTodo);
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   todos.forEach((todo, index) => {
-    const li = document.querySelectorAll('.list-group-item')[index];
+    const li = document.querySelectorAll('list-group')[index];
     
     if (li.classList.contains("text-decoration-line-through")) {
       todos.splice(index, 1);
