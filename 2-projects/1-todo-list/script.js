@@ -80,7 +80,7 @@ function addNewTodo(event) {
 }
 
 
-let addButton = document.getElementById("");
+let addButton = document.getElementById("btn-add");
 addButton.addEventListener("click" ,addNewTodo);
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
