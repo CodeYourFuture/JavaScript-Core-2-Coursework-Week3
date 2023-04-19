@@ -13,6 +13,7 @@ body {
  .list-group {
   background-color: white;
  }
- .completed-task{
-  
+ 
+ .completed-task {
+   text-decoration: line-through;
  }
