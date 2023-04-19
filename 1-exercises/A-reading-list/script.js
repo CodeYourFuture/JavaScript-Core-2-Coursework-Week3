@@ -1,7 +1,3 @@
-function readingList(books) {
-  // Write your code here...
-}
-
 // for the tests, do not modify this array of books
 const books = [
   {
@@ -24,5 +20,32 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
+
+function readingList(books) {
+  // Write your code here...
+  const contentDiv = document.getElementById("content");
+  const ul = document.createElement("ul");
+
+  books.forEach((book) => {
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    const img = document.createElement("img");
+
+    p.textContent = `${book.title} + ${book.author}`;
+    img.src = book.bookCoverImage;
+
+    li.appendChild(p);
+    li.appendChild(img);
+    ul.appendChild(li);
+
+    if (book.alreadyRead) {
+      li.classList.add("read");
+    } else {
+      li.classList.add("unread");
+    }
+  });
+
+  contentDiv.appendChild(ul);
+}
 
 readingList(books);
