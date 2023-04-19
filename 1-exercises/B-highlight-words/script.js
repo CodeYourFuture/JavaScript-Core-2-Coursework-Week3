@@ -25,24 +25,24 @@ const paragraph =
 
 const colours = ["yellow", "green", "blue", "none"];
 function changeColour (){
-let colourBox = document.getElementById("colourSelect");
-let chosenColour = colourBox.value;
-if (chosenColour === "none") {
-this.style.backgroundColor = "";
+  let colourBox = document.getElementById("colourSelect");
+  let chosenColour = colourBox.value;
+  if (chosenColour === "none") {
+  this.style.backgroundColor = "";
 }
-else {
-this.style.backgroundColor = chosenColour;
+  else {
+  this.style.backgroundColor = chosenColour;
 }
 }
 
 function highlightWords(paragraph, colours) {
-let pElement = document.createElement("p");
-let arrayOfWords = paragraph.split(" ");
-arrayOfWords.forEach((word)=>{
-let spanElement = document.createElement("span");
-spanElement.textContent = word + " ";
-spanElement.addEventListener("click", changeColour);
-pElement.appendChild(spanElement);
+  let pElement = document.createElement("p");
+  let arrayOfWords = paragraph.split(" ");
+  arrayOfWords.forEach((word)=>{
+   let spanElement = document.createElement("span");
+   spanElement.textContent = word + " ";
+   spanElement.addEventListener("click", changeColour);
+   pElement.appendChild(spanElement);
 })
 let contentDiv = document.querySelector("#content");
 contentDiv.appendChild(pElement);
