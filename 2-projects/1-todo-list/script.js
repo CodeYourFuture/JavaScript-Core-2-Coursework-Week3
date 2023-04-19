@@ -10,21 +10,19 @@ function populateTodoList(todos) {
     
     const completedBtn = document.createElement("button");
     completedBtn.innerText = "Done";
-    completedBtn.classList.add("btn", "btn-primary", "me-2");
+    completedBtn.className = "btn btn-primary float-end me-2";
     completedBtn.addEventListener("click", () => {
       li.classList.toggle("text-decoration-line-through");
-  
     });
 
     const deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
-    deleteBtn.classList.add("btn", "btn-danger");
+    deleteBtn.className = "btn btn-danger float-end"; 
     deleteBtn.addEventListener("click", () => {
       li.remove();
     });
-
-    li.appendChild(completedBtn);
     li.appendChild(deleteBtn);
+    li.appendChild(completedBtn);
     
     list.appendChild(li);
   });
@@ -49,7 +47,6 @@ function addNewTodo(event) {
       todoInput.value = "";
       populateTodoList(todos);
     }
-
 }
 
 function deleteAllCompletedTodos() {
