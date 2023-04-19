@@ -1,12 +1,41 @@
 body {
-    background-image: url(assets/world.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: auto 100%;
-  }
+  background-image: url(assets/world.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: auto 100%;
+}
 
-  .container {
-    margin-top: 150px;
-    width: 90%;
-  }
+.container {
+  margin-top: 150px;
+  width: 90%;
+}
+
+
+.newTodo {
+  margin: 0.1rem;
+  height: 30px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item {
+  list-style: none;
+  min-width: 30%;
+  flex: 1;
+}
+
+.checkBtn,
+.deleteBtn {
+  color: white;
+  background-color: rgb(23, 104, 180);
+  border: 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
