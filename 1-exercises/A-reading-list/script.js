@@ -9,7 +9,7 @@ function readingList(books) {
 
     if (alreadyRead == true) {
       book.style = "cssClass";
-
+     
     };
 
 });
