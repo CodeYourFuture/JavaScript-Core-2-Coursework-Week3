@@ -1,5 +1,5 @@
 function readingList(books) {
-  let contentElm = document.querySelector("#content");
+  let contentEle = document.querySelector("#content");
   let unorderedList = document.querySelector("#reading-list");
 
   for (let book of books) {
@@ -11,13 +11,13 @@ function readingList(books) {
     }else{
       listItem.classList.add("red")
     }
-  let paraElm = document.createElement("p");
-      paraElm.innerText = `${book.title} by ${book.author} `;
+  let paraEle = document.createElement("p");
+      paraEle.innerText = `${book.title} by ${book.author}`;
 
-      listItem.appendChild(paraElm);
-      let imageElm = document.createElement("img");
-        imageElm.src = book.bookCoverImage;
-        listItem.appendChild(imageElm);
+      listItem.appendChild(paraEle);
+      let imageEle = document.createElement("img");
+        imageEle.src = book.bookCoverImage;
+        listItem.appendChild(imageEle);
         unorderedList.appendChild(listItem);
   }
 }
