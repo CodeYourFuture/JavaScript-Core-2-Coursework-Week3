@@ -23,6 +23,8 @@ const books = [
   },
 ];
 
+// Above is the variable const books. It has an array of books with objects, as title, we can call.
+
 readingList(books);
 
 function readingList(books) {
@@ -57,6 +59,17 @@ function readingList(books) {
 }
 
 
-
+// I start with a function readingList and I have specified books as its call argument. Its purpose is to create a list of books
+// based on an array of objects passed as an argument. I use two const variables that equal document and the first use .getElementsById
+// and with the 'content' we have a reference to an HTML element. Then an unordered list is created in next variable. In the
+// books array the function create a list item (li) and (p) a paragraph element. In the third variable, I use a .createTextNode to
+// with two nodes - book and title. The next node insert the authors name into the string `by...` and use `${}` syntax.
+// Last variable, adds an image. 
+// I use .appendChild for all paragraph - title and author - and item to paragraph and image. When the appendChild() method is called,
+//  the child node is added to the end of the parent node's child node list. Then I set the image source and alt.
+// Next I use an if else statement with the property (book.alreadyRead). If it is true I read the book you see inside the brackets
+// it takes the item and style a green background. If it is false there will be a red background. Then the code check the unordered list
+// append it to the item. And content.appendChild append the unordered list to the content.
+// Finished.
 
 
