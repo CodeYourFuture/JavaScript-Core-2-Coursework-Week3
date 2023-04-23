@@ -1,5 +1,27 @@
+const content = document.getElementById("content");
+
 function readingList(books) {
   // Write your code here...
+  const list = document.querySelector("#reading-list");
+  books.forEach((book) => {
+    const listItem = document.createElement("li");
+    if (book.alreadyRead) {
+      listItem.className = "bookRead";
+    }else {
+      listItem.className = "bookNotRead";
+    }
+
+    const newParagraph = document.createElement("p");
+    newParagraph.innerText = `${book.author} ${book.title}`;
+    listItem.appendChild(newParagraph);
+    const newImg = document.createElement("img");
+    newImg.src = book.bookCoverImage;
+    newImg.className = "book-image-cover"
+    listItem.appendChild(newImg);
+    list.appendChild(listItem);
+
+  });
+  content.appendChild(readingList);
 }
 
 // for the tests, do not modify this array of books
