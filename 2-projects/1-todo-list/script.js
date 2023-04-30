@@ -31,6 +31,22 @@ function addNewTask(event) {
 
   myNewTask.innerText = inputText;
 
+  // creating a span element for the two icons
+  let mySpanElement = document.createElement("span");
+
+  //create icon elements
+  let trashIcon = document.createElement("i");
+  let checkIcon = document.createElement("i");
+
+  trashIcon.classList.add("fa-solid", "fa-trash");
+  checkIcon.classList.add("fa-solid", "fa-check");
+
+  // append icon elements to span element
+  mySpanElement.append(trashIcon, checkIcon);
+
+  // append span to list element
+  myNewTask.append(mySpanElement);
+
   myNewTask.classList.add("todo-text");
 
   // could use append for multiple elements
