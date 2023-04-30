@@ -49,12 +49,8 @@ function addNewTask(event) {
 
   myNewTask.classList.add("todo-text");
 
-  //add event listener for check button to add a strikethrough class
+  // add event listener for completed tasks
   checkIcon.addEventListener("click", taskIsDone);
-
-  function test() {
-    alert("helloo");
-  }
 
   function taskIsDone(event) {
     event.preventDefault();
@@ -66,6 +62,14 @@ function addNewTask(event) {
       myNewTask.classList.add("strikethrough");
     }
   }
+
+  // add event listener for deleted tasks
+  function deleteTask(event) {
+    event.preventDefault();
+    myNewTask.remove();
+  }
+
+  trashIcon.addEventListener("click", deleteTask);
 
   // could use append for multiple elements
   myList.appendChild(myNewTask);
@@ -84,7 +88,6 @@ let todos = [
   { task: "Do the shopping", completed: false },
 ];
 
-
 populateTodoList(todos);
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
@@ -95,6 +98,27 @@ function addNewTodo(event) {
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+function deleteAllCompletedTodos(event) {
+  // stops refreshing
+  event.preventDefault();
+
+  // Select all li elements
+  // returns an array of all list elements
+  let allListElements = document.querySelectorAll("li");
+
+  // for loop to iterate through array of list elements
+  for (const listElement of allListElements) {
+    if (listElement.classList.contains("strikethrough")) {
+      listElement.remove();
+    }
+  }
 }
+
+let removeAllCompletedButton = document.querySelector("#remove-all-completed");
+
+function test(event) {
+  event.preventDefault();
+  alert("helloo");
+}
+
+removeAllCompletedButton.addEventListener("click", deleteAllCompletedTodos);
