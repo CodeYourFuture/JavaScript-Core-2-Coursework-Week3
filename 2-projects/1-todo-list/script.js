@@ -20,7 +20,22 @@ function populateTodoList(todos) {
 let addToDoButton = document.querySelector("#addToDo");
 addToDoButton.addEventListener("click", addNewTask);
 
-function addNewTask(event) {}
+function addNewTask(event) {
+  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
+  event.preventDefault();
+  let myList = document.getElementById("todo-list");
+  // Target the input text box
+  let inputText = document.querySelector("#todoInput").value;
+
+  let myNewTask = document.createElement("li");
+
+  myNewTask.innerText = inputText;
+
+  myNewTask.classList.add("todo-text");
+
+  // could use append for multiple elements
+  myList.appendChild(myNewTask);
+}
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
