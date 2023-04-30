@@ -38,22 +38,43 @@ function addNewTask(event) {
   let trashIcon = document.createElement("i");
   let checkIcon = document.createElement("i");
 
-  trashIcon.classList.add("fa-solid", "fa-trash");
-  checkIcon.classList.add("fa-solid", "fa-check");
+  trashIcon.classList.add("fa", "fa-trash");
+  checkIcon.classList.add("fa", "fa-check");
 
   // append icon elements to span element
-  mySpanElement.append(trashIcon, checkIcon);
+  mySpanElement.append(checkIcon, trashIcon);
 
   // append span to list element
   myNewTask.append(mySpanElement);
 
   myNewTask.classList.add("todo-text");
 
+  //add event listener for check button to add a strikethrough class
+  checkIcon.addEventListener("click", taskIsDone);
+
+  function test() {
+    alert("helloo");
+  }
+
+  function taskIsDone(event) {
+    event.preventDefault();
+    // if statement to check if myNewTask has had strikethrough class applied
+    // if yes, it will return true
+    if (myNewTask.classList.contains("strikethrough")) {
+      myNewTask.classList.remove("strikethrough");
+    } else {
+      myNewTask.classList.add("strikethrough");
+    }
+  }
+
   // could use append for multiple elements
   myList.appendChild(myNewTask);
 
   // clear input box
   document.querySelector("#todoInput").value = "";
+
+  // make a class that applies strikethrough to text
+  // click on tick adds a class to the to-do text
 }
 
 // These are the same todos that currently display in the HTML

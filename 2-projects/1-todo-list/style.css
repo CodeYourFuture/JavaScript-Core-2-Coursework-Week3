@@ -14,3 +14,7 @@ body {
 .todo-text {
   background-color: white;
 }
+
+.strikethrough {
+  text-decoration: line-through;
+}
