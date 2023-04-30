@@ -35,6 +35,9 @@ function addNewTask(event) {
 
   // could use append for multiple elements
   myList.appendChild(myNewTask);
+
+  // clear input box
+  document.querySelector("#todoInput").value = "";
 }
 
 // These are the same todos that currently display in the HTML
