@@ -116,9 +116,4 @@ function deleteAllCompletedTodos(event) {
 
 let removeAllCompletedButton = document.querySelector("#remove-all-completed");
 
-function test(event) {
-  event.preventDefault();
-  alert("helloo");
-}
-
 removeAllCompletedButton.addEventListener("click", deleteAllCompletedTodos);
