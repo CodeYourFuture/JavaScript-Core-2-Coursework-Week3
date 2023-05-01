@@ -48,29 +48,32 @@ let todos = [
 populateTodoList(todos);
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
-function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
-  let input = document.getElementById("todoInput");
-  let newTodo = { task: input.value, completed: false };
-  todos.push(newTodo);
-  populateTodoList(todos);
-  input.value = ""; // reset the input field
-  let addTodoBtn = document.getElementById("add-todo");
-  addTodoBtn.addEventListener("click", addNewTodo);
-  event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+function addNewTodo() {
+  const inputValue = document.getElementById("todoInput").value.trim();
+  if (inputValue === "") {
+    return;
+  }
+
+  const listItem = document.createElement("li");
+  listItem.innerText = inputValue;
+  listItem.classList.add("list-group-item");
+  document.getElementById("todo-list").appendChild(listItem);
+
+  document.getElementById("todoInput").value = "";
 }
+const addButton = document.querySelector(".btn-primary");
+addButton.addEventListener("click", addTodo);
 
 // Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
-  let list = document.getElementById("todo-list");
-  let todos = list.getElementsByTagName("li");
-
-  for (let i = 0; i < todos.length; i++) {
-    let todo = todos[i];
-    if (todo.style.textDecoration === "line-through") {
-      todo.remove();
-    }
+  function deleteAllCompletedTodos() {
+    const deleteButton = document.getElementById("remove-all-completed");
+    deleteButton.addEventListener("click", function(){
+      const list = document.getElementById("todo-list");
+      const todos = list.getElementsByTagName("li");
+      for(let i = 0; i < todos.length; i++){
+        if(todos[i].style.textDecoration === "line-through"){
+          todos[i].remove();
+        }
+      }
+    });
   }
-}
