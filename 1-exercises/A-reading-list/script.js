@@ -22,11 +22,8 @@ const books = [
 ];
 
 function readingList(books) {
-  // Write your code here...
-//   const contentDiv = document.getElementById("content");
   const ul = document.getElementById("reading-list");
-//   const ul = document.createElement("ul");
-
+  
   books.forEach((book) => {
     const li = document.createElement("li");
     const p = document.createElement("p");
@@ -39,18 +36,8 @@ function readingList(books) {
     li.appendChild(img);
     ul.appendChild(li);
 
-    if (book.alreadyRead) {
-      li.classList.add("read");
-      li.style.backgroundColor = "green";
-    
-    } else { 
-      li.classList.add("unread");
-      li.style.backgroundColor = "red";
-    }
+    li.classList.add(book.alreadyRead ? "read" : "unread");
+    li.style.backgroundColor = book.alreadyRead ? "green" : "red";
   });
-
-//   contentDiv.appendChild(ul);
-//   ul.appendChild(ul);
 }
-
 readingList(books);

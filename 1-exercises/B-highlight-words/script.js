@@ -1,13 +1,13 @@
 function highlightWords(paragraph, colors) {
   const contentDiv = document.getElementById("content");
-
-  // create select element
   const select = document.createElement("select");
+
   select.id = "color-select";
+
   for (let i = 0; i < colors.length; i++) {
     const option = document.createElement("option");
     option.value = colors[i];
-    // option.text = colors[i];
+  
     if(i !== 0){
           option.text = colors[i].charAt(0).toUpperCase() + colors[i].slice(1);
     }
@@ -17,21 +17,15 @@ function highlightWords(paragraph, colors) {
 
   // create p element
   const p = document.createElement("p");
-
   // create array of words from paragraph
   const words = paragraph.split(" ");
-
   // iterate over words
   words.forEach((word) => {
     // create span element
     const span = document.createElement("span");
     span.innerText = word + " ";
     span.addEventListener("click", () => {
-      if (select.value === "none") {
-        span.style.backgroundColor = "";
-      } else {
-        span.style.backgroundColor = select.value;
-      }
+      span.style.backgroundColor = select.value === "none" ? "" : select.value;
     });
     p.appendChild(span);
   });
