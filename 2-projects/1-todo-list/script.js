@@ -18,9 +18,7 @@ function populateTodoList(todos) {
     completeBtn.classList.add("fa", "fa-check");
     completeBtn.setAttribute("aria-hidden", "true");
     completeBtn.addEventListener("click", function () {
-     li.style.textDecoration =
-     li.style.textDecoration === "line-through" ? "none" : "line-through";
-
+    li.style.textDecoration = li.style.textDecoration === "line-through" ? "none" : "line-through";
     });
     badge.appendChild(completeBtn);
 
