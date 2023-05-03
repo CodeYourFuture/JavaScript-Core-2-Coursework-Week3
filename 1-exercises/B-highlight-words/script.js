@@ -1,5 +1,50 @@
 function highlightWords(paragraph, colours) {
   // Write your code here...
+  let divEl = document.getElementById("content");
+
+  let pEl = document.createElement("p");
+  divEl.appendChild(pEl);
+
+  let selectEl = document.createElement("select");
+
+  for (let colour of colours) {
+    let optionEl = document.createElement("option");
+    optionEl.value = colour;
+    optionEl.innerHTML = colour;
+    selectEl.appendChild(optionEl);
+  }
+  divEl.appendChild(selectEl);
+
+  // not able to do these two .. not sure how to extract the spans then
+  // how to apply event listener for each
+  // I've tried to loop through queryselectorAll but still.
+
+  //   - Each `<span>` should have an eventListener that will listen for clicks.
+  // - When clicked, we need to check the value of the `<select>` element using the `.value` property.
+
+  let paragraphIntoArray = paragraph.split(" ");
+  for (let word of paragraphIntoArray) {
+    let spanEl = document.createElement("span");
+    spanEl.innerHTML = word + " ";
+    pEl.appendChild(spanEl);
+  }
+
+  // span click listener
+  let spansEls = document.querySelectorAll("span");
+  for (let element in pEl) {
+    console.log("test the spans here " + element.innerHTML);
+  }
+
+  function spanClicked(word) {
+    let theSelectedColor = selectEl.value;
+
+    if (theSelectedColor === "blue") {
+      word.style.backgroundColor = theSelectedColor;
+    }
+  }
+  for (let element of spansEls) {
+    element.addEventListener("click", spanClicked);
+  }
 }
 
 const paragraph =
