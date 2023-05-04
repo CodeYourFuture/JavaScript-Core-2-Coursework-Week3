@@ -10,3 +10,9 @@ body {
     margin-top: 150px;
     width: 90%;
   }
+  .list-group {
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    padding:2rem;
+  }
