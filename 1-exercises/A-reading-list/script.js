@@ -1,5 +1,26 @@
 function readingList(books) {
-  // Write your code here...
+  const readingList = document.createElement(`ul`);
+
+  books.forEach((book) => {
+    const bookItem = document.createElement(`li`);
+
+    if (book.alreadyRead) bookItem.classList.add(`book-list-item__is-read`);
+    else bookItem.classList.add(`book-list-item__not-read`);
+
+    const bookInfo = document.createElement(`p`);
+    const bookImage = document.createElement(`img`);
+
+    const bookInfoText = `${book.title} by ${book.author}`;
+
+    bookInfo.innerText = bookInfoText;
+    bookImage.src = book.bookCoverImage;
+    bookImage.classList.add(`book-image-cover`);
+
+    bookItem.append(bookInfo, bookImage);
+    readingList.appendChild(bookItem);
+  });
+
+  content.appendChild(readingList);
 }
 
 // for the tests, do not modify this array of books
