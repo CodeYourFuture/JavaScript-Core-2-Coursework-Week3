@@ -1,5 +1,33 @@
+const mainDiv = document.querySelector("#content");
+const pElement = document.createElement("p");
+const selectElement = document.createElement("select");
+const pleaseChoose = document.createElement("option");
+pleaseChoose.innerText = "Please choose a colour";
+selectElement.appendChild(pleaseChoose);
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  colours.forEach((element) => {
+    let newOptionElement = document.createElement("option");
+    newOptionElement.innerText =
+      element.charAt(0).toUpperCase() + element.slice(1);
+    newOptionElement.value = element;
+    selectElement.appendChild(newOptionElement);
+  });
+  let paragraphArray = paragraph.split(" ");
+  paragraphArray.forEach((element) => {
+    let newSpanElement = document.createElement("span");
+    newSpanElement.innerText = element + " ";
+    pElement.appendChild(newSpanElement);
+    newSpanElement.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (selectElement.value === "none") {
+        newSpanElement.style.backgroundColor = "white";
+      } else {
+        newSpanElement.style.backgroundColor = selectElement.value;
+      }
+    });
+  });
+  mainDiv.appendChild(pElement);
+  mainDiv.appendChild(selectElement);
 }
 
 const paragraph =
