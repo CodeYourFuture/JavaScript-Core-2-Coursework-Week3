@@ -27,7 +27,7 @@ function readingList(books) {
   }
   bookBlock.appendChild(bookUL);
 }
-// i have started working
+
 // for the tests, do not modify this array of books
 const books = [
   {
