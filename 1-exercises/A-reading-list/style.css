@@ -122,8 +122,15 @@ body {
 
 .red {
   background-color: red;
+  width: 30%;
 }
-
+.green{
+  background-color: green;
+  width: 30%;
+}
+img{
+  width: 40%;
+}
 .addArticle {
   margin-bottom: 10px;
 }

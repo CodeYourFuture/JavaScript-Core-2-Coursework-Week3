@@ -1,5 +1,16 @@
+
+const content = document.querySelector("content");
+
 function highlightWords(paragraph, colours) {
   // Write your code here...
+  const paragraphElement = document.createElement("p")
+  const selectElement = document.createElement("select")
+
+  colours.forEach((colour) => {
+    const option = document.createElement("option")
+    option.innerText = colour
+    selectElement.appendChild(option)
+  });
 }
 
 const paragraph =
