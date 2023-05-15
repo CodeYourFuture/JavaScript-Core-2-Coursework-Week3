@@ -1,16 +1,35 @@
 
 const content = document.querySelector("content");
 
+function changeColour(event){
+event.preventDefault();
+  const currentColour = selectMenu.value;
+  
+}
+
 function highlightWords(paragraph, colours) {
   // Write your code here...
-  const paragraphElement = document.createElement("p")
-  const selectElement = document.createElement("select")
+  const paragraphElement = document.createElement("p");
+  const selectElement = document.createElement("select");
 
   colours.forEach((colour) => {
-    const option = document.createElement("option")
-    option.innerText = colour
-    selectElement.appendChild(option)
+    const option = document.createElement("option");
+    option.innerText = colour;
+    selectElement.appendChild(option);
+
   });
+
+  const paragraphSplit = paragraphElement.split(" ");
+  paragraphSplit.forEach((word) => {
+    const spanElement = document.createElement("span");
+    spanElement.innerText = word + " ";
+
+    paragraphElement.appendChild("spanElement");
+    document.querySelector("spanElement").addEventListener("click", );
+  });
+
+  content.append(paragraphElement, selectElement);
+
 }
 
 const paragraph =
