@@ -19,14 +19,10 @@ function highlightWords(paragraph, colours) {
   //splitting paragraph into spans , then adding event listener for each span
 
   let paragraphIntoArray = paragraph.split(" ");
-  let idForSpans = 0;
+
   for (let word of paragraphIntoArray) {
     let spanEl = document.createElement("span");
     spanEl.innerHTML = word + " ";
-    //will I need span id to check which span is clicked on ? lets try
-
-    spanEl.id = idForSpans;
-    idForSpans++;
     pEl.appendChild(spanEl);
     spanEl.addEventListener("click", function () {
       spanEl.style.backgroundColor = selectEl.value;
