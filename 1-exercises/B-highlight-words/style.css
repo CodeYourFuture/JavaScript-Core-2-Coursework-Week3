@@ -118,6 +118,15 @@
  .article-read-more:last-child {
      margin-bottom: 0;
  }
+
+ .select-colors {
+    display: inline-block;
+    margin-left: 10px;
+ }
+
+ .select-colors select {
+    padding: 5px;
+ }
  
  .red {
      background-color: red;

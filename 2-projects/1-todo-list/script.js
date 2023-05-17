@@ -1,7 +1,6 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
- 
 
   for (let todo of todos) {
     let listLi = document.createElement("li");
@@ -13,7 +12,7 @@ function populateTodoList(todos) {
     listLi.appendChild(spanLi);
 
     let checkLine = document.createElement("i");
-    checkLine.class = "fa fa-check";
+    checkLine.className = "fa fa-check";
     checkLine.addEventListener("click", () => {
       listLi.style.textDecoration === "line-through" ? (listLi.style.textDecoration = "") : (listLi.style.textDecoration = "line-through");
     });
@@ -58,16 +57,26 @@ function addNewTodo(event) {
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones 
 // are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos(event) {
+  event.preventDefault();
 
-  let li = document.querySelector("li");
+  
   let list = document.getElementById("todo-list");
-  for (let listLi of li) {
-    if (listLi.style.textDecoration === "line-through") {
-      list.removeChild(listLi);
+  let todosToRemove = Array.from(list.querySelectorAll("li"));
+  
+  todosToRemove.forEach((todo) => {
+    if (todo.style.textDecoration === "line-through") {
+      list.removeChild(todo);
     }
-  }
-  // Write your code here...
+  });
 }
+  
+ // for (let listLi of list) {
+ //   if (listLi.style.textDecoration === "line-through") {
+ //     list.removeChild(list);
+ //   }
+ // }
+  // Write your code here...
+//}
 
 let removeCompletedTasks = document.querySelector("#remove-all-completed");
 removeCompletedTasks.addEventListener("click", deleteAllCompletedTodos);
