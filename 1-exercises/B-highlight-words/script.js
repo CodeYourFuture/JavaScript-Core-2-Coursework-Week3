@@ -1,34 +1,42 @@
+const content = document.querySelector("#content");
 
-const content = document.querySelector("content");
-
-function changeColour(event){
-event.preventDefault();
-  const currentColour = selectMenu.value;
-  
+function checkColour(event) {
+  event.preventDefault();
+  if (selectElement.value === "none") {
+    spanElement.style.backgroundColor = "";
+  } else {
+    spanElement.style.backgroundColor = selectElement.value;
+  }
 }
 
 function highlightWords(paragraph, colours) {
   // Write your code here...
   const paragraphElement = document.createElement("p");
+
   const selectElement = document.createElement("select");
 
   colours.forEach((colour) => {
     const option = document.createElement("option");
     option.innerText = colour;
     selectElement.appendChild(option);
-
   });
 
-  const paragraphSplit = paragraphElement.split(" ");
+    content.append(selectElement, paragraphElement);
+
+  const paragraphSplit = paragraph.split(" ");
   paragraphSplit.forEach((word) => {
     const spanElement = document.createElement("span");
     spanElement.innerText = word + " ";
 
-    paragraphElement.appendChild("spanElement");
-    document.querySelector("spanElement").addEventListener("click", );
+    // paragraphElement.appendChild("spanElement");
+    spanElement.addEventListener("click", checkColour);
+        paragraphElement.appendChild(spanElement);
+
   });
 
-  content.append(paragraphElement, selectElement);
+  // document.querySelector("#content").appendChild(paragraphElement);
+  //   document.querySelector("#content").appendChild(selectElement);
+
 
 }
 
