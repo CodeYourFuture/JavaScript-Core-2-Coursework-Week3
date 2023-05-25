@@ -1,12 +1,5 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-
-  querySelector(".btn btn-primary mb-3").addEventListner("click", respondToClick);
-
-  function respondToClick() {
-    querySelector(".btn btn-primary mb-3")
-  }
-
+ 
 } 
 
 // These are the same todos that currently display in the HTML
