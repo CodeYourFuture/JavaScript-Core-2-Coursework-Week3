@@ -1,37 +1,20 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-
-  // Write your code to create todo list elements with completed and delete buttons here,
-  //all todos should display inside the "todo-list" element.
-
+  const list = document.getElementById("todo-list");
   list.innerHTML = "";
-  for (element of todos) {
-    let taskDiv = document.createElement("div");
 
-    let taskEl = document.createElement("li");
+  for (element of todos) {
+    const taskEl = document.createElement("li");
     taskEl.innerHTML = `${element.task}  `;
-    // <span class="badge bg-primary rounded-pill">
-    //   <i class="fa fa-check" aria-hidden="true"></i>
-    //   <i class="fa fa-trash" aria-hidden="true"></i>
-    // </span>;
-    let taskSpan = document.createElement("span");
-    let taskCheck = document.createElement("i");
+    const taskSpan = document.createElement("span");
+    const taskCheck = document.createElement("i");
     taskCheck.className = "fa fa-check";
-    let taskTrash = document.createElement("i");
+    const taskTrash = document.createElement("i");
     taskTrash.className = "fa fa-trash";
     taskEl.appendChild(taskSpan);
     taskSpan.appendChild(taskCheck);
     taskSpan.appendChild(taskTrash);
-
-    taskEl.className = "card"; //temp to show result
-
-    // let liBtn = document.createElement("button");
-    // liBtn.innerText= "completed"
-    // liBtn.className = "btn btn-primary mb-3";
-
-    list.appendChild(taskDiv);
-    taskDiv.appendChild(taskEl);
-    // taskDiv.appendChild(liBtn);
+    taskEl.className = "card";
+    list.appendChild(taskEl);
 
     taskCheck.addEventListener("click", () => {
       if (taskEl.style.textDecoration === "line-through") {
@@ -42,38 +25,31 @@ function populateTodoList(todos) {
     });
 
     taskTrash.addEventListener("click", () => {
-      // taskDiv = null;
-      list.removeChild(taskDiv);
+      list.removeChild(taskEl);
     });
   }
 }
 
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
-let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
+const todos = [
+  // { task: "Wash the dishes", completed: false },
+  // { task: "Do the shopping", completed: false },
 ];
 
 populateTodoList(todos);
 
-//not sure where best to locate the [ add to do ] event listener
-let addBtn = document.getElementById("add-to-do");
-let inputBox = document.getElementById("todoInput");
+const addBtn = document.getElementById("add-to-do");
+const inputBox = document.getElementById("todoInput");
 addBtn.addEventListener("click", function (event) {
   addNewTodo(event, inputBox.value);
   inputBox.value = "";
 });
 
-//Done=  This function will take the value of the input field
-//and add it as a new todo to the bottom of the todo list.
 //These new todos will need the completed and delete buttons adding like normal.
 
 function addNewTodo(event, inputTask) {
   event.preventDefault();
-  // Done = Write your code here... and remember to reset the input field
-  //Done = to be blank after creating a todo!
-
   let newObject = {
     task: inputTask,
     completed: false,
