@@ -1,5 +1,10 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  const divElement = document.querySelector("#content");
+  const pElement = document.createElement("p");
+  const selectElement = document.createElement("select");
+  let paraArray = paragraph.split(" ");
+
+
 }
 
 const paragraph =
