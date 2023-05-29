@@ -9,7 +9,7 @@ function highlightWords(paragraph, colours) {
   optionFirstElement.value = "Please choose a colour";
   selectElement.appendChild(optionFirstElement);
 
-  paraArray.forEach((word, index) => {
+  paraArray.forEach((word) => {
     const spanElement = document.createElement("span");
     spanElement.textContent = `${word} `;
 
@@ -28,16 +28,16 @@ function highlightWords(paragraph, colours) {
       }
     });
 
-    colours.forEach((colour, index) => {
-      const optionElement = document.createElement("option");
-      optionElement.textContent = colour[0].toUpperCase() + colour.substr(1);
-      optionElement.value = colour;
-      selectElement.appendChild(optionElement);
-    });
-
     pElement.appendChild(spanElement);
   });
 
+  colours.forEach((colour, index) => {
+    const optionElement = document.createElement("option");
+    optionElement.textContent = colour[0].toUpperCase() + colour.substr(1);
+    optionElement.value = colour;
+    selectElement.appendChild(optionElement);
+  });
+  
   divElement.appendChild(pElement);
   divElement.appendChild(selectElement);
 }
