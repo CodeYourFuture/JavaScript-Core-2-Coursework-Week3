@@ -1,8 +1,31 @@
 function readingList(books) {
   // Write your code here...
+
+  for (const book of books) {
+    const para = document.createElement("p");
+    const paraList = document.createElement("li");
+    const textNode = document.createTextNode(book.title + "by" + book.author);
+    const imgElement = document.createElement("img");
+    imgElement.src = book.bookCoverImage;
+    para.appendChild(textNode);
+    paraList.appendChild(para);
+    paraList.appendChild(imgElement);
+    if (book.alreadyRead === true) {
+      const element = document.querySelector("#reading-list");
+
+      element.appendChild(paraList);
+      paraList.classList.add("green");
+    } else if (book.alreadyRead === false) {
+      const element = document.querySelector("#reading-list");
+
+      element.appendChild(paraList);
+      paraList.classList.add("red");
+    }
+  }
 }
 
 // for the tests, do not modify this array of books
+
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -24,5 +47,4 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
-
 readingList(books);
