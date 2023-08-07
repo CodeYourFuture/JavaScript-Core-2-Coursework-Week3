@@ -1,5 +1,28 @@
 function readingList(books) {
   // Write your code here...
+  let elementList = document.getElementById(`reading-list`);
+  let element1 = document.getElementById(`content`);
+
+  books.forEach((book) => {
+    let pElement = document.createElement(`p`);
+    pElement.innerText = `${book.title} by ${book.author}`;
+
+    let imgElement = document.createElement(`img`);
+    imgElement.src = `${book.bookCoverImage}`;
+
+    let newList = document.createElement(`li`);
+
+    elementList.appendChild(newList);
+
+    newList.appendChild(pElement) && newList.appendChild(imgElement);
+
+    if (book.alreadyRead === true) {
+      newList.classList.add(`green`);
+    } else {
+      newList.classList.add(`red`);
+    }
+  });
+}
   /*Iterate through the list of books.
   - For each book, create a `<p>` element with the book title and author.
   - Add an `<img>` to each book that links to a URL of the book cover.
@@ -10,7 +33,7 @@ function readingList(books) {
   The end result should look something like this
   
   ![reading-list](reading-list.png) **/
-}
+
 
 // for the tests, do not modify this array of books
 const books = [

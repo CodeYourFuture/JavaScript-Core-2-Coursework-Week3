@@ -119,11 +119,24 @@ body {
 .article-read-more:last-child {
   margin-bottom: 0;
 }
+.li-item{
+  margin-right: 80px;
+}
 
 .red {
   background-color: red;
 }
+.green {
+  background-color: green;
+}
 
+.book-list-item{
+  margin-right: 100px;
+}
+
+.book-image{
+  width: 200px;
+}
 .addArticle {
   margin-bottom: 10px;
 }
